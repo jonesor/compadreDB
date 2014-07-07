@@ -1,4 +1,4 @@
 compadreDB
 ==========
 
-Code and data for the COMPADRE Plant Matrix Database
+This repository contains code and data for the COMPADRE Plant Matrix Database.
