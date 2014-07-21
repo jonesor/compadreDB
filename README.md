@@ -14,12 +14,12 @@ The structure of the compadre data object
              |
              +-- matrixClass {dataframe with 5621 rows: MatrixClassOrganized, MatrixClassAuthor, MatrixClassNumber}
              |
-             \-- mat (5621 entries, one for each row of metadata)
+             \-- mat (list with 5621 entries, one for each row of metadata)
                    |
                    +-- matA {matrix}
                    +-- matU {matrix}
                    +-- matF {matrix}
-                   +-- matC {matrix}
+                   \-- matC {matrix}
 
 
 
