@@ -13,7 +13,8 @@ load("COMPADRE Jul 21 2014.RData")
 # I first use subset() to subset the metadata part of the compadre object to rows 
 # that match myn criteria. 
 
-tempMetadata <- subset(compadre$metadata,MatrixComposite == "Mean" & GrowthType =="Shrub" & StudyDuration >= 5 & MatrixDimension >= 4)
+tempMetadata <- subset(compadre$metadata,MatrixComposite == "Mean" & 
+    GrowthType =="Shrub" & StudyDuration >= 5 & MatrixDimension >= 4)
 
 # Now I can use the row names from the subsetted dataframe to subset the matrices.
 
