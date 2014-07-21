@@ -10,9 +10,9 @@ Follow news at our blog https://compadredb.wordpress.com, and our Twitter accoun
 
 The structure of the compadre data object
 -----------------------------------------
-    compadre +-- metadata {dataframe with 57 columns of metadata and 5621 rows (one for each set of matrices}
+    compadre +-- metadata {dataframe with 57 columns and 5621 rows (one for each set of matrices}
              |
-             +-- matrixClass {dataframe with 5621 rows: MatrixClassOrganized, MatrixClassAuthor, MatrixClassNumber}
+             +-- matrixClass {dataframe with 5621 rows and 3 columns: MatrixClassOrganized, MatrixClassAuthor, MatrixClassNumber}
              |
              \-- mat (list with 5621 entries, one for each row of metadata)
                    |
