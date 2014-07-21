@@ -11,7 +11,7 @@ load("COMPADRE Jul 21 2014.RData")
 # I want to look at the mean matrrices for shrubs that are from studies that are 
 # 5+ years long, with a dimension of 5+.
 # I first use subset() to subset the metadata part of the compadre object to rows 
-# that match myn criteria. 
+# that match my logical criteria. 
 
 tempMetadata <- subset(compadre$metadata,MatrixComposite == "Mean" & 
     GrowthType =="Shrub" & StudyDuration >= 5 & MatrixDimension >= 4)
