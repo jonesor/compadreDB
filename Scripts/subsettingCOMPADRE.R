@@ -1,13 +1,15 @@
 # ---------------------------------------------------------------------------- #
 # - DESCRIPTION: Code to demonstrate subsetting of the COMPADRE database to 
 #                species of interest.
-# - AUTHORS:     Owen Jones
+# - AUTHORS:     Owen Jones & Rob Salguero-Gomez
 # ---------------------------------------------------------------------------- #
 
 # Set the working directory, then load the COMPADRE data:
 load("COMPADRE Jul 21 2014.RData")
 
 # Subsetting to data of interest:
+
+# Example 1:
 # I want to look at the mean matrrices for shrubs that are from studies that are 
 # 5+ years long, with a dimension of 5+.
 # I first use subset() to subset the metadata part of the compadre object to rows 
@@ -25,4 +27,16 @@ tempMat <- compadre$mat[keep]
 # that their metadata appears in tempMetadata.
 # I could analyse these matrices by applying functions in a loop, or by using 
 # lapply.
+
+# Example 2:
+# I want to look at the individual matrices for trees in the southern hemisphere
+# where each study contained just one population
+
+tempMetadata <- subset(compadre$metadata,MatrixComposite == "Individual" & 
+    GrowthType =="Tree" & StudyDuration >= 5 & MatrixDimension >= 4
+    & NumberPopulations == 1 & LatNS == "S")
+
+keep <- rownames(tempMetadata)
+tempMat <- compadre$mat[keep]
+
 
