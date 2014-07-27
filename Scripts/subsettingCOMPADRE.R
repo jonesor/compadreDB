@@ -1,8 +1,11 @@
 # ---------------------------------------------------------------------------- #
-# - DESCRIPTION: Code to demonstrate subsetting of the COMPADRE database to 
-#                species of interest.
+# - FILE NAME:   subsettingCOMPADRE.R    		
+# - VERSION:     01
+# - DATE:        July 27 2014
+# - DESCRIPTION: Code with some examples to subset searches in COMPADRE
 # - AUTHORS:     Owen Jones & Rob Salguero-Gomez
 # ---------------------------------------------------------------------------- #
+
 
 # Set the working directory, then load the COMPADRE data:
 load("COMPADRE Jul 21 2014.RData")
