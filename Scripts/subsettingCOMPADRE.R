@@ -23,7 +23,7 @@ tempMetadata <- subset(compadre$metadata,MatrixComposite == "Mean" &
 
 # Now I can use the row names from the subsetted dataframe to subset the matrices.
 
-keep <- rownames(tempMetadata)
+keep <- as.numeric(rownames(tempMetadata))
 tempMat <- compadre$mat[keep]
 
 # The object tempMat is now a list object containing matrices in the same order 
@@ -39,7 +39,7 @@ tempMetadata <- subset(compadre$metadata,MatrixComposite == "Individual" &
     GrowthType =="Tree" & StudyDuration >= 5 & MatrixDimension >= 4
     & NumberPopulations == 1 & LatNS == "S")
 
-keep <- rownames(tempMetadata)
+keep <- as.numeric(rownames(tempMetadata))
 tempMat <- compadre$mat[keep]
 
 
