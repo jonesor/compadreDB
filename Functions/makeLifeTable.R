@@ -20,9 +20,9 @@ makeLifeTable<-function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 
   for (q in 1:nSteps) {
     fertMatrix = matF %*% matUtemp2 * (as.numeric((ginv(diag(t(e) %*% matUtemp2)))))
     ageFertility[q, ] = colSums(fertMatrix)
-    Umat3 = Umat3 %*% Umat
+    matUtemp2 = matUtemp2 %*% matU
   }  
-  mx = ageFertility[, notProp]
+  mx = ageFertility[, startLife]
   
   
   
