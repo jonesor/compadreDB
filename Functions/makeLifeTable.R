@@ -28,6 +28,7 @@ makeLifeTable<-function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 
     matUtemp2 = matUtemp2 %*% matU
   }  
   mx = ageFertility[, startLife]
+  mx = c(0, mx[1:(length(mx) - 1)])
   out$mx = mx
   
   }
