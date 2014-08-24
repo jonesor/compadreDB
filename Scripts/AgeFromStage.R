@@ -9,7 +9,7 @@
 #Email: Roberto Salguero-Gomez <r.salguero@uq.edu.au>
 #Using equations from H. Caswell (2001) Matrix Population Models. 2nd Edition. Sinauer, Sunderland, MA. Specific equations and pages within the references are cited in each of the functions below.
 
-#Last modified: August 11th, 2013
+# Last modified: August 11th, 2013
 
 # For this script, the matrix data must be arranged in a CSV as follows:
 # The first column, "classOrganize" indicates the stage-type for each row/column of the matrix.
