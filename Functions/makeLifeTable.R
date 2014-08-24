@@ -1,6 +1,7 @@
 makeLifeTable<-function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 1000){
   
   matDim = ncol(matU)
+  
   #Age-specific survivorship (lx) (See top function on page 120 in Caswell 2001):
   matUtemp = matU
   survivorship = array(NA, dim = c(nsteps, matDim))
@@ -12,6 +13,10 @@ makeLifeTable<-function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 
   lx = survivorship[, startLife]
   lx = c(1, lx[1:(length(lx) - 1)])
   
+  #Start to assemble output object
+  out = data.frame(x = 0:(length(lx)-1),lx = lx)
+  
+  if(matF != NULL){
   #Age-specific fertility (mx, Caswell 2001, p. 120)
   ageFertility = array(0, dim = c(nSteps, matDim))
   fertMatrix = array(0, dim = c(nSteps, matDim))
@@ -23,11 +28,9 @@ makeLifeTable<-function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 
     matUtemp2 = matUtemp2 %*% matU
   }  
   mx = ageFertility[, startLife]
+  out$mx = mx
   
+  }
   
-  
-  
-  #Assemble output object
-  out = data.frame(x = 0:(length(lx)-1),lx = lx)
   return(out)
   }
