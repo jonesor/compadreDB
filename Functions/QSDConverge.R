@@ -13,7 +13,7 @@ qsdConverge <- function(matU, conv = 0.05, startLife = 1, nSteps = 1000){
   
   #Iterate the cohort (n= cohort population vector, p = proportional structure)
   dist = p = NULL
-  survMatrix1 <- survMatrix
+  survMatrix1 <- matU
   for (j in 1:nSteps){ #j represent years of iteration
     p = n / sum(n) #Get the proportional distribution
     dist[j] = 0.5 * (sum(abs(p - qsd)))
