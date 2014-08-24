@@ -16,7 +16,7 @@ makeLifeTable<-function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 
   #Start to assemble output object
   out = data.frame(x = 0:(length(lx)-1),lx = lx)
   
-  if(matF != NULL){
+  if(missing(matF) == FALSE){
   #Age-specific fertility (mx, Caswell 2001, p. 120)
   ageFertility = array(0, dim = c(nSteps, matDim))
   fertMatrix = array(0, dim = c(nSteps, matDim))
