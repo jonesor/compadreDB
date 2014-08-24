@@ -33,5 +33,9 @@ makeLifeTable<-function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 
   
   }
   
+  if(missing(matC) == FALSE){
+    #clonal reproduction
+  }
+  
   return(out)
   }
