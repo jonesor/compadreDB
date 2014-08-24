@@ -4,7 +4,7 @@ makeLifeTable<-function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 
   
   #Age-specific survivorship (lx) (See top function on page 120 in Caswell 2001):
   matUtemp = matU
-  survivorship = array(NA, dim = c(nsteps, matDim))
+  survivorship = array(NA, dim = c(nSteps, matDim))
   for (o in 1:nSteps){
     survivorship[o, ] = colSums(matUtemp %*% matU)
     matUtemp = matUtemp %*% matU
