@@ -12,6 +12,8 @@ makeLifeTable<-function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 
   
   lx = survivorship[, startLife]
   lx = c(1, lx[1:(length(lx) - 1)])
+
+  #Make room for dx and qx under assumption of 0.5 in age gap distributions
   
   #Start to assemble output object
   out = data.frame(x = 0:(length(lx)-1),lx = lx)
@@ -52,10 +54,6 @@ makeLifeTable<-function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 
   cx = ageClonality[, startLife]
   cx = c(0, cx[1:(length(cx) - 1)])
   out$cx = cx
-  }
-  
-  if(missing(matC) == FALSE){
-    #clonal reproduction
   }
   
   return(out)
