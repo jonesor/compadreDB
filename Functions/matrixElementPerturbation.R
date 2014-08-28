@@ -1,5 +1,5 @@
 matrixElementPerturbation <- function(matU, matF, matC=NULL,pert=0.001){
-  #Function to determine the cutoff age at quasi-convergence for lx and mx (Code adapted from H. Caswell's matlab code):
+  #Function to calculate matrix element level sensitivities and elasticities
   
   matA=matU+matF+matC
   aDim=dim(matA)[1]
@@ -27,21 +27,22 @@ matrixElementPerturbation <- function(matU, matF, matC=NULL,pert=0.001){
     }
   }
 
+  sensA=Re(sensA)
   elasA=sensA*matA/lambda
   
   out = data.frame("SStasis"=NA,"SProgression"=NA,"SRetrogression"=NA,"SFecundity"=NA,"SClonality"=NA,
                   "EStasis"=NA,"EProgression"=NA,"ERetrogression"=NA,"EFecundity"=NA,"EClonality"=NA)
     
-    out$SStasis=Re(sum(sensA*propStasis,na.rm=T))
-    out$SRetrogression=Re(sum(sensA*propRetrog,na.rm=T))
-    out$SProgression=Re(sum(sensA*propProg,na.rm=T))
-    out$SFecundity=Re(sum(sensA*propF,na.rm=T))
-    out$SClonality=Re(sum(sensA*propC,na.rm=T))
-    out$EStasis=Re(sum(elasA*propStasis,na.rm=T))
-    out$EProgression=Re(sum(elasA*propProg,na.rm=T))
-    out$ERetrogression=Re(sum(elasA*propRetrog,na.rm=T))
-    out$EFecundity=Re(sum(elasA*propF,na.rm=T))
-    out$EClonality=Re(sum(elasA*propC,na.rm=T))
+    out$SStasis=sum(sensA*propStasis,na.rm=T)
+    out$SRetrogression=sum(sensA*propRetrog,na.rm=T)
+    out$SProgression=sum(sensA*propProg,na.rm=T)
+    out$SFecundity=sum(sensA*propF,na.rm=T)
+    out$SClonality=sum(sensA*propC,na.rm=T)
+    out$EStasis=sum(elasA*propStasis,na.rm=T)
+    out$EProgression=sum(elasA*propProg,na.rm=T)
+    out$ERetrogression=sum(elasA*propRetrog,na.rm=T)
+    out$EFecundity=sum(elasA*propF,na.rm=T)
+    out$EClonality=sum(elasA*propC,na.rm=T)
 
   return(out) 
 }
