@@ -14,7 +14,7 @@ The structure of the compadre data object
              |
              +-- matrixClass {list with one entry for each set of matrices. Each entry is a data frame with 3 columns: MatrixClassOrganized, MatrixClassAuthor, MatrixClassNumber.}
              |
-             \-- mat {list with one entries each row of metadata}
+             \-- mat {list with one entry for each row of metadata}
                    |
                    +-- matA {matrix}
                    +-- matU {matrix}
