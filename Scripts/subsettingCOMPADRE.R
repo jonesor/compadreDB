@@ -34,9 +34,18 @@ tempMat <- compadre$mat[keep]
 #The following calculates population growth rate and damping ratio for the subset matrices
 output <- data.frame(lambdas=rep(NA,length(tempMat)),damps=rep(NA,length(tempMat)))
 
+# We need this package to calculate damping ratios
+require(popbio)
 for (i in 1:length(tempMat)){
-    output$lambdas[i] <- max(eigen(tempMat[[i]]$matA)$value)
-    print(tempMetadata$SpeciesAuthor[1])
+    output$lambdas[i] <- max(Re(eigen(tempMat[[i]]$matA)$value))
+    output$damps[i] <- damping.ratio(tempMat[[i]]$matA)
+    print(paste("Species number ", i,": ",tempMetadata$SpeciesAuthor[i],sep=""))
+}
+
+par(mfrow=c(1,2))
+hist(log(output$lambdas), xlab = "Log population growth rate", col = "gold", main = "")
+    abline(v=0,col = "red", lwd = 4, lty = 3)
+hist(output$damps, xlab = "Damping ratio", col = "brown", main = "")
 
 # Example 2:
 # I want to look at the individual matrices for trees in the southern hemisphere
