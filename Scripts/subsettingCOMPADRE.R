@@ -32,7 +32,11 @@ tempMat <- compadre$mat[keep]
 # lapply.
 
 #The following calculates population growth rate and damping ratio for the subset matrices
-output <- data.frame(lambdas=rep(NA,length(tempMat),damps=rep(NA,length(tempMat)
+output <- data.frame(lambdas=rep(NA,length(tempMat)),damps=rep(NA,length(tempMat)))
+
+for (i in 1:length(tempMat)){
+    output$lambdas[i] <- max(eigen(tempMat[[i]]$matA)$value)
+    print(tempMetadata$SpeciesAuthor[1])
 
 # Example 2:
 # I want to look at the individual matrices for trees in the southern hemisphere
