@@ -31,6 +31,9 @@ tempMat <- compadre$mat[keep]
 # I could analyse these matrices by applying functions in a loop, or by using 
 # lapply.
 
+#The following calculates population growth rate and damping ratio for the subset matrices
+output <- data.frame(lambdas=rep(NA,length(tempMat),damps=rep(NA,length(tempMat)
+
 # Example 2:
 # I want to look at the individual matrices for trees in the southern hemisphere
 # where each study contained just one population
