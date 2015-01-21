@@ -37,9 +37,11 @@ output <- data.frame(lambdas=rep(NA,length(tempMat)),damps=rep(NA,length(tempMat
 # We need this package to calculate damping ratios
 require(popbio)
 for (i in 1:length(tempMat)){
+ tryCatch({
     output$lambdas[i] <- max(Re(eigen(tempMat[[i]]$matA)$value))
     output$damps[i] <- damping.ratio(tempMat[[i]]$matA)
     print(paste("Species number ", i,": ",tempMetadata$SpeciesAuthor[i],sep=""))
+      }, error=function(e){})
 }
 
 par(mfrow=c(1,2))
