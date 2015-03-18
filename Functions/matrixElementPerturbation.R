@@ -12,7 +12,7 @@ matrixElementPerturbation <- function(matU, matF, matC=NULL,pert=0.001){
     propProg=propRetrog=propU
     propProg[upper.tri(propU,diag=T)]=NA
     propRetrog[lower.tri(propU,diag=T)]=NA
-    propStasis=matrix(Diagonal(aDim)*diag(propU),aDim,aDim)
+    propStasis=matrix(diag(aDim)*diag(propU),aDim,aDim)
   propF=matF/matA
     propF[is.nan(propF)]=NA
   propC=matC/matA
