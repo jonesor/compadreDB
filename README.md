@@ -1,16 +1,16 @@
-compadreDB
+com(p)adreDB
 ==========
 
-This repository contains code for the COMPADRE Plant Matrix Database.
-It will evolve into an R package but will initially contain scripts for interacting with the COMPADRE database which is released as a structured R list object.
+This repository contains code for the COMPADRE Plant Matrix Database and COMADRE Animal Matrix Database.
+It will evolve into an R package but will initially contain scripts for interacting with the COMPADRE and COMADRE databases which are released as a structured R list object.
 
-The data can be downloaded from www.compadre-db.org.
-Follow news at our blog https://compadredb.wordpress.com, and our Twitter account @compadreDB.
+The data can be downloaded from www.compadre-db.org, or www.comadre-db.org.
+Follow news at our blog https://compadredb.wordpress.com, and our Twitter accounts @compadreDB @comadreDB.
 
 
-The structure of the compadre data object
+The structure of the compadre and comadre data objects
 -----------------------------------------
-    compadre +-- metadata {dataframe with 57 columns and one row one for each set of matrices (AUFC)
+    compadre/comadre +-- metadata {dataframe with 57 columns and one row one for each set of matrices (AUFC)
              |
              +-- matrixClass {list with one entry for each set of matrices. Each entry is a data frame with 3 columns: MatrixClassOrganized, MatrixClassAuthor, MatrixClassNumber.}
              |
