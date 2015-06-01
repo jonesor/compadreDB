@@ -1,7 +1,8 @@
 # ---------------------------------------------------------------------------- #
-# - FILE NAME:   COMPADRE_Author_Citations.R    		
+# - FILE NAME:   COMPADRE_and_COMADRE_Author_Citations.R    		
 # - VERSION:     01
 # - DATE:        July 16 2014
+# - MODIFIED:    June 01 2015
 # - DESCRIPTION: Code to extract full citation fror studies where DOI is 
 #                available in COMPADRE from The Plant List 
 #                (www.theplantlist.org), using the R library Taxonstand.
@@ -20,7 +21,7 @@ library(rmetadata)
 library(ropensci)
 library(rplos)
 
-# Set the reading directory to where the COMPADRE data have been saved. For 
+# Set the reading directory to where the COMPADRE or COMADRE data have been saved. For 
 # example, if COMPADRE are in ''C:/Documents/COMPADRE/Data/'':
 setwd("C:/Documents/COMPADRE/Data/")
 
