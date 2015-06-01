@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------- #
-# - FILE NAME:   COMPADRE_and_COMADRE_Author_Citations.R    		
+# - FILE NAME:   COMPADRE_Author_Citations.R    		
 # - VERSION:     01
 # - DATE:        July 16 2014
 # - MODIFIED:    June 01 2015
