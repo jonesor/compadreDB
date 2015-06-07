@@ -1,4 +1,4 @@
-plotLifeCyle<-function(A,title="my life cycle"){
+plotLifeCyle<-function(A,title="my life cycle",shape="egg",fontsize=10,nodefontsize=12,edgecol="grey"){
 
 #load required library
 require(DiagrammeR)
@@ -38,7 +38,7 @@ temp
 #Create the edges argument for graphviz
 #by pasting commands together.
 #Note, one could modify this to alter the outputs away from my defaults.
-allEdges <- paste(temp[,1],"->",temp[,2],"[minlen=",temp[,"minLVal"],",fontsize=9,color=grey,xlabel=",
+allEdges <- paste(temp[,1],"->",temp[,2],"[minlen=",temp[,"minLVal"],",fontsize=",fontsize,",color=",edgecol,",xlabel=",
                   paste("\"",round(temp[,3],3)),"\"]\n",collapse="")
 
 #The graphviz argument, pasted together
@@ -47,7 +47,7 @@ grViz(paste(
   {
     graph[overlap=false];
     rank=same;
-node [shape=egg, fontsize=11];
+node [shape=",shape,", fontsize=",nodefontsize,"];
     
 ",
 allNodes
