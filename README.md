@@ -14,12 +14,13 @@ The structure of the compadre and comadre data objects
              |
              +-- matrixClass {list with one entry for each set of matrices. Each entry is a data frame with 3 columns: MatrixClassOrganized, MatrixClassAuthor, MatrixClassNumber.}
              |
-             \-- mat {list with one entry for each row of metadata}
-                   |
-                   +-- matA {matrix}
-                   +-- matU {matrix}
-                   +-- matF {matrix}
-                   \-- matC {matrix}
-
+             |-- mat {list with one entry for each row of metadata}
+             |     |
+             |     +-- matA {matrix}
+             |     +-- matU {matrix}
+             |     +-- matF {matrix}
+             |     \-- matC {matrix}
+             |
+              \-- version {a vector with version information}
 
 
