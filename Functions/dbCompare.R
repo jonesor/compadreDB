@@ -7,12 +7,10 @@
 #
 #
 
-compadreCompare <- function(db1,db2){ 
-
-
+dbCompare <- function(db1,db2){ 
 
 #Quick summary
-cat("QUICK SUMMARY\n")
+cat("Quick Summary\n")
 #File 1
 uniqueSource <- unique(paste(db1$metadata$Authors,db1$metadata$Journal,db1$metadata$YearPublication))                      
 cat(paste("File-1 contains the demographic and associated data for ", 
