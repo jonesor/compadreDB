@@ -25,7 +25,8 @@ cat(paste("File-2 contains the demographic and associated data for ",
       length(unique(db2$metadata$SpeciesAccepted))," accepted species, (",length(unique(db2$metadata$SpeciesAuthor)) ," according to authors) and ",
       nrow(db2$metadata), " matrices.\n\n",sep=""))
 
-cat("DETAILED SUMMARY\n")
+cat("Detailed summary\n")
+
 #Accepted species in File 1 that are not in File 2
 sp1 <- unique(db1$metadata$SpeciesAccepted)
 sp2 <- unique(db2$metadata$SpeciesAccepted)
