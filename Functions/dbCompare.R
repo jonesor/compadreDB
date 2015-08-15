@@ -13,7 +13,7 @@ dbCompare <- function(db1, db2, verbose = FALSE){
 cat("Quick Summary\n")
 
 #File 1
-uniqueSource1 <- unique(paste(db1$metadata$Authors,db1$metadata$Journal,db1$metadata$YearPublication))                      
+uniqueSource1 <- unique(paste(db1$metadata$Authors," (",db1$metadata$YearPublication,") ",db1$metadata$Journal,sep=""))                      
 db1$metadata$binomial <- paste(db1$metadata$GenusAccepted,db1$metadata$SpeciesEpithetAccepted,sep = " ")
 
 cat(paste("File-1 contains the demographic and associated data from ", 
@@ -22,7 +22,7 @@ cat(paste("File-1 contains the demographic and associated data from ",
        nrow(db1$metadata), " matrices.\n\n",sep=""))
 
 #File 2
-uniqueSource2 <- unique(paste(db2$metadata$Authors,db2$metadata$Journal,db2$metadata$YearPublication))                      
+uniqueSource2 <- unique(paste(db2$metadata$Authors," (",db2$metadata$YearPublication,") ",db2$metadata$Journal,sep=""))                      
 db2$metadata$binomial <- paste(db2$metadata$GenusAccepted,db2$metadata$SpeciesEpithetAccepted,sep = " ")
 
 cat(paste("File-2 contains the demographic and associated data for ", 
