@@ -1,17 +1,23 @@
 ---
-output: html_document
+title: "COMPADRE/COMADRE Data Digitization Protocol"
+output:
+  word_document: default
+  pdf_document:
+    toc: yes
+  html_document:
+    toc: yes
 ---
-#COMPADRE/COMADRE Data Digitisation Protocol
+
 
 ##Preamble
 
 The COMPADRE and COMADRE databases are compiled from (mostly) published literature. The majority of this literature was published as peer-reviewed articles in academic journals, with a smaller number of data obtained from books, conference presentations etc. 
 
-The data digitisation team (The COMPADRINOs) read the literature and extract information in order to reconstruct the matrix analysed by the original researchers. The extracted data are entered into Excel spreadsheets in a structured way. Whereever there are doubts about aspects of the data the team attempts to contact the researchers to resolve them. There are two types of Excel file in COMPADRE/COMADRE: (1) The DESCRIPTOR FILE(s) which contain metadata allowing the interpretation of the matrix data; and (2) the STACKED MATRIX FILE(s) which contain the matrices themselves, plus some additional matrix-specific information.
+The data digitization team (The COMPADRINOs) read the literature and extract information in order to reconstruct the matrix analysed by the original researchers. The extracted data are entered into Excel spreadsheets in a structured way. Wherever there are doubts about aspects of the data the team attempts to contact the researchers to resolve them. There are two types of Excel file in COMPADRE/COMADRE: (1) The DESCRIPTOR FILE(s) which contain metadata allowing the interpretation of the matrix data; and (2) the STACKED MATRIX FILE(s) which contain the matrices themselves, plus some additional matrix-specific information.
 
 These data are compiled using a set of R scripts and released to the public as open access data via the website: www.compadre-db.org. 
 
-This document outlines the way that the digitisation team should enter data into the Excel sheets. It is primarily intended for internal use and as such includes information on some variables which are not released into the public domain. Nevertheless, in the interests of transparency we provide open access to the document here.
+This document outlines the way that the digitization team should enter data into the Excel sheets. It is primarily intended for internal use and as such includes information on some variables which are not released into the public domain. Nevertheless, in the interests of transparency we provide open access to the document here.
 
 
 Questions or comments about this protocol should be addressed to Rob Salguero-Gómez (r.salguero@uq.edu.au) or Owen Jones (jones@biology.sdu.dk).
@@ -21,7 +27,7 @@ Questions or comments about this protocol should be addressed to Rob Salguero-G�
 
 * This protocol is intended for both the COMPADRE Plant Matrix Database and the COMADRE Animal Matrix Database. Some variables pertain to _only_ one or the other database and are indicated as such in the text. 
 
-* PDFs of new publications emailed to the COMPADRinos are to be saved under the “Literature” subfolder of COMPADRE or COMADRE in the N://COMPADRE & COMADRE directory of the MPIDR server. Immediately after saving the PDF, a new entry must be opened with the “Species”, “Author”, “Journal”, and “Year” in the descriptor and stacked file.
+* PDFs of new publications emailed to the COMPADRinos are to be saved under the “Literature” sub-folder of COMPADRE or COMADRE in the N://COMPADRE & COMADRE directory of the MPIDR server. Immediately after saving the PDF, a new entry must be opened with the “Species”, “Author”, “Journal”, and “Year” in the descriptor and stacked file.
 
 * If you find additional sources _always_ save them and note them in additional sources.
 All pieces of information extracted from PDFs must be highlighted directly on the PDF in yellow.
@@ -34,7 +40,7 @@ All pieces of information extracted from PDFs must be highlighted directly on th
 
 * Latin names of species must be checked using reliable sources (e.g. Catalogue of Life [http://www.catalogueoflife.org/], iPlant Collaborative [http://www.iplantcollaborative.org/], Wikipedia [https://en.wikipedia.org/]) for spelling mistakes.
 
-* The element-by-element mean values of unmanipulated (control) and treatment matrices are to be kept separate (i.e. never calculate mean matrices from a mixture of unmanipulated and treated matrices). Furthermore, mean matrices should never mix different treatments (e.g. do not calculate mean matrices for matrices with different grazing regimes). However, mean matrices _should_ be calculated for unmanipulated  matrices, and for matrices that have recieved the same treatments..
+* The element-by-element mean values of unmanipulated (control) and treatment matrices are to be kept separate (i.e. never calculate mean matrices from a mixture of unmanipulated and treated matrices). Furthermore, mean matrices should never mix different treatments (e.g. do not calculate mean matrices for matrices with different grazing regimes). However, mean matrices _should_ be calculated for unmanipulated  matrices, and for matrices that have received the same treatments..
 
 * When digitizing matrices, only colors from the color palette, which is given inside the Excel file, can be used in the stacked matrix file. Where matrices can be split, please always include an “A” matrix as well as “U”, “F” & “C” matrices (for explanation see here in the stacked matrix file. Present matrices from left-to-right in the order A, U, F, C. __Always__ split matrices if possible.
 
@@ -70,7 +76,7 @@ The following is a list of variables that the COMPADRino team digitizes to the b
 * Year
 * DOI/ISBN
 * Ecoregion
-* GrowthFormRaunkiar (only for COMPADRE)
+* GrowthFormRaunkiaer (only for COMPADRE)
 * Purposes
 * StudyDuration
 * AnnualPeriodicity
@@ -117,25 +123,25 @@ Possible values
 
 Information for Species Descriptors file:
 
-The fill colour of the Student-column in the Species descriptors means the following:
+The fill color of the Student-column in the Species descriptors means the following:
 
-* LIGHT ORANGE	The Transfered Column has been checked. The entry in that column is correct. If something was missing (see MissingData) author has been contacted again by Gesa or Fränce (in late 2014 / early 2015). Everything else is fine.
-* DARK ORANGE	The Transfered Column has been checked. The entry in that column is correct but a problem occured which is explained in the Notes (e.g. no mail adress of author(s) found).
+* LIGHT ORANGE	The Transferred Column has been checked. The entry in that column is correct. If something was missing (see MissingData) author has been contacted again by Gesa or Fränce (in late 2014 / early 2015). Everything else is fine.
+* DARK ORANGE	The Transferred Column has been checked. The entry in that column is correct but a problem occurred which is explained in the Notes (e.g. no mail address of author(s) found).
 
-Note: Excel might colour the cell (in green or orange) automatically when entering a new species. Please always change the fill colour for all new entries into "no fill". The students who do the error-checking will change into orange/red/green when necessary.
+Note: Excel might color the cell (in green or orange) automatically when entering a new species. Please always change the fill color for all new entries into "no fill". The students who do the error-checking will change into orange/red/green when necessary.
 
 
 
 Information for the Stacked File:
 
-The colour coding in the EnteredBy-column of the Stacked File means the following:
+The color coding in the EnteredBy-column of the Stacked File means the following:
 
 
 * RED	There is some problem with this entry, the student who entered the species is informed and works on the plant again
 * ORANGE	The entry is checked once (e.g. by Gesa). No faults have been found.
 * GREEN	The entry has been checked twice. No faults have been found. Plant is ready to go online.
 
-Excel might colour the cell (in green or orange) automatically when entering a new species. Please always change the fill colour for all new entries into "no fill". The students who do the error-checking will change into orange/red/green when necessary.
+Excel might color the cell (in green or orange) automatically when entering a new species. Please always change the fill color for all new entries into "no fill". The students who do the error-checking will change into orange/red/green when necessary.
 
 ************************************************
 
@@ -182,7 +188,7 @@ What data are still missing?
 * __O__ - Other priority information missing
 * __No__ - Everything is digitized
 
-If more than one piece of information is missing, these are separated with ";" (without whitespace in between), e.g. "I;S;O".
+If more than one piece of information is missing, these are separated with ";" (without white-space in between), e.g. "I;S;O".
 
 ************************************************
 
@@ -202,7 +208,7 @@ This entry applies only to plants and records the plant/algae type, based mainly
 
 Possible values are:
 
-* Algea
+* Algae
 * Annual
 * Bryophyte
 * Epiphyte
@@ -216,7 +222,7 @@ Possible values are:
 
 The species should be assigned to one of these possible values using the description of plant growth type provided by the author and by reference to other sources (e.g. other publications).
 
-Note about the Annual category: Typically plant ecologists also refer to pseudoannual species as being "biennials". The main difference between the annuals and biennials is that annual species complete their lifecycle (are born, grow, reproduce and die) within a single year, whereas biennials have the WHAT HAPPENED HERE???
+Note about the Annual category: Typically plant ecologists also refer to pseudo-annual species as being "biennials". The main difference between the annuals and biennials is that annual species complete their life cycle (are born, grow, reproduce and die) within a single year, whereas biennials have the WHAT HAPPENED HERE???
 
 ************************************************
 
@@ -259,18 +265,18 @@ Possible values include:
 
 ## SpeciesAuthor
 
-The latin binomial name of the species as reported in the publication. Note that this may not be the same as the currently accepted name. This should be recorded as "Genus_species". It should _always_ include the genus and the species names. Where the paper authors have given infra-specific names information on variety and subspecies should also be added (see below).
+The Latin binomial name of the species as reported in the publication. Note that this may not be the same as the currently accepted name. This should be recorded as "Genus_species". It should _always_ include the genus and the species names. Where the paper authors have given infra-specific names information on variety and subspecies should also be added (see below).
 
 __var.__ - Where the publication refers to an intraspecific variety, this is indicated with "var." followed by the variety name, e.g. “Pityopsis_aspera_var._aspera"
 __subsp.__ - Where the study refers to an intraspecific subspecies, this is indicated with "subsp." followed by the subspecies name, e.g. "Anthyllis_vulneraria_subsp._alpicola"
 
-The word following “var.”, “subsp.” or “cf.” must not be capitalized. Excel will try to capitalize it via autocorrect because it follows a period punctuation. 
+The word following “var.”, “subsp.” or “cf.” must not be capitalized. Excel will try to capitalize it via auto-correct because it follows a period punctuation. 
 
 Always use an underscore "_" to substitute spaces (e.g. write "Cryptantha_flava"" instead of "Cryptantha flava").
 
 If two or more different demographic studies exist for a particular species, these should be digitized with concatenated numbers after the genus_species starting with “2” (e.g. “Rosa_sempervirens”, “Rosa_sempervirens_2”, “Rosa_sempervirens_3”).
 
-Exactly the same naming convension __must__ be used in both the Species Descriptor and Stacked Matrix files. 
+Exactly the same naming convention __must__ be used in both the Species Descriptor and Stacked Matrix files. 
 
 ************************************************
 
@@ -282,14 +288,14 @@ Records the common name as used in the publication. Separate multiple names with
 
 ## Authors
 
-Last name of all authors on the publication. Separate mutiple names with "; ".
+Last name of all authors on the publication. Separate multiple names with "; ".
 Note that __all__ authors named in the publication should be recorded in the same order as in the publication. E.g. for the Compadre-paper: Salguero-Gómez; Jones; Archer; Buckley; Che-Castaldo; Caswell; Scheuerlein; Conde; Baudisch; Brinks; de Buhr; Farack; Gottschalk; Hartmann; Henning; Hoppe; Römer; Runge; Ruoff T; Wille J; Zeh; Vieregg; Altwegg; Colchero; Dong; Hodgson; de Kroon; Lebreton; Metcalf; Neel; Parker; Takada; Valverde; Vélez-Espino; Wardle; Franco; Vaupel.
 
 ************************************************
 
 ## Journal
 
-Record the name of the journal from which data were sourced. If the data were sourced from a book, thesis, report, or conference talk/poster, record that as appropriate. For journal abbreviations see complete list longlist here: http://images.webofknowledge.com/WOK46/help/WOS/A_abrvjt.html.
+Record the name of the journal from which data were sourced. If the data were sourced from a book, thesis, report, or conference talk/poster, record that as appropriate. For journal abbreviations see list here: http://images.webofknowledge.com/WOK46/help/WOS/A_abrvjt.html.
 
 If no abbreviation is available in both of those list, take a look into the paper. Often there are abbreviations in the left corner of the paper or at the first page.
 
@@ -332,9 +338,9 @@ Record the date(s) when the publication author was contacted asking for informat
 
 Procedure for lack of response depends on the age of the paper:
 
-* For papers older than 1990: When the corresponding author doesn’t reply to your third email, or you cannot find their email address (e.g. in old publication) or reach their coauthors, then change “Partly” to “Yes” in Transferred column.
+* For papers older than 1990: When the corresponding author does not reply to your third email, or you cannot find their email address (e.g. in old publication) or reach their coauthors, then change “Partly” to “Yes” in Transferred column.
 
-* For more recent papers (published after 1990): If the authors (and coauthors) don’t reply after the third time you have contacted them, please pass the email that you have sent them to Owen and Rob. If they cannot make contact, they will change “Partly” to “Yes” in Transferred column.
+* For more recent papers (published after 1990): If the authors (and coauthors) do not reply after the third time you have contacted them, please pass the email that you have sent them to Owen and Rob. If they cannot make contact, they will change “Partly” to “Yes” in Transferred column.
 
 If you were not able to find an email address of any of the authors of a paper (and also Rob and Owen don't know one), but that paper has a matrix that can be digitized – enter the matrix to the stacked file and enter all information that are available from the paper into the descriptor, all missing information get an NA and we list the species as “transferred-Yes”, still enter the missing information into MissingData
 
@@ -349,7 +355,7 @@ This records the information that was requested from the author. Use the same fo
 
 ##Reply 
 
-Did the author reply to a request for further information. This should record a brief answer given by the author, or "No" (no resonse yet). Note: Always change __Reply__ from "NA"" / "nothing" to "No" when author has been contacted, and update the entry as soon as a reply is recieved.
+Did the author reply to a request for further information. This should record a brief answer given by the author, or "No" (no response yet). Note: Always change __Reply__ from "NA"" / "nothing" to "No" when author has been contacted, and update the entry as soon as a reply is received.
 
 
 ************************************************
@@ -447,9 +453,6 @@ Possible values
 * Therophyte	Mostly annual plants
 * Epiphyte	E.g. Epiphytes
 
-
-Further information
-
 For further information see www.en.wikipedia.org/wiki/Raunkiaer_plant_life-form.
 
 ![Raunkiaer](images/Raunkiaer.png)
@@ -458,28 +461,28 @@ For further information see www.en.wikipedia.org/wiki/Raunkiaer_plant_life-form.
 2. Chamaephyte
 3. Chamaephyte
 4. Hemicryptophyte
-5. Cryptophytes, more specific: Geophyte
-6. Cryptophytes, more specific: Geophyte
-7. Cryptophytes, more specific: Helophyte
-8. Cryptophytes, more specific: Hydrophyte
-9. Cryptophytes, more specific: Hydrophyte
+5. Cryptophytes, more specifically: Geophyte
+6. Cryptophytes, more specifically: Geophyte
+7. Cryptophytes, more specifically: Helophyte
+8. Cryptophytes, more specifically: Hydrophyte
+9. Cryptophytes, more specifically: Hydrophyte
 10. Therophyte, aerophyte and epiphyte not shown
 
 
-The description offered here is at the subsection level (e.g. “Cryptophytes” are classified as “Hydrophyte”, “Helophyte” or “Geophyte”; “Phanerophytes” are classified as “Nanophanerophytes”, “Mesophanerophytes” or “Megaphanerophytes”). When in doubt, information is to be retrieved from the internet (e.g. Wikipedia, google photos) or the author is to be contacted. However, the variable “Plant type” typically relates to the variable “Growth form Raunkiaer” as it follows
+The description offered here is at the subsection level (e.g. “Cryptophytes” are classified as “Hydrophyte”, “Helophyte” or “Geophyte”; “Phanerophytes” are classified as “Nanophanerophytes”, “Mesophanerophytes” or “Megaphanerophytes”). When in doubt, information is to be retrieved from the internet (e.g. Wikipedia, Google photos) or the author is to be contacted. However, the variable “Plant type” typically relates to the variable “Growth form Raunkiaer” as it follows
 
-* “Tree”, “Palm” and “Liana” are “Nanophanerophyte” (0.25-8 m height), “Mesophanerophyte” (8-30 m height) or “Megaphanerophyte” (>30 m height), depending on their maximum attainable heights as indicated in parentheses. * If you don't get this info from the paper, a quick google photo search can give you an idea.
+* “Tree”, “Palm” and “Liana” are “Nanophanerophyte” (0.25-8 m height), “Mesophanerophyte” (8-30 m height) or “Megaphanerophyte” (>30 m height), depending on their maximum attainable heights as indicated in parentheses. * If you don't get this info from the paper, a quick Google photo search can give you an idea.
 “Shrub” and “Succulent” are either “Chamaephyte” or (most often) “Nanophanerophyte”, but in some species they be “Mesophanerophyte”.
 * “Herbaceous perennials” may be “Hydrophyte”, “Helophyte”, “Epiphyte”, “Geophyte”, “Hemicryptophyte” or “Chamaephyte”.
     + Hydrophyte: herbaceous perennial that lives in or really close to a lake, river or sea
     + Helophyte: herbaceous perennial that lives in a marsh or wetland
     + Geophyte: herbaceous perennial that overwinters below ground. These species have a storage below ground of the following types: rhizome, tuber, bulb or similar
     + Hemicryptophyte: herbaceous perennial without storage organ below ground that will overwinter right at ground level
-    + Chamaephyte: herbaceous perennial that will overwinter aboveground but no higher than 25 cm.
-* “Annual” (and biennials or pseudoannuals) are “Therophyte”.
+    + Chamaephyte: herbaceous perennial that will overwinter above ground but no higher than 25 cm.
+* “Annual” (and biennials or pseudo-annuals) are “Therophyte”.
 * “Algae” is “Hydrophyte”.
 * “Bryophyte” can be “Epiphyte” or “Hemicryptophyte”.
-* “Epiphyte” is “Epiphyte”. Note that the Raunkier growth form “Aerophyte” is not used in this database. All “Aerophyte” (e.g. genus Tillandsia) are classified as “Epiphyte”.
+* “Epiphyte” is “Epiphyte”. Note that the Raunkiaer growth form “Aerophyte” is not used in this database. All “Aerophyte” (e.g. genus Tillandsia) are classified as “Epiphyte”.
 
 ************************************************
 
@@ -500,7 +503,7 @@ Status of conservation of the species as a whole as per criteria of the Internat
 * LR/nt - Lower Risk/near threatened - at lower risk of extinction, but considered to be near threatened. This is an older (1994) category, not used in recent assessments.
 * LR/lc - Lower Risk/least concern - at lower risk of extinction, considered to be widespread and abundant. This is an older (1994) category, not used in recent assessments.
 
-More detailed information on IUCN Redlist and Wikipedia Red List Categories
+More detailed information on IUCN Red-list and Wikipedia Red List Categories
 
 Several assessments have been carried out since the 1990s. Recent assessments use the 2001 IUCN Red List Categories and Criteria. Version 3.1. However, some taxa included in the current IUCN Red List database have not been reassessed since before 2000 and therefore still use the 1994 IUCN Red List Categories and Criteria. Version 2.3.
 
@@ -530,7 +533,7 @@ Records the conservation status under the U.S. Endangered Species Act, according
 
 The purpose columns describe the purpose(s) of the study detailed in the manuscript. This information is usually obvious from the abstract and the last paragraph of the intro. Several purposes are possible per study and for each purpose a 0 or 1 must be entered, representing "was __not__ a purpose"" and "was a purpose"" of the study respectively.
 
-We have categorised the purposes as follows:
+We have categorized the purposes as follows:
 
 * Comparative demography - When the authors studied two or more species
 * Spatial demography - When the authors studied the demography of two or more populations within the same species
@@ -633,7 +636,7 @@ This series of 22 columns includes taxonomic information.
 * Family - Family to which species belongs	e.g. Polygonaceae.
 * Order	- Order to which species belongs	e.g. Caryophyllales.
 * Genus	- Genus used in SpeciesAuthor	e.g. Chorizanthe.
-* SpeciesAccepted - Currently accepted latin name. This information is is obtained from The Plant List.
+* SpeciesAccepted - Currently accepted Latin name. This information is is obtained from The Plant List.
 * GenusAccepted	Taxonomic genus name of study SpeciesAccepted, as per The Plant List.
 * SpeciesEpithetAccepted	Taxonomic species epithet name of study SpeciesAccepted (see above), as per The Plant List epithet e.g. pungens
 * InfraspecificAccepted	Taxonomic infraspecific name of study SpeciesAccepted, as per The Plant List	infraspecies	e.g. pungens.
@@ -707,7 +710,7 @@ Indicates the type of matrix population model (See the figure below for more inf
 * Individual - A matrix population model constructed for a single study × species × population × treatment × period combination
 * Mean - An average (arithmetic mean) of other matrix population models (e.g. element-by-element arithmetic mean of a population's matrices across several time periods available)
 
-__Note:__ Generally, the mean values of unmanipulated and treatment matrices are to be kept independent of eachother (i.e. never calculate mean matrices across both unmanipulated and treatment matrices), and a mean matrix for different treatments should not to be calculated/digitized in the database.
+__Note:__ Generally, the mean values of unmanipulated and treatment matrices are to be kept independent of each other (i.e. never calculate mean matrices across both unmanipulated and treatment matrices), and a mean matrix for different treatments should not to be calculated/digitized in the database.
 
 * Pooled - A matrix population model that has been constructed by pooling individual-level demographic information across populations and/or periods. This type of matrix, when available, has always been provided by the author either in the publication or through personal communications
 
@@ -738,7 +741,7 @@ Indicates whether the study species was studied in the wild or under controlled 
 
 * __W__	- Wild: the study was carried out in natural conditions.
 * __C__ - Captive: the study was carried out for most part of the life cycle of the species in a botanical garden, green house, laboratory, etc.
-* __CW__ - Captured from wild: the study was carried out on a populaiton that was captured from wild.
+* __CW__ - Captured from wild: the study was carried out on a population that was captured from wild.
 * __C;W__ - Mixed	studies that incorporate vital rates from both captive and wild populations.
 
 ************************************************
@@ -833,7 +836,7 @@ The name of population where the matrix was recorded, usually as given by the pu
 
 These 11 columns describes the location of each matrix.
 
-__Always__ check Geolocation with Google Earth! If the geolocation from Google Earth does not fit the study site description ask author for further information and use one of the comments for the __Observation__.
+__Always__ check geolocation with Google Earth! If the geolocation from Google Earth does not fit the study site description ask author for further information and use one of the comments for the __Observation__.
 
 ### LatDeg / LatMin / LatSec
 
@@ -867,7 +870,7 @@ __Note:__ Cardinal direction might be given with a “+” or “-“ whereat �
 
 Altitude of studied population in m = Height above sea level of specific population in meters e.g. 208m.
 
-__Note:__ Height is either given in the paper, by author communication, or we look it up with Google Maps. If you enter the coordinates into Google Maps you’ll see the altitude at the bottom right corner of the window. If you scroll around in google maps with your mouse the altitude will change, so pay attention that you read the altitude directly after entering the coordinates without scrolling around!
+__Note:__ Height is either given in the paper, by author communication, or we look it up with Google Maps. If you enter the coordinates into Google Maps you’ll see the altitude at the bottom right corner of the window. If you scroll around in Google maps with your mouse the altitude will change, so pay attention that you read the altitude directly after entering the coordinates without scrolling around!
 
 ![Altitude](images/Altitude.png)
 
@@ -885,17 +888,17 @@ Continent where study took place
 * Asia
 * Europe
 * N America (includes Canada, USA and Mexico)
-* S America (restcountries in the Americas)
+* S America (the rest of the countries in the Americas)
 * Antarctica
 * Oceania (various definitions for Oceania exist, but here we opted for this one: https://en.wikipedia.org/wiki/List_of_Oceanian_countries_by_population)
 
 ### General notes on location information
 
-If you don’t have a detailed description of the Geolocation-Coordinates enter the following sentence into the __Observation__-Column: The GPS coordinates were approximated to the closest geographic location described in the reference. Sometimes the Lat and Long given in the paper do NOT match the study area. In this case enter the following in the __Observation__-Column: GPS co-ordinates cited exactly as reported in original paper. These do not match written study site description.
+If you don’t have a detailed description of the geolocation-coordinates enter the following sentence into the __Observation__-Column: The GPS coordinates were approximated to the closest geographic location described in the reference. Sometimes the Lat and Long given in the paper do NOT match the study area. In this case enter the following in the __Observation__-Column: GPS co-ordinates cited exactly as reported in original paper. These do not match written study site description.
 
 __Pay attention to the means:__ We don’t calculate ranges e.g. for mean matrices. In that case we enter NC for “not calculated” into the columns LatDeg, LatMin, LatSec, LatNS, LonDeg, LonMin, LonSec, LonWE and Altitude. In columns Country and Continent we separate with “;” if the study was located on more than one country / continent.
 
-This is how it possibly looks like (this is a 6x6 mean (the upper one) and individual (the lower one) matrix for the algea Alaria_nana)
+This is how it possibly looks like (this is a 6x6 mean (the upper one) and individual (the lower one) matrix for the algae Alaria_nana)
 
 ![Geolocation](images/Alaria_location.png)
 
@@ -903,10 +906,10 @@ This is how it possibly looks like (this is a 6x6 mean (the upper one) and indiv
 ************************************************
 ## MatrixSplit
 
-Indicates the type of matrix population model, i.e. can A it be divided into U, F and C submatrices? If a matrix is divisible, we divide it! Then always insert all sub-matrices – even if e.g. C only has zeros!
+Indicates the type of matrix population model, i.e. can A it be divided into U, F and C sub-matrices? If a matrix is divisible, we divide it! Then always insert all sub-matrices – even if e.g. C only has zeros!
 
 
-* Divided - The matrix population model A has successfully been divided into the process-based submatrices U, F and C.
+* Divided - The matrix population model A has successfully been divided into the process-based sub matrices U, F and C.
 * Indivisible - The matrix population model A has not been divided into the process-based sub-matrices U, F and C (see Figure below for further details) because insufficient information is available to classify the various demographic processes for each sub-matrix. In indivisible matrices, only A (see below) is presented.
 
 This is how it possibly looks like (these are two divisible 4x4 matrices for the herb _Dactylorhiza lapponica_):
@@ -932,8 +935,8 @@ Some standardized sentences:
 
 * The GPS coordinates were approximated to the closest geographic location described in the reference. (see Geolocation)
 * GPS co-ordinates cited exactly as reported in original paper. These do not match written study site description. (see Geolocation)
-* Geolocation / Altitude from descirptor: (if no matrices are enterd yet but a geolocation information are available)
-* Matrix is calculated with stochastical model
+* Geolocation / Altitude from descriptor: (if no matrices are enters yet but a geolocation information are available)
+* Matrix is calculated with stochastic model
 * X years since last fire
 * Calculated with demographic data from Author JournalName YearPublished
 * Data is from a greenhouse experiment
@@ -962,13 +965,13 @@ Some information on how to correctly write things in that column:
 
 * First letter must be a capital letter (e.g. Adult: 100-150 cm DBH)
 * If the Author uses abbreviations first write them down, followed by a “:” and the explanation of that abbreviations
-* Use the most deatailed descripton
+* Use the most detailed description
 * Always add units (when possible) (e.g. 0-9 cm DBH, not 0-9 DBH)
 * Be clear in what is described (e.g. 0-9 cm DBH/ height, not only 0-9 cm)
-* Make sure that you use “.” Instead of “,” when tiping numbers (e.g. 1.45 cm, not 1,45 cm)
+* Make sure that you use “.” Instead of “,” when typing numbers (e.g. 1.45 cm, not 1,45 cm)
 * Make sure that there is space between the number and the unit (e.g. 1.45 cm, not 1.45cm)
-* We use exact the same description as the author did. If the paper is in another language (e.g. all the Spanish stuff from Iriondo Book 2009) we also write down the stages in that foreign language (e.g. in spanish).
-* Also write down abrreviations - if the author used them frequentyl (e.g. if the author explains his stages in the text and after that only uses "S1, S2, J1, J2, J3, A, R" write them down, too (= s1 = dormant seeds)
+* We use exact the same description as the author did. If the paper is in another language (e.g. all the Spanish stuff from Iriondo Book 2009) we also write down the stages in that foreign language (e.g. in Spanish).
+* Also write down abbreviations - if the author used them frequently (e.g. if the author explains his stages in the text and after that only uses "S1, S2, J1, J2, J3, A, R" write them down, too (= s1 = dormant seeds)
 
 ************************************************
 ## MatrixClassNumber
@@ -978,7 +981,7 @@ A numerical representation of classes in the population matrix model. Numbers st
 ************************************************
 ## matU/matF/matC/
 
-The population matrix models. Incuding the overall matrix (A) and, where possible, the submatrices U (survival), F (fecundity), C (clonality). A range of numeric values is possible in each element of the matrix.
+The population matrix models. Including the overall matrix (A) and, where possible, the sub-matrices U (survival), F (fecundity), C (clonality). A range of numeric values is possible in each element of the matrix.
 
 * The A matrix -  Transition probabilities are constrained between 0 and 1. Reproductive values are always positive but have no upper bound.
 
@@ -995,7 +998,7 @@ __Note:__ _Leave one column filled with NAs between two separated matrices._
 ************************************************
 ## Color coding
 
-Within the Excel sheets we  colour code all matrices in the same standardized way. The “color palette” can easily be found in (and copy pasted from) all stacked files (last tab).
+Within the Excel sheets we  color code all matrices in the same standardized way. The “color palette” can easily be found in (and copy pasted from) all stacked files (last tab).
 
 __unique cells__ (only one reproduction- or transition-form exists)
 
@@ -1010,7 +1013,7 @@ __other colored cells__
 ![Other](images/color3.png)
 
 
-All matrices are to be digitized using color-codes for the matrix elements $a_{ij} >0$. If more than one process co-occur in the same cell, the author is to be contacted (or the database curator to be consulted). Used only the colors indicated in the tab "colour palette" (and above). Leave one column filled with NAs between two separated matrices.
+All matrices are to be digitized using color-codes for the matrix elements $a_{ij} >0$. If more than one process co-occur in the same cell, the author is to be contacted (or the database curator to be consulted). Used only the colors indicated in the tab "color palette" (and above). Leave one column filled with NAs between two separated matrices.
 
 __Note:__ _Use only this colors for each of the different demographic processes. Our automatized matrix splitting procedure will not recognize the process otherwise and you will have to end up doing it by hand yourself otherwise._
 
