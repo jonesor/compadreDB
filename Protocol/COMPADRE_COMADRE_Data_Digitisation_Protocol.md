@@ -132,7 +132,7 @@ Note: Excel might color the cell (in green or orange) automatically when enterin
 
 
 
-Information for the Stacked File:
+__Information for the Stacked File:__
 
 The color coding in the EnteredBy-column of the Stacked File means the following:
 
