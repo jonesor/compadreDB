@@ -1,48 +1,45 @@
 ---
 title: "COMPADRE/COMADRE Data Digitization Protocol"
 output:
-  word_document: default
   pdf_document:
     toc: yes
   html_document:
     toc: yes
+  word_document: default
 ---
 
 
 ##Preamble
 
-The COMPADRE and COMADRE databases are compiled from (mostly) published literature. The majority of this literature was published as peer-reviewed articles in academic journals, with a smaller number of data obtained from books, conference presentations etc. 
+The COMPADRE Plant Matrix Database (COMPADRE hereafter) and the COMADRE Animal Matrix Database (COMADRE hereafter) are compiled from (mostly) published literature. The majority of this literature was published as peer-reviewed articles in academic journals, with a smaller number of data obtained from books, conference presentations, etc. 
 
-The data digitization team (The COMPADRINOs) read the literature and extract information in order to reconstruct the matrix analysed by the original researchers. The extracted data are entered into Excel spreadsheets in a structured way. Wherever there are doubts about aspects of the data the team attempts to contact the researchers to resolve them. There are two types of Excel file in COMPADRE/COMADRE: (1) The DESCRIPTOR FILE(s) which contain metadata allowing the interpretation of the matrix data; and (2) the STACKED MATRIX FILE(s) which contain the matrices themselves, plus some additional matrix-specific information.
+The data digitisation team (The COMPADRinos) carefully examine the literature and extract information in order to reconstruct the matrix population models analysed by the original researchers. The extracted data are entered into Excel spreadsheets in a structured way. Wherever there are doubts about aspects of the data source, the team attempts to contact the researchers to resolve them. There are two types of Excel file in COMPADRE/COMADRE: (1) The DESCRIPTOR FILE(s) which contain metadata allowing the interpretation of the matrix data, and it pertains to information at the species/study level; and (2) the STACKED MATRIX FILE(s) which contain the matrix population models themselves, as well as information that is matrix-specific.
 
 These data are compiled using a set of R scripts and released to the public as open access data via the website: www.compadre-db.org. 
 
-This document outlines the way that the digitization team should enter data into the Excel sheets. It is primarily intended for internal use and as such includes information on some variables which are not released into the public domain. Nevertheless, in the interests of transparency we provide open access to the document here.
-
-
-Questions or comments about this protocol should be addressed to Rob Salguero-Gómez (r.salguero@uq.edu.au) or Owen Jones (jones@biology.sdu.dk).
+This document outlines the way that the digitisation team enters data into the Excel sheets. It is primarily intended for internal use and, as such, it includes information on some variables which are not released into the public domain. Nevertheless, following our philosophy on open access, replicability and transparency, we provide open access to the document here. Users external to our team with questions can direct them at compadre-contact@demogr.mpg.de. Specific questions can also be directed to Rob Salguero-Gómez (r.salguero@uq.edu.au) or Owen Jones (jones@biology.sdu.dk).
 
 
 ##General information
 
-* This protocol is intended for both the COMPADRE Plant Matrix Database and the COMADRE Animal Matrix Database. Some variables pertain to _only_ one or the other database and are indicated as such in the text. 
+* This protocol is intended for both COMPADRE and COMADRE. Some variables pertain to _only_ one or the other database and are indicated as such in the text. Specifically "P" pertains only to plants (COMPADRE; e.g. growth form), whereas "A" pertains only to animals (COMADRE; e.g. class).
 
-* PDFs of new publications emailed to the COMPADRinos are to be saved under the “Literature” sub-folder of COMPADRE or COMADRE in the N://COMPADRE & COMADRE directory of the MPIDR server. Immediately after saving the PDF, a new entry must be opened with the “Species”, “Author”, “Journal”, and “Year” in the descriptor and stacked file.
+* PDFs of new publications emailed to the COMPADRinos are to be saved under the “Literature” sub-folder of COMPADRE or COMADRE in the N://COMPADRE & COMADRE directory of the Max Placnk Institute for Demographic Research (MPIDR) server. Immediately after saving the PDF, a new entry must be opened with the “SpeciesAuthor”, “Authors”, “Journal”, and “YearPublication” in both the descriptor and stacked file.
 
-* If you find additional sources _always_ save them and note them in additional sources.
+* If you find additional sources _always_ save them and note them in "AdditionalSource".
 All pieces of information extracted from PDFs must be highlighted directly on the PDF in yellow.
 
-* If a PDF contains matrices/data from other papers and/or studies, this must be noted as “Not Primary Source” in the notes column of the species descriptors file.
+* If a PDF contains matrices/data from other papers and/or studies, this must be noted as “Not primary source” in the notes variable of the Species Descriptors file.
 
-* If additional PDFs are found with respect to a given species [population?], these must be inspected for any additional matrices with different model assumptions (e.g. different stages) and/or different study years, populations and/or treatments. If the paper provides new information, it must be included in the database as an additional species entry.
+* If additional publications are found with respect to a given species, these must be inspected for any additional matrix population models with different model assumptions (e.g. different stages) and/or different study years, populations and/or treatments. If the paper provides new information, it must be included in the database as an additional species entry, followed with a numeric subindex following "SpeciesAuthor" (e.g. "Pinus_nigra" and "Pinus_nigra_2").
 
 * Authors must only be contacted from the official email: compadre-contact@demogr.mpg.de.
 
-* Latin names of species must be checked using reliable sources (e.g. Catalogue of Life [http://www.catalogueoflife.org/], iPlant Collaborative [http://www.iplantcollaborative.org/], Wikipedia [https://en.wikipedia.org/]) for spelling mistakes.
+* Latin names of species for variable "SpeciesAccepted" must be checked using reliable sources (e.g. Catalogue of Life [http://www.catalogueoflife.org/], iPlant Collaborative [http://www.iplantcollaborative.org/], Wikipedia [https://en.wikipedia.org/]) for spelling mistakes. If an author uses a Latin name with a typo, please leave it as is, as the variable "SpeciesAuthor" (below) represents the name as used by the authors.
 
-* The element-by-element mean values of unmanipulated (control) and treatment matrices are to be kept separate (i.e. never calculate mean matrices from a mixture of unmanipulated and treated matrices). Furthermore, mean matrices should never mix different treatments (e.g. do not calculate mean matrices for matrices with different grazing regimes). However, mean matrices _should_ be calculated for unmanipulated  matrices, and for matrices that have received the same treatments..
+* The element-by-element mean values of unmanipulated (control) and treatment matrix population models are to be kept separate (i.e. never calculate mean matrices from a mixture of unmanipulated and treated matrices). Furthermore, mean matrices should never mix different treatments (e.g. do not calculate mean matrices for matrices with different grazing regimes). However, mean matrices _should_ be calculated for unmanipulated  matrices, and for matrices that have received the same treatments..
 
-* When digitizing matrices, only colors from the color palette, which is given inside the Excel file, can be used in the stacked matrix file. Where matrices can be split, please always include an “A” matrix as well as “U”, “F” & “C” matrices (for explanation see here in the stacked matrix file. Present matrices from left-to-right in the order A, U, F, C. __Always__ split matrices if possible.
+* When digitising matrices, only colors from the color palette, which is given inside the Excel file under the tab "Color palette", can be used in the Stacked Matrix file. Where matrices can be split, please always include an “A” matrix as well as “U”, “F” & “C” matrices (for explanation see here in the stacked matrix file. Present matrices from left-to-right in the order A, U, F, C. __Always__ split matrices when possible.
 
 ******
 
@@ -50,30 +47,30 @@ All pieces of information extracted from PDFs must be highlighted directly on th
 
 The following values are commonly used throughout the database.
 
-__NA__ - Not available - The information is not available either because the author does not have it or because the information is not recognized as “priority” (see below)
+__NA__ - Not available - The information is not available either because the author does not have it or because the information is not recognized as “priority” (see below) for the digitalisation.
 
-__AFI__ - Asked for it - The information is not yet in the database, but the COMPADRino has already contacted the author requesting it (i.e. the author has not yet replied)
+__AFI__ - Asked for it - The information is not yet in the database, but the COMPADRino has already contacted the author requesting it (i.e. the author has not yet replied).
 
 
-__NDY__ - Not digitized yet - The information has not yet been digitized. This is likely to occur when some priority information has been digitized for a given species, and the COMPADRino has moved onto another species without contacting an author for the missing information
+__NDY__ - Not digitised yet - The information has not yet been digitised. This is likely to occur when some priority information has been digitised for a given species, and the COMPADRino has moved onto another species without contacting an author for the missing information.
 
 __NC__ - Not calculated - Information was not calculated because its calculation is not sensible. For instance, latitudes and longitudes of various populations of the same species are not averaged and assigned to the grand-mean population matrix of the species. Same for ranges, where author provides a range of latitudes and longitudes for a given population. Ranges are noted into the observation column
 
-__LAB__ - Laboratory - The author collected demographic data for the studied species in a laboratory or under greenhouse conditions – controlled, usually indoor, conditions that mean the study species is not affected by the environment conditions typical of the actual geographic location of the study
+__LAB__ - Laboratory - The author collected demographic data for the studied species in a laboratory or under greenhouse conditions – controlled, usually indoor, conditions that mean the study species is not affected by the environment conditions typical of the actual geographic location of the study.
 
-__FRANK__ - Frankenstein matrix - The author used demographic data from at least two other papers and calculated a *new* matrix out of that data. In those cases we typically have different study sites and years of study. For these data we do not calculate averages or ranges but instead enter __FRANK__.
+__FRANK__ - Frankenstein matrix - The author used demographic data from at least two other papers and calculated a *new* matrix population model out of tose data. In those cases, we typically have different study sites and years of study. For these data we do not calculate averages or ranges but instead enter __FRANK__.
 
 ************************************************
 
 #Priority variables
 
-The following is a list of variables that the COMPADRino team digitizes to the best of its effort, contacting the author when the information is not available in the manuscript when necessary.
+The following is a list of variables that the COMPADRino team digitises to the best of its effort, contacting the author when the information is not available in the manuscript when necessary.
 
 * SpeciesAuthor
-* Author
+* Authors
 * Email
 * Journal
-* Year
+* YearPublication
 * DOI/ISBN
 * Ecoregion
 * GrowthFormRaunkiaer (only for COMPADRE)
@@ -109,13 +106,16 @@ Possible values
 * Anne
 * Claudia
 * Christoph
+* Elisa
 * Erik
 * Fränce
 * Gesa
 * Gabriel
 * Hendrik
 * Jakob
+* Janek
 * Julia
+* Sandra
 * Stefan
 * Veronika
 * Rob
@@ -123,10 +123,10 @@ Possible values
 
 Information for Species Descriptors file:
 
-The fill color of the Student-column in the Species descriptors means the following:
+The fill color of the variable Student in the Species descriptors means the following:
 
-* LIGHT ORANGE	The Transferred Column has been checked. The entry in that column is correct. If something was missing (see MissingData) author has been contacted again by Gesa or Fränce (in late 2014 / early 2015). Everything else is fine.
-* DARK ORANGE	The Transferred Column has been checked. The entry in that column is correct but a problem occurred which is explained in the Notes (e.g. no mail address of author(s) found).
+* LIGHT ORANGE	The Transferred column has been checked. The entry in that column is correct. If something was missing (see MissingData) author has been contacted again by Gesa or Fränce (in late 2014 / early 2015). Everything else is fine.
+* DARK ORANGE	The Transferred column has been checked. The entry in that column is correct but a problem occurred which is explained in the Notes column (e.g. no mail address of author(s) found/functional/outdated).
 
 Note: Excel might color the cell (in green or orange) automatically when entering a new species. Please always change the fill color for all new entries into "no fill". The students who do the error-checking will change into orange/red/green when necessary.
 
@@ -134,12 +134,11 @@ Note: Excel might color the cell (in green or orange) automatically when enterin
 
 __Information for the Stacked File:__
 
-The color coding in the EnteredBy-column of the Stacked File means the following:
+The color coding in the EnteredBy column of the Stacked File means the following:
 
-
-* RED	There is some problem with this entry, the student who entered the species is informed and works on the plant again
+* RED	There is some problem with this entry, the student who entered the species is informed and works on the species/species again
 * ORANGE	The entry is checked once (e.g. by Gesa). No faults have been found.
-* GREEN	The entry has been checked twice. No faults have been found. Plant is ready to go online.
+* GREEN	The entry has been checked twice. No faults have been found. Species/study is ready to go online.
 
 Excel might color the cell (in green or orange) automatically when entering a new species. Please always change the fill color for all new entries into "no fill". The students who do the error-checking will change into orange/red/green when necessary.
 
@@ -147,14 +146,14 @@ Excel might color the cell (in green or orange) automatically when entering a ne
 
 ## Notes
 
-This column is intended to record any important issues or general notes about the data for the use of the COMPADRE/COMADRE team. It should be ensured that these entries include only sensible informative key points/sentences that also others can understand. Use __English__ only.
+This column is intended to record any important issues or general notes about the data for the use of the COMPADRE/COMADRE team. It should be ensured that these entries include only sensible informative key points/sentences that also others can understand. As with all variables in the database, use __English__ only.
 
 ************************************************
 
 ## VersionRelease
 
-The Version number of the database where the data is/will be released. e.g. 3.0, 3.1. 
-Where the data are not yet to be released (for example, because the data are incomplete) an "X" is used in place of a version number. For all future digitization, an "X" should be placed in the version record. These will be replaced with an appropriate version number by Owen or Rob at a later date.
+The Version number of the database where the data is/will be released. e.g. 3.0.0, 3.1.0. 
+Where the data are not yet to be released (for example, because the data are incomplete) an "X" is used in place of a version number. For all future digitization, an "X" should be placed in the version record. These will be replaced with an appropriate version number by Owen or Rob only at a later date when a final check is done to release more data periodically.
 
 ************************************************
 
@@ -165,7 +164,7 @@ Record the status of transference of matrices into the stacked file.
 
 __Yes__	 -- All variables (geolocation, individual matrices) for which the author had data have been transferred. It’s impossible to get missing data. All available matrices have been transferred. No more matrices are available.
 
-If there is no email address for an author of a paper, but that paper has a matrix that can be digitized – enter the matrix to the stacked file and enter all information that is available from the paper into the descriptor, all missing information get an NA and we list the species as “transferred-Yes”
+If there is no email address for an author of a paper, but that paper has a matrix population model that can be digitized – enter the matrix population model to the stacked file and enter all information that is available from the paper into the descriptor, all missing information get an NA and we list the species as “transferred-Yes”
 
 __Partly__ -  Only sections have been transferred. Some information is missing, which is reported in the column “Missing data” below. At least one matrix is transferred into the stacked file.
 Check out E-Mail - Reply under "Contacted" to find out what to do when author does not answer.
@@ -173,7 +172,7 @@ Check out E-Mail - Reply under "Contacted" to find out what to do when author do
 __No__ - Nothing has yet been transferred, but the COMPADRino has started working on this species.
 
 
-If the matrix cannot be digitized, that paper reference should be deleted from both the species descriptor file _and_ the stacked matrix file. Make a note of this deleted paper, using the normal format, in a NEW PAGE of the species descriptor file, called “deleted papers”, make a short note why it was deleted (for example no matrix).
+If the matrix population model(s) cannot be digitized, that paper reference should be deleted from both the species descriptor file _and_ the stacked matrix file. Make a note of this deleted paper, using the normal format, in a NEW PAGE of the species descriptor file, called “deleted papers”, make a short note why it was deleted (for example no actual matrix population model was used).
 
 ************************************************
 
@@ -186,7 +185,7 @@ What data are still missing?
 * __L__ - Labels are missing (e.g. information about the populations and years)
 * __S__ - Information about study site missing (e.g. country, geolocation, WithinSite etc)
 * __O__ - Other priority information missing
-* __No__ - Everything is digitized
+* __No__ - Everything is digitised
 
 If more than one piece of information is missing, these are separated with ";" (without white-space in between), e.g. "I;S;O".
 
@@ -194,7 +193,7 @@ If more than one piece of information is missing, these are separated with ";" (
 
 ## DateDigitalization
 
-Records the date when COMPADRino started working on this species resp. when Matrix was digitized in stacked file. Dates should be recorded in US date format: mm.dd.yyyy, e.g. 12.25.2015 for 25th Dec 2015.
+Records the date when COMPADRino started working on this species resp. when the first matrix population model of that study was digitised in stacked file. Dates should be recorded in US date format: mm.dd.yyyy, e.g. 12.25.2015 for 25th Dec 2015.
 
 ************************************************
 ## Embargo
@@ -204,7 +203,7 @@ If the author does not wish to make personally communicated data available, the 
 ************************************************
 ## GrowthType (P)
 
-This entry applies only to plants and records the plant/algae type, based mainly on architectural organization.
+This entry applies only to plants and records the plant/algae type, based mainly on architectural organisation. This information is intended mostly for internal use and reflects how our PDF library is organized on our servers, as well as the tab in the Matrix Stacked file where the matrices are stored.
 
 Possible values are:
 
@@ -222,13 +221,13 @@ Possible values are:
 
 The species should be assigned to one of these possible values using the description of plant growth type provided by the author and by reference to other sources (e.g. other publications).
 
-Note about the Annual category: Typically plant ecologists also refer to pseudo-annual species as being "biennials". The main difference between the annuals and biennials is that annual species complete their life cycle (are born, grow, reproduce and die) within a single year, whereas biennials have the WHAT HAPPENED HERE???
+Note about the Annual category: Typically plant ecologists also refer to pseudo-annual species as being "biennials". The main difference between the annuals and biennials is that annual species complete their life cycle (are born, grow, reproduce and die) within a single year, whereas biennials have the possibility to forgot of reproduction in the first year and expanding their life cycle to their second year, when reproduction is fatal.
 
 ************************************************
 
 ## Class (A)
 
-This entry only applies to animals. For animals, taxonomic class is recorded in both the Descriptors file and the Stacked Matrix file. This information is intended for internal use and reflects how our PDF library is organized on our servers.
+This entry only applies to animals. For animals, taxonomic class is recorded in both the Descriptors file and the Stacked Matrix file. This information is intended for internal use and reflects how our PDF library is organised on our servers, as well as the tab in the Matrix Stacked file where the matrices are stored.
 
 Possible values include:
 
@@ -270,11 +269,11 @@ The Latin binomial name of the species as reported in the publication. Note that
 __var.__ - Where the publication refers to an intraspecific variety, this is indicated with "var." followed by the variety name, e.g. “Pityopsis_aspera_var._aspera"
 __subsp.__ - Where the study refers to an intraspecific subspecies, this is indicated with "subsp." followed by the subspecies name, e.g. "Anthyllis_vulneraria_subsp._alpicola"
 
-The word following “var.”, “subsp.” or “cf.” must not be capitalized. Excel will try to capitalize it via auto-correct because it follows a period punctuation. 
+The word following “var.”, “subsp.” or “cf.” must not be capitalised. Excel will try to capitalise it via auto-correct because it follows a period punctuation. 
 
-Always use an underscore "_" to substitute spaces (e.g. write "Cryptantha_flava"" instead of "Cryptantha flava").
+Always use an underscore "_" to substitute spaces (e.g. write "Cryptantha_flava" instead of "Cryptantha flava").
 
-If two or more different demographic studies exist for a particular species, these should be digitized with concatenated numbers after the genus_species starting with “2” (e.g. “Rosa_sempervirens”, “Rosa_sempervirens_2”, “Rosa_sempervirens_3”).
+If two or more different demographic studies exist for a particular species, these should be digitised with concatenated numbers after the genus_species starting with “2” onwards (e.g. “Rosa_sempervirens”, “Rosa_sempervirens_2”, “Rosa_sempervirens_3”). Note that the first hit does not get a "1" (e.g. "Rosa_sempervirens" instead of "Rosa_sempervirens_1")
 
 Exactly the same naming convention __must__ be used in both the Species Descriptor and Stacked Matrix files. 
 
@@ -299,20 +298,20 @@ Record the name of the journal from which data were sourced. If the data were so
 
 If no abbreviation is available in both of those list, take a look into the paper. Often there are abbreviations in the left corner of the paper or at the first page.
 
-* Journal Abbreviation (e.g. J. Ecol.) - Where the data come from a scientific journal article, the abbreviated journal name is given. We use the standard abbreviation of the journal using the BIOSIS Format.
+* Journal Abbreviation (e.g. J. Ecol. for Journal of Ecology) - Where the data come from a scientific journal article, the abbreviated journal name is given. We use the standard abbreviation of the journal using the BIOSIS Format.
 * Book - Matrices are from a book, or book chapter. Note: If our source is a book name the author of the related chapter in Authors, not the author of the book.
 * PhD thesis	- Matrices are from a doctoral thesis.
 * MSc thesis	- Matrices are from a masters thesis.
 * Report	- Matrices are from a report.
-* Conference Talk	- Matrices reported in a conference talk.
-* Conference Poster	- Matrices reported in a conference poster.
+* Conference talk	- Matrices reported in a conference talk.
+* Conference poster	- Matrices reported in a conference poster.
 
 
 ************************************************
 
 ## YearPublication
 
-Year of publication of the source publication. This should be recorded as YYYY e.g. 2002.
+Year of publication of the source publication. This should be recorded as YYYY (e.g. 2002).
 
 
 ************************************************
@@ -336,13 +335,13 @@ e.g. jones@biology.sdu.dk (2015)
 
 Record the date(s) when the publication author was contacted asking for information in US date format (mm.dd.yyyy). Authors should always be contacted from the compadre-contact@demogr.mpg.de email address rather than a personal email address.
 
-Procedure for lack of response depends on the age of the paper:
+Procedure for lack of response depends on the YearPublication of the source:
 
 * For papers older than 1990: When the corresponding author does not reply to your third email, or you cannot find their email address (e.g. in old publication) or reach their coauthors, then change “Partly” to “Yes” in Transferred column.
 
-* For more recent papers (published after 1990): If the authors (and coauthors) do not reply after the third time you have contacted them, please pass the email that you have sent them to Owen and Rob. If they cannot make contact, they will change “Partly” to “Yes” in Transferred column.
+* For more recent papers (published after 1990): If the authors (and coauthors) do not reply after the third time you have contacted them, please pass the email address that you have sent them, together with a brief summary of the information you are after and the attached PDF to Owen and Rob. If they do not make successful contact with the authors, they will change “Partly” to “Yes” in Transferred column.
 
-If you were not able to find an email address of any of the authors of a paper (and also Rob and Owen don't know one), but that paper has a matrix that can be digitized – enter the matrix to the stacked file and enter all information that are available from the paper into the descriptor, all missing information get an NA and we list the species as “transferred-Yes”, still enter the missing information into MissingData
+If you were not able to find an email address of any of the authors of a paper (and also Rob and Owen don't know one), but that paper has a matrix population model that can be digitised – enter the matrix to the Matrix Stacked file and enter all information that are available from the paper into the Species Descriptor file, all missing information get an NA and we list the species as “transferred-Yes”, still enter the missing information into MissingData
 
 
 ************************************************
@@ -355,14 +354,14 @@ This records the information that was requested from the author. Use the same fo
 
 ##Reply 
 
-Did the author reply to a request for further information. This should record a brief answer given by the author, or "No" (no response yet). Note: Always change __Reply__ from "NA"" / "nothing" to "No" when author has been contacted, and update the entry as soon as a reply is received.
+Did the author reply to a request for further information. This should record a brief answer given by the author, or "No" (no response yet). Note: Always change __Reply__ from "NA"" / "Nothing" to "No" when author has been contacted, and update the entry as soon as a reply is received. Always reply to the author with a short thank-you note when a reply is received.
 
 
 ************************************************
 
 ## DOI/ISBN
 
-Records Digital Object Identifier (DOI) or International Standard Book Number (ISBN) codes that identifies the source material. In more recent papers you may find the DOI somewhere at the beginning of the paper. You may also search for it in the Web of Knowledge.
+Records Digital Object Identifier (DOI) or International Standard Book Number (ISBN) codes that identifies the source material. In more recent papers you may find the DOI somewhere at the beginning of the paper. You may also search for it in the Web of Knowledge. Always make sure that the DOI or ISBN you have just digitised corresponds to the actual source by copy-pasting it in google.
 
 ************************************************
 
@@ -442,16 +441,16 @@ Plant classification according to Raunkiaer (classified after the position of th
 
 Possible values
 
-* Megaphanerophyte	e.g. Big trees (>30 m height)
-* Mesophanerophyte	e.g. medium trees (8-30 m height)
-* Nanophanerophyte	e.g. small trees (0.25-8 m height)
+* Megaphanerophyte	Overwintering buds positioned at >30 m height (e.g. large trees)
+* Mesophanerophyte	Overwintering buds positioned at 8-30 m height (e.g. medium trees)
+* Nanophanerophyte	Overwintering buds positioned at0.25-8 m max height (e.g. small trees and all shrubs)
 * Chamaephyte	Buds on persistent shoots near the ground
-* Hemicryptophyte	Buds at or near the soil surface, e.g. daisy, dandelion
-* Geophyte	Buds resting under dry ground, e.g. crocus, tulip
-* Helophyte	Buds resting in marshy ground, e.g. reedmace, marsh-marigold
-* Hydrophyte	Resting by being submerged under water, e.g. water-lily, frogbit
-* Therophyte	Mostly annual plants
-* Epiphyte	E.g. Epiphytes
+* Hemicryptophyte	Buds at or near the soil surface (e.g. daisy, dandelion)
+* Geophyte	Buds resting under dry ground (e.g. crocus, tulip)
+* Helophyte	Buds resting in marshy ground (e.g. reedmace, marsh-marigold)
+* Hydrophyte	Resting by being submerged under water (e.g. water-lily, frogbit)
+* Therophyte	Mostly annual and biennial plants
+* Epiphyte	Plants living on to of other plants
 
 For further information see www.en.wikipedia.org/wiki/Raunkiaer_plant_life-form.
 
@@ -469,7 +468,7 @@ For further information see www.en.wikipedia.org/wiki/Raunkiaer_plant_life-form.
 10. Therophyte, aerophyte and epiphyte not shown
 
 
-The description offered here is at the subsection level (e.g. “Cryptophytes” are classified as “Hydrophyte”, “Helophyte” or “Geophyte”; “Phanerophytes” are classified as “Nanophanerophytes”, “Mesophanerophytes” or “Megaphanerophytes”). When in doubt, information is to be retrieved from the internet (e.g. Wikipedia, Google photos) or the author is to be contacted. However, the variable “Plant type” typically relates to the variable “Growth form Raunkiaer” as it follows
+The description offered here is at the subsection level (e.g. “Cryptophytes” are classified as “Hydrophyte”, “Helophyte” or “Geophyte”; “Phanerophytes” are classified as “Nanophanerophytes”, “Mesophanerophytes” or “Megaphanerophytes”). When in doubt, information is to be retrieved from the internet (e.g. Wikipedia, Google photos) or the author is to be contacted or ask Ro. However, the variable “Plant type” typically relates to the variable “Growth form Raunkiaer” as it follows
 
 * “Tree”, “Palm” and “Liana” are “Nanophanerophyte” (0.25-8 m height), “Mesophanerophyte” (8-30 m height) or “Megaphanerophyte” (>30 m height), depending on their maximum attainable heights as indicated in parentheses. * If you don't get this info from the paper, a quick Google photo search can give you an idea.
 “Shrub” and “Succulent” are either “Chamaephyte” or (most often) “Nanophanerophyte”, but in some species they be “Mesophanerophyte”.
@@ -491,7 +490,7 @@ The description offered here is at the subsection level (e.g. “Cryptophytes”
 Status of conservation of the species as a whole as per criteria of the International Union for the Conservation of Nature (IUCN).
 
 * EX - Extinct - no known individuals remaining.
-* EW - Extinct in Wild - known only to survive in captivity, or as a naturalized population outside its historic range.
+* EW - Extinct in Wild - known only to survive in captivity, or as a naturalised population outside its historic range.
 * CR - Critically Endangered - extremely high risk of extinction in the wild
 * EN - Endangered - high risk of extinction in the wild.
 * VU - Vulnerable - high risk of endangerment in the wild.
@@ -522,7 +521,6 @@ Records whether the species is present in the Global Invasive Species Database. 
 
 Records the conservation status under the U.S. Endangered Species Act, according to the United States Fisheries and Wildlife Service (http://www.fws.gov/endangered/). Note that in a few cases this information also applies to species outside of the US territory (e.g. emperor penguin).
 
-
 * EN - Endangered
 * TH - Threatened
 * NA - Not classified
@@ -533,11 +531,11 @@ Records the conservation status under the U.S. Endangered Species Act, according
 
 The purpose columns describe the purpose(s) of the study detailed in the manuscript. This information is usually obvious from the abstract and the last paragraph of the intro. Several purposes are possible per study and for each purpose a 0 or 1 must be entered, representing "was __not__ a purpose"" and "was a purpose"" of the study respectively.
 
-We have categorized the purposes as follows:
+We have categorised the purposes as follows:
 
 * Comparative demography - When the authors studied two or more species
 * Spatial demography - When the authors studied the demography of two or more populations within the same species
-* Abiotic impacts - When the authors studied the effects of abiotic factors (e.g fire, hurricanes, rain, fertilizers, droughts, etc)
+* Abiotic impacts - When the authors studied the effects of abiotic factors (e.g fire, hurricanes, rain, fertilisers, droughts, etc)
 * PVA - When the authors report a Population Viability Analysis of an endangered species
 * Species dynamics description - When there is no actual treatment in the study (Unmanipulated). Instead, the goal was to describe the natural dynamics of a species
 * Interspecific interactions - When the authors studied the interactions between different species (e.g herbivory, pollinators, inter-specific competition, predation, parasitism, etc)
@@ -649,7 +647,7 @@ This series of 22 columns includes taxonomic information.
 * Typo
 * WFormat
 
-Those variables will be digitized and checked frequently by the database curators.
+Those variables will be digitised and checked frequently by the database curators.
 
 For COMPADRinos to get an idea of what kingdom, class etc means:
 
@@ -710,7 +708,7 @@ Indicates the type of matrix population model (See the figure below for more inf
 * Individual - A matrix population model constructed for a single study × species × population × treatment × period combination
 * Mean - An average (arithmetic mean) of other matrix population models (e.g. element-by-element arithmetic mean of a population's matrices across several time periods available)
 
-__Note:__ Generally, the mean values of unmanipulated and treatment matrices are to be kept independent of each other (i.e. never calculate mean matrices across both unmanipulated and treatment matrices), and a mean matrix for different treatments should not to be calculated/digitized in the database.
+__Note:__ Generally, the mean values of unmanipulated and treatment matrices are to be kept independent of each other (i.e. never calculate mean matrices across both unmanipulated and treatment matrices), and a mean matrix for different treatments should not to be calculated/digitised in the database.
 
 * Pooled - A matrix population model that has been constructed by pooling individual-level demographic information across populations and/or periods. This type of matrix, when available, has always been provided by the author either in the publication or through personal communications
 
@@ -888,7 +886,7 @@ Continent where study took place
 * Asia
 * Europe
 * N America (includes Canada, USA and Mexico)
-* S America (the rest of the countries in the Americas)
+* S America (incluces the rest of the countries in the Americas not outlined in "N America")
 * Antarctica
 * Oceania (various definitions for Oceania exist, but here we opted for this one: https://en.wikipedia.org/wiki/List_of_Oceanian_countries_by_population)
 
@@ -931,7 +929,7 @@ The diagram below shows the life cycle of two hypothetical plant populations bas
 
 Any useful additional information about the population matrix model that is not provided elsewhere but may nonetheless be important (e.g. plant canopy, burning intervals, etc.)
 
-Some standardized sentences:
+Some standardised sentences:
 
 * The GPS coordinates were approximated to the closest geographic location described in the reference. (see Geolocation)
 * GPS co-ordinates cited exactly as reported in original paper. These do not match written study site description. (see Geolocation)
@@ -948,7 +946,7 @@ __Note:__ _Information in the observation-column refer only to the matrix next t
 ************************************************
 ## MatrixClassOrganized
 
-We standardize all stages in a given population matrix model to one of three stages (prop, active, dorm) to facilitate analyses.
+We standardise all stages in a given population matrix model to one of three stages (prop, active, dorm) to facilitate analyses.
 
 
 * prop - Propagule (seed). This applies to every stage defined by the author as seed bank or seed. Users are encouraged to carefully examine matrices with these stages and to implement the appropriate calculations to avoid a spurious additional year being added when no seedbank exists in the study species, as explained by Caswell (2001, p. 60).
@@ -991,14 +989,14 @@ The population matrix models. Including the overall matrix (A) and, where possib
 
 * The C matrix - The population sub-matrix model C (a sub-matrix of A), which describes the clonal-reproduction dynamics of a population under the conditions described above. A range of numeric values are possible, but these are constrained to be positive. These include only estimates of clonal reproduction.
 
-The values for the U, F and C matrices are only digitized for “Divided” matrices (indicated by variable __MatrixSplit__)
+The values for the U, F and C matrices are only digitised for “Divided” matrices (indicated by variable __MatrixSplit__)
 
 __Note:__ _Leave one column filled with NAs between two separated matrices._
 
 ************************************************
 ## Color coding
 
-Within the Excel sheets we  color code all matrices in the same standardized way. The “color palette” can easily be found in (and copy pasted from) all stacked files (last tab).
+Within the Excel sheets we  color code all matrices in the same standardised way. The “color palette” can easily be found in (and copy pasted from) all stacked files (last tab).
 
 __unique cells__ (only one reproduction- or transition-form exists)
 
@@ -1013,9 +1011,9 @@ __other colored cells__
 ![Other](images/color3.png)
 
 
-All matrices are to be digitized using color-codes for the matrix elements $a_{ij} >0$. If more than one process co-occur in the same cell, the author is to be contacted (or the database curator to be consulted). Used only the colors indicated in the tab "color palette" (and above). Leave one column filled with NAs between two separated matrices.
+All matrices are to be digitised using color-codes for the matrix elements $a_{ij} >0$. If more than one process co-occur in the same cell, the author is to be contacted (or the database curator to be consulted). Used only the colors indicated in the tab "color palette" (and above). Leave one column filled with NAs between two separated matrices.
 
-__Note:__ _Use only this colors for each of the different demographic processes. Our automatized matrix splitting procedure will not recognize the process otherwise and you will have to end up doing it by hand yourself otherwise._
+__Note:__ _Use only this colors for each of the different demographic processes. Our automatised matrix splitting procedure will not recognise the process otherwise and you will have to end up doing it by hand yourself otherwise._
 
 __Example:__ Matrix example for color-coding. Note that the coloring scheme is for internal usage only. The color names are the ones defined by Excel, and the user will not see them, as only text-based files will be made available to end users. We use these colors to separate divisible matrices automatically through a machine learning algorithm into U (survival), F (sexual reproduction) and C (clonal reproduction) matrices.
 
