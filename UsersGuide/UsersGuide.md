@@ -1,23 +1,25 @@
 ---
 title: "Users guide to the COMPADRE Plant Matrix Database"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: 3
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
   classoption: a4paper
-  pdf_document:
-    toc: yes
-    toc_depth: 3
 ---
 
 
 
 -------------
 
+# User's guide version information
+
 Version 3.1.0
 
-Date modified: Aug 6th 2015
+Date modified: Sept 12th 2015
 
 Contact: compadre-contact@demogr.mpg.de
 
@@ -27,6 +29,7 @@ Contact: compadre-contact@demogr.mpg.de
 # General Instructions
 
 ## Database Organization
+
 The data associated with COMPADRE are provided in a single R data object (extension .Rdata). In addition, these files are accompanied by R scripts and a nexus phylogeny available in the Supplementary Information of the manuscript introducing COMPADRE, and in our github repository (https://github.com/jonesor/compadreDB)
 
 * COMPADRE_v_MAJOR_MINOR_PATCH.RData: Contains basic information regarding the source of publication, as well as ecological, biogeographic, and taxonomic details of the demographic study for each study species, the demographic information (i.e. the matrix population model) and metadata.
@@ -38,26 +41,28 @@ NA in the COMPADRE data generally means that the data are not available/applicab
 
 ## Disclaimer 
 
-* The COMPADRE digitization team does its best to ensure data accuracy, and every piece of information goes through multiple error-checks prior to its release in www.compadre-db.org. However, we claim no responsibility for any damage that may arise from using COMPADRE.  A list of error checks and potential issues in the use and interpretation of the database are described in the main manuscript. The end user is ultimately responsible for his/her interpretations of the data.
+The COMPADRE digitization team does its best to ensure data accuracy, and every piece of information goes through multiple error-checks prior to its release in www.compadre-db.org. However, we claim no responsibility for any damage that may arise from using COMPADRE.  A list of error checks and potential issues in the use and interpretation of the database are described in the main manuscript. The end user is ultimately responsible for his/her interpretations of the data.
 
 
 -----------------------------------------------
 
 # What’s new in this version
 
-### Version 3.1.0:
+### Version 3.1.0
+
   -	735 studies with 637 taxonomically accepted plant species and a total of 6,242 population matrix models
   -	Added variable MatrixFec
   -	Modified output of MatrixCriteriaSize, MatrixCriteriaAge and MatrixCriteriaAge to range “Yes” or “No” only
   -	Fixed typos (approx.. 0.01% of previous release) 
 
-###  Version 3.0.0:
+###  Version 3.0.0
+
 -	474 studies with 670 (not taxonomically accepted necessarily –see SpeciesAuthor below) plant species and a total of 5,621 population matrix models. This version was previously named “COMPADRE_11_7_2014_version_03”.
 
 -----------------------------------------------
 
 ![COMPADRE structure](images/Fig1.png)
-__Figure 1.__ _Name of variables archived in COMPADRE, organized according to the general category to which they are associated. The R data object “compadre” is a list containing further objects (named “metadata”, “mat”, “matrixClass” and “version”), here represented by each branch of the tree. The canopy contains the variables in each data.frame/list, organized by general categories._
+**Figure 1.** *Variables archived in COMPADRE, organized according to the general category to which they are associated. The R data object `compadre` is a `list` containing further `list` and `data.frame` objects (named `metadata`, `mat`, `matrixClass` and `version`), here represented by each branch of the tree. The canopy contains the variables in each `data.frame`/`list`, organized by general categories.*
 
 -----------------------------------------------
 
@@ -1016,6 +1021,7 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 *	Seasonal matrix population models, where more than one matrix  population model exists for a single year, are marked as “Seasonal”.  For these, we calculate average matrix population models for each season but not for each year (Figure 3). Deriving an annual model from  seasonal data is straightforward and the calculations are described by Caswell (2001, p. 349).
 
 -------------------------------------------
+
 ![mean matrices](images/Fig2.png)
 
 **Figure 2.** *Schematic showing how mean population matrix models are derived from all available population matrix models in a study.* **A.** *For annual population matrix models (those that follow population dynamics from one year to the next, or sometimes more – some tree species are studied with a 5-year interval), element-by-element means are first calculated across the population matrix models describing the population dynamics for time periods within each population. Then the grand element-by-element mean is calculated across the matrix population models for the different populations. This procedure is repeated for models describing dynamics under each imposed treatment (pink matrices below) and for those describing the dynamics of unmanipulated populations (gray). Note that mean population matrix models are only calculated from population matrix models that share the same treatment (or absence of treatment).* **B.** *For seasonal or periodic population matrix models (e.g. for annual species), the mean seasonal population matrix model is calculated within populations and then across populations, both for matrices describing treated populations and for those describing populations with no imposed treatment (i.e. unmanipulated).*
@@ -1029,5 +1035,12 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 **Figure 3.** *Life cycle of two hypothetical plant populations based on age* (**A**) *and size* (**B**)*, with their corresponding matrix population models A, and underlying basic demographic processes of survival (U sub-matrix; solid arrows), sexual reproduction (F sub-matrix; dashed arrows) and clonal reproduction (C sub-matrix; dotted arrows). In the Leslie matrix model example* (**A**) *, the division of sub-matrices is more straightforward than in the Lefkovitch matrix model example * (**B**)*. In the latter imaginary example, individuals can transition into the same stage as they can contribute with sexual and/or clonal offspring (e.g. small stage). In these cases, splitting A into sub-matrices U, F and C is only feasible when sufficient information is provided by the authors (see variable `MatrixSplit` in above). *
 
 
+-----------------------
+
+# References
+
+Caswell, H. (2001) *Matrix population models*. Second edition. Sunderland, MA: Sinauer Associates.
+
+Olson, D.M., Dinerstein, E., Wikramanayake, E.D., Burgess, N.D., Powell, G.V., Underwood, E.C., D’amico, J.A., Itoua, I., Strand, H.E. & Morrison, J.C. (2001) Terrestrial Ecoregions of the World: A New Map of Life on Earth A new global map of terrestrial ecoregions provides an innovative tool for conserving biodiversity. *BioScience*, 51, 933–938.
 
 
