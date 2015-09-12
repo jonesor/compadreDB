@@ -1019,5 +1019,4 @@ __Example:__ Matrix example for color-coding. Note that the coloring scheme is f
 
 ![Example](images/color_example.png)
 
-
 ************************************************
