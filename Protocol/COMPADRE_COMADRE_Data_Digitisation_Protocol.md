@@ -361,7 +361,17 @@ Did the author reply to a request for further information. This should record a 
 
 ## DOI/ISBN
 
-Records Digital Object Identifier (DOI) or International Standard Book Number (ISBN) codes that identifies the source material. In more recent papers you may find the DOI somewhere at the beginning of the paper. You may also search for it in the Web of Knowledge. Always make sure that the DOI or ISBN you have just digitised corresponds to the actual source by copy-pasting it in google.
+This entry records the Digital Object Identifier (DOI) or International Standard Book Number (ISBN) codes that identify the source material. In more recent papers you may find the DOI somewhere at the beginning of the paper. You may also search for it in the Web of Knowledge. 
+
+Use the DOI resolution service at http://dx.doi.org/ to confirm the DOI. Do this by appending the DOI after this web page. For example, for the DOI "10.1111/1365-2745.12334" -- 
+
+http://dx.doi.org/10.1111/1365-2745.12334
+
+This should take you to the journal page for the article.
+
+Only enter the DOI itself into this field do not add additional text like the full web-link, or "DOI:" or other text.
+
+Note that older references may not actually have a DOI. In these cases, use "NA".
 
 ************************************************
 
