@@ -1,0 +1,163 @@
+# ---------------------------------------------------------------------------- #
+# - FILE NAME:   ternaryPlots.R        
+# - VERSION:     01
+# - DATE:        Sept 28 2015
+# - DESCRIPTION: Code to produce ternary plots of elasticities with a color-code for a fourth life history trait
+# - AUTHORS:     Rob Salguero-Gomez
+# ---------------------------------------------------------------------------- #
+
+
+# This code will produce a ternary plot a la Silvertown & Franco 1993 with various
+# life history traits such as mean life expectancy, population growth rate or reactivity
+# as the "fourth" dimension
+
+# Set the working directory, then load the COMADRE data:
+dir <- setwd(...)
+load(paste(dir, "COMADRE_v.1.0.0.RData", sep=""))
+
+
+# Subsetting to studies with a matrix dimension >= 3, matrices are mean of unmanipulated conditions,
+# duration > 3 years, where sexual reproduction has been modeled
+# explicitly, the matrices are split into U, F and C, and there are no issues with stage-specific survival >1
+
+tempMetadata <- subset(comadre$metadata,
+                        MatrixDimension >= 3 &
+                        MatrixComposite == "Mean" &
+                        MatrixTreatment == "Unmanipulated" &
+                        StudyDuration > 3 &
+                        MatrixFec == "Yes" &
+                        MatrixSplit == "Divided" &
+                        SurvivalIssue < 1)
+
+
+# Use the row names from the subsetted dataframe to subset the matrices.
+
+keep <- as.numeric(rownames(tempMetadata))
+
+# The object tempMat is now a list object containing matrices in the same order that their metadata appears in tempMetadata.
+
+tempMat <- comadre$mat[keep]
+
+# These matrices can now be analyzed by applying functions in a loop, or by using lapply.
+
+# To calculate population growth rate and damping ratio for the subset matrices, first crate a bummy variable to accommodate the output
+output <- data.frame(lambdas = rep(NA, length(tempMat)),
+                      eta = rep(NA, length(tempMat)),
+                      react = rep(NA, length(tempMat)),
+                      EStasis = rep(NA, length(tempMat)),
+                      EProgression = rep(NA, length(tempMat)),
+                      ERetrogression = rep(NA, length(tempMat)),
+                      EFecundity = rep(NA, length(tempMat)),
+                      EClonality = rep(NA, length(tempMat)))
+
+# Popbio is necessary to easily derive demographic output (but it can be done programmatically elsewhere)
+require(popbio)
+require(popdemo)
+#Function to calculate element-level perturbations
+matrixElementPerturbation <- function(matU, matF, matC=NULL,pert=0.001){
+  #Function to calculate matrix element level sensitivities and elasticities
+  
+  matA=matU+matF+matC
+  aDim=dim(matA)[1]
+  fakeA=matA
+  sensA=elasA=matrix(NA,aDim,aDim)
+  lambda=Re(eigen(matA)$values[1])
+
+  propU=matU/matA
+    propU[is.nan(propU)]=NA
+    propProg=propRetrog=propU
+    propProg[upper.tri(propU,diag=T)]=NA
+    propRetrog[lower.tri(propU,diag=T)]=NA
+    propStasis=matrix(diag(aDim)*diag(propU),aDim,aDim)
+  propF=matF/matA
+    propF[is.nan(propF)]=NA
+  propC=matC/matA
+    propC[is.nan(propC)]=NA
+
+  for (i in 1:aDim){
+    for (j in 1:aDim){
+       fakeA=matA
+       fakeA[i,j]=fakeA[i,j]+pert
+       lambdaPert=eigen(fakeA)$values[1]
+       sensA[i,j]=(lambda-lambdaPert)/(matA[i,j]-fakeA[i,j])
+    }
+  }
+
+  sensA=Re(sensA)
+  elasA=sensA*matA/lambda
+  
+  out = data.frame("SStasis"=NA,"SProgression"=NA,"SRetrogression"=NA,"SFecundity"=NA,"SClonality"=NA,
+                  "EStasis"=NA,"EProgression"=NA,"ERetrogression"=NA,"EFecundity"=NA,"EClonality"=NA)
+    
+    out$SStasis=sum(sensA*propStasis,na.rm=T)
+    out$SRetrogression=sum(sensA*propRetrog,na.rm=T)
+    out$SProgression=sum(sensA*propProg,na.rm=T)
+    out$SFecundity=sum(sensA*propF,na.rm=T)
+    out$SClonality=sum(sensA*propC,na.rm=T)
+    out$EStasis=sum(elasA*propStasis,na.rm=T)
+    out$EProgression=sum(elasA*propProg,na.rm=T)
+    out$ERetrogression=sum(elasA*propRetrog,na.rm=T)
+    out$EFecundity=sum(elasA*propF,na.rm=T)
+    out$EClonality=sum(elasA*propC,na.rm=T)
+
+  return(out) 
+}
+
+
+# Loop to examine each matrix
+for (i in 1:length(tempMat)){
+ tryCatch({
+    matA=tempMat[[i]]$matA
+    matU=tempMat[[i]]$matU
+    matF=tempMat[[i]]$matF
+    matC=tempMat[[i]]$matC
+    output$lambdas[i] <- max(Re(eigen(matA)$value))
+      uDim=dim(matA)[1]
+      N = solve(diag(uDim[1])-matU)
+      output$eta[i] = eta = colSums(N)[1]
+      output$react[i] <- reactivity(matA)
+    output[i,c("EStasis","EProgression","ERetrogression","EFecundity","EClonality")]=matrixElementPerturbation(matU=matU,matF=matF,matC=matC)[6:10]
+    print(paste("Species number ", i,": ", tempMetadata$SpeciesAuthor[i], sep = ""))
+      }, error = function(e){})
+}
+
+
+#Plotting things on a ternary plot
+output$S=output$EStasis+output$ERetrogression
+output$G=output$EProgression
+output$R=output$EFecundity+output$EClonality
+
+#Color-coding according to range of lambda, eta and reactivity
+#I need to tidy this up still
+output$lambda[is.na(output$lambda)]=1
+x_norm=log(output$lambda)
+x_norm = (output$lambda - min(output$lambda)) / (max(output$lambda) - min(output$lambda))
+col_fun <- colorRamp(c("white","yellow","orange","red","dark red"))
+rgb_cols <- col_fun(x_norm)
+colsLambda <- rgb(rgb_cols, maxColorValue = 256)
+
+#I need to tidy this up still
+output$eta[is.na(output$eta)]=1
+x_norm=log(output$eta)
+x_norm = (output$eta - min(output$eta)) / (max(output$eta) - min(output$eta))
+col_fun <- colorRamp(c("white","yellow","orange","red","dark red"))
+rgb_cols <- col_fun(x_norm)
+colsEta <- rgb(rgb_cols, maxColorValue = 256)
+
+#I need to tidy this up still
+output$react[is.na(output$react)]=1
+x_norm=log(output$react)
+x_norm = (output$react - min(output$react)) / (max(output$react) - min(output$react))
+col_fun <- colorRamp(c("white","yellow","orange","red","dark red"))
+rgb_cols <- col_fun(x_norm)
+colsReact <- rgb(rgb_cols, maxColorValue = 256)
+
+#Library to plot a ternary plot:
+require(vcd)
+
+ternaryplot(output[,c("S","G","R")],col=alpha(colsLambda,0.7))
+
+ternaryplot(output[,c("S","G","R")],col=alpha(colsEta,0.7))
+
+ternaryplot(output[,c("S","G","R")],col=alpha(colsReact,0.7))
+
