@@ -1,8 +1,8 @@
 # ---------------------------------------------------------------------------- #
-# - FILE NAME:   ternaryPlots.R        
+# - FILE NAME:   subsettingCOMADRE.R        
 # - VERSION:     01
-# - DATE:        Sept 28 2015
-# - DESCRIPTION: Code to produce ternary plots of elasticities with a color-code for a fourth life history trait
+# - DATE:        Sept 29 2015
+# - DESCRIPTION: Code to produce ternary plots of elasticities
 # - AUTHORS:     Rob Salguero-Gomez
 # ---------------------------------------------------------------------------- #
 
@@ -41,7 +41,8 @@ tempMat <- comadre$mat[keep]
 # These matrices can now be analyzed by applying functions in a loop, or by using lapply.
 
 # To calculate population growth rate and damping ratio for the subset matrices, first crate a bummy variable to accommodate the output
-output <- data.frame(lambdas = rep(NA, length(tempMat)),
+output <- data.frame(species= rep(NA, length(tempMat)),
+                      lambdas = rep(NA, length(tempMat)),
                       eta = rep(NA, length(tempMat)),
                       react = rep(NA, length(tempMat)),
                       EStasis = rep(NA, length(tempMat)),
@@ -111,6 +112,7 @@ for (i in 1:length(tempMat)){
     matU=tempMat[[i]]$matU
     matF=tempMat[[i]]$matF
     matC=tempMat[[i]]$matC
+    output$species[i] <- tempMetadata$SpeciesAuthor[i]
     output$lambdas[i] <- max(Re(eigen(matA)$value))
       uDim=dim(matA)[1]
       N = solve(diag(uDim[1])-matU)
@@ -127,37 +129,64 @@ output$S=output$EStasis+output$ERetrogression
 output$G=output$EProgression
 output$R=output$EFecundity+output$EClonality
 
+#Scaling to 1 (rounding issues)
+output$S=output$S/rowSums(output[,c("S","G","R")])
+output$G=output$G/rowSums(output[,c("S","G","R")])
+output$R=output$R/rowSums(output[,c("S","G","R")])
+
+
+#Temporary space holder while Sterna_hirundo_2 is being fixed
+#output=output[-which(is.na(output[,2])),]
+
+
 #Color-coding according to range of lambda, eta and reactivity
-#I need to tidy this up still
-output$lambda[is.na(output$lambda)]=1
-x_norm=log(output$lambda)
-x_norm = (output$lambda - min(output$lambda)) / (max(output$lambda) - min(output$lambda))
+lambdaData=output[which(log(output$lambdas)<=2),]
+x_norm=log(lambdaData$lambda)
+x_norm = (lambdaData$lambda - min(lambdaData$lambda)) / (max(lambdaData$lambda) - min(lambdaData$lambda))
 col_fun <- colorRamp(c("white","yellow","orange","red","dark red"))
 rgb_cols <- col_fun(x_norm)
 colsLambda <- rgb(rgb_cols, maxColorValue = 256)
 
-#I need to tidy this up still
-output$eta[is.na(output$eta)]=1
-x_norm=log(output$eta)
-x_norm = (output$eta - min(output$eta)) / (max(output$eta) - min(output$eta))
+etaData=output
+etaData$etalog=log(etaData$eta)
+x_norm = (etaData$etalog - min(etaData$etalog)) / (max(etaData$etalog) - min(etaData$etalog))
 col_fun <- colorRamp(c("white","yellow","orange","red","dark red"))
 rgb_cols <- col_fun(x_norm)
 colsEta <- rgb(rgb_cols, maxColorValue = 256)
 
-#I need to tidy this up still
-output$react[is.na(output$react)]=1
-x_norm=log(output$react)
+reactData=output[which(log(output$react)<=5),]
+reactData$reactlog=log(reactData$react)
 x_norm = (output$react - min(output$react)) / (max(output$react) - min(output$react))
 col_fun <- colorRamp(c("white","yellow","orange","red","dark red"))
 rgb_cols <- col_fun(x_norm)
 colsReact <- rgb(rgb_cols, maxColorValue = 256)
 
-#Library to plot a ternary plot:
+
+install.packages('vcd')
 require(vcd)
+install.packages('scales')
+require(scales)
 
-ternaryplot(output[,c("S","G","R")],col=alpha(colsLambda,0.7))
 
-ternaryplot(output[,c("S","G","R")],col=alpha(colsEta,0.7))
+pdf("Ternary plot lambda.pdf")
+  zr <- range(c(lambdaData$lambda,na.rm=T))
+  colCode <- colorRampPalette(c("white","yellow","orange","red","dark red"))(n = 999)  
+  image.plot(legend.only=TRUE, zlim= zr, col=colCode, smallplot=c(.75,.8, .5,.75),cex.axis=0.2) 
+  ternaryplot(lambdaData[,c("R","S","G")],scale=1,col=alpha(colsLambda,0.7),bg="black", newpage=F, dimnames=c("Stasis","Growth","Reproduction"),dimnames_position="edge", main=expression(paste("Population growth rate - ", lambda,)))
 
-ternaryplot(output[,c("S","G","R")],col=alpha(colsReact,0.7))
+dev.off()
+
+pdf("Ternary plot mean life expectancy.pdf")
+  zr <- range(c(etaData$eta,na.rm=T))
+  colCode <- colorRampPalette(c("white","yellow","orange","red","dark red"))(n = 999)  
+  image.plot(legend.only=TRUE, zlim= zr, col=colCode, smallplot=c(.75,.8, .5,.75),cex.axis=0.2) 
+  ternaryplot(etaData[,c("R","S","G")],scale=1,col=alpha(colsEta,0.7),bg="black", newpage=F, dimnames=c("Stasis","Growth","Reproduction"),dimnames_position="edge", main=expression(paste("Mean life expectancy - ", eta["e"])))
+dev.off()
+
+pdf("Ternary plot reactivity.pdf")
+  zr <- range(c(reactData$react,na.rm=T))
+  colCode <- colorRampPalette(c("white","yellow","orange","red","dark red"))(n = 999)  
+  image.plot(legend.only=TRUE, zlim= zr, col=colCode, smallplot=c(.75,.8, .5,.75),cex.axis=0.2) 
+  ternaryplot(reactData[,c("R","S","G")],scale=1,col=alpha(colsReact,0.7),bg="black", newpage=F, dimnames=c("Stasis","Growth","Reproduction"),dimnames_position="edge",main=expression(paste("Reactivity - ||", hat(A),"||"[1])))
+dev.off()
 
