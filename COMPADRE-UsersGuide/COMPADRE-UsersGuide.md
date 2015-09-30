@@ -1,14 +1,14 @@
 ---
 title: "Users guide to the COMPADRE Plant Matrix Database"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: 3
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
   classoption: a4paper
+  pdf_document:
+    toc: yes
+    toc_depth: 3
 ---
 
 
