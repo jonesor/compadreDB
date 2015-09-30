@@ -1,5 +1,5 @@
 ---
-title: "Users guide to the COMPADRE Plant Matrix Database"
+title: "User guide to the COMADRE Animal Matrix Database"
 output:
   pdf_document:
     toc: yes
@@ -9,19 +9,17 @@ output:
     toc_depth: 3
     word_document: default
   classoption: a4paper
+  word_document: default
 ---
 
 
+# User guide version information
 
--------------
+Version 1.0.0
 
-# User's guide version information
+Date modified: Oct 5th 2015
 
-Version 3.1.0
-
-Date modified: Sept 12th 2015
-
-Contact: compadre-contact@demogr.mpg.de
+Contact: comadre-contact@demogr.mpg.de
 
 -------------
   
@@ -30,39 +28,32 @@ Contact: compadre-contact@demogr.mpg.de
 
 ## Database Organization
 
-The data associated with COMPADRE are provided in a single R data object (extension .Rdata). In addition, these files are accompanied by R scripts and a nexus phylogeny available in the Supplementary Information of the manuscript introducing COMPADRE, and in our github repository (https://github.com/jonesor/compadreDB)
+The data associated with COMADRE are provided in a single R data object (extension .Rdata). In addition, these files are accompanied by R scripts and a nexus phylogeny available in the Supplementary Information of the manuscript introducing COMADRE, and in our github repository (https://github.com/jonesor/COMPADREDB)
 
-* COMPADRE_v_MAJOR_MINOR_PATCH.RData: Contains basic information regarding the source of publication, as well as ecological, biogeographic, and taxonomic details of the demographic study for each study species, the demographic information (i.e. the matrix population model) and metadata.
+* COMADRE_v_MAJOR_MINOR_PATCH.RData: Contains basic information regarding the source of publication, as well as ecological, biogeographic, and taxonomic details of the demographic study for each study species, the demographic information (i.e. the matrix population model) and metadata.
 
-## The meanings of NA in COMPADRE
+## The meanings of NA in COMADRE
 
-NA in the COMPADRE data generally means that the data are not available/applicable. This could be because the data were not reported by the author(s), or it could mean that the data have not yet been digitized for this version of COMPADRE. It could also mean that the data are not applicable in this case (e.g. where data are derived from several geographic locations we do not report a single average latitude/longitude value) 
+NA in the COMADRE data generally means that the data are not available/applicable. This could be because the data were not reported by the author(s), or it could mean that the data have not yet been digitized for this version of COMADRE. It could also mean that the data are not applicable in this case (e.g. where data are derived from several geographic locations we do not report a single average latitude/longitude value) 
 
 
 ## Disclaimer 
 
-The COMPADRE digitization team does its best to ensure data accuracy, and every piece of information goes through multiple error-checks prior to its release in www.compadre-db.org. However, we claim no responsibility for any damage that may arise from using COMPADRE.  A list of error checks and potential issues in the use and interpretation of the database are described in the main manuscript. The end user is ultimately responsible for his/her interpretations of the data.
+The COMADRE digitization team does its best to ensure data accuracy, and every piece of information goes through multiple error-checks prior to its release in www.comadre-db.org. However, we claim no responsibility for any damage that may arise from using COMADRE.  A list of error checks and potential issues in the use and interpretation of the database are described in the main manuscript. The end user is ultimately responsible for his/her interpretations of the data.
 
 
 -----------------------------------------------
 
 # What’s new in this version
 
-### Version 3.1.0
+### Version 1.0.0
 
-  -	735 studies with 637 taxonomically accepted plant species and a total of 6,242 population matrix models
-  -	Added variable MatrixFec
-  -	Modified output of MatrixCriteriaSize, MatrixCriteriaAge and MatrixCriteriaAge to range “Yes” or “No” only
-  -	Fixed typos (approx.. 0.01% of previous release) 
-
-###  Version 3.0.0
-
--	474 studies with 670 (not taxonomically accepted necessarily –see SpeciesAuthor below) plant species and a total of 5,621 population matrix models. This version was previously named “COMPADRE_11_7_2014_version_03”.
+  -  402 studies with 346 taxonomically accepted animal species and a total of 1,1603 population matrix models
 
 -----------------------------------------------
 
-![COMPADRE structure](images/Fig1.png)
-**Figure 1.** *Variables archived in COMPADRE, organized according to the general category to which they are associated. The R data object `compadre` is a `list` containing further `list` and `data.frame` objects (named `metadata`, `mat`, `matrixClass` and `version`), here represented by each branch of the tree. The canopy contains the variables in each `data.frame`/`list`, organized by general categories.*
+![COMADRE structure](images/Fig1.png)
+**Figure 1.** *Variables archived in COMADRE, organized according to the general category to which they are associated. The R data object `COMADRE` is a `list` containing further `list` and `data.frame` objects (named `metadata`, `mat`, `matrixClass` and `version`), here represented by each branch of the tree. The canopy contains the variables in each `data.frame`/`list`, organized by general categories.*
 
 -----------------------------------------------
 
@@ -78,108 +69,99 @@ These are detailed below.
 ##### Possible values:
 
 * `Genus_species` -	This variable always includes the genus and the species names and, where appropriate, information on variety and subspecies (see below).
-If two or more demographic studies exist for a single species, these are digitized with a numeric suffix after Genus_species starting with “`2`” (e.g. “`Rosa_sempervirens`”, “`Rosa_sempervirens_2`”, “`Rosa_sempervirens_3`”). 
+If two or more demographic studies exist for a single species, these are digitized with a numeric suffix after Genus_species starting with “`2`” (e.g. “`Ursus_americanus`”, “`Ursus_americanus_2`”, “`Ursus_americanus_3`”). 
 
-* `<…>var.<…>` -	Where the publication refers to an intraspecific variety, this is indicated with "`var.`" followed by the variety name, e.g. "`Pityopsis_aspera_var._aspera`"
+* `<…>var.<…>` -	Where the publication refers to an intraspecific variety, this is indicated with "`var.`" followed by the variety name
 
-* `<…>subsp.<…>` -	Where the study refers to an intraspecific subspecies, this is indicated with "`subsp.`" followed by the subspecies name, e.g. "`Anthyllis_vulneraria_subsp._alpicola`"
+* `<…>subsp.<…>` -	Where the study refers to an intraspecific subspecies, this is indicated with "`subsp.`" followed by the subspecies name, e.g. "`Ursus_americanus_subsp._floridanus`"
 
 -----------------------------------------------
 
 ### `SpeciesAccepted`
 
-**Definition:** Currently accepted latin name. This information is is obtained from The Plant List
+**Definition:** Currently accepted taxonomic name according to the Catalogue of Life (www.catalogueoflife.org)
 
 ##### Possible values:
 
-* `<Genus_species>` -	e.g. Chorizanthe
+* `<Genus_species>` -	e.g. Ursus americanus
 
 -----------------------------------------------
 
+### `CommonName`
 
-### `Authority`
-
-**Definition:** Taxonomic authority of SpeciesAccepted, as per  The Plant List
-
+**Definition:** Common name as used in the publication
 
 ##### Possible values:
 
-* `<Authority>` -	e.g. Benth.
-
+* `<Common_name>` -  e.g. American black bear
 
 -----------------------------------------------
 
-### `TaxonomicStatus`
+### `CoLCheckOK`
 
-**Definition:** Taxonomic correspondence of SpeciesAuthor with SpeciesAccepted
+**Definition:** Whether the taxonomy detailed here has been verified at the Catalogue of Life (http://www.catalogueoflife.org)
+
 
 ##### Possible values:
 
-* `NoMatch` -	Species is a plant, but it does not match with the data repository of The Plant List.
-
-* `Unresolved` -	No match because species is not a plant (this is always the case with brown algae, Kingdom Chromalveolata)
-
-* `Accepted` -	SpeciesAuthor is identical to SpeciesAccepted
-
-* `Synonym` -	SpeciesAuthor is synonymous of SpeciesAccepted
-
+* `TRUE` -  Taxonomy has been verified by Catalogue of Life
+* `FALSE` -  Taxonomy has not been verified by Catalogue of Life
 
 -----------------------------------------------
 
-### `TPLVersion`
+### `CoLCheckDate`
 
-**Definition:** Version of The Plant List used for taxonomic validation
+**Definition:** The date that the taxonomy was checked at the Catalogue of Life
 
 ##### Possible values:
 
-* `1.0` -	Version 1.0
+* `DDMMYYYY` -	E.g. 28052015 stands for 28th of May 2015
 
 
 -----------------------------------------------
 
-### `InfraspeciesAccepted`
+### `Infraspecies`
 
-**Definition:** Taxonomic infraspecific name of study SpeciesAccepted, as per The Plant List
+**Definition:** Taxonomic infraspecific name of study SpeciesAuthor
 
 
 ##### Possible values:
 
-* `<infraspecies>` -	e.g. pungens
+* `<infraspecies>` -	e.g. “`floridanus`“, for “`Ursus americanus subsp. floridanus`“
 
 
 -----------------------------------------------
 
 ### `SpeciesEpithetAccepted`
 
-**Definition:** Taxonomic species epithet name of study SpeciesAccepted, as per The Plant List
+**Definition:** Taxonomic species epithet name of study SpeciesAccepted, as per CoL
 
 
 ##### Possible values:
 
-* `<epithet>` -	e.g. pungens
+* `<epithet>` -	e.g. “`americanus`“, for “`Ursus americanus subsp. floridanus`“. In some cases, the author may have used a different species epithet than the currently accepted genus.
 
 -----------------------------------------------
 
 ### `GenusAccepted`
 
-**Definition:** Taxonomic genus name of study SpeciesAccepted, as per The Plant List
+**Definition:** Taxonomic genus name of study SpeciesAccepted, as per CoL
 
 
 ##### Possible values:
 
-* `<genus>` -	e.g. Chorizanthe
-
+* `<genus>` -	e.g. “`Ursus`“, for “`Ursus americanus subsp. floridanus`“. In some cases, the author may have used a different genus than the currently accepted genus.
 
 
 -----------------------------------------------
 
-### `Genus`
+### `GenusAuthor`
 
 **Definition:** Genus used in SpeciesAuthor
 
 ##### Possible values:
 
-* `<genus>` -	e.g. Chorizanthe
+* `<genus>` -	e.g. “`Ursus`“
 
 -----------------------------------------------
 
@@ -189,7 +171,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `<family>` -	e.g. Polygonaceae
+* `<family>` -	e.g. Ursidae
 
 -----------------------------------------------
 
@@ -199,7 +181,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `order` -	e.g. Caryophyllales
+* `order` -	e.g. Carnivora
 
 
 -----------------------------------------------
@@ -210,91 +192,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `<class>` -	e.g. Magnoliopsida
-
-
------------------------------------------------
-
-### `DicotMonoc`
-
-**Definition:** Whether species is a dicot or monocot
-
-##### Possible values:
-
-* `Eudicot` -	species is a dicot
-
-* `Monocot` -	species is a monocot
-
-* `NA` -	Species is neither a dicot nor a monocot (not an angiosperm)
-
-
------------------------------------------------
-
-### `AngioGymno`
-
-**Definition:** Whether species is an angiosperm or a gymnosperm
-
-##### Possible values:
-
-* `Angiosperm` -	Species is an angiosperm
-
-* `Gymnosperm` -	Species is a gymnosperm
-
-* `NA` - Neither angiosperm nor gymnosperm
-
-
------------------------------------------------
-
-### `Phylum`
-
-**Definition:** Phylum to which species belongs
-
-##### Possible values:
-
-* `<phylum>` -	e.g. Magnoliophyta
-
------------------------------------------------
-
-### `Kingdom`
-
-**Definition:** Kingdom to which species belongs
-
-##### Possible values:
-
-* `kingdom` -	e.g. Plantae
-
-
------------------------------------------------
-
-### `GrowthType`
-
-**Definition:** General plant/algae type, based mainly on architectural organization. The species was assigned to one of these possible values using the description of plant growth type provided by the author and other external sources (e.g. other publications)
-
-
-
-##### Possible values:
-
-* `Algae` -	A brown, green or red alga.
-
-* `Annual` -	Typically plant ecologists also refer to pseudoannual species as being "biennials". The main difference between the annuals and biennials is that annual species complete their lifecycle (are born, grow, reproduce and die) within a single year, whereas biennials have the potential to stretch that time-window up to two years. Both annuals and biennials are often associated with periodic (or seasonal) matrices. Biennial (and pseudoannual) species are categorized as “Annual” in COMPADRE
-
-* `Bryophyte` -	a bryophyte
-
-* `Epiphyte` -	an epiphyte
-
-* `Fern` -	a fern
-
-* `Herbaceous perennial` -	a herbaceous perennial 
-
-* `Liana` -	a liana
-
-* `Palm` -	a palm
-
-* `Shrub` -	a shrub
-
-* `Succulent` -	a succulent
-
-* `Tree` -	a tree
+* `<class>` -	e.g. Mammalia
 
 
 -----------------------------------------------
@@ -353,7 +251,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `<DOI>` or `<ISBN>` -	e.g. "10.1111/1365-2745.12334"
+* `<DOI>` or `<ISBN>` -	e.g. "10.1101/027821"
 
 
 -----------------------------------------------
@@ -364,7 +262,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `<Lastname Journal YearPublication>` -	e.g. Godinez-Alvarez Bot Rev 2003
+* `<Lastname Journal YearPublication>` -	e.g. Naujokaitis-Lewis Cons Biol 2009
 
 
 -----------------------------------------------
@@ -413,7 +311,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ### `NumberPopulations`
 
-**Definition:** Number of populations of the study species. This variable refers to the number of populations as defined by the author. Within-site replication of permanent plots are not considered to be different populations (see below)
+**Definition:** Number of populations of the study species. This variable refers to the number of populations as defined by the author. Within-site replication of permanent plots or similar are not considered to be different populations (see below)
 
 ##### Possible values:
 
@@ -428,7 +326,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `Yes` -	The matrix population model contains stages based on size (e.g. DBH, stem length, stem height, stem number, etc)
+* `Yes` -	The matrix population model contains stages based on size (e.g. wing span, weight, height, etc)
 
 * `No` -	The matrix population model is not based on size
 
@@ -442,7 +340,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `Yes` -	The matrix  population model contains at least one class that is based on development/ontogeny (e.g. seedbank, reproductive, vegetative, dormant, etc)
+* `Yes` -	The matrix  population model contains at least one class that is based on development/ontogeny (e.g. juvenile, reproductive, dormant, etc)
 
 * `No` -	Matrix population model is not based on ontogeny
 
@@ -470,7 +368,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `<any text string>` -	e.g. “Brazeau Creek, Florida”. 
+* `<any text string>` -	e.g. “Mitta Mitta River”. 
 
 
 
@@ -745,9 +643,9 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 * `W` -	Wild: study in natural conditions
 
-* `C` -	Captive: studied for most part of the life cycle of the species in a botanical garden, green house, laboratory, etc.
+* `C` -	Captive: studied for most part of the life cycle of the species in a laboratory, zoo, etc.
 
-* `CW` -	Captured from Wild: If the species was taken from a wild population but studied in labs or gardens etc.
+* `CW` -	Captured from Wild: If the species was taken from a wild population but studied in labs or zoos etc.
 
 
 -----------------------------------------------
@@ -869,7 +767,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ### `Observation`
 
-**Definition:**  This variable provides information that is not provided elsewhere but may nonetheless be important (e.g. plant canopy, burning intervals, etc.)
+**Definition:**  This variable provides information that is not provided elsewhere but may nonetheless be important (e.g. "This is a matrix constructed from a long term dataset in the UK: size was estimated in a single season but female fecundity from a long term dataset")
 
 ##### Possible values:
 
@@ -917,11 +815,11 @@ The object `matrixClass` is a `list` of `data.frame`s detailing the class names 
 
 ##### Possible values:
 
-* `prop` -	Propagule (seed). This applies to every stage defined by the author as seed bank or seed. Users are encouraged to carefully examine matrices with these stages and to implement the appropriate calculations to avoid a spurious additional year being added when no seedbank exists in the study species, as explained by Caswell (2001, p. 60).
+* `prop` -	Propagule. This applies to every stage defined by the author as a spore-like stage. Users are encouraged to carefully examine matrices with these stages and to implement the appropriate calculations to avoid a spurious additional year being added when no additional gap-years exists in the study species, as explained by Caswell (2001, p. 60).
 
 * `active` - This includes stages that can neither be placed in the  `prop` nor  `dorm` (see below) stages.
 
-* `dorm` -	A stage that is vegetatively dormant after having germinated and becoming established.
+* `dorm` -	A stage that is dormant after having been born and established.
 
 
 -----------------------------------------------
@@ -989,7 +887,7 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 ### `DateCreated`
 
-**Description:** Date of creation of the `Rdata` database object in the format `MMM_DD_YYYY`. E.g. Aug_06_2015.
+**Description:** Date of creation of the `Rdata` database object in the format `MMM_DD_YYYY`. E.g. Oct_05_2015.
 
 
 -----------------------------------------------
@@ -997,30 +895,45 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 ### `NumberAcceptedSpecies`
 
-**Description:** Total number of taxonomically accepted species. The total number of accepted species is based on variable `SpeciesAccepted` (above). E.g. 637
+**Description:** Total number of taxonomically accepted species. The total number of accepted species is based on variable `SpeciesAccepted` (above). E.g. 346
 
 -----------------------------------------------
-
 
 ### `NumberStudies`
 
-**Description:** Total number of species × studies in the database. e.g. 735
+**Description:** Total number of species × studies in the database. e.g. 402
 
 -----------------------------------------------
 
-
 ### `NumberMatrices`
 
-**Description:** Total number of matrices (not including split matrices **U**, **F** and **C**) in the database.
+**Description:** Total number of matrices (not including split matrices **U**, **F** and **C**) in the database. e.g. 1603
+
+-----------------------------------------------
+
+### `Agreement`
+
+**Description:** Link to the URL in the COMADRE database containing the open-access conditions to the use of these data: http://www.compadre-db.org/compadre/UserAgreement.
+
+-----------------------------------------------
+
+# Appendix - The calculation of mean matrix population models
+
+*	In COMADRE we present the individual matrix population models for each season, year, study population and treatment that can be calculated from a paper, as well as those personally communicated by the publication authors to the COMADRE digitization team.  When pertinent, mean matrix population models that are element-by-element averages (arithmetic mean) across all Unmanipulated matrix population models (defined above) and across each treatment group are also given. Mean matrix population models that combine estimates from different treatments, or that combine estimates from treatments with unmanipulated conditions, are not calculated because of their lack of biological interpretation (Figure 2).
+
+*	Seasonal matrix population models, where more than one matrix  population model exists for a single year, are marked as “Seasonal”.  For these, we calculate average matrix population models for each season but not for each year (Figure 3). Deriving an annual model from  seasonal data is straightforward and the calculations are described by Caswell (2001, p. 349).
+
+-----------------------------------------------
 
 
 # Appendix - The calculation of mean matrix population models
 
-*	In COMPADRE we present the individual matrix population models for each season, year, study population and treatment that can be calculated from a paper, as well as those personally communicated by the publication authors to the COMPADRE digitization team.  When pertinent, mean matrix population models that are element-by-element averages (arithmetic mean) across all Unmanipulated matrix population models (defined above) and across each treatment group are also given. Mean matrix population models that combine estimates from different treatments, or that combine estimates from treatments with unmanipulated conditions, are not calculated because of their lack of biological interpretation (Figure 2).
+*	In COMADRE we present the individual matrix population models for each season, year, study population and treatment that can be calculated from a paper, as well as those personally communicated by the publication authors to the COMADRE digitization team.  When pertinent, mean matrix population models that are element-by-element averages (arithmetic mean) across all Unmanipulated matrix population models (defined above) and across each treatment group are also given. Mean matrix population models that combine estimates from different treatments, or that combine estimates from treatments with unmanipulated conditions, are not calculated because of their lack of biological interpretation (Figure 2).
 
 *	Seasonal matrix population models, where more than one matrix  population model exists for a single year, are marked as “Seasonal”.  For these, we calculate average matrix population models for each season but not for each year (Figure 3). Deriving an annual model from  seasonal data is straightforward and the calculations are described by Caswell (2001, p. 349).
 
 -------------------------------------------
+
 
 ![mean matrices](images/Fig2.png)
 
@@ -1032,7 +945,7 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 
 ![A life cycle](images/Fig3.png)
-**Figure 3.** *Life cycle of two hypothetical plant populations based on age* (**A**) *and size* (**B**)*, with their corresponding matrix population models A, and underlying basic demographic processes of survival (U sub-matrix; solid arrows), sexual reproduction (F sub-matrix; dashed arrows) and clonal reproduction (C sub-matrix; dotted arrows). In the Leslie matrix model example* (**A**) *, the division of sub-matrices is more straightforward than in the Lefkovitch matrix model example * (**B**)*. In the latter imaginary example, individuals can transition into the same stage as they can contribute with sexual and/or clonal offspring (e.g. small stage). In these cases, splitting A into sub-matrices U, F and C is only feasible when sufficient information is provided by the authors (see variable `MatrixSplit` in above). *
+**Figure 3.** *Life cycle of two hypothetical animal populations based on age* (**A**) *and size* (**B**)*, with their corresponding matrix population models A, and underlying basic demographic processes of survival (U sub-matrix; solid arrows), sexual reproduction (F sub-matrix; dashed arrows) and clonal reproduction (C sub-matrix; dotted arrows). In the Leslie matrix model example* (**A**) *, the division of sub-matrices is more straightforward than in the Lefkovitch matrix model example * (**B**)*. In the latter imaginary example, individuals can transition into the same stage as they can contribute with sexual and/or clonal offspring (e.g. small stage). In these cases, splitting A into sub-matrices U, F and C is only feasible when sufficient information is provided by the authors (see variable `MatrixSplit` in above). *
 
 
 -----------------------

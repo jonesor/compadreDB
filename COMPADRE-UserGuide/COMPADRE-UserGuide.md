@@ -1,25 +1,23 @@
 ---
-title: "Users guide to the COMPADRE Plant Matrix Database"
+title: "User guide to the COMPADRE Plant Matrix Database"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: 3
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
   classoption: a4paper
-  pdf_document:
-    toc: yes
-    toc_depth: 3
+  word_document: default
 ---
 
 
+# User guide version information
 
--------------
+Version 3.1.1
 
-# User's guide version information
-
-Version 3.1.0
-
-Date modified: Sept 12th 2015
+Date modified: Oct 5th 2015
 
 Contact: compadre-contact@demogr.mpg.de
 
@@ -48,10 +46,14 @@ The COMPADRE digitization team does its best to ensure data accuracy, and every 
 
 # What’s new in this version
 
+### Version 3.1.1
+
+  -  Added variable "Agreement" to branch "version"
+
 ### Version 3.1.0
 
   -	735 studies with 637 taxonomically accepted plant species and a total of 6,242 population matrix models
-  -	Added variable MatrixFec
+  -	Added variable MatrixFec and branch "version"
   -	Modified output of MatrixCriteriaSize, MatrixCriteriaAge and MatrixCriteriaAge to range “Yes” or “No” only
   -	Fixed typos (approx.. 0.01% of previous release) 
 
@@ -1008,10 +1010,26 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 -----------------------------------------------
 
-
 ### `NumberMatrices`
 
 **Description:** Total number of matrices (not including split matrices **U**, **F** and **C**) in the database.
+
+-----------------------------------------------
+
+### `Agreement`
+
+**Description:** Link to the URL in the COMPADRE database containing the open-access conditions to the use of these data: http://www.compadre-db.org/Compadre/UserAgreement.
+
+-----------------------------------------------
+
+
+# Appendix - The calculation of mean matrix population models
+
+*	In COMPADRE we present the individual matrix population models for each season, year, study population and treatment that can be calculated from a paper, as well as those personally communicated by the publication authors to the COMPADRE digitization team.  When pertinent, mean matrix population models that are element-by-element averages (arithmetic mean) across all Unmanipulated matrix population models (defined above) and across each treatment group are also given. Mean matrix population models that combine estimates from different treatments, or that combine estimates from treatments with unmanipulated conditions, are not calculated because of their lack of biological interpretation (Figure 2).
+
+*	Seasonal matrix population models, where more than one matrix  population model exists for a single year, are marked as “Seasonal”.  For these, we calculate average matrix population models for each season but not for each year (Figure 3). Deriving an annual model from  seasonal data is straightforward and the calculations are described by Caswell (2001, p. 349).
+
+-----------------------------------------------
 
 
 # Appendix - The calculation of mean matrix population models
@@ -1021,6 +1039,7 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 *	Seasonal matrix population models, where more than one matrix  population model exists for a single year, are marked as “Seasonal”.  For these, we calculate average matrix population models for each season but not for each year (Figure 3). Deriving an annual model from  seasonal data is straightforward and the calculations are described by Caswell (2001, p. 349).
 
 -------------------------------------------
+
 
 ![mean matrices](images/Fig2.png)
 
