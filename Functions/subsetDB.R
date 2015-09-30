@@ -11,7 +11,7 @@ subsetDB <- function(db=comadre,sub=1:100){
   #is there a way to put the subset command into the arguments for this function?
   subsetID <- sub
 
-  # First make a copy of the database
+  # First make a copy of the database.
   ssdb <- db
   
   # Subset the sub-parts of the database
