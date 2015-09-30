@@ -1,21 +1,21 @@
 ---
 title: "User guide to the COMPADRE Plant Matrix Database"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: 3
+  word_document: default
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
+  pdf_document:
+    toc: yes
+    toc_depth: 3
   classoption: a4paper
-  word_document: default
 ---
 
 
 # User guide version information
 
-Version 3.1.1
+Version 3.2.1
 
 Date modified: Oct 5th 2015
 
@@ -46,11 +46,11 @@ The COMPADRE digitization team does its best to ensure data accuracy, and every 
 
 # What’s new in this version
 
-### Version 3.1.1
+### Version 3.2.1
 
   -  Added variable "Agreement" to branch "version"
 
-### Version 3.1.0
+### Version 3.2.0
 
   -	735 studies with 637 taxonomically accepted plant species and a total of 6,242 population matrix models
   -	Added variable MatrixFec and branch "version"
