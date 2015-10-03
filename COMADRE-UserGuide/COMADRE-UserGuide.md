@@ -48,7 +48,7 @@ The COMADRE digitization team does its best to ensure data accuracy, and every p
 
 ### Version 1.0.0
 
-  -  402 studies with 346 taxonomically accepted animal species and a total of 1,1603 population matrix models
+  -  402 studies with 346 taxonomically accepted animal species and a total of 1,603 population matrix models
 
 -----------------------------------------------
 
