@@ -1,7 +1,3 @@
-
-# "EvoDemoS Workshop - COMADRE and COMPADRE matrix databases"
-
-
 ![logo](images/Logo_COMADRE_Vertical_Color.png) ![logo](images/Logo_COMPADRE_Vertical_Color.png)
 
 
