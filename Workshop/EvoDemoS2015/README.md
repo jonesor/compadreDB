@@ -1,12 +1,8 @@
----
-title: "EvoDemoS Workshop - COMADRE and COMPADRE matrix databases"
-date: "7 Oct 2015"
-output: html_document
----
 
-![logo](images/Logo_COMADRE_Vertical_Color.png)
+# "EvoDemoS Workshop - COMADRE and COMPADRE matrix databases"
 
-![logo](images/Logo_COMPADRE_Vertical_Color.png)
+
+![logo](images/Logo_COMADRE_Vertical_Color.png) ![logo](images/Logo_COMPADRE_Vertical_Color.png)
 
 
 ## Useful links
