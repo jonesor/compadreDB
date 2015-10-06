@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------- #
-# - FILE NAME:   subsettingCOMADRE.R        
+# - FILE NAME:   ternaryPlots.R        
 # - VERSION:     01
 # - DATE:        Sept 29 2015
 # - DESCRIPTION: Code to produce ternary plots of elasticities
