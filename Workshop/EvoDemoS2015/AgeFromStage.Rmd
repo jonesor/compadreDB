@@ -1,0 +1,52 @@
+---
+title: 'Obtaining an lx mx schedule from a matrix'
+date: "6 Oct 2015"
+output: pdf_document
+classoption: a4paper
+---
+  
+
+It is possible to obtain `lx` and `mx` schedules from matrix population models using the methods described by Caswell (2001).
+
+
+
+```{r echo=FALSE}
+load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+```
+
+Load the data:
+```{r eval=FALSE}
+load("COMADRE_v.1.0.0.RData")
+```
+
+Next, query the `metadata` part of `comadre` to identify the location of the desired data using the command `which` in a conditional search:
+
+```{r comment=">"}
+id <- which(comadre$metadata$SpeciesAccepted == "Lepus_americanus")
+id
+```
+
+The code to do the mathematics is available at our GitHub site.
+
+You will first need to load the `devtools` library, and also `MASS` since the function calls functions in `MASS`:
+
+```{r}
+library(devtools)
+library(MASS)
+```
+
+Now load the required functions:
+
+```{r echo = TRUE}
+source_url("https://raw.githubusercontent.com/jonesor/compadreDB/master/Functions/makeLifeTable.R")
+```
+
+Let's pick the first of the list obtained above:
+
+```{r comment = ">"}
+lt1 <- makeLifeTable(matU = comadre$mat[[id[1]]]$matU, matF = comadre$mat[[id[1]]]$matF ,startLife = 1, nSteps=10)
+lt1
+```
+
+
+  

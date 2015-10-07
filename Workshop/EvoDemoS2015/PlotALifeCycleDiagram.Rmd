@@ -1,0 +1,64 @@
+---
+title: 'Plot a life cycle diagram from a matrix model'
+date: "6 Oct 2015"
+output: pdf_document
+classoption: a4paper
+---
+  
+
+The exercise plots a life cycle with the stages and transitions of a give matrix chosen from the `comadre` database. It will call the R script 'Plot_LifeCycle_Diagram.R' from the COMADRE github. This works well with matrices of relatively low dimensionality (~< 7), and where not many transitions are depicted. The function is based on the library `DiagrammeR`, so it needs to be called first:
+
+```{r, comment=">"}
+library(DiagrammeR)
+```
+
+Let us plot the lifecycle of the matrices 'A', 'U', 'F' and 'C' for a species containing the word "lion" in the common name used by the author(s) in the original source used in the COMADRE database. As before, first download COMADRE:
+
+```{r echo=FALSE}
+load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+```
+
+Load the data:
+```{r eval=FALSE}
+load("COMADRE_v.1.0.0.RData")
+```
+
+
+To find the species with the word 'lion' in their common name, we use the function 'str_match', which is part of the packages 'stringr', so this will need to be loaded (and installed if necessary).
+
+```{r, comment=">"}
+require(stringr)
+lions <- which(!is.na(str_match(comadre$metadata$CommonName,'lion')))
+unique(comadre$metadata$CommonName[lions])
+```
+
+Unfortunately, no actual lion ('Pantera leo') has been included in this version of COMADRE, but there are plenty of other 'lions' in it. We will plot the life cycle of the red lionfish ('Pterois volitans'):
+
+```{r, comment=">"}
+matNum <- which(comadre$metadata$CommonName == "Red lionfish")
+matNum
+sp <- gsub("_"," ",comadre$metadata$SpeciesAccepted[matNum])
+sp
+```
+
+The matrix 'A' and the stages of this study are:
+
+```{r, comment=">"}
+matA <- comadre$mat[[matNum]]$matA
+matA
+stages <- comadre$matrixClass[[matNum]]$MatrixClassAuthor
+stages
+```
+
+To plot its lifecycle, source the script 'plotLifeCycle.R' from the GitHub page of the database, for which you the library 'devtools' is necessary:
+
+```{r, comment=">"}
+require(devtools)
+source_url("https://raw.githubusercontent.com/jonesor/compadreDB/master/Functions/plotLifeCycle.R")
+```
+
+
+```{r eval =FALSE}
+plotLifeCycle(matA)
+```
+

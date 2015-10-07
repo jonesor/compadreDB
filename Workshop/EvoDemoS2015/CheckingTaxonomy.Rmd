@@ -1,0 +1,97 @@
+---
+title: 'Updating and checking the taxonomy'
+date: "6 Oct 2015"
+output: pdf_document
+classoption: a4paper
+---
+
+The following R code illustrates how to update the taxonomy used in COMADRE using the R package `taxize` (Chamberlain & Szöcs 2013) to query the Catalogue of Life (http://www.catalogueoflife.org) with the names used by the source publication authors in COMADRE. 
+
+The function `classification` in `taxize` allows the programmatic querying of databases including the Catalogue of Life. For example:
+
+```{r,eval = TRUE,echo=TRUE}
+library(taxize)
+```
+
+```{r, eval = TRUE, echo = FALSE}
+setwd("~/Dropbox/COMADRE\ intro\ ms/Data")
+load("COMADRE_v.1.0.0.RData")
+```
+
+
+
+
+```{r,comment=">"}
+classification("Daphnia magna", db = 'col')
+```
+
+One can capitalise on this for COMADRE. 
+
+Then, the required package, `taxize`.
+
+```{r,eval = FALSE}
+library(taxize)
+```
+
+Firstly, make a new vector called `SpeciesBinomial` by concatenate the accepted genus (`GenusAccepted`) and accepted species epithet (`SpeciesEpithetAccepted`) together. This is necessary, rather than simply using `SpeciesAccepted`, because `SpeciesAccepted` retains the infra-specific information which is not used by the following code:
+
+```{r, comment=">"}
+comadre$metadata$SpeciesBinomial <- 
+paste(comadre$metadata$GenusAccepted, comadre$metadata$SpeciesEpithetAccepted)
+```
+
+Some species do not have an epithet (e.g. *Tribolium* sp.), for these the epithet is listed as `NA`. Therefore, to search the Catalogue of Life effectively, the `NA` needs to be removed using `gsub`:
+
+```{r, comment=">"}
+comadre$metadata$SpeciesBinomial <- gsub("NA", "", 
+                                         comadre$metadata$SpeciesBinomial)
+```
+
+Because species appear in the database numerous times it is advisable for efficiency reasons to make a unique subset of the data:
+
+```{r, comment=">"}
+temp <- unique(comadre$metadata[, c("SpeciesBinomial", 
+"GenusAccepted", "Family", "Order", "Class", "Phylum", "Kingdom")])
+```
+
+This dataset is still quite large (`r nrow(temp)` rows), so here I will just obtain the information for the first 5 rows.
+
+```{r, comment=">"}
+temp <- temp[1:5,]
+```
+
+This is accomplished using the `classification` function which repeatedly queries the Catalogue of Life for each entry. Note that whenever there is an uncertainty as to which species is intended, the software prompts the user to select a species from a list.
+
+```{r, comment=">"}
+x <- classification(temp$SpeciesBinomial,db='col')
+```
+
+The object produced by this code is a `list` with elements corresponding to each species. Thus `x[[1]]` will return the first species etc. One can also address the list by element name, which is defined by the query that was submitted e.g. `x[["Acipenser fulvescens"]]`
+
+```{r,comment=">"}
+x[[1]]
+```
+
+Thus, to acquire the taxonomic Order of the species of interest one would use:
+
+```{r,comment=">"}
+x[[1]]$name[x[[1]]$rank == "Order"]
+```
+
+One can run through this list object in a loop to compare the information held in COMADRE, with that produced by the query to Catalogue of Life. For example, to check the Orders of the 5 species held in `temp`
+
+```{r,comment=">"}
+for(i in 1:nrow(temp)){
+n <- temp$SpeciesBinomial[i]
+dat <- x[[n]]
+CoL_Order <- dat$name[dat$rank == "Order"]
+if(temp$Order[i]==CoL_Order){temp$OrderOK[i] <- "OK"} else {temp$OrderOK[i] <- "Differs!"}
+}
+```
+
+which will add an extra column called `OrderOK` to the `temp` data frame:
+
+```{r,comment=">"}
+temp
+```
+This approach can naturally be repeated this for each part of the taxonomy.
