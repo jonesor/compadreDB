@@ -31,6 +31,7 @@ The COMPADRE and COMADRE website http://www.compadre-db.org (download the latest
 
 [PDFs of Rob's talk on Monday afternoon](https://github.com/jonesor/compadreDB/raw/master/Workshop/EvoDemoS2015/Salguero-Gomez%20EvoDemoS%202015.pptx.pdf)
 
+[PDFs of talk on structure of COMADRE](https://github.com/jonesor/compadreDB/raw/master/Workshop/EvoDemoS2015/COMADRE-Workshop-EvoDemoS-Structure.pdf)
 
 
 ROpenSci has some very useful R-based tools to link/query databases: https://ropensci.org
