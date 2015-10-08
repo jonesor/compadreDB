@@ -1,15 +1,13 @@
 ---
-title: 'Geographic distribution'
-date: "6 Oct 2015"
+title: "Geographic distribution"
+date: "`r Sys.Date()`"
 output: pdf_document
 classoption: a4paper
 ---
 
 This example produces on a world map the viability (population growth rate $\lambda$ > 1, $\lambda$ = 1, $\lambda$ < 1) of a subset of studied populations given some selection criteria, and color-codes the location of each population according to the value of $\lambda$.
 
-First, subset mean matrices for all Carnivora in the wild in the
- Northern hemisphere, with no issues for survival >1, for
- which matrices have been split into **A** = **U** + **F** + **C**, and for  which reproduction was explicitly modeled.
+First, subset mean matrices for all Carnivora in the wild in the northern hemisphere, with no issues for survival >1, for which matrices have been split into **A** = **U** + **F** + **C**, and for which reproduction was explicitly modeled.
 
 
 ```{r echo=FALSE}
@@ -40,7 +38,7 @@ library(devtools)
 source_url("https://raw.githubusercontent.com/jonesor/compadreDB/master/Functions/subsetDB.R")
 ```
 
-§
+
 ```{r, comment=">"}
 id <- as.numeric(rownames(tempMetadata))
 x<-subsetDB(comadre,id)
@@ -96,8 +94,9 @@ Now we can create a vector of color hex codes that can be applied according to t
 
 rampfunc <- colorRampPalette(c("green", "red"))
 colVect <- rampfunc(100)
-colVect <- paste(colVect,"90",sep="")
-s1 <- seq(min(x$metadata$lambdas,na.rm=TRUE),max( x$metadata$lambdas,na.rm=TRUE),length.out = 100)
+colVect <- paste(colVect,"90", sep="")
+s1 <- seq(min(x$metadata$lambdas, na.rm=TRUE),max(x$metadata$lambdas, na.rm=TRUE),
+          length.out = 100)
 ```
 
 First, load the `maps` package (and install it if necessary). Then plot the world map and overlay the points from our data, color coded by value of $\lambda$. In this case, the points are jittered slightly to improve visibility of nearby populations.
@@ -105,7 +104,8 @@ First, load the `maps` package (and install it if necessary). Then plot the worl
 ```{r, comment=">"}
 library(maps)
 map("world", col = "gray", fill = TRUE, bg = "light blue",
-    xlim=c(-175,176),ylim=c(-60, 85), border = "white")
+    xlim = c(-175, 176), ylim = c(-60, 85), border = "white")
 
-points(jitter(x$metadata$LON,amount=0.6),jitter(x$metadata$LAT,amount = 0.6),col = colVect[findInterval(x$metadata$lambdas,s1)],cex=2,pch=16)
+points(jitter(x$metadata$LON, 0.6), jitter(x$metadata$LAT, 0.6),
+       col = colVect[findInterval(x$metadata$lambdas, s1)],cex = 2, pch = 16)
 ```

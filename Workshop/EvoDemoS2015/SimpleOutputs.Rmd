@@ -1,6 +1,6 @@
 ---
 title: 'Simple outputs from many matrices'
-date: "6 Oct 2015"
+date: "`r Sys.Date()`"
 output: pdf_document
 classoption: a4paper
 ---

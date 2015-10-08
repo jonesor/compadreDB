@@ -1,5 +1,5 @@
 ---
-title: 'Obtaining an lx mx schedule from a matrix'
+title: "Obtaining an lx mx schedule from a matrix"
 date: "6 Oct 2015"
 output: pdf_document
 classoption: a4paper
@@ -44,7 +44,8 @@ source_url("https://raw.githubusercontent.com/jonesor/compadreDB/master/Function
 Let's pick the first of the list obtained above:
 
 ```{r comment = ">"}
-lt1 <- makeLifeTable(matU = comadre$mat[[id[1]]]$matU, matF = comadre$mat[[id[1]]]$matF ,startLife = 1, nSteps=10)
+lt1 <- makeLifeTable(matU = comadre$mat[[id[1]]]$matU, matF = comadre$mat[[id[1]]]$matF,
+                     startLife = 1, nSteps=10)
 lt1
 ```
 

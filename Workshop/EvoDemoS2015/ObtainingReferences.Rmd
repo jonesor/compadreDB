@@ -1,9 +1,11 @@
 ---
 title: 'Obtaining full references'
-date: "6 Oct 2015"
+date: "`r Sys.Date()`"
 output: pdf_document
 classoption: a4paper
 ---
+
+
 
 The following example illustrates how to check and find the full references and DOI for the publications used in COMADRE. See also Supporting Information Appendix S4 below.
 
@@ -66,3 +68,8 @@ Armed with the DOI, it is easy to obtain the full title, author list etc. from C
 doiValues <- gsub("http://dx.doi.org/","",temp$doi)
 cr_cn(dois=doiValues,format = "text", style = "apa")
 ```
+
+
+
+
+

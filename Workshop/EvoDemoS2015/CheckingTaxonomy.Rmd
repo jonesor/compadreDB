@@ -1,6 +1,6 @@
 ---
 title: 'Updating and checking the taxonomy'
-date: "6 Oct 2015"
+date: date: "`r Sys.Date()`"
 output: pdf_document
 classoption: a4paper
 ---
@@ -27,13 +27,13 @@ classification("Daphnia magna", db = 'col')
 
 One can capitalise on this for COMADRE. 
 
-Then, the required package, `taxize`.
+First load the required package, `taxize`.
 
 ```{r,eval = FALSE}
 library(taxize)
 ```
 
-Firstly, make a new vector called `SpeciesBinomial` by concatenate the accepted genus (`GenusAccepted`) and accepted species epithet (`SpeciesEpithetAccepted`) together. This is necessary, rather than simply using `SpeciesAccepted`, because `SpeciesAccepted` retains the infra-specific information which is not used by the following code:
+Now make a new vector called `SpeciesBinomial` by concatenate the accepted genus (`GenusAccepted`) and accepted species epithet (`SpeciesEpithetAccepted`) together. This is necessary, rather than simply using `SpeciesAccepted`, because `SpeciesAccepted` retains the infra-specific information which is not used by the following code:
 
 ```{r, comment=">"}
 comadre$metadata$SpeciesBinomial <- 
@@ -80,12 +80,14 @@ x[[1]]$name[x[[1]]$rank == "Order"]
 
 One can run through this list object in a loop to compare the information held in COMADRE, with that produced by the query to Catalogue of Life. For example, to check the Orders of the 5 species held in `temp`
 
-```{r,comment=">"}
+```{r,comment=">", tidy.opts=list(blank=TRUE, width.cutoff=60)}
 for(i in 1:nrow(temp)){
 n <- temp$SpeciesBinomial[i]
 dat <- x[[n]]
 CoL_Order <- dat$name[dat$rank == "Order"]
-if(temp$Order[i]==CoL_Order){temp$OrderOK[i] <- "OK"} else {temp$OrderOK[i] <- "Differs!"}
+if(temp$Order[i] == CoL_Order){temp$OrderOK[i] <- "OK"
+} else {
+    temp$OrderOK[i] <- "Differs!"}
 }
 ```
 
@@ -94,4 +96,4 @@ which will add an extra column called `OrderOK` to the `temp` data frame:
 ```{r,comment=">"}
 temp
 ```
-This approach can naturally be repeated this for each part of the taxonomy.
+This approach can naturally be repeated for each part of the taxonomy.
