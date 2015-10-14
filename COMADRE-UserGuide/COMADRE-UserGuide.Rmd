@@ -18,7 +18,7 @@ output:
 
 Version 1.0.0
 
-Date modified:  '`r format(Sys.time(), "%B %d %Y")`'
+Date modified:  `r format(Sys.time(), "%B %d %Y")`
 
 Contact: comadre-contact@demogr.mpg.de
 

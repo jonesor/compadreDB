@@ -1,16 +1,16 @@
 ---
 title: "User guide to the COMPADRE Plant Matrix Database"
 output:
+  word_document: default
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
-  classoption: a4paper
   pdf_document:
     toc: yes
     toc_depth: 3
-  word_document: default
-date: '`r Sys.Date()`'
+  classoption: a4paper
+date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
 
 
@@ -18,7 +18,7 @@ date: '`r Sys.Date()`'
 
 Version 3.2.1
 
-Date modified: '`r Sys.Date()`'
+Date modified: `r format(Sys.time(), "%B %d %Y")`
 
 Contact: compadre-contact@demogr.mpg.de
 
