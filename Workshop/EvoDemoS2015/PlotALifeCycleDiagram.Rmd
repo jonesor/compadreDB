@@ -1,6 +1,6 @@
 ---
 title: "Plot a life cycle diagram from a matrix model"
-date: "`r Sys.Date()`"
+date: '`r Sys.Date()`'
 output: pdf_document
 classoption: a4paper
 ---
