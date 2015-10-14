@@ -561,7 +561,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 * `LRD` - Freshwater - large river delta ecosystems
 
-* `SRD` - Freshwater - small river delta ecosystems
+* `SRE` - Freshwater - small river ecosystems
 
 * `SLE` - Freshwater - small lake ecosystems
 
@@ -575,7 +575,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 * `TEU` - Marine - temperate upwellings
 
-* `TRU` - Marine -tropical upwellings
+* `TRU` - Marine - tropical upwellings
 
 * `TRC` - Marine - tropical coral
 
