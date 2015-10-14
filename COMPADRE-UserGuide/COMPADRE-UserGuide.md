@@ -665,7 +665,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 * `LRD` - Freshwater - large river delta ecosystems
 
-* `SRD` - Freshwater - small river delta ecosystems
+* `SRE` - Freshwater - small river ecosystems
 
 * `SLE` - Freshwater - small lake ecosystems
 
