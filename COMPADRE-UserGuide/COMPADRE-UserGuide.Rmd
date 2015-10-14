@@ -1,15 +1,15 @@
 ---
 title: "User guide to the COMPADRE Plant Matrix Database"
 output:
-  word_document: default
+  pdf_document:
+    toc: yes
+    toc_depth: 3
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
-  pdf_document:
-    toc: yes
-    toc_depth: 3
   classoption: a4paper
+  word_document: default
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
 
