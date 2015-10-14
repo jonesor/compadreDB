@@ -421,7 +421,7 @@ __Freshwater ecoregions__
 * LRE	large river ecosystems
 * LRH	large river headwater ecosystems
 * LRD	large river delta ecosystems
-* SRD	small river delta ecosystems
+* SRE	small river ecosystems
 * SLE	small lake ecosystems
 * LLE	large lake ecosystems
 * XBE	xeric basin ecosystems
