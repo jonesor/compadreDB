@@ -1,0 +1,258 @@
+---
+title: "Protocol Appendix: Animal Class"
+output: rmarkdown::tufte_handout
+author: -- by the COMPADRINOs
+date: '`r Sys.Date()`'
+classoption: a4paper
+---
+
+#
+
+The COMADRE Plant Matrix Database includes animals of numerous taxonomic classes. This document outlines some basic information about them.
+
+## Aves (Vögel)
+
+Birds are found mostly **terrestrial** in different ecoregions from costal to rain forests. Reproduction type is **sexual**.
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image1.jpeg}
+\caption{\emph{Larus argentatus} – Silbermöwe}
+\end{marginfigure}
+
+## Bivalvia (Muscheln)
+
+These organisms have a two-piece shell and that’s why they’re called bivalvia. They live in **freshwater** and **marine** ecoregions burried in the sediment, fixed on rocks or on the ground. **Sexual** Reproduction is common. In their life-cycles free-living **larvae** are the stages after hatching. First larvae are called trochophora larve which are developing into veliger larvae. The latter one settles on the ground and grows to juvenils. A few species are **hermaphrodites** (male and female organs in same individual).
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image2.jpeg}
+\caption{\emph{Cerastoderma edule} - Herzmuschel}
+\end{marginfigure}
+
+## Branchiopoda (Kiemenfußkrebse)
+
+Here we have crustaceae which have gills, like shrimp, Daphnia (Wasserfloh), *{Artemia salina* (Urzeitkrebs). Ecoregions are mostly **freshwater**, sometimes **marine** (*Daphnia*). Their reproduction is sexual but there are some exceptions: for *Daphnia* we have **parthenogenesis**, females asexually produce not fertilized but viable eggs. 
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image3.jpeg}
+\caption{\emph{Daphnia} sp. - Wasserfloh}
+
+\end{marginfigure}
+
+
+
+## Cephalaspidomorphi
+
+In this class there are jawless (kieferlose) fishes, most of them fossil. Recent organisms are lampreys. They live in **freshwater** and **marine** (mostly costal, seldom open sea) ecosystems. In their life cycles **larvae** live buried in the sediment for several years.
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image4.jpeg}
+\caption{Lamprey - Neunauge}
+\end{marginfigure}
+
+
+
+## Clitellata (Gürtelwürmer)
+
+These class includes worms like earthworms (Regenwürmer), leeches (Egel) and e.g. *Tubifex* (used for fish food). Their ecoregions are mostly **terrestrial** but also **freshwater** and **marine**. Reproduction is **sexual** and they are **hermaphrodites** (male and female organs in same individual).
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image5.jpeg}
+\caption{\emph{Tubifex} sp.}
+\end{marginfigure}
+
+
+## Demospongiae (Hornkieselschwämme)
+
+This class represents 81 % of sponges. Largest species are over 1 m in length. They are **marine**, one species occures in fresh water. These sponges have both **sexual** and **asexual** reproduction. Life cycles are complicated regarding to complex asexual reproduction with budding (Knospung) and/or gemmules (Dauerstadium=dormancy).
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image6.jpeg}
+\caption{\emph{Spongia officinalis} - Badeschwamm}
+\end{marginfigure}
+
+## Diplopoda (Doppelfüßer)
+
+Here we have the millepedes (Tausendfüßer). These animals live in terrestrial, mostly tropical ecoregions. Reproduction types are **sexual** and **asexual**. A special feature of their life cycles is **parthenogenesis** (females asexually produce not fertilized but viable eggs).
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image7.jpeg}
+\caption{Millipede}
+\end{marginfigure}
+
+## Echinoidea (Seeigel)
+
+Sea urchins live in marine ecoregions. They reproduct **sexually** and hava a **larva stage** called pluteus.
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image8.jpeg}
+\caption{\emph{Sphaerechinus granularis}}
+\end{marginfigure}
+
+## Elasmobranchii (Plattenkiemer)
+
+This class includes sharks as well as rays (Rochen). These fishes only live in **marine** ecoregions and reproduce **sexually**.
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image9.jpeg}
+\caption{\emph{Carcharodon carcharias}}
+\end{marginfigure}
+
+## Gastropoda (Schnecken)
+
+Snails are molluscs with or without a shell. They live in different environments in **terrestrial**, **marine** and **freshwater** ecoregions. Some species are **hermaphrodites** (male and female organs in same individual). In the life cycle there are **larvae** (in water, called veliger or trochophore).
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image10.jpeg}
+\caption{\emph{Helix pomatia} - Weinbergschnecke}
+\end{marginfigure}
+
+
+## Gymnoleamata 
+
+This group is a class of bryozoa (Moostierchen), which are small multicellular organisms living in water. So they are found mostly in **marine** and also **freshwater** ecosystems. Reproduction includes **sexual** and **asexual** parts. The single animals build big colonies via **asexual budding** (Knospung).
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image11.jpeg}
+\caption{\emph{Flustra foliaceae} colony}
+\end{marginfigure}
+
+## Homo sapiens
+
+Homo sapiens are not a class (they are in Class Mammalia) but they are recorded in our Excel spreadsheet within their own Worksheet.
+Their ecoregions are **terrestrial** and reproduction is **sexual**.
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image12.jpeg}
+\caption{Mensch}
+\end{marginfigure}
+
+## Insecta (Insekten)
+
+Insects are animals with three pairs of legs and compound-eyes. They live in **terrestrial** but also in **freshwater** and **marine** ecoregions. Reproduction is **sexual** and sometimes **asexual**. The life cycle includes the stages **larva** and **pupa** and can be partly in water also for terrestrial organisms. Sometimes there is **parthenogenesis** (females asexually produce not fertilized but viable eggs).
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image13.jpeg}
+\caption{\emph{Curcoinolidae} - Rüssekäfer}
+\end{marginfigure}
+
+## Malacostraca (Höhere Krebse)
+
+In this class we found crab, lobster and shrimp. They live in **freshwater** and seldom **terrestrial** ecoregions. Reproduction is **sexual**. The larva stage is called nauplius. Few species are **hermaphrodites** (male and female organs in same individual).
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image14.jpeg}
+\caption{\emph{Cancer pargurus} - Taschenkrebs}
+\end{marginfigure}
+
+## Mammalia (Säugetiere)
+
+Mammals live in different environments like **terrestrial**, **marine** and **freshwater** ecoregions. They reproduce **sexually**. Some exceptions lay eggs.
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image15.jpeg}
+\caption{\emph{Lotra provocax} - Flussotter}
+\end{marginfigure}
+
+## Maxillopoda (eine Klasse der Krebstiere)
+
+These class which includes different crustaceans is found in **marine** and **freshwater** ecoregions. The type of reproduction is **sexual** and life history includes **larvae** called nauplius. Few species are **hermaphrodites** (male and female organs in same individual).
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image16.jpeg}
+\caption{Balinidae - Seepocken}
+\end{marginfigure}
+
+## Merostomata (Hüftmünder)
+
+This class includes recent horseshoecrabs (Pfeilschwanzkrebse) and extinct sea scorpions. They only live in **marine** ecoregions and reproduce **sexually**. **Larvae** are part of the life cycle.
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image17.jpeg}
+\caption{\emph{Limolus polyphemus} - Pfeilschwanzkrebs}
+\end{marginfigure}
+
+## Onychophorida (Stummelfüßer)
+
+These organisms are the so-called ‘worms with legs’. They live mostly in tropical regions of **terrestrial** ecosystems. Reproduction is mostly **sexual**, one species also reproduces **asexually** (**parthogenesis** for \emph{Epiperiatus imthurni} (no males)).
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image18.jpeg}
+\caption{\emph{Eoperipatus totoro}}
+\end{marginfigure}
+
+## Ostrascoda (Muschelkrebse)
+
+These small crustaceans are part of the plancton or live on the sea ground. So their ecoregions are **marine** and also **freshwater**. Type of reproduction is **sexual**, seldom **asexual**. Life history includes a **larval** stage which is calles nauplius. Few species are **hermaphrodites** (male and female organs in same individual), seldom **parthenogenesis**.
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image19.jpeg}
+\caption{An ostracod}
+\end{marginfigure}
+
+## Polychaeta (Vielborster)
+
+Bristle worms live in nearly every **marine** ecosystem, up to the deep sea. But they’re also sometimes found in **freshwater** ecoregions. Reproduction is **sexual**. **Larva**, as a stage of their life cycle, are called trochophora. 
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image20.jpeg}
+\caption{Worm}
+\end{marginfigure}
+
+
+## Reptilia (Reptilien)
+
+Reptiles live in **terrestrial**, **freshwater** and **marine** ecoregions. Next to **sexual** reproduction in some single cases also **asexual** reprodution occurs (**Parthenogenesis**).
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image21.jpeg}
+\caption{\emph{Batagur baska} – Batagur-Schildkröte}
+\end{marginfigure}
+
+## Secernentea (Klasse der Fadenwürmer)
+
+A member of this class is the famous nematode *C. elegans*, which was the first multicellular organism with a whole sequenced genome and is thenceforward handled as a model animal. These worms are living in **terrestrial** or in **freshwater** ecoregions and reproduce **sexually**. Sometimes they are parasites with complex life cycles. 
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image22.jpeg}
+\caption{\emph{Caenorhabditis elegans}}
+\end{marginfigure}
+
+## Spirochaetes (Spirochäten)
+
+This is a group of gram-negative bacteria which are living in **terrestrial**, **marine** and **freshwater** ecoregions. Reproduction includes both **sexual** and **asexual** systems. Here we found some parasites.
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image23.jpeg}
+\caption{spirochaete}
+
+\end{marginfigure}
+
+## Thaliaceae (Salpen)
+
+Salps are free-floating animals which could form big colonies. They only occur in **marine** habitats. The life-cycle includes an alteration of generations: first **sexual** than **asexual** reproduction.
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image24.jpeg}
+\caption{\emph{Pegea confoederata} colony}
+\end{marginfigure}
+
+## Virus
+
+A virus is not a cell itself but needs a host cell for reproduction via so called bacteriophages. They could occure in **terrestrial**, **marine** as well as **freshwater** ecoregions.
+
+
+\begin{marginfigure}
+\includegraphics[width=.8\marginparwidth]{classimages/image25.jpeg}
+\caption{Virus}
+\end{marginfigure}
