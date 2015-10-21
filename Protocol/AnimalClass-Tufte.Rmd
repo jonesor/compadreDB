@@ -212,7 +212,7 @@ This class includes bristle worms, which live in nearly every **marine** ecosyst
 Reptiles live in **terrestrial**, **freshwater** and **marine** ecoregions. Most reproduce via **sexual** reproduction, although in cases **asexual** reprodution can also occur via **parthenogenesis**.
 
 \begin{marginfigure}
-\includegraphics[width=.8\marginparwidth]{data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAMElEQVR42mNgIAXY2Nj8x8cHC8AwMl9XVxe3QqwKcJmIVwFWhehW4LQSXQCnm3ABAHD6MDrmRgfrAAAAAElFTkSuQmCCclassimages/image21.jpeg}
+\includegraphics[width=.8\marginparwidth]{classimages/image21.jpeg}
 \caption{\emph{Batagur baska} – Batagur-Schildkröte}
 \end{marginfigure}
 
