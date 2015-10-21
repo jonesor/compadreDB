@@ -42,6 +42,8 @@ All pieces of information extracted from PDFs must be highlighted directly on th
 
 * When digitising matrices, only colors from the color palette, which is given inside the Excel file under the tab "Color palette", can be used in the Stacked Matrix file. Where matrices can be split, please always include an “A” matrix as well as “U”, “F” & “C” matrices (for explanation see here in the stacked matrix file. Present matrices from left-to-right in the order A, U, F, C. __Always__ split matrices when possible.
 
+* The COMPADRINOs have writtenguides to plant growth types and animal classes which we categorise species to. They are [here](https://github.com/jonesor/compadreDB/raw/master/Protocol/PlantGrowthForm-Tufte.pdf) (plant growth type) and [here](https://github.com/jonesor/compadreDB/raw/master/Protocol/AnimalClass-Tufte.pdf) (animal classes).
+
 ******
 
 #Values used throughout the database
