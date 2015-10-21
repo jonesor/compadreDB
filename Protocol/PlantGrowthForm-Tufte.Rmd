@@ -9,67 +9,65 @@ classoption: a4paper
 #
 
 
-The COMPADRE Plant Matrix Database categorises plants (and algae) to one of 11 "growth types". This document gives a brief overview of each of these types and gives an indication of what *Raunkiær Growth Form (RGF)* is likely to be represented.
+The COMPADRE Plant Matrix Database categorizes plants (and brown and red algae) into one of 11 "growth types". This document provides a brief overview of each of these types with an indication of what *Raunkiær Growth Form* (RGF hereafter) is likely to be represented.
 
 ## Algae
 
-Algae are plant-like species including basal unicellular organisms up to complex close relatives of higher plants. They are grouped into red algae, brown algae and green algae due to their pigmentation.  Reproduction with sexual and asexual stages is mostly complex and include generation changes.  Often one sexual (gametophyte) and on asexual (sporophyte) plant is part of the life cycle. Algae live mostly in marine and freshwater ecoregions.
+Algae is an informal (i.e. not taxonomically accepted) term used to refer to a large, diverse group of eukaryotes of polyphyletic origin. These contain, among others, green, brown and red algae, names that are based on their pigmentation. [Green algae](https://en.wikipedia.org/wiki/Green_algae) are plants. [Brown algae](https://en.wikipedia.org/wiki/Brown_algae) and [red algae](https://en.wikipedia.org/wiki/Red_algae) are not considered plants - but in COMPADRE we treat them as though they are due to convenience and because their demography is more similar to plants than to animals (COMADRE). Collectively, these species including basal unicellular organisms up to complex close relatives of higher plants. Reproduction can be sexual and/or asexual, and also it may involve alternating generations, with a sexual (gametophyte) and an asexual (sporophyte) part explicitly described of the life cycle. Algae live in marine and freshwater ecoregions.
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image1.jpeg}
 \end{marginfigure}
 
-*	Not every plant living in water is an algae (higher plants living in water tend to be herbaceous perennials)
-* RGF: Hydrophyte
+*	Not every plant living in water is an algae (higher plants living in water tend to be herbaceous perennials).
+* RGF: Hydrophyte (buds below water).
 
 ## Annual
 
-These plants are called annuals because mostly their life cycle from germination, reproduction to death is completed within a year. Exceptions are biennials and pseudoannuals (life cycle not completed within a year). Type of reproduction is both, sexual and asexual. 
+These plants are called annuals because they complete their life cycle from germination, to growth, to reproduction and to death within a year or less. Exceptions are biennials and pseudoannuals (life cycle not completed within a year, but in less than two). Type of reproduction is both, sexual and asexual, but most frequently sexual.
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image2.jpeg}
 \end{marginfigure}
 
-*	Often there is a seed bank in matrices.
-*	RGF: Therophyte
+*	Often there is a seed bank stage in the matrices.
+*	RGF: Therophyte (buds belowground or at ground level, and lifespan < 1 year).
 
 ## Bryophyte
 
-Mosses are lower plants which grow ground-covering. Their reproduction includes sexual and asexual reproduction, the latter one mostly via fragmentation (seceded parts of moss).
+Mosses are lower plants that expand horizontally, covering the ground or other plants (see below for RGF classification), as opposed to growing tall (e.g. like trees). Their reproduction includes sexual and asexual reproduction, the latter one mostly via fragmentation of parts of the moss.
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image3.jpeg}
 \end{marginfigure}
 
-*	RGF: Epiphyte, Hemicryptophyte
+*	RGF: Epiphyte when growing on top of another plant, Hemicryptophyte when growing at ground level.
 
 ## Epiphyte
 
-Without using nutrients or water from their hosts, epiphytes are growing on other plants (e.g. trees). A distinction is made between higher plants and lower plants (e.g. lichens). Next too common sexual reproduction, mostly lower plants have asexual reproduction as well.
+These plants do not typically use soil nutrients. Instead, the live on top of other plants and benefit from their host' height to access high humidity and light levels. They may uptake nutrients directly from the air moisture, deposition on branches, or from parasitizing their hosts. A distinction is made between higher plants and lower plants (e.g. lichens). They typically reproduce via sexual reproduction, but lower plants can also have asexual reproduction.
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image4.jpeg}
 \end{marginfigure}
 
-*	Migration within population from one host tree to another is possible
+*	Migration within population from one host tree to another is possible (e.g. _Heteropsis_)
 *	RGF: Epiphyte 
 
 ## Fern
 
-These basal vascular plants are also called pteridophytes. Their reproduction includes one sexual (gametophyte) and one asexual plant (sporophyte).
+These basal vascular plants are also called pteridophytes. Their reproduction includes both sexual (gametophyte) and asexual stages (sporophyte).
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image5.jpeg}
 \end{marginfigure}
 
 *	Asexual reproduction via spores not equal too seeds
-*	RGF: Chamaephyte, Nanophanerophyte (big ones), Hemicryptophyte (?)
-
-
+*	RGF: Hemicryptophyte (at ground level), Chamaephyte (0-0.25 m max height from ground), or Nanophanerophyte (0.25-8 m max height)
 
 ## Herb
 
-Herbaceous perennials have plant parts that survive close to or in the ground (like stems, rhizomes) after growing season, while leaves etc. die. This class also includes bigger plants like banana (Musa sp.). Reproduction is sexual and asexual, clonal reproduction occurs also via stolons (=Ausläufer).
+Herbaceous perennials are plant that do not produce woody tissue and live for more than two years. They can produce parts that persist close to or at ground level (like stems, rhizomes) after the growing season, while leaves etc. die. This class also includes bigger plants like banana (_Musa sp._). Reproduction can include sexual and/or asexual, clonal reproduction can occur via stolons (=Ausläufer), among other types.
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image6.jpeg}
@@ -77,13 +75,15 @@ Herbaceous perennials have plant parts that survive close to or in the ground (l
 
 *	Seed bank
 *	Underground parts for vegetative dormancy
-*	RGF: Hydrophyte, Helophyte, Epiphyte, Geophyte, Hemicryptophyte, Chryptophyte
+*	RGF: Hydrophyte (below water), Helophyte (in marshy grounds), Epiphyte (on top of other plants), Geophyte (underground), Hemicryptophyte (at ground level), Chamaephyte (0-0.25 m max height from ground)
 
 ## Liana
 
-Lianas are woody plants with roots in the soil that use trees etc. to climb towards the light. This growth form is important especially in rain forests where the light on the ground is reduced a lot due to dense canopy of trees.  Reproduction is sexual and asexual. 
+Lianas are thin, woody plants with roots in the soil that use trees etc. to climb towards the light. This growth form is common in tropical forests, where the light on the ground is reduced due to dense canopy of trees. Reproduction can be sexual and/or asexual. 
 
-NEEDS TO HAVE AN ASSOCIATION TO RGF
+*	RGF: Nanophanerophyte (0.25-8 m max height), Mesophanerophyte (8-30 m max height), Megaphanerophyte (>30 m max height)
+
+
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image7.jpeg}
@@ -91,41 +91,42 @@ NEEDS TO HAVE AN ASSOCIATION TO RGF
 
 ## Palm
 
-Palms are all members of one family (Arecaceae). They don’t have real wood like trees which has no annual tree rings. Both types of reproduction, asexual and sexual, are part of their life cycles.
+Palms are all members of one family (Arecaceae). They do not form real wood, unlike trees (below), because they do not form annual tree rings. They can reproduce via sexual and/or asexual reproduction.
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image8.jpeg}
 \end{marginfigure}
 
 *	Mostly simple matrices
-*	RGF: Nanophanerophyte, Mesophanerophyte
+*	RGF: Nanophanerophyte (0.25-8 m max height), Mesophanerophyte (8-30 m max height), Megaphanerophyte (>30 m max height)
+
 
 ## Shrub
 
-These are woody plants that are usually smaller than trees and have multiple stems. They reproduce sexually and asexually.
+Shrubs are woody plants that are usually smaller than trees and have multiple stems. They can reproduce via sexual and/or asexual reproduction.
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image9.jpeg}
 \end{marginfigure}
 
 *	Sometimes seed bank
-*	RGF: Chamaephyte, Nanophanaerophyte, Mesophanaerophyte
+*	RGF: Chamaephyte, Nanophanaerophyte (0.25-8 m max height), Mesophanerophyte (8-30 m max height)
 
 ## Succulent
 
-Succulents like cacti but also lots of other plants store water in leaves and/or stems. They live in arid (e.g. deserts) or salty (e.g. coasts) regions. Reproduction can be sexual or asexual.
+Succulents like cacti, but also lots of other plants, store water in leaves and/or stems. They live in arid (e.g. deserts) or salty (e.g. coasts) regions. Reproduction can be sexual or asexual.
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image10.jpeg}
 \end{marginfigure}
 
 
-*	RGF: Chamaephyte, Nanophanaerophyte, Mesophynaerophyte (bigger cacti)
+*	RGF: Chamaephyte, Nanophanaerophyte (0.25-8 m max height), Mesophanerophyte (8-30 m max height)
 
 
 ## Tree
 
-These plants are woody and have a single stem. Their range of distribution is delimited by the tree line -  a spatial border due to less temperature and humidity which is found e.g. in higher longitudes (Arctic) or elevations (alpine). Next to sexual reproduction also asexual reproduction is possible. 
+Trees produce true wood, and tend to have a single stem (though exceptions clearly exist). Their range of distribution is delimited by the tree line -  a spatial border due to a drastic change in temperature and humidity which is found e.g. in higher longitudes (Arctic) or elevations (alpine). They tend to reproduce mostly via sexual means, but asexual reproduction is also possible in some species.
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image11.jpeg}
@@ -133,5 +134,5 @@ These plants are woody and have a single stem. Their range of distribution is de
 
 *	Mostly simple matrices
 *	DBH: Diameter at Brest Height usually for CriteriaSize
-*	RGF: Nanophanerophyte, Mesophanerophyte, Megaphanerophyte
+*	RGF: Nanophanerophyte (0.25-8 m max height), Mesophanerophyte (8-30 m max height), Megaphanerophyte (>30 m max height)
 
