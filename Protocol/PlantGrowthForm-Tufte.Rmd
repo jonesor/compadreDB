@@ -1,6 +1,6 @@
 ---
 title: "Protocol appendix: Plant growth type and form"
-author: -- by the COMPADRINOs
+author: -- by the COMPADRinos
 output: rmarkdown::tufte_handout
 date: '`r Sys.Date()`'
 classoption: a4paper
@@ -9,7 +9,7 @@ classoption: a4paper
 #
 
 
-The COMPADRE Plant Matrix Database categorises plants (and algae) to one of 11 "growth types". This document gives a brief overview of each of these types and gives an indication of what *Raunkiaer Growth Form (RGF)* is likely to be represented.
+The COMPADRE Plant Matrix Database categorises plants (and algae) to one of 11 "growth types". This document gives a brief overview of each of these types and gives an indication of what *Raunkiær Growth Form (RGF)* is likely to be represented.
 
 ## Algae
 
@@ -82,6 +82,8 @@ Herbaceous perennials have plant parts that survive close to or in the ground (l
 ## Liana
 
 Lianas are woody plants with roots in the soil that use trees etc. to climb towards the light. This growth form is important especially in rain forests where the light on the ground is reduced a lot due to dense canopy of trees.  Reproduction is sexual and asexual. 
+
+NEEDS TO HAVE AN ASSOCIATION TO RGF
 
 \begin{marginfigure}
 \includegraphics[width=.8\marginparwidth]{growthtypeimages/image7.jpeg}

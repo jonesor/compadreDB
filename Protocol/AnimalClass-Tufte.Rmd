@@ -1,14 +1,14 @@
 ---
 title: "Protocol Appendix: Animal Class"
 output: rmarkdown::tufte_handout
-author: -- by the COMPADRINOs
+author: -- by the COMPADRinos
 date: '`r Sys.Date()`'
 classoption: a4paper
 ---
 
 #
 
-The COMADRE Plant Matrix Database includes animals of numerous taxonomic classes. This document outlines some basic information about them.
+The COMADRE Animal Matrix Database includes animals of numerous taxonomic classes. This document outlines some basic information about these animal species.
 
 ## Aves (Vögel)
 
