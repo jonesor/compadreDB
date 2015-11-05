@@ -1,0 +1,75 @@
+---
+title: 'Obtaining full references'
+date: "`r Sys.Date()`"
+output: pdf_document
+classoption: a4paper
+---
+
+
+
+The following example illustrates how to check and find the full references and DOI for the publications used in COMADRE. See also Supporting Information Appendix S4 below.
+
+The code relies on the package `rcrossref` (https://github.com/ropensci/rcrossref) which queries *CrossRef*, an official Digital Object Identifier (DOI) Registration Agency of the International DOI Foundation. Thus you will first need to load the package (and install it if necessary):
+
+```{r,eval=FALSE,echo=FALSE}
+install.packages("rcrossref")
+```
+
+```{r, comment=">"}
+library(rcrossref)
+```
+
+First, set the working directory to where the COMADRE R data object has been saved, and load the data therein:
+
+```{r, eval = TRUE, echo = FALSE}
+setwd("~/Dropbox/COMADRE\ intro\ ms/Data")
+load("COMADRE_v.1.0.0.RData")
+```
+
+```{r, eval = FALSE}
+setwd("~/Downloads/COMADRE/")
+load("COMADRE_v.1.0.0.RData")
+```
+
+The `rcrossref` package has a convenient function, `cr_search_free` which conducts a free-text search of the CrossRef database. To use it, one needs to provide some query text, so in this case we can simply create a text string by concatenating the authors, journal and year of publication from COMADRE. 
+
+For example, to obtain the full reference and DOI for the matrices for the koala, *Phascolarctos cinereus*, first identify the pertinent row(s) in the metadata:
+
+```{r,comment=">"}
+id <- which(comadre$metadata$SpeciesAccepted == "Phascolarctos_cinereus")
+length(id)
+```
+
+Then use this information to obtain the source information (authors, journal and year of publication) for the `r length(id)` matrices:
+
+```{r,comment=">"}
+temp <- comadre$metadata[id, c("Authors", "Journal", "YearPublication")]
+head(temp)
+```
+
+Next, paste these pieces of information together to form a single search string for each matrix. One can optionally ask R to return the unique set of values:
+
+```{r,comment=">"}
+x<-apply(temp,1,paste,collapse = " ")
+x<-unique(x)
+x
+```
+
+This shows that the data are from `r length(x)` publications, for which to obtain source information via CrossRef. The `cr_search_free` function returns a `data.frame`, with a column called `doi` that contains the returned Digital Object Identifiers for the publications.
+
+```{r,comment=">"}
+temp <- cr_search_free(x)
+temp$doi
+```
+
+Armed with the DOI, it is easy to obtain the full title, author list etc. from CrossRef in a range of formats using the function `cr_cn`. This uses the raw DOI, without the `http://dx.doi.org/` prefix. Therefore this prefix must first be stripped from the query using `gsub`.
+
+```{r,comment=">"}
+doiValues <- gsub("http://dx.doi.org/","",temp$doi)
+cr_cn(dois=doiValues,format = "text", style = "apa")
+```
+
+
+
+
+

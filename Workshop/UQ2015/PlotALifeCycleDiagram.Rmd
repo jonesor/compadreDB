@@ -1,0 +1,62 @@
+---
+title: "Plot a life cycle diagram from a matrix model"
+date: '`r Sys.Date()`'
+output: pdf_document
+classoption: a4paper
+---
+  
+
+The exercise plots a life cycle with the stages and transitions of a give matrix chosen from the `comadre` database. It will use the R function `plotLifeCycle` from the COMADRE/COMPADRE GitHub repository. This function works well with matrices of relatively low dimensionality (~< 7), and where not many transitions are depicted. The function uses the `DiagrammeR` package, so this needs to be called first:
+
+```{r, comment=">"}
+library(DiagrammeR)
+```
+
+Let's plot the lifecycle described by the `A` matrix for a species containing the word "lion" in the common name used by the author(s) in the original source publiction.
+
+```{r echo=FALSE}
+load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+```
+
+First load the data:
+```{r eval=FALSE}
+load("COMADRE_v.1.0.0.RData")
+```
+
+To find the species with the word `lion` in their common name, we use the function `grep`.
+
+```{r, comment=">"}
+lions <- grep("lion",comadre$metadata$CommonName)
+unique(comadre$metadata$CommonName[lions])
+```
+
+Unfortunately, no actual lion (*Panthera leo*) has been included in this version of COMADRE, but there are plenty of other "lions" in it. We will plot the life cycle of the red lionfish (*Pterois volitans*):
+
+```{r, comment=">"}
+matNum <- which(comadre$metadata$CommonName == "Red lionfish")
+matNum
+sp <- gsub("_"," ",comadre$metadata$SpeciesAccepted[matNum])
+sp
+```
+
+The matrix 'A' and the stages of this study are:
+
+```{r, comment=">"}
+matA <- comadre$mat[[matNum]]$matA
+matA
+stages <- comadre$matrixClass[[matNum]]$MatrixClassAuthor
+stages
+```
+
+To plot its lifecycle, use `source_url` to obtain the function `plotLifeCycle.R` from the COMADRE/COMPADRE GitHub. This function is available in the `devtools` package.
+
+```{r, comment=">"}
+require(devtools)
+source_url("https://raw.githubusercontent.com/jonesor/compadreDB/master/Functions/plotLifeCycle.R")
+```
+
+
+```{r eval =FALSE}
+plotLifeCycle(matA, title = "Red lionfish")
+```
+
