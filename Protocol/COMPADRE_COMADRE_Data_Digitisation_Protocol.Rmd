@@ -1,9 +1,9 @@
 ---
 title: "COMPADRE/COMADRE Data Digitization Protocol"
 output:
-  pdf_document:
-    toc: yes
   html_document:
+    toc: yes
+  pdf_document:
     toc: yes
   word_document: default
 date: '`r format(Sys.time(), "%B %d %Y")`'
@@ -23,7 +23,7 @@ This document outlines the way that the digitisation team enters data into the E
 
 ##General information
 
-* This protocol is intended for both COMPADRE and COMADRE. Some variables pertain to _only_ one or the other database and are indicated as such in the text. Specifically "P" pertains only to plants (COMPADRE; e.g. growth form), whereas "A" pertains only to animals (COMADRE; e.g. class).
+* This protocol is intended for both COMPADRE and COMADRE. Some variables pertain to _only_ one or the other database and are indicated as such in the text. Specifically "P" pertains only to plants (COMPADRE), whereas "A" pertains only to animals (COMADRE). 
 
 * PDFs of new publications emailed to the COMPADRinos are to be saved under the “Literature” sub-folder of COMPADRE or COMADRE in the N://COMPADRE & COMADRE directory of the Max Placnk Institute for Demographic Research (MPIDR) server. Immediately after saving the PDF, a new entry must be opened with the “SpeciesAuthor”, “Authors”, “Journal”, and “YearPublication” in both the descriptor and stacked file.
 
@@ -74,7 +74,7 @@ The following is a list of variables that the COMPADRino team digitises to the b
 * Email
 * Journal
 * YearPublication
-* DOI/ISBN
+* DOI.ISBN
 * Ecoregion
 * GrowthFormRaunkiaer (only for COMPADRE)
 * Purposes
@@ -85,6 +85,7 @@ The following is a list of variables that the COMPADRino team digitises to the b
 * Geolocation and Altitude
 * Continent
 * Country
+* The full taxonomy (Kingdom, Phylum, etc.)
 
 
 ## References
@@ -204,9 +205,11 @@ Records the date when COMPADRino started working on this species resp. when the 
 If the author does not wish to make personally communicated data available, the data will be under embargo until the following date. At that point, an automatic reminder will go out to the author. The data will not become public until explicit permission has been given by the author. The date should be recorded in US date format (mm.dd.yyyy), or as NA when there if no embargo.
 
 ************************************************
-## GrowthType (P)
+## OrganismType
 
-This entry applies only to plants and records the plant/algae type, based mainly on architectural organisation. This information is intended mostly for internal use and reflects how our PDF library is organized on our servers, as well as the tab in the Matrix Stacked file where the matrices are stored.
+### Plants (COMPADRE)
+
+In **plants** this entry records the plant/algae type, based mainly on architectural organisation. This information is intended mostly for internal use and reflects how our PDF library is organized on our servers, as well as the tab in the Matrix Stacked file where the matrices are stored.
 
 Possible values are:
 
@@ -226,11 +229,9 @@ The species should be assigned to one of these possible values using the descrip
 
 Note about the Annual category: Typically plant ecologists also refer to pseudo-annual species as being "biennials". The main difference between the annuals and biennials is that annual species complete their life cycle (are born, grow, reproduce and die) within a single year, whereas biennials have the possibility to forgot of reproduction in the first year and expanding their life cycle to their second year, when reproduction is fatal.
 
-************************************************
+### Animals (COMADRE)
 
-## Class (A)
-
-This entry only applies to animals. For animals, taxonomic class is recorded in both the Descriptors file and the Stacked Matrix file. This information is intended for internal use and reflects how our PDF library is organised on our servers, as well as the tab in the Matrix Stacked file where the matrices are stored.
+For animals, with the exception of humans, taxonomic class is recorded in both the Descriptors file and the Stacked Matrix file. For humans (*Homo sapiens*) we record "`Homo_sapiens`". Again, this information is intended for internal use and reflects how our PDF library is organised on our servers, as well as the tab in the Matrix Stacked file where the matrices are stored.
 
 Possible values include:
 
@@ -262,6 +263,7 @@ Possible values include:
 * Reptilia
 * Secernentea
 * Spirochaetes
+* Homo_sapiens
 
 ************************************************
 
@@ -285,6 +287,29 @@ Exactly the same naming convention __must__ be used in both the Species Descript
 ## CommonName
 
 Records the common name as used in the publication. Separate multiple names with a semi-colon (";"). If there is no common name used in the publication, record "NA".	
+
+************************************************
+************************************************
+## Taxonomy columns
+
+This series of columns includes taxonomic information.
+
+* Kingdom - Kingdom to which species belongs.
+* Phylum - Phylum to which species belongs e.g. Magnoliophyta.
+* Class - Class to which species belongs	e.g. Magnoliopsida.
+* Family - Family to which species belongs	e.g. Polygonaceae.
+* Order	- Order to which species belongs	e.g. Caryophyllales.
+* Genus	- Genus used in SpeciesAuthor	e.g. Chorizanthe.
+* SpeciesAccepted - Currently accepted Latin name. This information is is obtained from The Plant List (http://www.theplantlist.org) for plants and the Catalogue of Life (http://www.catalogueoflife.org/col/) for animals.
+* DateOfCheck - the date when the taxonomy was checked.
+* AngioGymno	Whether species is an angiosperm or a gymnosperm (record Angiosperm or Gymnosperm). If it is neither angiosperm nor gymnosperm fill in NA. Use NA for **all** animals.
+* DicotMonoc - Whether species is a dicot or monocot	(record Eudicot or Monocot). If species is neither dicot nor monocot (i.e. if it is not an angiosperm) fill in NA. Use NA for **all** animals.
+
+Those variables will be digitised and checked frequently by the database curators.
+
+For COMPADRinos to get an idea of what kingdom, class etc means:
+
+![Taxonomy](images/Biological_classification.png)
 
 ************************************************
 
@@ -362,7 +387,7 @@ Did the author reply to a request for further information. This should record a 
 
 ************************************************
 
-## DOI/ISBN
+## DOI.ISBN
 
 This entry records the Digital Object Identifier (DOI) or International Standard Book Number (ISBN) codes that identify the source material. In more recent papers you may find the DOI somewhere at the beginning of the paper. You may also search for it in the Web of Knowledge. 
 
@@ -394,6 +419,48 @@ Over the years COMPADRE database has obtained data from similar matrix databases
 * Ramula - Satu Ramula
 * NCEAS - Jennifer Williams et al.
 * UQ - Yvonne Buckley and collaborators
+
+************************************************
+
+## IUCNStatus
+
+Status of conservation of the species as a whole as per criteria of the International Union for the Conservation of Nature (IUCN).
+
+* EX - Extinct - no known individuals remaining.
+* EW - Extinct in Wild - known only to survive in captivity, or as a naturalised population outside its historic range.
+* CR - Critically Endangered - extremely high risk of extinction in the wild
+* EN - Endangered - high risk of extinction in the wild.
+* VU - Vulnerable - high risk of endangerment in the wild.
+* NT - Near Threatened - likely to become endangered in the near future.
+* LC - Least Concern - Lowest risk. Does not qualify for a more at risk category. Widespread and abundant taxa are included in this category.
+* DD - Data Deficient - not enough data to make an assessment of its risk of extinction.
+* NE - Not Evaluated - has not yet been evaluated against the IUCN criteria.
+* LR/cd - Lower Risk/conservation dependent - at lower risk of extinction, but requiring conservation intervention to maintain the population. This is an older (1994) category, not used in recent assessments.
+* LR/nt - Lower Risk/near threatened - at lower risk of extinction, but considered to be near threatened. This is an older (1994) category, not used in recent assessments.
+* LR/lc - Lower Risk/least concern - at lower risk of extinction, considered to be widespread and abundant. This is an older (1994) category, not used in recent assessments.
+
+More detailed information on IUCN Red-list and Wikipedia Red List Categories
+
+Several assessments have been carried out since the 1990s. Recent assessments use the 2001 IUCN Red List Categories and Criteria. Version 3.1. However, some taxa included in the current IUCN Red List database have not been reassessed since before 2000 and therefore still use the 1994 IUCN Red List Categories and Criteria. Version 2.3.
+
+************************************************
+
+## InvasiveStatus
+
+Records whether the species is present in the Global Invasive Species Database. www.issg.org.
+
+* No - Not present in ISSG database.
+* Yes - Identified as invasive in ISSG database.
+
+************************************************
+
+## ConservationStatusUS
+
+Records the conservation status under the U.S. Endangered Species Act, according to the United States Fisheries and Wildlife Service (http://www.fws.gov/endangered/). Note that in a few cases this information also applies to species outside of the US territory (e.g. emperor penguin).
+
+* EN - Endangered
+* TH - Threatened
+* NA - Not classified
 
 ************************************************
 
@@ -450,7 +517,7 @@ To find out within which terrestrial ecoregion your study has been made, search 
 ************************************************
 ## GrowthFormRaunkiaer (P)
 
-Plant classification according to Raunkiaer (classified after the position of the overwintering buds)
+Plant classification according to Raunkiaer (classified after the position of the overwintering buds). Enter "NA" for **all** animals in COMADRE.
 
 Possible values
 
@@ -496,47 +563,7 @@ The description offered here is at the subsection level (e.g. “Cryptophytes”
 * “Bryophyte” can be “Epiphyte” or “Hemicryptophyte”.
 * “Epiphyte” is “Epiphyte”. Note that the Raunkiaer growth form “Aerophyte” is not used in this database. All “Aerophyte” (e.g. genus Tillandsia) are classified as “Epiphyte”.
 
-************************************************
 
-## IUCNStatus
-
-Status of conservation of the species as a whole as per criteria of the International Union for the Conservation of Nature (IUCN).
-
-* EX - Extinct - no known individuals remaining.
-* EW - Extinct in Wild - known only to survive in captivity, or as a naturalised population outside its historic range.
-* CR - Critically Endangered - extremely high risk of extinction in the wild
-* EN - Endangered - high risk of extinction in the wild.
-* VU - Vulnerable - high risk of endangerment in the wild.
-* NT - Near Threatened - likely to become endangered in the near future.
-* LC - Least Concern - Lowest risk. Does not qualify for a more at risk category. Widespread and abundant taxa are included in this category.
-* DD - Data Deficient - not enough data to make an assessment of its risk of extinction.
-* NE - Not Evaluated - has not yet been evaluated against the IUCN criteria.
-* LR/cd - Lower Risk/conservation dependent - at lower risk of extinction, but requiring conservation intervention to maintain the population. This is an older (1994) category, not used in recent assessments.
-* LR/nt - Lower Risk/near threatened - at lower risk of extinction, but considered to be near threatened. This is an older (1994) category, not used in recent assessments.
-* LR/lc - Lower Risk/least concern - at lower risk of extinction, considered to be widespread and abundant. This is an older (1994) category, not used in recent assessments.
-
-More detailed information on IUCN Red-list and Wikipedia Red List Categories
-
-Several assessments have been carried out since the 1990s. Recent assessments use the 2001 IUCN Red List Categories and Criteria. Version 3.1. However, some taxa included in the current IUCN Red List database have not been reassessed since before 2000 and therefore still use the 1994 IUCN Red List Categories and Criteria. Version 2.3.
-
-************************************************
-
-## InvasiveStatus
-
-Records whether the species is present in the Global Invasive Species Database. www.issg.org.
-
-* No - Not present in ISSG database.
-* Yes - Identified as invasive in ISSG database.
-
-************************************************
-
-## ConservationStatusUS
-
-Records the conservation status under the U.S. Endangered Species Act, according to the United States Fisheries and Wildlife Service (http://www.fws.gov/endangered/). Note that in a few cases this information also applies to species outside of the US territory (e.g. emperor penguin).
-
-* EN - Endangered
-* TH - Threatened
-* NA - Not classified
 
 ************************************************
 
@@ -554,6 +581,8 @@ We have categorised the purposes as follows:
 * Interspecific interactions - When the authors studied the interactions between different species (e.g herbivory, pollinators, inter-specific competition, predation, parasitism, etc)
 * Management evaluation - When the authors explored the effects of a specific management plan (e.g. to eradicate an invasive species, to preserve an endangered species or assess effects of management on other species).
 * Methodological advancement - When the novelty of the paper is not an ecological question, but mostly to introduce a new mathematical tool often using already published matrices
+
+The names of the columns are: PurposeComparativeDemography, PurposeSpatialDemography, 	PurposeAbioticImpacts, PurposePVA, PurposeSpeciesDynamicsDescription, 	PurposeInterspecificInteractions, PurposeManagementEvaluation and PurposeMethodologicalAdvancement.
 
 ************************************************
 
@@ -634,37 +663,7 @@ Records whether there are any classes that are based on age.
 * Based on size - If the stage classes are in reality based on size criteria (e.g. old individuals defined as those with >10 stems)
 
 
-************************************************
-## Taxonomy columns
 
-This series of 22 columns includes taxonomic information.
-
-* Kingdom - Kingdom to which species belongs.
-* Phylum - Phylum to which species belongs e.g. Magnoliophyta.
-* AngioGymno	Whether species is an angiosperm or a gymnosperm (record Angiosperm or Gymnosperm). If it is neither angiosperm nor gymnosperm fill in NA.
-* DicotMonoc - Whether species is a dicot or monocot	(record Eudicot or Monocot). If species is neither dicot nor monocot (i.e. if it is not an angiosperm) fill in NA.
-* Class - Class to which species belongs	e.g. Magnoliopsida.
-* Family - Family to which species belongs	e.g. Polygonaceae.
-* Order	- Order to which species belongs	e.g. Caryophyllales.
-* Genus	- Genus used in SpeciesAuthor	e.g. Chorizanthe.
-* SpeciesAccepted - Currently accepted Latin name. This information is is obtained from The Plant List.
-* GenusAccepted	Taxonomic genus name of study SpeciesAccepted, as per The Plant List.
-* SpeciesEpithetAccepted	Taxonomic species epithet name of study SpeciesAccepted (see above), as per The Plant List epithet e.g. pungens
-* InfraspecificAccepted	Taxonomic infraspecific name of study SpeciesAccepted, as per The Plant List	infraspecies	e.g. pungens.
-* TPLVersion - Version of The Plant List used for taxonomic validation	1.0	Version 1.0
-* TaxonomicStatus - Taxonomic correspondence of SpeciesAuthor with SpeciesAccepted (above). Possible values include, NoMatch; Unresolved; Accepted; Synonym.
-* NewGenus 
-* NewSpecies 
-* NewInfraspecific 
-* Authority	- Taxonomic authority of SpeciesAccepted, as per The Plant List or Catalogue of Life.
-* Typo
-* WFormat
-
-Those variables will be digitised and checked frequently by the database curators.
-
-For COMPADRinos to get an idea of what kingdom, class etc means:
-
-![Taxonomy](images/Biological_classification.png)
 
 
 ************************************************
