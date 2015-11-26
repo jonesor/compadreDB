@@ -89,7 +89,7 @@ lifespanFundamental = colSums(N)[notProp]
     	Uprime[, (lifeStages == "rep")] = 0
     	Mprime = matrix(0, 2, matDim)
     	for (p in 1:matDim){
-        if (lifeStages[p]=="flow") Mprime[2,p]=1
+        if (lifeStages[p]=="rep") Mprime[2,p]=1
         }else{
         Mprime[1, p] = 1 - u[p]
     	}
