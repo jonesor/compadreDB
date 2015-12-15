@@ -1,6 +1,6 @@
 ![logo](images/Logo_COMADRE_Vertical_Color.png)    ![logo](images/Logo_COMPADRE_Vertical_Color.png)
 
-#BES 2015 - Edinburgh 14-17 December 2015
+#BES 2015 - Edinburgh 13-16 December 2015
 
 Welcome to the workshop on the COMADRE and COMPADRE matrix databases.
 
@@ -26,10 +26,7 @@ The COMPADRE and COMADRE website http://www.compadre-db.org (download the latest
 
 [COMADRE User Guide PDF](https://github.com/jonesor/compadreDB/raw/master/COMADRE-UserGuide/COMADRE-UserGuide.pdf)
 
-[PDFs of Rob's talk from EvoDemoS]()
-
 [PDFs of talk on structure of COMADRE](https://github.com/jonesor/compadreDB/raw/master/Workshop/EvoDemoS2015/COMADRE-Workshop-EvoDemoS-Structure.pdf)
-
 
 ROpenSci has some very useful R-based tools to link/query databases: https://ropensci.org
 

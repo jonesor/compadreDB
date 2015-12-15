@@ -1,7 +1,7 @@
 ---
 title: "Getting matrices out of COM(P)ADRE"
 author: "Owen Jones"
-date: "20 Nov 2015"
+date: "`r Sys.Date()`"
 output: pdf_document
 classoption: a4paper
 ---
@@ -50,7 +50,6 @@ You can use the command `grep` to identify where in the database the species is:
 
 ```{r, comment=">"}
 grep("Ursus_maritimus",comadre$metadata$SpeciesAccepted)
-grep("Rangifer",comadre$metadata$SpeciesAccepted)
 ```
 
 Note that the database uses an underscore instead of spaces!
