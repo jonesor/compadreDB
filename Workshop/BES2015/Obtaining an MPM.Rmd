@@ -1,0 +1,87 @@
+---
+title: "Getting matrices out of COM(P)ADRE"
+author: "Owen Jones"
+date: "20 Nov 2015"
+output: pdf_document
+classoption: a4paper
+---
+
+```{r echo=FALSE}
+load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+```
+
+This document explains how to get matrices out of the COMADRE and COMPADRE databases.
+
+You will of course need to download the database first. You can get it from the website here: http://www.compadre-db.org/. Click on **Data**, and then on the **COMADRE Animal Matrix Database**, or  **COMPADRE Plant Matrix Database** button to find it. Download it to your computer.
+
+The two databases are identical in gross structure, so the following code will apply to both.
+
+Let's imagine you want to get matrices for all *Ursus maritimus* (polar bear) species from the database.
+
+Firstly you will need to load the data file (called `COMADRE_v.x.x.x.RData`) into RStudio. You can do from within RStudio by clicking *File*, *Open file...*, then navigating to find the file, selecting it and clicking *Open*. Alternatively you can use the `load` function:
+
+```{r echo = TRUE, eval = FALSE, comment=">"}
+load("~/Downloads/COMADRE_v.1.0.0.RData")
+```
+
+Once you have loaded the file, you should see it in your `Environment`. It will be called `comadre`.
+
+You can check the structure of the object by typing the following, whereupon you will see there are four parts:
+
+
+
+```{r, comment=">"}
+names(comadre)
+```
+
+The `metadata` part is a dataframe that  contains information about the matrix models contained in the database.
+
+There are lots of columns in the dataframe, and you could subset the data by any of them.
+
+```{r, comment=">"}
+names(comadre$metadata)
+```
+
+You can find the details of what these columns are in the User Guides.
+
+Since we are interested in getting data for a species matching a particular name (*Ursus maritumus*), we'll need to examine the column called `SpeciesAccepted`, which is the currently accepted binomial species name.
+
+You can use the command `grep` to identify where in the database the species is:
+
+```{r, comment=">"}
+grep("Ursus_maritimus",comadre$metadata$SpeciesAccepted)
+grep("Rangifer",comadre$metadata$SpeciesAccepted)
+```
+
+Note that the database uses an underscore instead of spaces!
+
+So, these row numbers are where the data are: `r grep("Ursus_maritimus",comadre$metadata$SpeciesAccepted)`.
+
+To get the matrix for any of these we need to access the `mat` part of the database.
+
+Let's look at the first one, at position `r grep("Ursus_maritimus",comadre$metadata$SpeciesAccepted)[1]`.
+
+```{r comment = ">"}
+comadre$mat[[1428]]
+```
+
+
+You will note that there are actually 4 matrices, called `matA`, `matU`, `matF` and `matC`. The  matrix most people will want is the **A** matrix. The others are sub-parts of this matrix that represent processes of survival, fertility and clonality. These three matrices sum to the **A** matrix.
+
+
+You can isolate **just** the **A** matrix like this, renaming it `x`:
+
+```{r comment=">"}
+x <- comadre$mat[[1428]]$matA
+x
+```
+
+Now you can use this matrix to do the analysis of interest...
+
+But what are the stages in the matrix? That's easy - to obtain the stage information you can consult the relevant index for the `comadre$matrixClass` part of the database object like this:
+
+```{r comment=">"}
+comadre$matrixClass[[1428]]
+```
+
+### Since it's Christmas soon, why not have a look for reindeer (*Rangifer*) in the database?
