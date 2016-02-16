@@ -61,7 +61,10 @@ __NC__ - Not calculated - Information was not calculated because its calculation
 
 __LAB__ - Laboratory - The author collected demographic data for the studied species in a laboratory or under greenhouse conditions – controlled, usually indoor, conditions that mean the study species is not affected by the environment conditions typical of the actual geographic location of the study.
 
-__FRANK__ - Frankenstein matrix - The author used demographic data from at least two other papers and calculated a *new* matrix population model out of tose data. In those cases, we typically have different study sites and years of study. For these data we do not calculate averages or ranges but instead enter __FRANK__.
+__FRANK__ - Frankenstein matrix - The author used demographic data from at least two other papers and calculated a *new* matrix population model out of those data. In those cases, we typically have different study sites and years of study. For these data we do not calculate averages or ranges but instead enter __FRANK__.
+
+__Simulation__ - A simulated matrix - The matrix model is a simulation, and perhaps only loosely based on a specific real species. Typically these simulated matrices are used to explore the behaviour of a population in a theoretical way. In those cases, there is no geographic location, ecoregion etc. For these data we do not calculate averages or ranges but instead enter __Simulation__.
+
 
 ************************************************
 
@@ -422,45 +425,9 @@ Over the years COMPADRE database has obtained data from similar matrix databases
 
 ************************************************
 
-## IUCNStatus
+## IUCNStatus, InvasiveStatus, ConservationStatusUS
 
-Status of conservation of the species as a whole as per criteria of the International Union for the Conservation of Nature (IUCN).
-
-* EX - Extinct - no known individuals remaining.
-* EW - Extinct in Wild - known only to survive in captivity, or as a naturalised population outside its historic range.
-* CR - Critically Endangered - extremely high risk of extinction in the wild
-* EN - Endangered - high risk of extinction in the wild.
-* VU - Vulnerable - high risk of endangerment in the wild.
-* NT - Near Threatened - likely to become endangered in the near future.
-* LC - Least Concern - Lowest risk. Does not qualify for a more at risk category. Widespread and abundant taxa are included in this category.
-* DD - Data Deficient - not enough data to make an assessment of its risk of extinction.
-* NE - Not Evaluated - has not yet been evaluated against the IUCN criteria.
-* LR/cd - Lower Risk/conservation dependent - at lower risk of extinction, but requiring conservation intervention to maintain the population. This is an older (1994) category, not used in recent assessments.
-* LR/nt - Lower Risk/near threatened - at lower risk of extinction, but considered to be near threatened. This is an older (1994) category, not used in recent assessments.
-* LR/lc - Lower Risk/least concern - at lower risk of extinction, considered to be widespread and abundant. This is an older (1994) category, not used in recent assessments.
-
-More detailed information on IUCN Red-list and Wikipedia Red List Categories
-
-Several assessments have been carried out since the 1990s. Recent assessments use the 2001 IUCN Red List Categories and Criteria. Version 3.1. However, some taxa included in the current IUCN Red List database have not been reassessed since before 2000 and therefore still use the 1994 IUCN Red List Categories and Criteria. Version 2.3.
-
-************************************************
-
-## InvasiveStatus
-
-Records whether the species is present in the Global Invasive Species Database. www.issg.org.
-
-* No - Not present in ISSG database.
-* Yes - Identified as invasive in ISSG database.
-
-************************************************
-
-## ConservationStatusUS
-
-Records the conservation status under the U.S. Endangered Species Act, according to the United States Fisheries and Wildlife Service (http://www.fws.gov/endangered/). Note that in a few cases this information also applies to species outside of the US territory (e.g. emperor penguin).
-
-* EN - Endangered
-* TH - Threatened
-* NA - Not classified
+We no longer digitise this information. Instead we point out to end users of the databases how to get this information from the relevant databases.
 
 ************************************************
 
