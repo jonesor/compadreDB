@@ -61,6 +61,7 @@ for (i in 1:length(x$mat)){
     output$damps[i] <- damping.ratio(x$mat[[i]]$matA)
 }
 ```
+
 To examine the output:
 
 ```{r, comment=">"}

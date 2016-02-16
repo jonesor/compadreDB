@@ -1,0 +1,43 @@
+---
+title: "Convergence to QSD"
+date: "`r Sys.Date()`"
+author: Owen Jones
+output: pdf_document
+classoption: a4paper
+---
+
+
+```{r echo=FALSE}
+load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+```
+
+This uses a function from the GitHub repository:
+```{r,message=FALSE}
+library(devtools)
+source_url("https://raw.githubusercontent.com/jonesor/compadreDB/master/Functions/QSDConverge.R")
+```
+
+You will also need the `popbio` package.
+```{r,message=FALSE}
+library(popbio)
+```
+
+First, select the U matrix subpart of the matrix you are interested in.
+
+```{r}
+m1<-comadre$mat[[655]]$matU
+```
+
+Second, identify the first "active" stage where you'd normally consider life to begin. 
+This is mostly important for species with "seed" stages, or other kinds of dormant stages.
+
+```{r}
+SL <- which(comadre$matrixClass[[655]]$MatrixClassOrganized == "active")[1]
+```
+
+Finally use the `qsdConverge` function to calculate the age at which the QSD is within 5%.
+
+```{r}
+qsdConverge(m1,startLife=SL,conv=0.05)
+```
+This tells us that in this case, convergence is almost reached at age = `r qsdConverge(m1,startLife=SL,conv=0.05)`.
