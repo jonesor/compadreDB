@@ -61,7 +61,7 @@ img {
 
 <div id="header">
 <h1 class="title">COMPADRE/COMADRE Data Digitization Protocol</h1>
-<h4 class="date"><em>February 16 2016</em></h4>
+<h4 class="date"><em>March 14 2016</em></h4>
 </div>
 
 <div id="TOC">
@@ -178,13 +178,13 @@ img {
 <div id="values-used-throughout-the-database" class="section level1">
 <h1>Values used throughout the database</h1>
 <p>The following values are commonly used throughout the database.</p>
-<p><strong>NA</strong> - Not available - The information is not available either because the author does not have it or because the information is not recognized as “priority” (see below) for the digitalisation.</p>
+<p><strong>NA</strong> - Not available - The information is not available either because the author does not have it or because the information is not recognized as “priority” (see below) for the digitisation.</p>
 <p><strong>AFI</strong> - Asked for it - The information is not yet in the database, but the COMPADRino has already contacted the author requesting it (i.e. the author has not yet replied).</p>
 <p><strong>NDY</strong> - Not digitised yet - The information has not yet been digitised. This is likely to occur when some priority information has been digitised for a given species, and the COMPADRino has moved onto another species without contacting an author for the missing information.</p>
-<p><strong>NC</strong> - Not calculated - Information was not calculated because its calculation is not sensible. For instance, latitudes and longitudes of various populations of the same species are not averaged and assigned to the grand-mean population matrix of the species. Same for ranges, where author provides a range of latitudes and longitudes for a given population. Ranges are noted into the observation column</p>
-<p><strong>LAB</strong> - Laboratory - The author collected demographic data for the studied species in a laboratory or under greenhouse conditions – controlled, usually indoor, conditions that mean the study species is not affected by the environment conditions typical of the actual geographic location of the study.</p>
-<p><strong>FRANK</strong> - Frankenstein matrix - The author used demographic data from at least two other papers and calculated a <em>new</em> matrix population model out of those data. In those cases, we typically have different study sites and years of study. For these data we do not calculate averages or ranges but instead enter <strong>FRANK</strong>.</p>
-<p><strong>Simulation</strong> - A simulated matrix - The matrix model is a simulation, and perhaps only loosely based on a specific real species. Typically these simulated matrices are used to explore the behaviour of a population in a theoretical way. In those cases, there is no geographic location, ecoregion etc. For these data we do not calculate averages or ranges but instead enter <strong>Simulation</strong>.</p>
+<p><strong>NC</strong> - Not calculated - Information was not calculated because its calculation is not sensible. For instance, latitudes and longitudes of various populations of the same species are not averaged and assigned to the grand-mean population matrix of the species. This is the same for ranges, where author provides a range of latitudes and longitudes for a given population. Ranges are instead noted in the observation column.</p>
+<p><strong>LAB</strong> - Laboratory - The author collected demographic data for the studied species in a laboratory or under greenhouse conditions. Controlled, typically indoor, conditions that mean the study population is not affected by the environmental conditions typical of the <strong>actual</strong> geographic location of the study. For these data we do not calculate averages or ranges but instead enter <code>LAB</code> (not <code>NA</code>).</p>
+<p><strong>FRANK</strong> - Frankenstein matrix - Frankenstein matrices are MPMs where the author parameterised their model using demographic data from 2+ other papers/sources. These MPMs should be clearly indicated with “FRANK” in the observation column. Furthermore, for these matrices, temporal and geographic information is not useful for comparative analyses and therefore geographic location data, time information (start/end year, season etc.) should be recorded as “FRANK” (not <code>NA</code>).</p>
+<p><strong>Simulation</strong> - A simulated matrix - The matrix model is a simulation, and perhaps only loosely based on a specific real species. Typically these simulated matrices are used to explore the behaviour of a population in a theoretical way. In those cases, there is no geographic location, ecoregion etc. For these data we do not calculate averages or ranges for locations and time periods but instead enter <code>Simulation</code> (not <code>NA</code>).</p>
 <hr />
 </div>
 <div id="priority-variables" class="section level1">
