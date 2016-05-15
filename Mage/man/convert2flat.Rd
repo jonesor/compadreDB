@@ -2,10 +2,10 @@
 \alias{convert2flat}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+A function to convert from the list structured database object to a flat sheet.
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+The function converts from the list structured database object to a flat sheet by converting each matrix to a string.
 }
 \usage{
 convert2flat(db = compadre, Aonly = TRUE)
@@ -13,27 +13,25 @@ convert2flat(db = compadre, Aonly = TRUE)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{db}{
-%%     ~~Describe \code{db} here~~
+The COMPADRE or COMADRE matrix database object
 }
   \item{Aonly}{
-%%     ~~Describe \code{Aonly} here~~
+A logical value (TRUE/FALSE) indicatting whether ONLY the A matrix be included in the output.
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A `data.frame` with the same columns as are present in the metadata part of the COMPADRE/COMADRE object, followed by the string-form matrix stage information and the matrices themselves.
 }
 \references{
-%% ~put references to the literature/web site here ~
+Salguero-Gómez, R., Jones, O. R., Archer, C. R., Buckley, Y. M., Che-Castaldo, J., Caswell, H., Hodgson, D., Scheuerlein, A., Conde, D. A., Brinks, E., de Buhr, H., Farack, C., Gottschalk, F., Hartmann, A., Henning, A., Hoppe, G., Römer, G., Runge, J., Ruoff, T., Wille, J., Zeh, S., Davison, R., Vieregg, D., Baudisch, A., Altwegg, R., Colchero, F., Dong, M., de Kroon, H., Lebreton, J.-D., Metcalf, C. J. E., Neel, M. M., Parker, I. M., Takada, T., Valverde, T., Vélez-Espino, L. A., Wardle, G. M., Franco, M., Vaupel, J. W. (2015), The compadre Plant Matrix Database: an open online repository for plant demography. Journal of Ecology, 103: 202–218. doi: 10.1111/1365-2745.12334
+
+Salguero-Gómez, R., Jones, O. R., Archer, C. R., Bein, C., de Buhr, H., Farack, C., Gottschalk, F., Hartmann, A., Henning, A., Hoppe, G., Römer, G., Ruoff, T., Sommer, V., Wille, J., Voigt, J., Zeh, S., Vieregg, D., Buckley, Y. M., Che-Castaldo, J., Hodgson, D., Scheuerlein, A., Caswell, H., Vaupel, J. W. (2016), COMADRE: a global data base of animal demography. Journal of Animal Ecology, 85: 371–384. doi: 10.1111/1365-2656.12482
 }
 \author{
-%%  ~~who you are~~
+Owen R. Jones <jones@biology.sdu.dk>
 }
 \note{
 %%  ~~further notes~~
@@ -45,28 +43,9 @@ convert2flat(db = compadre, Aonly = TRUE)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (db = compadre, Aonly = TRUE) 
-{
-    db$metadata$Amatrix <- NULL
-    for (i in 1:nrow(db$metadata)) {
-        db$metadata$classnames[i] <- paste(db$matrixClass[[i]]$MatrixClassAuthor, 
-            collapse = "| ")
-        db$metadata$matrixA[i] <- paste("[", paste(t(db$mat[[i]]$matA), 
-            collapse = " "), "]", sep = "")
-        db$metadata$matrixU[i] <- paste("[", paste(t(db$mat[[i]]$matU), 
-            collapse = " "), "]", sep = "")
-        db$metadata$matrixF[i] <- paste("[", paste(t(db$mat[[i]]$matF), 
-            collapse = " "), "]", sep = "")
-        db$metadata$matrixC[i] <- paste("[", paste(t(db$mat[[i]]$matC), 
-            collapse = " "), "]", sep = "")
-    }
-    return(db$metadata)
-  }
+#newDB<-convert2flat(compadre,Aonly=FALSE)
+  
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
