@@ -1,5 +1,4 @@
-vitalRatePerturbation <-
-function(matU, matF, matC=NULL,pert=0.001){
+vitalRatePerturbation <- function(matU, matF, matC=NULL,pert=0.001){
   #Function to calculate vital rate level sensitivities and elasticities
   
   matA=matU+matF+matC
@@ -13,7 +12,7 @@ function(matU, matF, matC=NULL,pert=0.001){
     propProg=propRetrog=propU
     propProg[upper.tri(propU,diag=T)]=0
     propRetrog[lower.tri(propU,diag=T)]=0
-    propStasis=matrix(Diagonal(aDim)*diag(propU),aDim,aDim)
+    propStasis=matrix(diag(aDim)*diag(propU),aDim,aDim)
   propF=matF/matA
     propF[is.nan(propF)]=0
   propC=matC/matA

@@ -1,5 +1,4 @@
-dbCompare <-
-function(db1, db2, verbose = FALSE){ 
+dbCompare <- function(db1, db2, verbose = FALSE){ 
 
 #Quick summary
 cat("Quick Summary\n")

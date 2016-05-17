@@ -1,5 +1,4 @@
-matrixElementPerturbation <-
-function(matU, matF, matC=NULL,pert=0.001){
+matrixElementPerturbation <- function(matU, matF, matC=NULL,pert=0.001){
   #Function to calculate matrix element level sensitivities and elasticities
   
   matA=matU+matF+matC

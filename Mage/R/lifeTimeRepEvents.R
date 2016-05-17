@@ -1,6 +1,7 @@
-lifeTimeRepEvents <-
-function(matU, matF, startLife = 1){
+lifeTimeRepEvents <- function(matU, matF, startLife = 1){
   #Function to determine probability of reaching reproduction, age at maturity and reproductive lifespan (Code adapted from H. Caswell's matlab code):
+  requireNamespace("MASS")
+  requireNamespace("popbio")
   
   uDim = dim(matU)[1]
   surv = colSums(matU)
@@ -18,15 +19,15 @@ if(sum(matF,na.rm=T)==0){stop('matF contains only 0 values')}
 	  if (repLifeStages[p]==1) Mprime[2,p] = 1 else
 	    Mprime[1,p] = 1-surv[p]
 	}
-	Bprime = Mprime%*%(ginv(diag(uDim)-Uprime))
+	Bprime = Mprime%*%(MASS::ginv(diag(uDim)-Uprime))
 	pRep = Bprime[2,startLife]
 
 	out = data.frame(pRep = pRep)
   
   #Age at first reproduction (La; Caswell 2001, p 124)
 	D = diag(c(Bprime[2,]))
-	Uprimecond = D%*%Uprime%*%ginv(D)
-	expTimeReprod = colSums(ginv(diag(uDim)-Uprimecond))
+	Uprimecond = D%*%Uprime%*%MASS::ginv(D)
+	expTimeReprod = colSums(MASS::ginv(diag(uDim)-Uprimecond))
 	La = expTimeReprod[startLife]
 
 	out$La = La

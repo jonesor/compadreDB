@@ -1,8 +1,7 @@
-plotLifeCycle <-
-function(A,title="my life cycle",shape="egg",fontsize=10,nodefontsize=12,edgecol="grey"){
+plotLifeCycle <- function(A,title="my life cycle",shape="egg",fontsize=10,nodefontsize=12,edgecol="grey"){
 
 #load required library
-require(DiagrammeR)
+requireNamespace("DiagrammeR")
 
 #Identify the stages
 rownames(A)<-colnames(A)
@@ -21,7 +20,7 @@ fromTo$quantity[i] <- A[fromTo$To[i],fromTo$From[i]]
 }
 
 #Subset to only include those where the quantity >0
-temp<- subset(fromTo,quantity > 0)
+temp<- subset(fromTo,fromTo$quantity > 0)
 temp
 
 #Create sorted vector of node names

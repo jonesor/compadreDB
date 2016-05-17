@@ -2,10 +2,10 @@
 \alias{vitalRatePerturbation}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+A function to perform perturbation of vital rates of the matrix model
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+A function to perform perturbation of vital rates of the matrix model
 }
 \usage{
 vitalRatePerturbation(matU, matF, matC = NULL, pert = 0.001)

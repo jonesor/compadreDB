@@ -1,1 +1,8 @@
 exportPattern("^[[:alpha:]]+")
+import(popbio)
+import(DiagrammeR)
+import(MASS)
+
+
+
+

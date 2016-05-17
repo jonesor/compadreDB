@@ -2,10 +2,10 @@
 \alias{makeLifeTable}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+A function to produce a life table from a matrix population model
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function uses age-from-stage approximation methods to calculate a life table.
 }
 \usage{
 makeLifeTable(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 1000)
@@ -39,7 +39,11 @@ makeLifeTable(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 1000)
 %% ...
 }
 \references{
-%% ~put references to the literature/web site here ~
+
+Caswell, H. (2001) Matrix Population Models: Construction, Analysis, and Interpretation. Sinauer Associates; 2nd edition. ISBN: 978-0878930968
+
+Jones, O.R. et al. (2014) Diversity of ageing across the tree of life. Nature, 505(7482), 169–173
+
 }
 \author{
 %%  ~~who you are~~

@@ -2,81 +2,65 @@
 \alias{qsdConverge}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+A function to calculates the age at which a defined quasi-stationary stage distribution is reached.
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Calculates the age at which a defined quasi-stationary stage distribution is reached.
 }
+
 \usage{
 qsdConverge(matU, conv = 0.05, startLife = 1, nSteps = 1000)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{matU}{
-%%     ~~Describe \code{matU} here~~
+The survival/growth matrix (a subset of the A matrix), See Caswell 2001, or other references below.
 }
   \item{conv}{
-%%     ~~Describe \code{conv} here~~
+Departure from convergence. e.g. this value should be 0.05 if you want to get the time step when the stage distribution is within 5 percent of the QSD.
 }
   \item{startLife}{
-%%     ~~Describe \code{startLife} here~~
+At which stage does the life start in the matrix. Some matrices contain seed banks, or similar.
 }
   \item{nSteps}{
-%%     ~~Describe \code{nSteps} here~~
+For how many time steps should the calculations run for. In most cases the default of 1000 is sufficient.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+Matrix Population Models are typically parameterised with a stasis loop in the oldest/largest/most-developed stage (e.g. adult survival), which means that flat mortality and fertility plateaus may emerge as a mathematical artefact when examining age-specific patterns (see, Caswell 2001). The Quasi-Stationary stage Distribution (QSD) can be used to avoid this problem. The QSD can be defined as a stage distribution that is reached some time before the ultimate stable stage distribution (the normalised righted eigenvector of the MPM). Thus one can ask what is the age at which the cohort approximates, say,  95\% of its stable stage distribution, and only use age-based information from before this point. This is discussed and explained in detail in the supplementary information of Jones et al. (2014).
 }
+
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+Returns a numeric value indicating the time step at which quasi-stationary stage distribution has been reached.
 }
+
 \references{
-%% ~put references to the literature/web site here ~
+Caswell, H. (2001) Matrix Population Models: Construction, Analysis, and Interpretation. Sinauer Associates; 2nd edition. ISBN: 978-0878930968
+
+Jones, O.R. et al. (2014) Diversity of ageing across the tree of life. Nature, 505(7482), 169–173
 }
+
 \author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+Owen R. Jones <jones@biology.sdu.dk>
+
+Roberto Salguero-Gomez <r.salguero@sheffield.ac.uk>
+
+Hal Caswell
+
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
+\note{}
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
+\seealso{}
+
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (matU, conv = 0.05, startLife = 1, nSteps = 1000) 
-{
-    uDim = dim(matU)
-    eig = eigen.analysis(matU)
-    qsd = eig$stable.stage
-    qsd = as.numeric(t(matrix(qsd/sum(qsd))))
-    nzero = rep(0, uDim[1])
-    nzero[startLife] = 1
-    n = nzero
-    dist = p = NULL
-    survMatrix1 <- matU
-    for (j in 1:nSteps) {
-        p = n/sum(n)
-        dist[j] = 0.5 * (sum(abs(p - qsd)))
-        n = survMatrix1 \%*\% n
-    }
-    convage = min(which(dist < conv))
-    return(convage)
-  }
+U1 <- matrix(c(0.000, 0.691, 0.000, 0.000, 0.000, 0.880, 0.000, 0.000, 0.790),nrow=3)
+qsdConverge(U1, 0.05)
+
 }
+
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ methods }
+

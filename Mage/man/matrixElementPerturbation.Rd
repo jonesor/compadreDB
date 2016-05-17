@@ -2,10 +2,10 @@
 \alias{matrixElementPerturbation}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+A function to perform element perturbation of a matrix population model.
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+A function to perform element perturbation of a matrix population model.
 }
 \usage{
 matrixElementPerturbation(matU, matF, matC = NULL, pert = 0.001)
@@ -36,7 +36,7 @@ matrixElementPerturbation(matU, matF, matC = NULL, pert = 0.001)
 %% ...
 }
 \references{
-%% ~put references to the literature/web site here ~
+
 }
 \author{
 %%  ~~who you are~~

@@ -2,38 +2,37 @@
 \alias{subsetDB}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+A function to subset the COMPADRE/COMADRE database
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function allows users to subset the COMPADRE/COMADRE database by logical argument.
 }
 \usage{
-subsetDB(db = comadre, sub = 1:100)
+subsetDB(sub, db)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
+  \item{sub}{
+Logical argument with which to subset the data base. Any of the variables contained in the metadata part of the COMPADRE/COMADRE database may be used.
+}
   \item{db}{
 %%     ~~Describe \code{db} here~~
-}
-  \item{sub}{
-%%     ~~Describe \code{sub} here~~
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+Returns a subset of the database, with the same structure, but where the records in the metadata match the criteria given in the `sub` argument.
 }
 \references{
-%% ~put references to the literature/web site here ~
+
 }
 \author{
-%%  ~~who you are~~
+Owen R. Jones <jones@biology.sdu.dk>
+
+Bruce Kendall
+
 }
 \note{
 %%  ~~further notes~~
@@ -45,30 +44,10 @@ subsetDB(db = comadre, sub = 1:100)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (db = comadre, sub = 1:100) 
-{
-    subsetID <- sub
-    ssdb <- db
-    ssdb$metadata <- ssdb$metadata[subsetID, ]
-    ssdb$mat <- ssdb$mat[subsetID]
-    ssdb$matrixClass <- ssdb$matrixClass[subsetID]
-    if ("version" \%in\% names(ssdb)) {
-        ssdb$version$Version <- paste(ssdb$version$Version, " - subset created on ", 
-            format(Sys.time(), "\%b_\%d_\%Y"), sep = "")
-        ssdb$version$DateCreated <- paste(ssdb$version$DateCreated, 
-            " - subset created on ", format(Sys.time(), "\%b_\%d_\%Y"), 
-            sep = "")
-        ssdb$version$NumberAcceptedSpecies <- length(unique(ssdb$metadata$SpeciesAccepted))
-        ssdb$version$NumberStudies <- length(unique(ssdb$metadata$SpeciesAuthor))
-        ssdb$version$NumberMatrices <- length(ssdb$mat)
-    }
-    return(ssdb)
-  }
+#ssData <- subsetDB(MatrixDimension > 3, compadre)
+#ssData <- subsetDB(MatrixDimension > 3 & MatrixComposite == "Mean", compadre)
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

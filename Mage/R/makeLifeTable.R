@@ -1,5 +1,4 @@
-makeLifeTable <-
-function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 1000){
+makeLifeTable <- function(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 1000){
   
   matDim = ncol(matU)
   

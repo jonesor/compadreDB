@@ -1,5 +1,4 @@
-convert2flat <-
-function(db=compadre, Aonly = TRUE){
+convert2flat <- function(db, Aonly = TRUE){
  
   db$metadata$Amatrix <- NULL
   for (i in 1:nrow(db$metadata)){
