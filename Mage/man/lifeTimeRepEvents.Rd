@@ -36,7 +36,10 @@ lifeTimeRepEvents(matU, matF, startLife = 1)
 
 }
 \author{
-%%  ~~who you are~~
+Roberto Salguero-Gomez <r.salguero@sheffield.ac.uk>
+
+Owen R. Jones <jones@biology.sdu.dk>
+
 }
 \note{
 %%  ~~further notes~~

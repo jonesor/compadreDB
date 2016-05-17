@@ -42,8 +42,10 @@ Owen R. Jones <jones@biology.sdu.dk>
 }
 \examples{
 
-#newDB<-convert2flat(compadre,Aonly=FALSE)
-  
+\dontrun{
+newDB<-convert2flat(compadre,Aonly=FALSE)
+}
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

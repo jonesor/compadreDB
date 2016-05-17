@@ -53,8 +53,10 @@ Owen R. Jones <jones@biology.sdu.dk>
 }
 
 \examples{
-#dbCompare(comadreSubset,comadre,verbose = TRUE)
 
+\dontrun{
+	dbCompare(comadreSubset,comadre,verbose = TRUE)
+}
 }
 
 \keyword{ manip }

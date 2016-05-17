@@ -44,10 +44,10 @@ Bruce Kendall
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-
-#ssData <- subsetDB(MatrixDimension > 3, compadre)
-#ssData <- subsetDB(MatrixDimension > 3 & MatrixComposite == "Mean", compadre)
-
+\dontrun{
+ssData <- subsetDB(MatrixDimension > 3, compadre)
+ssData <- subsetDB(MatrixDimension > 3 & MatrixComposite == "Mean", compadre)
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

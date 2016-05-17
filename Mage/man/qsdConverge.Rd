@@ -45,8 +45,6 @@ Owen R. Jones <jones@biology.sdu.dk>
 
 Roberto Salguero-Gomez <r.salguero@sheffield.ac.uk>
 
-Hal Caswell
-
 }
 
 \note{}
