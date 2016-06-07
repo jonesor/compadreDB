@@ -200,7 +200,7 @@ If more than one piece of information is missing, these are separated with ";" (
 
 ## DateDigitalization
 
-Records the date when COMPADRino started working on this species resp. when the first matrix population model of that study was digitised in stacked file. Dates should be recorded in US date format: mm.dd.yyyy, e.g. 12.25.2015 for 25th Dec 2015.
+This column records the date when the COMPADRINO started working on this species. Specifically when the first matrix population model of that study was digitised in stacked file. Dates should be recorded in the following (US) date format: mm/dd/yyyy, e.g. 12/25/2015 for 25th Dec 2015.
 
 ************************************************
 ## Embargo
