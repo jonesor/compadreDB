@@ -1,0 +1,88 @@
+---
+title: 'Simple outputs from many matrices'
+date: "`r Sys.Date()`"
+output: pdf_document
+classoption: a4paper
+---
+
+
+This example produces some basic output such as the population growth rate ($\lambda$) and damping ratio (Caswell 2001) for a subset of species and populations given some selection criteria.
+
+```{r echo=FALSE}
+load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+```
+
+First, `subset` the database to the data of interest: only mean matrices for bony fish from studies of 3 years duration or longer, and with a  matrix dimension of 3 or greater.
+
+
+```{r, comment=">"}
+tempMetadata <- subset(comadre$metadata,
+                       MatrixComposite == "Mean" &
+                         Class == "Actinopterygii" &
+                         StudyDuration >= 3 &
+                         MatrixDimension > 3)
+```
+
+The row names from the subsetted dataframe can now be used to subset the entire `comadre` database using the function `subsetDB` which is available via GitHub (using `source_url` from `devtools` to download it).
+
+```{r}
+library(devtools)
+source_url("https://raw.githubusercontent.com/jonesor/compadreDB/master/Functions/subsetDB.R")
+```
+
+
+```{r, comment=">"}
+id <- as.numeric(rownames(tempMetadata))
+x<-subsetDB(comadre,id)
+```
+
+The object `x` is now a version of the `comadre` database object that contains only the matrices that match the search criteria.
+
+These matrices can now be analyzed by applying functions in a loop, or by using `lapply`.
+
+For example, to calculate population growth rate and damping ratio for
+the subset of matrices, first create an empty `data.frame` to accommodate the output
+
+```{r, comment=">"}
+output <- data.frame(lambdas = rep(NA, length(x$mat)),
+                     damps = rep(NA, length(x$mat)))
+```
+
+and then use the functions in `popbio` package to derive demographic output (the user may need to install the package first).
+
+```{r, comment=">"}
+library(popbio)
+```
+
+
+```{r, comment=">"}
+for (i in 1:length(x$mat)){
+    output$lambdas[i] <- Re(eigen(x$mat[[i]]$matA)$value)[1]
+    output$damps[i] <- damping.ratio(x$mat[[i]]$matA)
+}
+```
+
+To examine the output:
+
+```{r, comment=">"}
+output
+```
+
+These parameters are presented in the same order as the `metadata` so we could also add the species name to this `data.frame`:
+
+```{r, comment=">"}
+data.frame(Species = x$metadata$SpeciesAccepted,output)
+```
+
+Plot the population growth rates and damping ratios derived from these matrices. In this plot, the vertical, dashed red line indicates 
+ population growth rate = 1 (or log ($\lambda$) = 0)
+
+```{r, comment=">"}
+par(mfrow = c(1,2))
+hist(log(output$lambdas),
+     xlab = "Log population growth rate",
+     col = "gold", main = "")
+abline(v=0,col = "red", lwd = 4, lty = 3)
+hist(output$damps, xlab = "Damping ratio",
+     col = "brown", main = "")
+```
