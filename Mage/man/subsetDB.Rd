@@ -8,16 +8,17 @@ A function to subset the COMPADRE/COMADRE database
 This function allows users to subset the COMPADRE/COMADRE database by logical argument.
 }
 \usage{
-subsetDB(sub, db)
+subsetDB(db,sub)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{sub}{
-Either an argument  made using logical operators (see `subset`) with which to subset the data base, or an integer vector indicating the rows of the metadata to subset the database to. For the logical operators, any of the variables contained in the metadata part of the COMPADRE/COMADRE database may be used.
-}
   \item{db}{
 The COMPADRE or COMADRE database object.
 }
+  \item{sub}{
+An argument  made using logical operators (see `subset`) with which to subset the data base. Any of the variables contained in the metadata part of the COMPADRE/COMADRE database may be used.
+}
+
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
