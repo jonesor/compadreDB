@@ -10,30 +10,16 @@ This example produces some basic output such as the population growth rate ($\la
 
 ```{r echo=FALSE}
 load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+library(Mage)
 ```
 
-First, `subset` the database to the data of interest: only mean matrices for bony fish from studies of 3 years duration or longer, and with a  matrix dimension of 3 or greater.
-
+First, use `subsetDB` (from the `Mage` package) to subset the database to the data of interest: only mean matrices for bony fish from studies of 3 years duration or longer, and with a  matrix dimension of 3 or greater.
 
 ```{r, comment=">"}
-tempMetadata <- subset(comadre$metadata,
-                       MatrixComposite == "Mean" &
+x<-subsetDB(comadre, MatrixComposite == "Mean" &
                          Class == "Actinopterygii" &
                          StudyDuration >= 3 &
                          MatrixDimension > 3)
-```
-
-The row names from the subsetted dataframe can now be used to subset the entire `comadre` database using the function `subsetDB` which is available via GitHub (using `source_url` from `devtools` to download it).
-
-```{r}
-library(devtools)
-source_url("https://raw.githubusercontent.com/jonesor/compadreDB/master/Functions/subsetDB.R")
-```
-
-
-```{r, comment=">"}
-id <- as.numeric(rownames(tempMetadata))
-x<-subsetDB(comadre,id)
 ```
 
 The object `x` is now a version of the `comadre` database object that contains only the matrices that match the search criteria.
