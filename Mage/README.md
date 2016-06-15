@@ -1,16 +1,19 @@
 MAGE
 ==========
 
-How to install:
+Note that this package is at an early stage of development. 
+Expect bugs!
 
-`install.packages("devtools")`
+*How to install:*
 
-`library(devtools)`
+`install.packages("devtools")
 
-`install_github("jonesor/compadreDB/Mage")`
+library(devtools)
+
+install_github("jonesor/compadreDB/Mage")`
 
 
-Report bugs/errors to: 
+*Report bugs/errors to: *
 
 Owen Jones (jones@biology.sdu.dk)
 
