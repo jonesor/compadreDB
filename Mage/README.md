@@ -6,12 +6,12 @@ Expect bugs!
 
 *How to install:*
 
-`install.packages("devtools")
-library(devtools)
-install_github("jonesor/compadreDB/Mage")`
+`install.packages("devtools")`
+`library(devtools)`
+`install_github("jonesor/compadreDB/Mage")`
 
 
-*Report bugs/errors to: *
+*Report bugs/errors to:*
 
 Owen Jones (jones@biology.sdu.dk)
 
