@@ -7,9 +7,7 @@ Expect bugs!
 *How to install:*
 
 `install.packages("devtools")
-
 library(devtools)
-
 install_github("jonesor/compadreDB/Mage")`
 
 
