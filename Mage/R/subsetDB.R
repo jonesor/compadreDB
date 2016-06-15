@@ -1,13 +1,8 @@
-subsetDB <- function(sub, db){
-#if(class(sub)=="integer"){
-#  subsetID <- sub
-#  }else{
-  #obtain subset IDs
+subsetDB <- function(db,sub){
   e <- substitute(sub)
   r <- eval(e, db$metadata, parent.frame())
   subsetID <- (1:length(r))[r & !is.na(r)]
- # }
-  
+ 
   # First make a copy of the database.
   ssdb <- db
 
