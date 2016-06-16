@@ -12,6 +12,7 @@ First, subset mean matrices for all Carnivora in the wild in the northern hemisp
 
 ```{r echo=FALSE}
 load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+library(Mage)
 ```
 
 Load the data:
@@ -19,29 +20,14 @@ Load the data:
 load("COMADRE_v.1.0.0.RData")
 ```
 
-
 ```{r, comment=">"}
-tempMetadata <- subset(comadre$metadata,
-                       MatrixComposite == "Mean" &
+x<-subsetDB(comadre, MatrixComposite == "Mean" &
                          Order == "Carnivora" &
                          MatrixCaptivity == "W" &
                          LatNS == "N" &
                          SurvivalIssue < 1 &
                          MatrixSplit == "Divided" &
                          MatrixFec == "Yes")
-```
-
- The row names from the subsetted dataframe can now be used to subset the entire `comadre` database using the function `subsetDB` which is available via GitHub (using `source_url` from `devtools` to download it).
-
-```{r}
-library(devtools)
-source_url("https://raw.githubusercontent.com/jonesor/compadreDB/master/Functions/subsetDB.R")
-```
-
-
-```{r, comment=">"}
-id <- as.numeric(rownames(tempMetadata))
-x<-subsetDB(comadre,id)
 ```
 
 The object `x` is now a version of the `comadre` database object that contains only the matrices that match the search criteria. To calculate population growth rate for the subset matrices, we can first create an empty `data.frame` to accommodate the output:
@@ -54,7 +40,7 @@ Now create dummy variables to convert geographic information to be plotted on th
 
 ```{r, comment=">"}
 x$metadata$LAT <- NA
-tempMetadata$LON <- NA
+x$metadata$LON <- NA
 
 for(i in 1:nrow(x$metadata)){
   if(x$metadata$LatNS[i] == "S") {
