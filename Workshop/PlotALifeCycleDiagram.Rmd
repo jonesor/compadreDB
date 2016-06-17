@@ -48,12 +48,7 @@ stages <- comadre$matrixClass[[matNum]]$MatrixClassAuthor
 stages
 ```
 
-To plot its lifecycle, use `source_url` to obtain the function `plotLifeCycle.R` from the COMADRE/COMPADRE GitHub. This function is available in the `devtools` package.
-
-```{r, comment=">"}
-require(devtools)
-source_url("https://raw.githubusercontent.com/jonesor/compadreDB/master/Functions/plotLifeCycle.R")
-```
+To plot its lifecycle, use the function `plotLifeCycle.R` from the `Mage` package. 
 
 
 ```{r eval =FALSE}
