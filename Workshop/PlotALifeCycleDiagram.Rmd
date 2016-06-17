@@ -6,10 +6,10 @@ classoption: a4paper
 ---
   
 
-The exercise plots a life cycle with the stages and transitions of a give matrix chosen from the `comadre` database. It will use the R function `plotLifeCycle` from the COMADRE/COMPADRE GitHub repository. This function works well with matrices of relatively low dimensionality (~< 7), and where not many transitions are depicted. The function uses the `DiagrammeR` package, so this needs to be called first:
+The exercise plots a life cycle with the stages and transitions of a give matrix chosen from the `comadre` (or `compadre`) database (or indeed elsewhere). It will use the R function `plotLifeCycle` from the `Mage` library. This function works well with matrices of relatively low dimensionality (~< 7), and where not many transitions are depicted. 
 
 ```{r, comment=">"}
-library(DiagrammeR)
+library(Mage)
 ```
 
 Let's plot the lifecycle described by the `A` matrix for a species containing the word "lion" in the common name used by the author(s) in the original source publiction.
