@@ -9,8 +9,6 @@ classoption: a4paper
 load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
 ```
 
-
-
 Here we produce a ternary plot *a la* Silvertown & Franco (1993) with various life history traits such as mean life expectancy, population growth rate or reactivity as the "fourth" dimension. We will use Caswell (2001) formulation of mean life expectancy from the fundamental matrix (`N`), and the package `popdemo` for the reactivity. Other packages we need include `Mage`, `fields`, `vcd` and `scales`:
 
 ```{r, comment=">", message=FALSE}
@@ -22,6 +20,7 @@ library(scales)
 ```
 
 This is the function to calculate mean life expectancy from Caswell (2001):
+
 ```{r, comment = ">"}
 meanLifeExpectancy <- function(matU = matU, startLife = 1){
   uDim=dim(matU)[1]
@@ -54,7 +53,7 @@ To calculate elasticities, population growth rate, reactivity and mean life expe
 
 ```{r, comment=">"}
 output <- data.frame(species= rep(NA, nrow(x$metadata)),
-                      lambdas = rep(NA, nrow(x$metadata)),
+                      lambda = rep(NA, nrow(x$metadata)),
                       eta = rep(NA, nrow(x$metadata)),
                       react = rep(NA, nrow(x$metadata)),
                       EStasis = rep(NA, nrow(x$metadata)),
@@ -64,82 +63,24 @@ output <- data.frame(species= rep(NA, nrow(x$metadata)),
                       EClonality = rep(NA, nrow(x$metadata)))
 ```
 
-We will use the following function to calculate element-level perturbations:
+We will use the `Mage` function `matrixElementPerturbation` to calculate element-level perturbations for each matrix in a `for` loop:
 
-```{r, comment=">"}
-matrixElementPerturbation <- function(matU, matF, matC=NULL,pert=0.001){
-  matA <- matU + matF + matC
-  aDim <- nrow(matA)
-  fakeA <- matA
-  sensA <- elasA <- matrix(NA,aDim,aDim)
-  lambda <- Re(eigen(matA)$values[1])
-
-  propU <- matU / matA
-  propU[is.nan(propU)] <- NA
-  propProg <- propRetrog <- propU
-  propProg[upper.tri(propU, diag = TRUE)] <- NA
-  propRetrog[lower.tri(propU, diag = TRUE)] <- NA
-  propStasis <- matrix(diag(aDim) * diag(propU), aDim, aDim)
-  propF <- matF / matA
-  propF[is.nan(propF)] <- NA
-  propC <- matC / matA
-  propC[is.nan(propC)] <- NA
-
-  for (i in 1:aDim){
-    for (j in 1:aDim){
-       fakeA <- matA
-       fakeA[i, j] <- fakeA[i,j] + pert
-       lambdaPert <- eigen(fakeA)$values[1]
-       sensA[i, j] <- (lambda - lambdaPert) / (matA[i, j] - fakeA[i, j])
-    }
-  }
-
-  sensA <- Re(sensA)
-  elasA <- sensA * matA / lambda
-  
-  out <- data.frame("SStasis" = NA, "SProgression" = NA, "SRetrogression" = NA,
-                   "SFecundity" = NA, "SClonality" = NA, "EStasis" = NA,
-                   "EProgression" = NA, "ERetrogression"=NA,
-                   "EFecundity" = NA, "EClonality" = NA)
-    
-    out$SStasis <- sum(sensA * propStasis, na.rm = TRUE)
-    out$SRetrogression <- sum(sensA * propRetrog, na.rm = TRUE)
-    out$SProgression <- sum(sensA * propProg, na.rm = TRUE)
-    out$SFecundity <- sum(sensA * propF, na.rm=TRUE)
-    out$SClonality <- sum(sensA * propC, na.rm=TRUE)
-    out$EStasis <- sum(elasA * propStasis,na.rm=TRUE)
-    out$EProgression <- sum(elasA * propProg, na.rm=TRUE)
-    out$ERetrogression <- sum(elasA * propRetrog, na.rm=TRUE)
-    out$EFecundity <- sum(elasA * propF, na.rm=TRUE)
-    out$EClonality <- sum(elasA * propC, na.rm=TRUE)
-
-  return(out) 
-}
-
-```
-
-
-Now we can use a loop to examine each matrix:
-
-```{r, comment=">",warning=FALSE}
+```{r, comment=">", warning = FALSE}
 for (i in 1:nrow(x$metadata)){
  tryCatch({
-    matA <- x$mat[[i]]$matA
-    matU <- x$mat[[i]]$matU
-    matF <- x$mat[[i]]$matF
-    matC <- x$mat[[i]]$matC
     output$species[i] <- x$metadata$SpeciesAuthor[i]
-    output$lambdas[i] <- max(Re(eigen(matA)$value))
-    output$eta[i] <- meanLifeExpectancy(matU = matU, startLife = 1)
-    output$react[i] <- reactivity(matA)
+    output$lambda[i] <- max(Re(eigen(x$mat[[i]]$matA)$value))
+    output$eta[i] <- meanLifeExpectancy(matU = x$mat[[i]]$matU, startLife = 1)
+    output$react[i] <- reactivity(x$mat[[i]]$matA)
     output[i,c("EStasis", "EProgression", "ERetrogression",
                "EFecundity", "EClonality")] <- 
-      matrixElementPerturbation(matU = matU, matF = matF, matC = matC)[6:10]
+      matrixElementPerturbation(matU = x$mat[[i]]$matU, matF = x$mat[[i]]$matF, 
+                                matC = x$mat[[i]]$matC)[6:10]
       }, error = function(e){})
 }
 ```
 
-Group elasticities of population growth rate to various demographic processes into three main axes:
+Now we can group elasticities of population growth rate to various demographic processes into three axes of our ternary plot:
 
 ```{r, comment=">"}
 output$S <- output$EStasis + output$ERetrogression
@@ -147,7 +88,7 @@ output$G <- output$EProgression
 output$R <- output$EFecundity + output$EClonality
 ```
 
-Scale to 1 the coordinates of each point - this is necessary due to possible rounding issues, although note that the function to create the ternary plot below can do this automatically with the argument `scale`.
+We need to scale the coordinates of each point between 0 and 1 - this is necessary due to possible rounding issues:
 
 ```{r, comment=">"}
 output$S <- output$S / rowSums(output[, c("S","G","R")])
@@ -155,13 +96,13 @@ output$G <- output$G / rowSums(output[, c("S","G","R")])
 output$R <- output$R / rowSums(output[, c("S","G","R")])
 ```
 
-Eliminate the couple of MPMs where the code did not run correctly, as it produced all NAs:
+Then we must eliminate the few MPMs where the code did not run correctly, and produced `NA` values:
 
 ```{r, comment=">"}
 output <- output[-which(is.na(output$eta)), ]
 ```
 
-Plot the locations of the chosen matrices in a preliminary ternary plot.
+Now we can finally plot the locations of the chosen matrices in a preliminary ternary plot using the function `ternaryplot` from the package `vcd`. The following code also uses the function `alpha` from the `scales` package to modify the colour transparency of the points.
 
 ```{r, comment=">", tidy.opts=list(width.cutoff=50)}
 ternaryplot(output[,c("R","S","G")],scale=1,col=alpha("gray80",0.7),bg="black",
@@ -170,71 +111,85 @@ ternaryplot(output[,c("R","S","G")],scale=1,col=alpha("gray80",0.7),bg="black",
 ```
 
 
-Color-code the points in the ternary plot according to range of lambda, eta and reactivity, respectively, on different plots:
+As a use extension to this ternary plot, we can colour-code the points according to the values of lambda, eta or reactivity. To do that we first need to set up a colour palette for each of these measures, and deduce which colour each point should have.
+
+
+In every case we can use the same `colorRamp` function to deduce the appropriate colour:
 
 ```{r, comment=">"}
-lambdaData <- output[which(log(output$lambdas)<=2),]
-x_norm <- log(lambdaData$lambda)
-minL <- min(lambdaData$lambda)
-maxL <- max(lambdaData$lambda)
-x_norm <- (lambdaData$lambda-minL) / (maxL-minL)
 col_fun <- colorRamp(c("white", "yellow", "orange", "red", "dark red"))
-rgb_cols <- col_fun(x_norm)
-colsLambda <- rgb(rgb_cols, maxColorValue = 256)
-
-etaData <- output
-etaData$etalog <- log(etaData$eta)
-minE <- min(etaData$etalog)
-maxE <- max(etaData$etalog)
-x_norm <- (etaData$etalog - minE) / (maxE - minE)
-rgb_cols <- col_fun(x_norm)
-colsEta <- rgb(rgb_cols, maxColorValue = 256)
-
-reactData <- output[which(log(output$react) <= 5), ]
-reactData$reactlog <- log(reactData$react)
-minR <- min(output$react)
-maxR <- max(output$react)
-x_norm <- (output$react - minR) / (maxR - minR)
-rgb_cols <- col_fun(x_norm)
-colsReact <- rgb(rgb_cols, maxColorValue = 256)
 ```
 
-And next plot all three ternary plots. 
+First, lambda.  For this measure we should first subset out the data with unreasonable values (say > 7):
 
-We can use the same colour palette for each of the plots:
-
-```{r}
-colCode <- colorRampPalette(c("white", "yellow", "orange", "red", "dark red"))(n = 999) 
+```{r, comment=">"}
+lambdaData <- subset(output, lambda < 7)
 ```
+
+We then log transform and standardize the values, and obtain the hex colour codes for each point using the `rgb` function:
+
+```{r, comment=">"}
+Z <- log(lambdaData$lambda)
+zNorm <- (Z - min(Z))/(max(Z) - min(Z))
+colsLambda <- rgb(col_fun(zNorm), maxColorValue = 256)
+```
+
+We can now plot this diagram:
 
 ```{r, comment=">", warning=FALSE}
-zr <- range(c(lambdaData$lambda, na.rm = TRUE))
-ternaryplot(lambdaData[, c("R", "S", "G")], scale = 1, col = alpha(colsEta, 0.7), 
-            bg = "black", dimnames = c("Stasis", "Growth", "Reproduction"),
-            dimnames_position = "edge",
-            main = expression(paste("Population growth rate - ", lambda)))
-```
-
-```{r, warning=FALSE}
-zr <- range(c(etaData$eta,na.rm=T))
-ternaryplot(lambdaData[, c("R", "S", "G")], scale = 1, col = alpha(colsEta, 0.7), 
-            bg = "black", dimnames = c("Stasis", "Growth", "Reproduction"),
-            dimnames_position = "edge",
-            main=expression(paste("Mean life expectancy - ", eta["e"])))
-```
-
-```{r, warning=FALSE}
-zr <- range(c(reactData$react,na.rm=T))
-ternaryplot(lambdaData[, c("R", "S", "G")], scale = 1, col = alpha(colsEta, 0.7), 
-            bg = "black", dimnames = c("Stasis", "Growth", "Reproduction"),
-            dimnames_position = "edge",
-            main=expression(paste("Reactivity - ||", hat(A),"||"[1])))
+ternaryplot(lambdaData[, c("R", "S", "G")], scale = 1, 
+            col = alpha(colsLambda, 0.7),bg = "black", 
+            dimnames = c("Stasis", "Growth", "Reproduction"),
+            dimnames_position = "edge", main =
+              expression(paste("Population growth rate - ", lambda)))
 ```
 
 
-One might add the color scale legend using the following code to add to the same plot:
+Second, mean life expectancy (eta):
 
-```{r, eval = TRUE, warning=FALSE}
-image.plot(legend.only = TRUE, zlim = zr, col = colCode, 
+```{r, comment=">"}
+etaData <- output
+Z <- log(etaData$eta)
+zNorm <- (Z - min(Z))/(max(Z) - min(Z))
+colsEta <- rgb(col_fun(zNorm), maxColorValue = 256)
+```
+
+For which the plot can be genarated like this, as before:
+
+```{r, comment=">", warning=FALSE}
+ternaryplot(etaData[, c("R", "S", "G")], scale = 1, 
+            col = alpha(colsEta, 0.7),bg = "black", 
+            dimnames = c("Stasis", "Growth", "Reproduction"),
+            dimnames_position = "edge", 
+              main=expression(paste("Mean life expectancy - ", eta["e"])))
+
+```
+
+Thirdly, reactivity:
+
+```{r, comment=">"}
+reactData <- subset(output, react < 140)
+Z <- log(reactData$lambda)
+zNorm <- (Z - min(Z))/(max(Z) - min(Z))
+colsReact <- rgb(col_fun(zNorm), maxColorValue = 256)
+```
+
+And the plot:
+
+```{r, comment=">", warning=FALSE}
+ternaryplot(reactData[, c("R", "S", "G")], scale = 1, 
+            col = alpha(colsReact, 0.7),bg = "black", 
+            dimnames = c("Stasis", "Growth", "Reproduction"),
+            dimnames_position = "edge", 
+              main=expression(paste("Reactivity - ||", hat(A),"||"[1])))
+
+```
+
+One could add the color scale legend using the following code to add to the same plot. Note though, that here the value of the points has been standardised to range from 0 to 1, rather than the original lambda/eta/reactivity values:
+
+```{r, eval = FALSE, warning=FALSE}
+colCode <- colorRampPalette(c("white", "yellow", "orange", "red", "dark red"))(n = 999)
+image.plot(legend.only = TRUE, zlim = range(zNorm), col = colCode, 
            smallplot = c(.75, .8, .5, .75), cex.axis=0.2) 
 ```
+
