@@ -1,5 +1,5 @@
 \name{kentropy}
-\alias{kentopy}
+\alias{kentropy}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Calculate Keyfitz' life table entropy
