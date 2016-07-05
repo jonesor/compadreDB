@@ -34,7 +34,7 @@ if(sum(matF,na.rm=T)==0){stop('matF contains only 0 values')}
 	D <- diag(c(Bprime[2,]))
 	Uprimecond <- D %*% Uprime %*% MASS::ginv(D)
 	expTimeReprod <- colSums(MASS::ginv(diag(uDim) - Uprimecond))
-	La <-= expTimeReprod[startLife]
+	La <- expTimeReprod[startLife]
 
 	out$La <- La
 
