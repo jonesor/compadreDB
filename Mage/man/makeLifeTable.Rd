@@ -13,30 +13,28 @@ makeLifeTable(matU, matF = NULL, matC = NULL, startLife = 1, nSteps = 1000)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{matU}{
-%%     ~~Describe \code{matU} here~~
+The U matrix - growth and survival transitions.
 }
   \item{matF}{
-%%     ~~Describe \code{matF} here~~
+The F matrix - sexual reproduction
 }
   \item{matC}{
-%%     ~~Describe \code{matC} here~~
+The C matrix - clonal reproduction
 }
   \item{startLife}{
-%%     ~~Describe \code{startLife} here~~
+The stage of the matrix where life is considered to begin. This is usually 1 (the first stage), but in species with a seed stage (or other propagule or dormant stage), may be 2 or more.
 }
   \item{nSteps}{
-%%     ~~Describe \code{nSteps} here~~
+For how many time steps should the life table be constructed.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+A detailed description of these methods can be found in the supplementary information of Jones et al. (2014) and in section 5.3 of Caswell (2001).
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A `data.frame` with between 2 and 4 columns.
+If just `matU` is provided, the `data.frame` has columns `x` (age), `lx` (survivorship). 
+If `matF` is provided (in addition to `matU`), `mx` (age-specific sexual reproduction) is included in the output `data.frame`. Likewise, if `matC` is provided, an addition column, `cx` (age-specific clonal reproduction) is included.
 }
 \references{
 
@@ -60,11 +58,11 @@ Roberto Salguero-Gomez <r.salguero@sheffield.ac.uk>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-
+library(popbio)
+data(whale)
+matU <- splitA(whale)$T
+matF <- splitA(whale)$F
+makeLifeTable(matU, matF, startLife = 1, nSteps = 100)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
