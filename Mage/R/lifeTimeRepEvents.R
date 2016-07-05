@@ -1,9 +1,11 @@
 #' @export
+#' @import popbio
+#' @import MASS
+
 
 lifeTimeRepEvents <- function(matU, matF, startLife = 1){
   #Function to determine probability of reaching reproduction, age at maturity and reproductive lifespan (Code adapted from H. Caswell's matlab code):
-  requireNamespace("MASS")
-  requireNamespace("popbio")
+  
   
   uDim = dim(matU)[1]
   surv = colSums(matU)
