@@ -8,7 +8,8 @@ A function to plot the life cycle diagram based on the matrix model
 This function plots the life cycle diagram illustrated by a matrix model. It processes the matrix model and passes the information to the graphViz functionality of DiagrammeR. See http://rich-iannone.github.io/DiagrammeR/.
 }
 \usage{
-plotLifeCycle(A, title = "my life cycle", shape = "egg", fontsize = 10, nodefontsize = 12, edgecol = "grey")
+plotLifeCycle(A, title = "my life cycle", shape = "egg", fontsize = 10, 
+	nodefontsize = 12, edgecol = "grey")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
