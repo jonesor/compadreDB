@@ -1,3 +1,5 @@
+#' @export
+
 dbCompare <- function(db1, db2, verbose = FALSE){ 
 
 #Quick summary

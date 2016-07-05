@@ -1,3 +1,5 @@
+#' @export
+
 subsetDB <- function(db,sub){
   e <- substitute(sub)
   r <- eval(e, db$metadata, parent.frame())

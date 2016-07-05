@@ -1,3 +1,5 @@
+#' @export
+
 convert2flat <- function(db, Aonly = TRUE){
  
   db$metadata$Amatrix <- NULL

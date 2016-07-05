@@ -1,3 +1,6 @@
+#' @export
+#' @import popbio
+
 qsdConverge <- function(matU, conv = 0.05, startLife = 1, nSteps = 1000){
   
   #Function to determine the cutoff age at quasi-convergence for lx and mx (Code adapted from H. Caswell's matlab code):

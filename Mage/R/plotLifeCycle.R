@@ -1,3 +1,5 @@
+#' @export
+
 plotLifeCycle <- function(A,title="my life cycle",shape="egg",fontsize=10,nodefontsize=12,edgecol="grey"){
 
 #load required library

@@ -1,3 +1,5 @@
+#' @export
+
 kentropy <- function(lx, trapeze = TRUE){
   
   if(max(lx) > 1) stop("`lx` should be bounded between 0 and 1")

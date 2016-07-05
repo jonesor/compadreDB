@@ -1,3 +1,5 @@
+#' @export
+
 matrixElementPerturbation <- function(matU, matF, matC=NULL, pert = 0.001){
   matA <- matU + matF + matC
   aDim <- nrow(matA)

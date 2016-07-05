@@ -1,3 +1,5 @@
+#' @export
+
 vitalRatePerturbation <- function(matU, matF, matC=NULL,pert=0.001){
   #Function to calculate vital rate level sensitivities and elasticities
   
