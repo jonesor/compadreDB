@@ -51,10 +51,11 @@ Owen R. Jones <jones@biology.sdu.dk>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
+library(popbio)
+data(whale)
+matU <- splitA(whale)$T
+matF <- splitA(whale)$F
+lifeTimeRepEvents(matU,matF)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
