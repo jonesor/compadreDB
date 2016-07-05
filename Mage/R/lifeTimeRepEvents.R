@@ -30,25 +30,23 @@ if(sum(matF,na.rm=T)==0){stop('matF contains only 0 values')}
 
 	out = data.frame(pRep = pRep)
   
-  #Age at first reproduction (La; Caswell 2001, p 124)
+#Age at first reproduction (La; Caswell 2001, p 124)
 	D <- diag(c(Bprime[2,]))
 	Uprimecond <- D %*% Uprime %*% MASS::ginv(D)
 	expTimeReprod <- colSums(MASS::ginv(diag(uDim) - Uprimecond))
 	La <- expTimeReprod[startLife]
+  out$La <- La
 
-	out$La <- La
-
-  #Mean life expectancy conditional on entering the life cycle in the first reproductive stage
+#Mean life expectancy conditional on entering the life cycle in the first reproductive stage
   firstRepLifeStage <- min(which(repLifeStages == 1))
 	N <- solve(diag(uDim[1]) - matU)
 	meanRepLifeExpectancy <- colSums(N)[firstRepLifeStage]
+  out$meanRepLifeExpectancy <- meanRepLifeExpectancy
 
-	out$meanRepLifeExpectancy <- meanRepLifeExpectancy
-
-  #Life expectancy from mean maturity
+	
+#Life expectancy from mean maturity
   remainingMatureLifeExpectancy <- colSums(N)[startLife] - La
-
-	out$remainingMatureLifeExpectancy <- remainingMatureLifeExpectancy
+  out$remainingMatureLifeExpectancy <- remainingMatureLifeExpectancy
 
 	return(out)
  }
