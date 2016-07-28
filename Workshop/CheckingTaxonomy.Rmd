@@ -1,6 +1,6 @@
 ---
 title: 'Updating and checking the taxonomy'
-date: date: "`r Sys.Date()`"
+date: "`r Sys.Date()`"
 output: pdf_document
 classoption: a4paper
 ---
