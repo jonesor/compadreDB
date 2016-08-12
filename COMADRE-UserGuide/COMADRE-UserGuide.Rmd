@@ -16,7 +16,7 @@ output:
 
 # User guide version information
 
-Version 1.0.0
+Version 2.0.0
 
 Date modified:  `r format(Sys.time(), "%B %d %Y")`
 
@@ -47,9 +47,15 @@ The COMADRE digitization team does its best to ensure data accuracy, and every p
 
 # What’s new in this version
 
+### Version 2.0.0
+
+  -  508 studies with 405 taxonomically accepted animal species and a total of 1,927 population matrix models.
+  -  Various minor error fixes for previously released matrices.
+  -  Multiple data columns for latitude and longitude collapsed into single degree-decimal columns.
+
 ### Version 1.0.0
 
-  -  402 studies with 346 taxonomically accepted animal species and a total of 1,603 population matrix models
+  -  402 studies with 346 taxonomically accepted animal species and a total of 1,603 population matrix models.
 
 -----------------------------------------------
 
@@ -121,14 +127,14 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 -----------------------------------------------
 
-### `Infraspecies`
+### `Infraspecific`
 
 **Definition:** Taxonomic infraspecific name of study SpeciesAuthor
 
 
 ##### Possible values:
 
-* `<infraspecies>` -	e.g. “`floridanus`“, for “`Ursus americanus subsp. floridanus`“
+* `<infraspecific>` -	e.g. “`floridanus`“, for “`Ursus americanus subsp. floridanus`“
 
 
 -----------------------------------------------
@@ -194,6 +200,38 @@ If two or more demographic studies exist for a single species, these are digitiz
 ##### Possible values:
 
 * `<class>` -	e.g. Mammalia
+-----------------------------------------------
+
+### `Phylum`
+
+**Definition:** Phylum to which species belongs
+
+##### Possible values:
+
+* `<phylum>` -	e.g. Chordata
+
+-----------------------------------------------
+
+### `Kingdom`
+
+**Definition:** Kingdom to which species belongs
+
+##### Possible values:
+
+* `<kingdom>` -	e.g. Animalia
+
+-----------------------------------------------
+
+### `OrganismType`
+
+**Definition:** Broad type of organism, generally Class in animals (except humans, which are recorded as "Homo_sapiens"). 
+
+##### Possible values:
+
+* `<OrganismType>` -	e.g. Actinopterygii
+
+
+
 
 
 -----------------------------------------------
@@ -246,7 +284,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 -----------------------------------------------
 
-### `DOI/ISBN`
+### `DOI.ISBN`
 
 **Definition:** Digital Object Identification or International Standard Book Number codes that identify the publication.
 
@@ -375,99 +413,25 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 -----------------------------------------------
 
-### `LatDeg`
+### `Lat`
 
-**Definition:** Degree value of latitude.
-
-##### Possible values:
-
-* `<0-90>` -	e.g. 64
-
-
------------------------------------------------
-
-### `LatMin`
-
-**Definition:** Minute value of latitude
+**Definition:** Degree value of latitude, in decimal format. Negative values indicate that the location is in the southern hemisphere
 
 ##### Possible values:
 
-* `<0-60>` -	e.g. 34
+* `<-90-90>` -	e.g. 64.87, -43.7
 
 
 -----------------------------------------------
 
 
-### `LatSec`
+### `Lon`
 
-**Definition:** Seconds value of latitude (decimates are possible). Note that a value of `0` may mean that precise values are not available.
-
-##### Possible values:
-
-* `<0-60>` -	e.g. 23.14 or 34
-
------------------------------------------------
-
-
-### `LatNS`
-
-**Definition:** Cardinal direction
+**Definition:** Degree value of longitude, in decimal format. Negative values indicate that the location is to the west of the Greenwich meridian (0 degrees)
 
 ##### Possible values:
 
-* `N` -	North
-
-* `S` -	South
-
-
------------------------------------------------
-
-
-### `LonDeg`
-
-**Definition:** Degree value of longitude
-
-##### Possible values:
-
-* `<0-180>` -	e.g. 137
-
-
------------------------------------------------
-
-
-### `LonMin`
-
-
-**Definition:** Minute value of longitude
-
-##### Possible values:
-
-* `<0-60>` -	e.g. 45
-
------------------------------------------------
-
-### `LonSec`
-
-**Definition:** Seconds value of longitude (decimates are possible). Note that a value of `0` may mean that precise values are not available.
- 
-
-##### Possible values:
-
-* `<0-60>` -	e.g. 34.335
-
-
------------------------------------------------
-
-
-### `LonWE`
-
-**Definition:** Cardinal direction
-
-##### Possible values:
-
-* `W` -	West
-
-* `E` -	East
+* `<-180-180>` -	e.g. 137.78, -78.32
 
 
 -----------------------------------------------
@@ -516,7 +480,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 * `Oceania` -	Various definitions for Oceania exist, but here we opted for this one: http://en.wikipedia.org/wiki/List_of_Oceanian_countries_by_population 
 
-
+* `LAB` - Laboratory or greenhouse conditions – controlled, usually indoor, conditions that mean the study species is not affected by the environment conditions typical of the actual geographic location of the study 
 
 -----------------------------------------------
 
@@ -599,6 +563,8 @@ If two or more demographic studies exist for a single species, these are digitiz
 * `M/F` -	Males and females separately in the same population matrix model
 
 * `A` -	All sexes modeled together
+
+* `NA` -	There are no distinct sexes in this species
 
 
 -----------------------------------------------
