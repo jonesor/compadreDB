@@ -13,13 +13,14 @@ Here is an example.
 
 
 ```{r echo=FALSE}
-load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+load("~//Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
 library(Mage)
+library(MASS)
 ```
 
 Load the data:
 ```{r eval=FALSE}
-load("COMADRE_v.1.0.0.RData")
+load("COMADRE_v.2.0.0.RData")
 ```
 
 Next, query the `metadata` part of `comadre` to identify the location of the desired data using the command `which` in a conditional search:

@@ -14,7 +14,7 @@ library(taxize)
 ```
 
 ```{r, eval = TRUE, echo = FALSE}
-setwd("~/Dropbox/COMADRE\ intro\ ms/Data")
+setwd("~/Dropbox/MatrixDatabases/COMADRE/v.1.0.0/")
 load("COMADRE_v.1.0.0.RData")
 ```
 
@@ -75,7 +75,7 @@ x[[1]]
 Thus, to acquire the taxonomic Order of the species of interest one would use:
 
 ```{r,comment=">"}
-x[[1]]$name[x[[1]]$rank == "Order"]
+x[[1]]$name[x[[1]]$rank == "order"]
 ```
 
 One can run through this list object in a loop to compare the information held in COMADRE, with that produced by the query to Catalogue of Life. For example, to check the Orders of the 5 species held in `temp`
@@ -84,7 +84,7 @@ One can run through this list object in a loop to compare the information held i
 for(i in 1:nrow(temp)){
 n <- temp$SpeciesBinomial[i]
 dat <- x[[n]]
-CoL_Order <- dat$name[dat$rank == "Order"]
+CoL_Order <- dat$name[dat$rank == "order"]
 if(temp$Order[i] == CoL_Order){temp$OrderOK[i] <- "OK"
 } else {
     temp$OrderOK[i] <- "Differs!"}

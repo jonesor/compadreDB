@@ -15,12 +15,12 @@ library(Mage)
 Let's plot the lifecycle described by the `A` matrix for a species containing the word "lion" in the common name used by the author(s) in the original source publiction.
 
 ```{r echo=FALSE}
-load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
 ```
 
 First load the data:
 ```{r eval=FALSE}
-load("COMADRE_v.1.0.0.RData")
+load("COMADRE_v.2.0.0.RData")
 ```
 
 To find the species with the word `lion` in their common name, we use the function `grep`.

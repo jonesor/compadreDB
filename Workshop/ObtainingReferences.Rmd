@@ -22,13 +22,12 @@ library(rcrossref)
 First, set the working directory to where the COMADRE R data object has been saved, and load the data therein:
 
 ```{r, eval = TRUE, echo = FALSE}
-setwd("~/Dropbox/COMADRE\ intro\ ms/Data")
-load("COMADRE_v.1.0.0.RData")
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
 ```
 
 ```{r, eval = FALSE}
 setwd("~/Downloads/COMADRE/")
-load("COMADRE_v.1.0.0.RData")
+load("COMADRE_v.2.0.0.RData")
 ```
 
 The `rcrossref` package has a convenient function, `cr_search_free` which conducts a free-text search of the CrossRef database. To use it, one needs to provide some query text, so in this case we can simply create a text string by concatenating the authors, journal and year of publication from COMADRE. 

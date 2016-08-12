@@ -7,7 +7,7 @@ classoption: a4paper
 ---
 
 ```{r echo=FALSE}
-load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
 ```
 
 This document explains how to get matrices out of the COMADRE and COMPADRE databases.
@@ -21,7 +21,7 @@ Let's imagine you want to get matrices for all *Ursus maritimus* (polar bear) sp
 Firstly you will need to load the data file (called `COMADRE_v.x.x.x.RData`) into RStudio. You can do from within RStudio by clicking *File*, *Open file...*, then navigating to find the file, selecting it and clicking *Open*. Alternatively you can use the `load` function:
 
 ```{r echo = TRUE, eval = FALSE, comment=">"}
-load("~/Downloads/COMADRE_v.1.0.0.RData")
+load("~/Downloads/COMADRE_v.2.0.0.RData")
 ```
 
 Once you have loaded the file, you should see it in your `Environment`. It will be called `comadre`.
@@ -61,7 +61,7 @@ To get the matrix for any of these we need to access the `mat` part of the datab
 Let's look at the first one, at position `r grep("Ursus_maritimus",comadre$metadata$SpeciesAccepted)[1]`.
 
 ```{r comment = ">"}
-comadre$mat[[1428]]
+comadre$mat[[1653]]
 ```
 
 
@@ -71,7 +71,7 @@ You will note that there are actually 4 matrices, called `matA`, `matU`, `matF` 
 You can isolate **just** the **A** matrix like this, renaming it `x`:
 
 ```{r comment=">"}
-x <- comadre$mat[[1428]]$matA
+x <- comadre$mat[[1653]]$matA
 x
 ```
 
@@ -80,7 +80,7 @@ Now you can use this matrix to do the analysis of interest...
 But what are the stages in the matrix? That's easy - to obtain the stage information you can consult the relevant index for the `comadre$matrixClass` part of the database object like this:
 
 ```{r comment=">"}
-comadre$matrixClass[[1428]]
+comadre$matrixClass[[1653]]
 ```
 
 ### Since it's Christmas soon, why not have a look for reindeer (*Rangifer*) in the database?

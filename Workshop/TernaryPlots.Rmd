@@ -6,7 +6,7 @@ classoption: a4paper
 ---
 
 ```{r echo=FALSE}
-load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
 ```
 
 Here we produce a ternary plot *a la* Silvertown & Franco (1993) with various life history traits such as mean life expectancy, population growth rate or reactivity as the "fourth" dimension. We will use Caswell (2001) formulation of mean life expectancy from the fundamental matrix (`N`), and the package `popdemo` for the reactivity. Other packages we need include `Mage`, `fields`, `vcd` and `scales`:
