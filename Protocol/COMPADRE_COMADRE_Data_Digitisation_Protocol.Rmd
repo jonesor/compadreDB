@@ -677,6 +677,7 @@ Indication of the sex(es) considered when constructing the matrix population mod
 * H	- Hermaphrodites
 * M/F	- Males and females separately in the same population matrix model
 * A	- All sexes together
+* NA	- There are no distinct sexes (e.g. a virus)
 
 ************************************************
 
