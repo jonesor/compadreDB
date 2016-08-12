@@ -11,20 +11,20 @@ First, subset mean matrices for all Carnivora in the wild in the northern hemisp
 
 
 ```{r echo=FALSE}
-load("~/Dropbox/COMADRE intro ms/Data/COMADRE_v.1.0.0.RData")
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
 library(Mage)
 ```
 
 Load the data:
 ```{r eval=FALSE}
-load("COMADRE_v.1.0.0.RData")
+load("COMADRE_v.2.0.0.RData")
 ```
 
 ```{r, comment=">"}
 x<-subsetDB(comadre, MatrixComposite == "Mean" &
                          Order == "Carnivora" &
                          MatrixCaptivity == "W" &
-                         LatNS == "N" &
+                         Lat > 0 &
                          SurvivalIssue < 1 &
                          MatrixSplit == "Divided" &
                          MatrixFec == "Yes")
@@ -36,26 +36,6 @@ The object `x` is now a version of the `comadre` database object that contains o
 output <- data.frame(lambdas = rep(NA, length(x$mat)))
 ```
 
-Now create dummy variables to convert geographic information to be plotted on the map (below):
-
-```{r, comment=">"}
-x$metadata$LAT <- NA
-x$metadata$LON <- NA
-
-for(i in 1:nrow(x$metadata)){
-  if(x$metadata$LatNS[i] == "S") {
-    x$metadata$LatDeg[i] <- -x$metadata$LatDeg[i]
-  }
-  if(x$metadata$LonWE[i] == "W") {
-    x$metadata$LonDeg[i] <- -x$metadata$LonDeg[i]
-  }
-  x$metadata$LAT[i] <- x$metadata$LatDeg[i] + 
-    x$metadata$LatMin[i]/60 + x$metadata$LatSec[i]/3600
-  x$metadata$LON[i] <- x$metadata$LonDeg[i] + 
-    x$metadata$LonMin[i]/60 + 
-    x$metadata$LonSec[i]/3600
-}
-```
 
 Create an empty variable to accommodate output from lambda calculations:
 
@@ -92,6 +72,6 @@ library(maps)
 map("world", col = "gray", fill = TRUE, bg = "light blue",
     xlim = c(-175, 176), ylim = c(-60, 85), border = "white")
 
-points(jitter(x$metadata$LON, 0.6), jitter(x$metadata$LAT, 0.6),
+points(jitter(x$metadata$Lon, 0.6), jitter(x$metadata$Lat, 0.6),
        col = colVect[findInterval(x$metadata$lambdas, s1)],cex = 2, pch = 16)
 ```
