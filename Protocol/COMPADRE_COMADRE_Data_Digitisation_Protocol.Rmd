@@ -110,23 +110,24 @@ First name of COMPADRino
 Possible values
 
 * Alex
+* AlexNH
 * Anne
-* Claudia
 * Christoph
+* Claudia
 * Elisa
 * Erik
 * Fränce
-* Gesa
 * Gabriel
+* Gesa
 * Hendrik
 * Jakob
 * Janek
 * Julia
+* Rob
 * Sandra
 * Stefan
-* Veronika
-* Rob
 * Tara
+* Veronika
 
 Information for Species Descriptors file:
 
