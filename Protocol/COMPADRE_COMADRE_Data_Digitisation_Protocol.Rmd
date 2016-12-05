@@ -292,11 +292,12 @@ Exactly the same naming convention __must__ be used in both the Species Descript
 
 Records the common name as used in the publication. Separate multiple names with a semi-colon (";"). If there is no common name used in the publication, record "NA".	
 
-************************************************
+
 ************************************************
 ## Taxonomy columns
 
 This series of columns includes taxonomic information.
+Please obtain (and check) this information using The Plant List (http://www.theplantlist.org) for plants and the Catalogue of Life (http://www.catalogueoflife.org/col/) for animals.
 
 * Kingdom - Kingdom to which species belongs.
 * Phylum - Phylum to which species belongs e.g. Magnoliophyta.
@@ -304,12 +305,10 @@ This series of columns includes taxonomic information.
 * Family - Family to which species belongs	e.g. Polygonaceae.
 * Order	- Order to which species belongs	e.g. Caryophyllales.
 * Genus	- Genus used in SpeciesAuthor	e.g. Chorizanthe.
-* SpeciesAccepted - Currently accepted Latin name. This information is is obtained from The Plant List (http://www.theplantlist.org) for plants and the Catalogue of Life (http://www.catalogueoflife.org/col/) for animals.
+* SpeciesAccepted - Currently accepted Latin name. 
 * DateOfCheck - the date when the taxonomy was checked.
 * AngioGymno	Whether species is an angiosperm or a gymnosperm (record Angiosperm or Gymnosperm). If it is neither angiosperm nor gymnosperm fill in NA. Use NA for **all** animals.
 * DicotMonoc - Whether species is a dicot or monocot	(record Eudicot or Monocot). If species is neither dicot nor monocot (i.e. if it is not an angiosperm) fill in NA. Use NA for **all** animals.
-
-Those variables will be digitised and checked frequently by the database curators.
 
 For COMPADRinos to get an idea of what kingdom, class etc means:
 
