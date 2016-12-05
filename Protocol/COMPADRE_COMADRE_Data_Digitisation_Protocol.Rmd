@@ -903,6 +903,14 @@ This is how it possibly looks like (this is a indivisible 5x5 matrices for the h
 The diagram below shows the life cycle of two hypothetical plant populations based on age (A) and size (B), with their corresponding matrix population models. A, and underlying basic demographic processes of survival (U sub-matrix; solid arrows), sexual reproduction (F sub-matrix; dashed arrows) and clonal reproduction (C sub-matrix; dotted arrows). In the Leslie matrix model example (A), the division of sub-matrices is more straightforward than in the Lefkovitch matrix model example (B). In the latter imaginary example, individuals can transition into the same stage as they can contribute with sexual and/or clonal offspring (e.g. small stage). In these cases, splitting A into sub-matrices U, F and C is only feasible when sufficient information is provided by the authors (see variable MatrixSplit in above).
 
 ![Life cycle](images/Lifecycle_AUFC.png)
+************************************************
+## MatrixFec
+
+This records whether fecundity was measured at all for this matrix model. The rationale for this is that a fecundity (in the F matrix) may be recorded as 0 either because it was not measured, or because reproduction was estimated to be zero. As a general rule, if any values for fecundity (e.g. in the F matrix) are non-zero, then MatrixFec should be recorded as 'Yes'. If all values are zero, then you should check the paper carefully to check whther this is because no fecundity was detected, or whether no attempt was made to measure fecundity.
+
+* Yes - fecundity was measured for the matrix
+* No - fecundity was not measured for the matrix
+* NA - it is not known whether fecundity was measured for the matrix
 
 
 ************************************************
