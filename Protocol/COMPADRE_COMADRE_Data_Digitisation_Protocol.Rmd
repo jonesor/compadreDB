@@ -819,7 +819,8 @@ __Always__ check geolocation with Google Earth! If the geolocation from Google E
 ### LatDeg / LatMin / LatSec
 
 Record the degree (0-90), minute (0-60) and second (0-60) values of the locations of the matrix.
-If no LatSec is available type in a zero. This means: the value “0” may mean precise values are not available! If the geolocation is given as e.g. 58° 06' N 17° 26' E we do not enter "06" into the LatMin / LatSec column but only "6".
+If no LatSec is available type in a zero. This means: the value “0” may mean precise values are not available! If the geolocation is given as e.g. 58° 06' N 17° 26' E we do not enter "06" into the LatMin / LatSec column but only "6". 
+**Note:** if there are no seconds (or minutes) given, you should record as NA rather than 0.
 
 ### LatNS
 
