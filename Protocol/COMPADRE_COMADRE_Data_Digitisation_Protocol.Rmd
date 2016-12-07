@@ -845,6 +845,8 @@ Cardinal direction
 
 __Note:__ Cardinal direction might be given with a “+” or “-“ whereat “+” means East and “-“ means West.
 
+The following link is useful for converting between different ways of presenting lat/long information: http://www.earthpoint.us/Convert.aspx
+
 ### Altitude
 
 Altitude of studied population in m = Height above sea level of specific population in meters e.g. 208m.
