@@ -721,14 +721,18 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ### `MatrixFec`
 
-**Definition:** Whether reproduction was modeled by the MPM.
+**Definition:** This records whether fecundity was measured at all for this matrix model.  
+
+The rationale for this is that a fecundity (in the F matrix) may be recorded as 0 either because it was not measured, or because reproduction was measured and estimated to be zero. As a general rule, if any values for fecundity (e.g. in the F matrix) are non-zero, then MatrixFec should be recorded as 'Yes'. If all values are zero, then you we check the paper carefully to check whther this is because no fecundity was detected, or whether no attempt was made to measure fecundity.
+
 
 ##### Possible values:
 
-* `Yes` -	Reproduction was included in the MPM, and thus -– if it occurred in the specific matrix interval of interest -– values >0 should appear in the submatrix **F**.
+* `Yes` -	Reproduction was included in the MPM, and thus values >0 should appear in the submatrix **F** if sexual reproduction occurred in these stages/ages. Note that it is possible that reproduction was measured and modelled but none occurred. In that case, values of 0 are possible in the F matrix.
 
-* `No` -	Reproduction was not included in the matrix population model, either because it was not the goal of the study or due to logistical impossibility. In some **F** submatrices theelements where sexual reproduction would have appeared contain NA values.
+* `No` -	Reproduction was not modelled by the matrix population model, either because it was not the goal of the study or due to logistical impossibility. In some **F** submatrices the elements where sexual reproduction would have appeared contain NA values, and in others they contain 0 values.
 
+* NA - it is not known whether fecundity was measured for the matrix
 -----------------------------------------------
 
 
