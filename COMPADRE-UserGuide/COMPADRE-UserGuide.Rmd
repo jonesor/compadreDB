@@ -16,7 +16,7 @@ date: '`r format(Sys.time(), "%B %d %Y")`'
 
 # User guide version information
 
-Version 3.2.1
+Version 3.3.1
 
 Date modified: `r format(Sys.time(), "%B %d %Y")`
 
@@ -46,6 +46,10 @@ The COMPADRE digitization team does its best to ensure data accuracy, and every 
 -----------------------------------------------
 
 # What’s new in this version
+
+### Version 3.2.1
+
+  -  Clarified description of MatrixFec
 
 ### Version 3.2.1
 

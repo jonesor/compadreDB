@@ -1,6 +1,5 @@
 ---
 title: "User guide to the COMADRE Animal Matrix Database"
-date: '`r format(Sys.time(), "%B %d %Y")`'
 output:
   pdf_document:
     toc: yes
@@ -11,12 +10,13 @@ output:
     word_document: default
   classoption: a4paper
   word_document: default
+date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
 
 
 # User guide version information
 
-Version 2.0.0
+Version 2.1.0
 
 Date modified:  `r format(Sys.time(), "%B %d %Y")`
 
@@ -46,6 +46,9 @@ The COMADRE digitization team does its best to ensure data accuracy, and every p
 -----------------------------------------------
 
 # What’s new in this version
+
+### Version 2.0.0
+Clarified description of MatrixFec.
 
 ### Version 2.0.0
 
