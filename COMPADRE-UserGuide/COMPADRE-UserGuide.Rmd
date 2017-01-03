@@ -1024,13 +1024,7 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 -----------------------------------------------
 
 
-# Appendix - The calculation of mean matrix population models
 
-*	In COMPADRE we present the individual matrix population models for each season, year, study population and treatment that can be calculated from a paper, as well as those personally communicated by the publication authors to the COMPADRE digitization team.  When pertinent, mean matrix population models that are element-by-element averages (arithmetic mean) across all Unmanipulated matrix population models (defined above) and across each treatment group are also given. Mean matrix population models that combine estimates from different treatments, or that combine estimates from treatments with unmanipulated conditions, are not calculated because of their lack of biological interpretation (Figure 2).
-
-*	Seasonal matrix population models, where more than one matrix  population model exists for a single year, are marked as “Seasonal”.  For these, we calculate average matrix population models for each season but not for each year (Figure 3). Deriving an annual model from  seasonal data is straightforward and the calculations are described by Caswell (2001, p. 349).
-
------------------------------------------------
 
 
 # Appendix - The calculation of mean matrix population models
