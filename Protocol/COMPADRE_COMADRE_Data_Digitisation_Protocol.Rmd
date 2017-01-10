@@ -129,26 +129,17 @@ Possible values
 * Tara
 * Veronika
 
-Information for Species Descriptors file:
-
-The fill color of the variable Student in the Species descriptors means the following:
-
-* LIGHT ORANGE	The Transferred column has been checked. The entry in that column is correct. If something was missing (see MissingData) author has been contacted again by Gesa or Fränce (in late 2014 / early 2015). Everything else is fine.
-* DARK ORANGE	The Transferred column has been checked. The entry in that column is correct but a problem occurred which is explained in the Notes column (e.g. no mail address of author(s) found/functional/outdated).
-
-Note: Excel might color the cell (in green or orange) automatically when entering a new species. Please always change the fill color for all new entries into "no fill". The students who do the error-checking will change into orange/red/green when necessary.
-
-
 
 __Information for the Stacked File:__
 
-The color coding in the EnteredBy column of the Stacked File means the following:
+The color coding in the Student column of the Stacked File means the following:
 
 * RED	There is some problem with this entry, the student who entered the species is informed and works on the species/species again
-* ORANGE	The entry is checked once (e.g. by Gesa). No faults have been found.
+* LIGHT ORANGE	The *Transferred* column has been checked. The entry in that column is correct. If something was missing (see *MissingData*) author has been contacted again. Everything else is fine.
+* DARK ORANGE The *Transferred* column has been checked. The entry in that column is correct but a problem occurred which is explained in the *Notes* column (e.g. no mail address of author found).
 * GREEN	The entry has been checked twice. No faults have been found. Species/study is ready to go online.
 
-Excel might color the cell (in green or orange) automatically when entering a new species. Please always change the fill color for all new entries into "no fill". The students who do the error-checking will change into orange/red/green when necessary.
+Note: Excel might color the cell (in green or orange etc.) automatically when entering a new species. Please always change the fill color for all new entries into "no fill". The students who do the error-checking will change into orange/red/green when necessary.
 
 ************************************************
 
@@ -207,6 +198,65 @@ This column records the date when the COMPADRINO started working on this species
 ## Embargo
 
 If the author does not wish to make personally communicated data available, the data will be under embargo until the following date. At that point, an automatic reminder will go out to the author. The data will not become public until explicit permission has been given by the author. The date should be recorded in US date format (mm.dd.yyyy), or as NA when there if no embargo.
+
+************************************************
+
+## StudyChecked
+
+This variable records how much the MPM has been checked by us.
+It is a numeric variable that gets incremented by +1 each time the data in a set of matrices for a study are checked. The first time the data are entered, StudyChecked is 0 (it has been *entered* not checked). Then, if for whatever reason we revisit the paper/data to check details, we add 1 to the number. e.g. an study that has been entered, then checked twice should have a value of 2.
+
+* 0 – Digitized only 
+* 1 – Error checked once since digitization 
+* 2 – Error checked twice since digitization 
+* 3 – Error checked three times since digitization 
+* 4 – Etc.
+
+### NOTE - 
+In the files we are already using there is some colour coding that we can carry on using in the *Student* column. In this column we use ORANGE color to give some indication of check status:
+
+We will now modify this to two shades of orange:
+
+* LIGHT ORANGE	The *Transferred* column has been checked. The entry in that column is correct. If something was missing (see MissingData) author has been contacted again. Everything else is fine.
+
+* DARK ORANGE The *Transferred* column has been checked. The entry in that column is correct but a problem occurred which is explained in the *Notes* column (e.g. no mail address of author found).
+
+************************************************
+
+## StudyDifficulty
+
+This indicates how difficult the MPM information was to extract from the paper.
+It is recorded on a 3 point scale (values of 1, 2, 3), with 1 being easy to 3 being hard. How do we decide on difficulty? 
+
+The points below give the characteristics of "easy", "medium" and "hard" studies to digitise. These are not exhaustive, but should allow you to roughly categorise the study you are working on to one of the three levels. 
+
+### 1) EASY 
+- MPMs have a single vital rate per matrix element 
+- Not a "Frankenstein matrix" 
+- The MPMs freely available to digitize and it was 100% clear what population, year and/or treatment it was referring too. 
+- No clonality present.
+- Easy and clearly described life cycle.
+- Matrix information present in the paper in the form of a matrix/table.
+- It was NOT necessary to contact the publication authors for clarification or more data.
+
+### 2) MEDIUM
+- Multiple vital rates per matrix element but calculations of each element from vital rates is clearly described 
+- Frankenstein matrix from clearly distinguishable sources
+- The matrix was freely available to digitize and it was 100% clear, but the population, year and/or treatment each matrix relates too was unclear but manageable from the literature 
+- Clonality was present and the clonal components were clearly described within the literature and the matrix could therefore be split accurately into component matrices (U, C, F)
+- Complex life cycle but clear definition of life cycle provided 
+- Matrix not present in the paper and therefore matrix elements needed to be calculated from vital rates and life cycle diagrams
+
+### 3) HARD
+- Multiple vital rates per matrix element but calculations of each element from vital rates is not described.
+- Frankenstein matrix with undistinguishable sources.
+- The matrix was freely available to digitize and it was 100% clear, but the population, year and/or treatment each matrix relates too was undeterminable.
+- Clonality was present within the matrix but the clonal components were not clearly described within the literature and therefore the matrix could not be split into component matrices (U, C, F).
+- No information on life cycle available / poor description of life cycle.
+- Matrix elements had to be calculated from tables. 
+- Vital rates were modeled as a function of other factors, for example, density dependence, weather.
+- It was necessary to contact the publication authors for clarification or more data.
+
 
 ************************************************
 ## OrganismType
