@@ -347,7 +347,7 @@ Records the common name as used in the publication. Separate multiple names with
 ## Taxonomy columns
 
 This series of columns includes taxonomic information.
-Please obtain (and check) this information using The Plant List (http://www.theplantlist.org) for plants and the Catalogue of Life (http://www.catalogueoflife.org/col/) for animals.
+Please obtain (and check) this information using The Plant List (http://www.theplantlist.org) for plants and the Catalogue of Life (http://www.catalogueoflife.org/col/) for animals. For algae, you can use http://www.algaebase.org.
 
 * Kingdom - Kingdom to which species belongs.
 * Phylum - Phylum to which species belongs e.g. Magnoliophyta.
