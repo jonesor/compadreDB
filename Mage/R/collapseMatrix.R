@@ -15,7 +15,7 @@
 #'                  0, 0, 0, 0, 2.75, 1.75, 0, 0),
 #'                  nrow = 5, byrow = FALSE)
 #' collapse1 <- c("1-2","3-4","5")
-#' (out <- collapseMatrix(matU, matF, collapse1))
+#' (out <- collapseMatrix(matU, matF, collapse2))
 #' eigen(out$matA)
 #' eigen(out$matU)
 #' eigen(out$matF)

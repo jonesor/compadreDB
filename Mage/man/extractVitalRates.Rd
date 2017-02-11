@@ -2,8 +2,8 @@
 % Please edit documentation in R/extractVitalRates.R
 \name{extractVitalRates}
 \alias{extractVitalRates}
-\title{Function to extract the vital rates of a 3x3 matrix that has been
-collapsed into pre-, reprod, and post-reprod}
+\title{Function to extract the vital rates of a 4x4 matrix that has been
+collapsed into propagule, pre-, reprod, and post-reprod}
 \usage{
 extractVitalRates(matU, matF, collapse)
 }
@@ -12,11 +12,10 @@ extractVitalRates(matU, matF, collapse)
 
 \item{matF}{a matrix, just reproduction}
 
-\item{collapse}{stuff}
+\item{collapse}{vector of stages}
 }
 \description{
-Function to extract the vital rates of a 3x3 matrix that has been
-collapsed into pre-, reprod, and post-reprod
+FIXME: change to allow non 4 by 4 matrices
 }
 \examples{
 matU <- matrix(c(0.2581, 0.1613, 0.1935, 0.2258, 0.1613, 0.0408, 0.2857,
@@ -27,7 +26,7 @@ matU <- matrix(c(0.2581, 0.1613, 0.1935, 0.2258, 0.1613, 0.0408, 0.2857,
 matF <- matrix(c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                  0, 0, 0, 0, 2.75, 1.75, 0, 0),
                  nrow = 5, byrow = FALSE)
-collapse <- c("1-2","3-4-5")
+collapse <- c("1-2", "3", "4", "5")
 xx <- collapseMatrix(matU, matF, collapse)
 extractVitalRates(xx$matU, xx$matF, collapse)
 }

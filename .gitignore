@@ -13,3 +13,7 @@ Mage.Rcheck/
 
 #Hidden files
 .DS_Store
+.Rproj.user
+
+*.Rproj
+

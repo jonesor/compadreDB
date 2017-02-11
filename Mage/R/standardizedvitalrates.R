@@ -4,7 +4,7 @@
 #' @param matU a matrix without reproduction and clonality
 #' @param matF a matrix, just reproduction
 #' @param matFmu a matrix
-#' @param matrix_stages a vector of matrix stage statuses
+#' @param matrixStages a vector of matrix stage statuses
 #' @examples
 #' # compadre
 #' # load("~/COMPADRE_v.4.0.1.RData")
@@ -22,13 +22,13 @@
 #'                    0, 0, 0, 0, 1.0409262, 0.5040727, 0.016433, 0.06956801),
 #'                  nrow = 5, byrow = FALSE)
 #'
-#' foo(
+#' standardizedVitalRates(
 #'  matU = matU,
 #'  matF = matF,
 #'  matFmu = matFmu,
-#'  matrix_stages = c("dorm", "active", "active", "active", "active")
+#'  matrixStages = c("dorm", "active", "active", "active", "active")
 #' )
-standardizedVitalRates <- function(matU, matF, matFmu, matrix_stages) {
+standardizedVitalRates <- function(matU, matF, matFmu, matrixStages) {
   # put non-reproductive to the end of the matrix
   rearr <- rearrangeMatrix(matU, matF, matFmu)
   matFmu <- rearr$matFmu
@@ -39,12 +39,13 @@ standardizedVitalRates <- function(matU, matF, matFmu, matrix_stages) {
   maxRep <- rearr2$maxRep
 
   # defines which columns need to be collapsed for each of the four stages
-  collapse <- reprodStages(matF, matFmu, post, maxRep, matrix_stages)
+  collapse <- reprodStages(matF, matFmu, post, maxRep, matrixStages)
 
-  matUcollapse <- collapseMatrix(matU, matF, collapse = collapse)$matU
+  xx <- collapseMatrix(matU, matF, collapse = collapse)
+  matUcollapse <- xx$matU
   matUcollapse[is.na(collapse), is.na(collapse)] <- NA
 
-  matFcollapse <- collapseMatrix(matU, matF, collapse = collapse)$matF
+  matFcollapse <- xx$matF
   matFcollapse[is.na(collapse), is.na(collapse)] <- NA
 
   extractVitalRates(matU = matUcollapse, matF = matFcollapse, collapse)

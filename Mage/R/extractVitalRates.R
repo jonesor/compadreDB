@@ -1,10 +1,12 @@
-#' Function to extract the vital rates of a 3x3 matrix that has been
-#' collapsed into pre-, reprod, and post-reprod
+#' Function to extract the vital rates of a 4x4 matrix that has been
+#' collapsed into propagule, pre-, reprod, and post-reprod
+#'
+#' FIXME: change to allow non 4 by 4 matrices
 #'
 #' @export
 #' @param matU a matrix without reproduction and clonality
 #' @param matF a matrix, just reproduction
-#' @param collapse stuff
+#' @param collapse vector of stages
 #' @examples
 #' matU <- matrix(c(0.2581, 0.1613, 0.1935, 0.2258, 0.1613, 0.0408, 0.2857,
 #'                  0.4286, 0.102, 0.0816, 0.0385, 0.0385, 0.2692, 0.2308,
@@ -14,7 +16,7 @@
 #' matF <- matrix(c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 #'                  0, 0, 0, 0, 2.75, 1.75, 0, 0),
 #'                  nrow = 5, byrow = FALSE)
-#' collapse <- c("1-2","3-4-5")
+#' collapse <- c("1-2", "3", "4", "5")
 #' xx <- collapseMatrix(matU, matF, collapse)
 #' extractVitalRates(xx$matU, xx$matF, collapse)
 extractVitalRates <- function(matU, matF, collapse) {
@@ -22,7 +24,7 @@ extractVitalRates <- function(matU, matF, collapse) {
     stop("This matrix is not 4x4!", call. = FALSE)
   }
   vitalRates <- rep(NA, 10)
-  surv <- colSums(matU,na.rm = TRUE)
+  surv <- colSums(matU, na.rm = TRUE)
   surv[which(is.na(collapse))] <- NA
   s1 <- surv[1]
   s2 <- surv[2]

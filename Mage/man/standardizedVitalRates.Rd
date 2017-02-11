@@ -4,7 +4,7 @@
 \alias{standardizedVitalRates}
 \title{Standardized vital rates}
 \usage{
-standardizedVitalRates(matU, matF, matFmu, matrix_stages)
+standardizedVitalRates(matU, matF, matFmu, matrixStages)
 }
 \arguments{
 \item{matU}{a matrix without reproduction and clonality}
@@ -13,7 +13,7 @@ standardizedVitalRates(matU, matF, matFmu, matrix_stages)
 
 \item{matFmu}{a matrix}
 
-\item{matrix_stages}{a vector of matrix stage statuses}
+\item{matrixStages}{a vector of matrix stage statuses}
 }
 \description{
 Standardized vital rates
@@ -35,11 +35,11 @@ matFmu <- matrix(c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                    0, 0, 0, 0, 1.0409262, 0.5040727, 0.016433, 0.06956801),
                  nrow = 5, byrow = FALSE)
 
-foo(
+standardizedVitalRates(
  matU = matU,
  matF = matF,
  matFmu = matFmu,
- matrix_stages = c("dorm", "active", "active", "active", "active")
+ matrixStages = c("dorm", "active", "active", "active", "active")
 )
 }
 

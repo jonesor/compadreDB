@@ -4,18 +4,29 @@
 \alias{reprodStages}
 \title{Reproductive stages}
 \usage{
-reprodStages(matF, matFmu, post, maxRep, matrixStages = NULL)
+reprodStages(matF, matFmu, post, maxRep, matrixStages, includeProp = TRUE,
+  includePost = TRUE)
 }
 \arguments{
-\item{matF}{a matrix, just reproduction}
+\item{matF}{(matrix) a matrix, just reproduction}
 
-\item{matFmu}{a matrix}
+\item{matFmu}{(matrix) a matrix}
 
-\item{post}{post something}
+\item{post}{(integer) post something}
 
-\item{maxRep}{maximum xxx}
+\item{maxRep}{(integer) maximum number of reproductive stages}
 
-\item{matrixStages}{stages}
+\item{matrixStages}{(character) stages, one of "prop" (propagule), "active",
+and "dorm" (dormant)}
+
+\item{includeProp}{(logical) include propagule stage. default: \code{TRUE}.
+if \code{TRUE}, propagule stage (if present) is given back in result. If
+\code{FALSE}, it's included into the pre-reproductive stage}
+
+\item{includePost}{(logical) include post-reproductive stage. default:
+\code{TRUE}. if \code{TRUE}, post-reproductive stage (if present) is given
+back in result. If \code{FALSE}, it's included into the reproductive
+stage}
 }
 \description{
 Determine pre-reproductive, reproductive and post-reproductive stages
@@ -24,8 +35,36 @@ argument of the function above to collapse matrices
 }
 \details{
 FIXME: ROB says possibly put output as a named list instead of vector
+FIXME: can we combine propagule and pre-reproductive?
+FIXME: once above solved, then fix logic internally
 }
 \examples{
-# reprodStages(x, y, z, a)
+matF <- matrix(c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                 0, 0, 0, 0, 2.75, 1.75, 0, 0),
+                 nrow = 5, byrow = FALSE)
+matFmu <- matrix(c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                   0, 0, 0, 0, 0, 1.0409262, 0.5040727, 0.016433,
+                   0.06956801),
+                   nrow = 5, byrow = FALSE)
+post <- numeric(0)
+maxRep <- 5
+matrixStages <- c("dorm", "active", "active", "active", "active")
+
+reprodStages(matF, matFmu, post, maxRep, matrixStages)
+
+# say what outputs you want
+## combine postrep and rep
+reprodStages(matF, matFmu, post, maxRep, matrixStages, includeProp = FALSE,
+  includePost = FALSE)
+## warn about prop?
+reprodStages(matF, matFmu, post, maxRep, matrixStages, includeProp = FALSE)
+## NOT ALLOWED
+#reprodStages(matF, matFmu, post, maxRep, matrixStages, c('prop', 'rep', 'postrep'))
+## NOT ALLOWED
+#reprodStages(matF, matFmu, post, maxRep, matrixStages, c('prop', 'postrep'))
+## NOT ALLOWED
+#reprodStages(matF, matFmu, post, maxRep, matrixStages, c('prerep', 'postrep'))
+## NOT ALLOWED
+#reprodStages(matF, matFmu, post, maxRep, matrixStages, c('prop', 'prerep'))
 }
 

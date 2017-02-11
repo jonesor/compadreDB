@@ -27,10 +27,10 @@ rearrangeMatrix <- function(matU, matF, matFmu) {
   if (length(nonRepInterRep) > 0) {
     allElseStages <- 1:matDim
     allElseStages <- allElseStages[-which(allElseStages %in% nonRepInterRep)]
-    reArrangeStages <- c(allElseStages,nonRepInterRep)
-    reArrangeMatU <- matU[reArrangeStages,reArrangeStages]
-    reArrangeMatF <- matF[reArrangeStages,reArrangeStages]
-    reArrangeMatFmu <- matFmu[reArrangeStages,reArrangeStages]
+    reArrangeStages <- c(allElseStages, nonRepInterRep)
+    reArrangeMatU <- matU[reArrangeStages, reArrangeStages]
+    reArrangeMatF <- matF[reArrangeStages, reArrangeStages]
+    reArrangeMatFmu <- matFmu[reArrangeStages, reArrangeStages]
     reArrange$matU <- reArrangeMatU
     reArrange$matF <- reArrangeMatF
     reArrange$matFmu <- reArrangeMatFmu
