@@ -1,15 +1,15 @@
 ---
 title: "User guide to the COMADRE Animal Matrix Database"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: 3
+  word_document: default
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
+  pdf_document:
+    toc: yes
+    toc_depth: 3
   classoption: a4paper
-  word_document: default
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
 
@@ -227,7 +227,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ### `OrganismType`
 
-**Definition:** Broad type of organism, generally Class in animals (except humans, which are recorded as "Homo_sapiens"). 
+**Definition:** Broad type of organism, generally Class in animals (except humans, which are recorded as `Homo_sapiens`). Non-animals that are included in COMADRE include `OrganismType`s of `Bacteria` and `Virus`.
 
 ##### Possible values:
 

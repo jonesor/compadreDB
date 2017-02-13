@@ -1,11 +1,11 @@
 ---
 title: "COMPADRE/COMADRE Data Digitization Protocol"
 output:
+  word_document: default
   pdf_document:
     toc: yes
   html_document:
     toc: yes
-  word_document: default
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
 
@@ -43,6 +43,10 @@ All pieces of information extracted from PDFs must be highlighted directly on th
 * When digitising matrices, only colors from the color palette, which is given inside the Excel file under the tab "Color palette", can be used in the Stacked Matrix file. Where matrices can be split, please always include an “A” matrix as well as “U”, “F” & “C” matrices (for explanation see here in the stacked matrix file. Present matrices from left-to-right in the order A, U, F, C. __Always__ split matrices when possible.
 
 * The COMPADRINOs have writtenguides to plant growth types and animal classes which we categorise species to. They are [here](https://github.com/jonesor/compadreDB/raw/master/Protocol/PlantGrowthForm-Tufte.pdf) (plant growth type) and [here](https://github.com/jonesor/compadreDB/raw/master/Protocol/AnimalClass-Tufte.pdf) (animal classes).
+
+There are also species that do not fall into the Kingdoms Plantae or Animalia.
+Fungi and Algae should be included in COMPADRE, with the plants.
+Any other species (e.g. bacteria) should be included in COMADRE.
 
 ******
 
@@ -268,6 +272,7 @@ In **plants** this entry records the plant/algae type, based mainly on architect
 Possible values are:
 
 * Algae
+* Fungi
 * Annual
 * Bryophyte
 * Epiphyte
@@ -318,6 +323,10 @@ Possible values include:
 * Secernentea
 * Spirochaetes
 * Homo_sapiens
+* Virus
+* Bacteria
+
+Contact Owen or Rob if you find something that doesn't fit into these groups.
 
 ************************************************
 

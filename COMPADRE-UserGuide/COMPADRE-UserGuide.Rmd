@@ -1,15 +1,15 @@
 ---
 title: "User guide to the COMPADRE Plant Matrix Database"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: 3
+  word_document: default
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
+  pdf_document:
+    toc: yes
+    toc_depth: 3
   classoption: a4paper
-  word_document: default
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
 
@@ -268,12 +268,12 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `kingdom` -	e.g. Plantae
+* `kingdom` -	e.g. Plantae, Fungi, Rhodophyta, Chromista (yes, COMPADRE includes fungi and algae as well as plants)
 
 
 -----------------------------------------------
 
-### `GrowthType`
+### `OrganismType`
 
 **Definition:** General plant/algae type, based mainly on architectural organization. The species was assigned to one of these possible values using the description of plant growth type provided by the author and other external sources (e.g. other publications)
 
@@ -281,7 +281,9 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `Algae` -	A brown, green or red alga.
+* `Algae` -	A brown, green or red alga. Note that green algae are in kingdom Plantae, but should still be recorded as OrganismType = Algae
+
+* `Fungi` - A fungus species, including yeasts and molds as well as multicellular fungi.
 
 * `Annual` -	Typically plant ecologists also refer to pseudoannual species as being "biennials". The main difference between the annuals and biennials is that annual species complete their lifecycle (are born, grow, reproduce and die) within a single year, whereas biennials have the potential to stretch that time-window up to two years. Both annuals and biennials are often associated with periodic (or seasonal) matrices. Biennial (and pseudoannual) species are categorized as “Annual” in COMPADRE
 
