@@ -1,10 +1,17 @@
-#' Collapse matrices
+#' Collapse matrix model into propagule, pre-reproductive, reproductive and
+#' post-reproductive stages.
+#'
+#' Note: only valid for models without clonality.
 #'
 #' @export
-#' @param matU a matrix without reproduction and clonality
-#' @param matF a matrix, just reproduction
+#' @param matU survival matrix
+#' @param matF fecundity matrix
 #' @param collapse (character) vector indicating which stages must be collapsed
-#  and retained as are
+#' and retained to give matrix containing combined propagule, pre-reproductive,
+#' reproductive and post-reproductive stages.
+#' @return (list) collapsed matrices \code{matA}, \code{matU}, \code{matF} and
+#' character vector \code{matrixStages} specifying which matrix stages are
+#' included in the collapse model.
 #' @examples
 #' matU <- matrix(c(0.2581, 0.1613, 0.1935, 0.2258, 0.1613, 0.0408, 0.2857,
 #'                  0.4286, 0.102, 0.0816, 0.0385, 0.0385, 0.2692, 0.2308,
@@ -24,9 +31,9 @@
 #' #collapse3 <- c("1-2-3-4-5")
 collapseMatrix <- function(matU, matF, collapse) {
   matA <- matU + matF
-  collapseUnique <- collapse
   originalDim <- dim(matA)[1]
-  collapseDim <- length(collapseUnique)
+  collapseDim <- length(which(!is.na(collapse)))
+  matrixStages <- c("prop", "pre", "rep", "post")[which(!is.na(collapse))]
   P <- matrix(0, nrow = collapseDim , ncol = originalDim)
 
   splitCollapseUnique <- strsplit(collapse, "-")
@@ -51,5 +58,5 @@ collapseMatrix <- function(matU, matF, collapse) {
   collapseA <- P %*% matA %*% Q
   collapseU <- P %*% matU %*% Q
   collapseF <- P %*% matF %*% Q
-  list(matA = collapseA, matU = collapseU, matF = collapseF)
+  list(matA = collapseA, matU = collapseU, matF = collapseF, matrixStages = matrixStages)
 }
