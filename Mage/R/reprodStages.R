@@ -1,20 +1,33 @@
-#' Reproductive stages
+#' Group the stages of a matrix model into propagule, pre-reproductive,
+#' reproductive and post-reproductive stages.
 #'
-#' Determine pre-reproductive, reproductive and post-reproductive stages
-#' from a matrix model which pre-formats them to use them as the "collapse"
-#' argument of the function above to collapse matrices
+#' Assumes that fecundity and mean fecundity matrices have been rearranged so
+#' that non-reproductive stages are in the final rows/columns.
+#'
+#' Output indicates groupings to be used when collapsing the matrix model.
+#'
+#' Note: dormant stages not handled.
 #'
 #' FIXME: ROB says possibly put output as a named list instead of vector
 #' FIXME: can we combine propagule and pre-reproductive?
+#' FIXME: what about dormant stages?
 #' FIXME: once above solved, then fix logic internally
 #'
+#' FIXME: Scott and Tamora added the extra parameter flags for switching whether
+#' to include propagule and post-reproductive stages but these are not used as
+#' yet. On reflection this is probably going too far and we should let the
+#' matrix structure guide the process. However, in animals we may wish to
+#' combine rep and post-rep to obtain a two-stage matrix model.
+#'
 #' @export
-#' @param matF (matrix) a matrix, just reproduction
-#' @param matFmu (matrix) a matrix
-#' @param post (integer) post something
+#' @param matF (matrix) fecundity matrix, rearranged so that non-reproductive
+#' stages are in the final rows/columns
+#' @param matFmu (matrix) mean fecundity matrix, rearranged so that
+#' non-reproductive stages are in the final rows/columns
+#' @param post (integer) indicator for post-reproductive stages
 #' @param maxRep (integer) maximum number of reproductive stages
-#' @param matrixStages (character) stages, one of "prop" (propagule), "active",
-#' and "dorm" (dormant)
+#' @param matrixStages (character) vector of stages, values are "prop"
+#' (propagule), "active", and "dorm" (dormant)
 #' @param includeProp (logical) include propagule stage. default: \code{TRUE}.
 #' if \code{TRUE}, propagule stage (if present) is given back in result. If
 #' \code{FALSE}, it's included into the pre-reproductive stage
@@ -55,8 +68,8 @@ reprodStages <- function(matF, matFmu, post, maxRep, matrixStages,
 
   if ("prop" %in% matrixStages) {
     propStage <- which(matrixStages == "prop")
-    if (!"prop" %in% outputStages) {
-      warning("prop stage exists, but it's not in outputStages")
+    if (!includeProp) {
+      warning("Propagule stage exists, but includeProp is set to FALSE")
     }
   } else {
     propStage <- NA
@@ -82,7 +95,7 @@ reprodStages <- function(matF, matFmu, post, maxRep, matrixStages,
 
   if (length(propStage) > 1) {
     propStages <- paste(propStage[1], "-", propStage[length(propStage)], sep = "")
-  } else{
+  } else {
     propStages <- as.character(propStage)
   }
   if (length(preRep) > 1) {
