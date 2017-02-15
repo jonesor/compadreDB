@@ -887,7 +887,7 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 ### `Agreement`
 
-**Description:** Link to the URL in the COMADRE database containing the open-access conditions to the use of these data: http://www.compadre-db.org/compadre/UserAgreement.
+**Description:** Link to the URL in the COMADRE database containing the open-access conditions to the use of these data: http://www.compadre-db.org/page/UserAgreement.
 
 -----------------------------------------------
 

@@ -1,14 +1,14 @@
 ---
 title: "User guide to the COMPADRE Plant Matrix Database"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: 3
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
   classoption: a4paper
+  pdf_document:
+    toc: yes
+    toc_depth: 3
   word_document: default
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
@@ -1030,7 +1030,7 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 ### `Agreement`
 
-**Description:** Link to the URL in the COMPADRE database containing the open-access conditions to the use of these data: http://www.compadre-db.org/Compadre/UserAgreement.
+**Description:** Link to the URL in the COMPADRE database containing the open-access conditions to the use of these data: http://www.compadre-db.org/page/UserAgreement.
 
 -----------------------------------------------
 
