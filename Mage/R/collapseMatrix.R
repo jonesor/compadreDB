@@ -32,8 +32,7 @@
 collapseMatrix <- function(matU, matF, collapse) {
   matA <- matU + matF
   originalDim <- dim(matA)[1]
-  collapseDim <- length(which(!is.na(collapse)))
-  matrixStages <- c("prop", "pre", "rep", "post")[which(!is.na(collapse))]
+  collapseDim <- length(collapse)
   P <- matrix(0, nrow = collapseDim , ncol = originalDim)
 
   splitCollapseUnique <- strsplit(collapse, "-")
@@ -58,5 +57,5 @@ collapseMatrix <- function(matU, matF, collapse) {
   collapseA <- P %*% matA %*% Q
   collapseU <- P %*% matU %*% Q
   collapseF <- P %*% matF %*% Q
-  list(matA = collapseA, matU = collapseU, matF = collapseF, matrixStages = matrixStages)
+  list(matA = collapseA, matU = collapseU, matF = collapseF)
 }
