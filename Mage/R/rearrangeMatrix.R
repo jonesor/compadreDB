@@ -43,8 +43,10 @@ rearrangeMatrix <- function(matU, matF, matFmu) {
     reArrange$matF <- matF
     reArrange$matFmu <- matFmu
   }
+  ## Stages that were moved to the end
   reArrange$nonRepInterRep <- nonRepInterRep
-  reArrange$maxRep <- max(Rep)
+  ## Max reproductive stage after rearrangement
+  reArrange$maxRep <- max(which(colSums(reArrange$matFmu) > 0))
 
   return(reArrange)
 }
