@@ -50,6 +50,7 @@ Rob Salguero-Goómez <rob.salguero@zoo.ox.ac.uk>
 ssData <- subsetDB(compadre, MatrixDimension > 3)
 ssData <- subsetDB(compadre, MatrixDimension > 3 & MatrixComposite == "Mean")
 ssData <- subsetDB(comadre, Continent == "Africa" & Class == "Mammalia")
+ssData <- subsetDB(comadre, SurvivalIssue < 1 & Altitude > 1000 & Altitude < 1500)
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
