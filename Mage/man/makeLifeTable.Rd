@@ -25,7 +25,7 @@ The C matrix - clonal reproduction
 The stage of of the life cycle that structures the matrix population model where life is considered to begin. This is usually 1 (i.e. the first stage), but in species with a permanent propagule bank (e.g. seedbank, or similar), users may wish to use the first non-permanent propagule bank stage along the life cycle.
 }
   \item{nSteps}{
-For how many time steps should the life table be constructed. This is on the same units as the matrix population model - see MatrixPeriodicity in metadata of COMPADRE/COMADRE.
+Number of time steps for which the life table be constructed. This is on the same units as the matrix population model - see MatrixPeriodicity in metadata of COMPADRE/COMADRE.
 }
 }
 \details{
@@ -46,7 +46,7 @@ Jones, O.R. et al. (2014) Diversity of ageing across the tree of life. Nature, 5
 
 }
 \author{
-Roberto Salguero-Goómez <rob.salguero@sheffield.ac.uk>
+Roberto Salguero-Gómez <rob.salguero@sheffield.ac.uk>
 
 Hal Caswell <h.caswell@uva.nl>
 

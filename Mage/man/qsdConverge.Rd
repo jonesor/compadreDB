@@ -2,10 +2,10 @@
 \alias{qsdConverge}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-A function to calculates the age at which a defined quasi-stationary stage distribution is reached.
+A function to calculates the time in the projection of a matrix population model at which a defined quasi-stationary stage distribution is reached.
 }
 \description{
-Calculates the age at which a defined quasi-stationary stage distribution is reached.
+Calculates the time in the projection of a matrix population model at which a defined quasi-stationary stage distribution is reached.
 }
 
 \usage{
@@ -14,20 +14,20 @@ qsdConverge(matU, conv = 0.05, startLife = 1, nSteps = 1000)
 
 \arguments{
   \item{matU}{
-The survival/growth matrix (a subset of the A matrix), See Caswell 2001, or other references below.
+The survival-dependent matrix (a subset of the A matrix), See Caswell 2001, or other references below.
 }
   \item{conv}{
-Departure from convergence. e.g. this value should be 0.05 if you want to get the time step when the stage distribution is within 5 percent of the QSD.
+Departure of the projection population vector from convergence to the stationary st/age distribution. E.g. this value should be 0.05 if the user wants to obtain the time step when the stage distribution is within 5 percent of the stationary st/able distribution.
 }
   \item{startLife}{
-At which stage does the life start in the matrix. Some matrices contain seed banks, or similar.
+The stage in the life cycle of the organism, as represented by the matrix population model, where the user considers 'the begining of life'. This is useful to discard pre-established stages such as permanent seedbanks..
 }
   \item{nSteps}{
-For how many time steps should the calculations run for. In most cases the default of 1000 is sufficient.
+Number of time steps for which the projection will be made. In most cases the default of 1000 is sufficient to reach stationary st/age distribution. This is on the same units as the matrix population model - see MatrixPeriodicity in metadata of COMPADRE/COMADRE.
 }
 }
 \details{
-Matrix Population Models are typically parameterised with a stasis loop in the oldest/largest/most-developed stage (e.g. adult survival), which means that flat mortality and fertility plateaus may emerge as a mathematical artefact when examining age-specific patterns (see, Caswell 2001). The Quasi-Stationary stage Distribution (QSD) can be used to avoid this problem. The QSD can be defined as a stage distribution that is reached some time before the ultimate stable stage distribution (the normalised righted eigenvector of the MPM). Thus one can ask what is the age at which the cohort approximates, say,  95\% of its stable stage distribution, and only use age-based information from before this point. This is discussed and explained in detail in the supplementary information of Jones et al. (2014).
+Size or stage-based matrix population models (i.e. Lefkovitch models) are typically parameterised with a stasis loop in the oldest/largest/most-developed stage (e.g. adult survival). The assumption that individuals in that last stage is constant typically results in flat mortality and fertility plateaus that may emerge as a mathematical artefact when examining age-specific patterns when using age-from-stage matrix decompositions (Caswell 2001). The Quasi-Stationary stage Distribution (QSD) can be used to circunvent this problem. The QSD is the stage distribution that is reached some time before the ultimate stable stage distribution (the normalised righted eigenvector of the matrix). With this approach, the user can ask what is the time step in the projectin at which the cohort approximates, say,  95\% of its stable stage distribution. This should allow the user to use only age-based information from before this point. See the online supplementary information of Jones et al. (2014) for further details.
 }
 
 \value{
@@ -41,9 +41,11 @@ Jones, O.R. et al. (2014) Diversity of ageing across the tree of life. Nature, 5
 }
 
 \author{
+Hal Caswell <h.caswell@uva.nl>
+
 Owen R. Jones <jones@biology.sdu.dk>
 
-Roberto Salguero-Gomez <r.salguero@sheffield.ac.uk>
+Roberto Salguero-Gómez <rob.salguero@zoo.ox.ac.uk>
 
 }
 
@@ -53,8 +55,8 @@ Roberto Salguero-Gomez <r.salguero@sheffield.ac.uk>
 
 \examples{
 
-U1 <- matrix(c(0.000, 0.691, 0.000, 0.000, 0.000, 0.880, 0.000, 0.000, 0.790),nrow=3)
-qsdConverge(U1, 0.05)
+matU <- matrix(c(0.000, 0.691, 0.000, 0.000, 0.000, 0.880, 0.000, 0.000, 0.790),nrow=3)
+qsdConverge(matU, 0.05)
 
 }
 
