@@ -8,7 +8,7 @@ A function to subset the COMPADRE/COMADRE database
 This function allows users to subset the COMPADRE/COMADRE database by logical argument.
 }
 \usage{
-subsetDB(sub,db)
+subsetDB(db,sub)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -47,9 +47,9 @@ Rob Salguero-Goómez <rob.salguero@zoo.ox.ac.uk>
 }
 \examples{
 \dontrun{
-ssData <- subsetDB(MatrixDimension > 3, compadre)
-ssData <- subsetDB(MatrixDimension > 3 & MatrixComposite == "Mean", compadre)
-ssData <- subsetDB(Continent == "Africa" 5 & Class == "Mammalia", comadre)
+ssData <- subsetDB(compadre, MatrixDimension > 3)
+ssData <- subsetDB(compadre, MatrixDimension > 3 & MatrixComposite == "Mean")
+ssData <- subsetDB(comadre, Continent == "Africa" & Class == "Mammalia")
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
