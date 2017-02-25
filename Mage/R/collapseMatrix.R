@@ -31,6 +31,9 @@
 #' #collapse3 <- c("1-2-3-4-5")
 collapseMatrix <- function(matU, matF, collapse) {
   matA <- matU + matF
+  if (any(is.na(matA))) {
+    stop("Cannot collapse projection matrix containing NAs", call. = FALSE)
+  }
   originalDim <- dim(matA)[1]
   collapseDim <- length(collapse)
   P <- matrix(0, nrow = collapseDim , ncol = originalDim)
