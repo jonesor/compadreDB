@@ -10,7 +10,7 @@ Follow news at our blog https://compadredb.wordpress.com, and our Twitter accoun
 
 The structure of the compadre and comadre data objects
 -----------------------------------------
-    compadre/comadre +-- metadata {dataframe with 57 columns and one row one for each set of matrices (AUFC)
+    compadre/comadre +-- metadata {dataframe with ca 60 columns and one row one for each set of matrices (mat A, matU, matF, matC)
              |
              +-- matrixClass {list with one entry for each set of matrices. Each entry is a data frame with 3 columns: MatrixClassOrganized, MatrixClassAuthor, MatrixClassNumber.}
              |
