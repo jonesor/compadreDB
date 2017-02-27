@@ -62,11 +62,10 @@ Owen R. Jones <jones@biology.sdu.dk>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-beaverIndex <- which(comadre$metadata$CommonName=="Beaver")[1]
 
-matU <- comadre$mat[[beaverIndex]]$matU
-matF <- comadre$mat[[beaverIndex]]$matF
-matC <- comadre$mat[[beaverIndex]]$matC
+matU <- matrix(c(0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0.1, 0.1), nrow = 4, byrow = T)
+matF <- matrix(c(0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.), nrow = 4, byrow = T)
+matC <- matrix(c(0, 0, 0, 0, 0, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0), nrow = 4, byrow = T)
 
 makeLifeTable(matU, matF, matC, startLife = 1, nSteps = 100)
 }
