@@ -1,9 +1,8 @@
 #' @export
-#' @import popbio
 #' @import MASS
 
 
-lifeTimeEvents <- function(matU, matF, matC = F, startLife = 1){
+lifeTimeRepEvents <- function(matU, matF, matC = F, startLife = 1){
   #Function to determine probability of reaching reproduction, age at 
   #maturity and reproductive lifespan (Code adapted from H. Caswell's 
   #matlab code, and Morris & Doak):
@@ -36,7 +35,7 @@ lifeTimeEvents <- function(matU, matF, matC = F, startLife = 1){
     #Age at first sexual reproduction (LaFec; Caswell 2001, p 124)
 	  D <- diag(c(Bprime[2,]))
 	  Uprimecond <- D %*% Uprime %*% MASS::ginv(D)
-	  expTimeReprod <- colSums(MASS::ginv(diag(uDim) - Uprimecond))
+	  expTimeReprod <- colSums(MASS::ginv(diag(matDim) - Uprimecond))
 	  out$LaFec <- LaFec <- expTimeReprod[startLife]
     
     #Mean life expectancy conditional on entering the life cycle in the first reproductive stage
@@ -67,7 +66,7 @@ lifeTimeEvents <- function(matU, matF, matC = F, startLife = 1){
     #Age at first clonal reproduction (LaClo; Caswell 2001, p 124)
     D <- diag(c(Bprime[2,]))
     Uprimecond <- D %*% Uprime %*% MASS::ginv(D)
-    expTimeReprod <- colSums(MASS::ginv(diag(uDim) - Uprimecond))
+    expTimeReprod <- colSums(MASS::ginv(diag(matDim) - Uprimecond))
     out$LaClo <- LaClo <- expTimeReprod[startLife]
     
     #Mean life expectancy conditional on entering the life cycle in the first reproductive stage
