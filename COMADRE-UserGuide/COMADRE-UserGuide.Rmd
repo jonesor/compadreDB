@@ -1,14 +1,14 @@
 ---
 title: "User guide to the COMADRE Animal Matrix Database"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: 3
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
   classoption: a4paper
+  pdf_document:
+    toc: yes
+    toc_depth: 3
   word_document: default
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
@@ -227,7 +227,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ### `OrganismType`
 
-**Definition:** Broad type of organism, generally Class in animals (except humans, which are recorded as "Homo_sapiens"). 
+**Definition:** Broad type of organism, generally Class in animals (except humans, which are recorded as `Homo_sapiens`). Non-animals that are included in COMADRE include `OrganismType`s of `Bacteria` and `Virus`.
 
 ##### Possible values:
 
@@ -605,7 +605,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 -----------------------------------------------
 
 
-### `Captivity`
+### `MatrixCaptivity`
 
 **Definition:** Whether the study species was studied in the wild or under controlled conditions for most of its life cycle
 
@@ -887,7 +887,7 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 ### `Agreement`
 
-**Description:** Link to the URL in the COMADRE database containing the open-access conditions to the use of these data: http://www.compadre-db.org/compadre/UserAgreement.
+**Description:** Link to the URL in the COMADRE database containing the open-access conditions to the use of these data: http://www.compadre-db.org/page/UserAgreement.
 
 -----------------------------------------------
 

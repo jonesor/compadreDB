@@ -1,11 +1,11 @@
 ---
 title: "COMPADRE/COMADRE Data Digitization Protocol"
 output:
+  word_document: default
   pdf_document:
     toc: yes
   html_document:
     toc: yes
-  word_document: default
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
 
@@ -18,7 +18,7 @@ The data digitisation team (The COMPADRinos) carefully examine the literature an
 
 These data are compiled using a set of R scripts and released to the public as open access data via the website: www.compadre-db.org. 
 
-This document outlines the way that the digitisation team enters data into the Excel sheets. It is primarily intended for internal use and, as such, it includes information on some variables which are not released into the public domain. Nevertheless, following our philosophy on open access, replicability and transparency, we provide open access to the document here. Users external to our team with questions can direct them at compadre-contact@demogr.mpg.de. Specific questions can also be directed to Rob Salguero-Gómez (r.salguero@uq.edu.au) or Owen Jones (jones@biology.sdu.dk).
+This document outlines the way that the digitisation team enters data into the Excel sheets. It is primarily intended for internal use and, as such, it includes information on some variables which are not released into the public domain. Nevertheless, following our philosophy on open access, replicability and transparency, we provide open access to the document here. Users external to our team with questions can direct them at compadre-contact@demogr.mpg.de. Specific questions can also be directed to Rob Salguero-Gómez (salguero@demogr.mpg.de) or Owen Jones (jones@biology.sdu.dk).
 
 
 ##General information
@@ -34,7 +34,7 @@ All pieces of information extracted from PDFs must be highlighted directly on th
 
 * If additional publications are found with respect to a given species, these must be inspected for any additional matrix population models with different model assumptions (e.g. different stages) and/or different study years, populations and/or treatments. If the paper provides new information, it must be included in the database as an additional species entry, followed with a numeric subindex following "SpeciesAuthor" (e.g. "Pinus_nigra" and "Pinus_nigra_2").
 
-* Authors must only be contacted from the official email: compadre-contact@demogr.mpg.de.
+* Authors must only be contacted from the official email: compadrecontact@gmail.com.
 
 * Latin names of species for variable "SpeciesAccepted" must be checked using reliable sources (e.g. Catalogue of Life [http://www.catalogueoflife.org/], iPlant Collaborative [http://www.iplantcollaborative.org/], Wikipedia [https://en.wikipedia.org/]) for spelling mistakes. If an author uses a Latin name with a typo, please leave it as is, as the variable "SpeciesAuthor" (below) represents the name as used by the authors.
 
@@ -43,6 +43,10 @@ All pieces of information extracted from PDFs must be highlighted directly on th
 * When digitising matrices, only colors from the color palette, which is given inside the Excel file under the tab "Color palette", can be used in the Stacked Matrix file. Where matrices can be split, please always include an “A” matrix as well as “U”, “F” & “C” matrices (for explanation see here in the stacked matrix file. Present matrices from left-to-right in the order A, U, F, C. __Always__ split matrices when possible.
 
 * The COMPADRINOs have writtenguides to plant growth types and animal classes which we categorise species to. They are [here](https://github.com/jonesor/compadreDB/raw/master/Protocol/PlantGrowthForm-Tufte.pdf) (plant growth type) and [here](https://github.com/jonesor/compadreDB/raw/master/Protocol/AnimalClass-Tufte.pdf) (animal classes).
+
+There are also species that do not fall into the Kingdoms Plantae or Animalia.
+Fungi and Algae should be included in COMPADRE, with the plants.
+Any other species (e.g. bacteria) should be included in COMADRE.
 
 ******
 
@@ -268,6 +272,7 @@ In **plants** this entry records the plant/algae type, based mainly on architect
 Possible values are:
 
 * Algae
+* Fungi
 * Annual
 * Bryophyte
 * Epiphyte
@@ -318,6 +323,10 @@ Possible values include:
 * Secernentea
 * Spirochaetes
 * Homo_sapiens
+* Virus
+* Bacteria
+
+Contact Owen or Rob if you find something that doesn't fit into these groups.
 
 ************************************************
 
@@ -857,7 +866,7 @@ This is how it possibly looks like (this is a 6x6 mean (the upper one) and indiv
 ************************************************
 ## MatrixPopulation
 
-The name of population where the matrix was recorded, usually as given by the publication author. For example “Brazeau Creek, Florida”. When the author provides no name, the closest geographic location is assigned as name. If there are multiple populations in the study and their names are not pertinent/available, sequential names in alphabetical order are assigned for each population in the study (e.g. “A”, “B”, “C”, etc).
+The name of population where the matrix was recorded, usually as given by the publication author. For example “Brazeau Creek, Florida”. When the author provides no name, the closest geographic location is assigned as name. If there are multiple populations in the study and their names are not pertinent/available, sequential names in alphabetical order are assigned for each population in the study, separated by "; " (e.g. “A”; “B”; “C”; etc).
 
 ************************************************
 ## Geolocation columns
@@ -956,6 +965,7 @@ The diagram below shows the life cycle of two hypothetical plant populations bas
 
 ![Life cycle](images/Lifecycle_AUFC.png)
 ************************************************
+
 ## MatrixFec
 
 This records whether fecundity was measured at all for this matrix model. The rationale for this is that a fecundity (in the F matrix) may be recorded as 0 either because it was not measured, or because reproduction was estimated to be zero. As a general rule, if any values for fecundity (e.g. in the F matrix) are non-zero, then MatrixFec should be recorded as 'Yes'. If all values are zero, then you should check the paper carefully to check whther this is because no fecundity was detected, or whether no attempt was made to measure fecundity.
