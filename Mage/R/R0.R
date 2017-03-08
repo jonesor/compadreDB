@@ -1,6 +1,6 @@
 #' @export
 
-R0 <- function(matU, matF, matC=F){
+R_0 <- function(matU, matF, matC=F){
   
   #Demetrius entropy (S):
   if(max(lx) > 1) stop("`lx` should be bounded between 0 and 1")

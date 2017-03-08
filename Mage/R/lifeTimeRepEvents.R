@@ -9,8 +9,8 @@ lifeTimeRepEvents <- function(matU, matF, matC = F, startLife = 1){
 
   if(missing(matU)){stop('matU missing')}
   if(missing(matF) & missing(matC)){stop('matF or matC missing. You must provide at least one')}
-  if(sum(matF,na.rm=T)==0){stop('matF contains only 0 values')}
-  if(sum(matC,na.rm=T)==0){stop('matC contains only 0 values')}
+  if(sum(matF + matC,na.rm=T)==0){stop('matF and matC contains only 0 values')}
+  #if(sum(matC,na.rm=T)==0){stop('matC contains only 0 values')}
   
   matDim <- dim(matU)[1]
   surv <- colSums(matU)
@@ -44,7 +44,7 @@ lifeTimeRepEvents <- function(matU, matF, matC = F, startLife = 1){
 	  out$meanLifeExpectancyFec <- colSums(N)[firstFecLifeStage]
 	
     #Life expectancy from mean maturity
-    out$remainingMatureLifeExpectancyClo <- colSums(N)[startLife] - LaFec
+    out$remainingMatureLifeExpectancyFec <- colSums(N)[startLife] - LaFec
   }
   
   

@@ -6,7 +6,7 @@ vitalRates <- function(matU, matF, matC = FALSE, splitStages = FALSE, weighted =
   
   if(missing(matU)){stop('matU missing')}
   if(missing(matF) & missing(matC)){warning('matF or matC missing. These have been coerced to matrices of zero')}
-  if (sum(weighted)>0 & length(weighted) != dim(matU)[i]){stop('Population vector does not agree with matrix dimension')}
+  #if (sum(weighted)>0 & length(weighted) != dim(matU)[i]){stop('Population vector does not agree with matrix dimension')}
   
   matDim <- dim(matU)[1]
   matA <- matU + matF + matC
@@ -18,6 +18,8 @@ vitalRates <- function(matU, matF, matC = FALSE, splitStages = FALSE, weighted =
   matUIndep <- matrix(NA, matDim, matDim)
   for (i in 1:matDim) {matUIndep[,i] = matU[,i]/surv[i]}
   prog <- retr <- matUIndep
+  prog[is.nan(prog)] <- 0
+  retr[is.nan(retr)] <- 0
   
   prog[which(upper.tri(matUIndep, diag = TRUE))]=0
   retr[which(lower.tri(matUIndep, diag = TRUE))]=0
