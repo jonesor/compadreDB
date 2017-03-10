@@ -1,14 +1,14 @@
 ---
 title: "User guide to the COMPADRE Plant Matrix Database"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: 3
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
   classoption: a4paper
-  pdf_document:
-    toc: yes
-    toc_depth: 3
   word_document: default
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
@@ -421,6 +421,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 
 -----------------------------------------------
+
 ### `Lat`
 
 **Definition:** Degree value of latitude, in decimal format. Negative values indicate that the location is in the southern hemisphere

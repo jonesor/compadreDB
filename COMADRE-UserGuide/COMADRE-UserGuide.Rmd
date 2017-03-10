@@ -1,14 +1,14 @@
 ---
 title: "User guide to the COMADRE Animal Matrix Database"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: 3
   html_document:
     toc: yes
     toc_depth: 3
     word_document: default
   classoption: a4paper
-  pdf_document:
-    toc: yes
-    toc_depth: 3
   word_document: default
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
@@ -206,6 +206,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 ##### Possible values:
 
 * `<class>` -	e.g. Mammalia
+
 -----------------------------------------------
 
 ### `Phylum`
@@ -738,6 +739,7 @@ The rationale for this is that a fecundity (in the F matrix) may be recorded as 
 * `No` -	Reproduction was not modelled by the matrix population model, either because it was not the goal of the study or due to logistical impossibility. In some **F** submatrices the elements where sexual reproduction would have appeared contain NA values, and in others they contain 0 values.
 
 * NA - it is not known whether fecundity was measured for the matrix
+
 -----------------------------------------------
 
 
