@@ -1,5 +1,42 @@
 #' @export
 
+
+
+#' Calculate Demetrius' life table entropy
+#' 
+#' This function calculates Demetrius' life table entropy from an lx
+#' (survivorship) vector and an mx (age-specific reproduction) or a cx
+#' (age-specific clonality) vector with even intervals.
+#' 
+#' %% ~~ If necessary, more details than the description above ~~
+#' 
+#' @param lx A numerical vector of lx (survivorship). This is assumed to be
+#' with a constant interval (e.g. 1yr).
+#' @param fx A numerical vector of fx (age-specific sexual reproduction). This
+#' is assumed to be with a constant interval (e.g. 1yr).
+#' @param cx A numerical vector of cx (age-specific clonal reproduction). This
+#' is assumed to be with a constant interval (e.g. 1yr).
+#' @return Returns an estimate of Demetrius' life table entropy. When both 'fx'
+#' and 'cx' are provided, it outputs Demetrius' entropy for sexual reproduction
+#' only, for clonal reproduction only, and for both types of reproduction
+#' together.
+#' @note %% ~~further notes~~
+#' @author Roberto Salguero-Gómez <rob.salguero@@zoo.ox.ac.uk>
+#' @seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
+#' @references L. Demetrius. 1978. Adaptive value, entropy and survivorship
+#' curves. Nature 275, 213 - 214. doi:10.1038/275213a0
+#' @keywords ~kwd1 ~kwd2
+#' @examples
+#' 
+#' 
+#' matA <- matrix (c(0, 0, 5, 10, 0.5, 0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0.1, 0.1), nrow = 4, byrow = T)
+#' lx <-  c(1.0000, 0.1500, 0.0150, 0.0015, 0.0002, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000)
+#' mx <- c(0,  0,  5, 10, 10, 10, 10, 10, 10, 10)
+#' cx <- c(0,  0,  2, 1, 1, 1, 1, 1, 1, 1)
+#' 
+#' dentropy(matA, lx, mx, cx)
+#' 
+#' 
 dentropy <- function(matA, lx, fx, cx=F){
   
   #Demetrius entropy (S):

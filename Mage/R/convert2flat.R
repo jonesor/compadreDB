@@ -1,5 +1,35 @@
 #' @export
 
+
+
+#' A function to convert from the list structured database object to a flat
+#' sheet.
+#' 
+#' The function converts from the list structured database object to a flat
+#' sheet by converting each matrix to a string.
+#' 
+#' %% ~~ If necessary, more details than the description above ~~
+#' 
+#' @param db The COMPADRE or COMADRE matrix database object
+#' @param Aonly A logical value (TRUE/FALSE) indicatting whether ONLY the A
+#' matrix be included in the output.
+#' @return A `data.frame` with the same columns as are present in the metadata
+#' part of the COMPADRE/COMADRE object, followed by the string-form matrix
+#' stage information and the matrices themselves.
+#' @note %% ~~further notes~~
+#' @author Owen R. Jones <jones@@biology.sdu.dk>
+#' @seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
+#' @references
+#' @keywords ~kwd1 ~kwd2
+#' @examples
+#' 
+#' 
+#' \dontrun{
+#' newDB<-convert2flat(compadre,Aonly=FALSE)
+#' }
+#' 
+#' 
+#' @export convert2flat
 convert2flat <- function(db, Aonly = TRUE){
  
   db$metadata$Amatrix <- NULL

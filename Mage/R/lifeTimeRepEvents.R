@@ -2,6 +2,65 @@
 #' @import MASS
 
 
+
+
+#' A function to calculate the timing of lifetime reproductive events.
+#' 
+#' A function to calculate the timing of lifetime reproductive events such as
+#' the probability of achieving maturity, age at first reproduction, mean life
+#' expectancy conditional on maturity, and life expectancy for mature
+#' individuals
+#' 
+#' This function applies Markov chain approaches to decompose various moments
+#' of along the age-based reproduction of individuals in a matrix population
+#' model.
+#' 
+#' @param matU A matrix containing only survival-dependent processes ( growth,
+#' stasis, shrinkage).
+#' @param matF A matrix containing only sexual reproduction, with zeros
+#' elsewhere.
+#' @param matC A matrix containing only clonal reproduction, with zeros
+#' elsewhere.
+#' @param startLife The first stage at which the author consider the beginning
+#' of life.
+#' @return This function applies Markov chain approaches to decompose various
+#' moments of along the age-based reproduction of individuals in a matrix
+#' population model. When both a 'matF' and a 'matC' are provided, the
+#' following outputs are calculated for both independently, and these are
+#' differentiated with the suffix "Fec" or "Clo", respectively:
+#' 
+#' - 'p': probability of achiving maturity, sexual or clonal.
+#' 
+#' - 'La': mean age at maturity (in the same units as the matrix population
+#' model).
+#' 
+#' - 'meanLifeExpectancy': mean life expectancy conditional on entering the
+#' life cycle in the first reproductive stage
+#' 
+#' - 'remainingMatureLifeExpectancy': Life expectancy from mean maturity. This
+#' is mean life expectancy - mean age at maturity ('La' above). This value can
+#' be negative because both mean life expectancy and mean age at maturity are
+#' means of their respective distributions.
+#' @note %% ~~further notes~~
+#' @author Roberto Salguero-Gomez <rob.salguero@@zoo.ox.ac.uk>
+#' 
+#' Hal Caswell <hcaswell@@whoi.edu>
+#' 
+#' Owen R. Jones <jones@@biology.sdu.dk>
+#' @seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
+#' @references Caswell, H. (2001) Matrix Population Models: Construction,
+#' Analysis, and Interpretation. Sinauer Associates; 2nd edition. ISBN:
+#' 978-0878930968
+#' @keywords ~kwd1 ~kwd2
+#' @examples
+#' 
+#' matU <- matrix (c(0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0.1, 0.1), nrow = 4, byrow = T)
+#' matF <- matrix (c(0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), nrow = 4, byrow = T)
+#' matC <- matrix (c(0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0), nrow = 4, byrow = T)
+#' 
+#' lifeTimeRepEvents(matU, matF, matU, startLife = 1)
+#' 
+#' @export lifeTimeRepEvents
 lifeTimeRepEvents <- function(matU, matF, matC = F, startLife = 1){
   #Function to determine probability of reaching reproduction, age at 
   #maturity and reproductive lifespan (Code adapted from H. Caswell's 

@@ -1,5 +1,44 @@
 #' @export
 
+
+
+#' Calculate net reproductive value
+#' 
+#' This function calculates net reproductive value from a matU
+#' (survival-dependent processes) and a matF (sexual reproduction) and/or a
+#' matC (clonal reproduction.
+#' 
+#' %% ~~ If necessary, more details than the description above ~~
+#' 
+#' @param matU A matrix containing only survival-dependent processes ( growth,
+#' stasis, shrinkage).
+#' @param matF A matrix containing only sexual reproduction, with zeros
+#' elsewhere.
+#' @param matC A matrix containing only clonal reproduction, with zeros
+#' elsewhere.
+#' @return Returns the net reproductive value of the matrix. When both 'matF'
+#' and 'matC' are provided, it outputs the net reprodutive value for sexual
+#' reproduction only, for clonal reproduction only, and for both types of
+#' reproduction together.
+#' @note %% ~~further notes~~
+#' @author Roberto Salguero-Gómez <rob.salguero@@zoo.ox.ac.uk>
+#' 
+#' Hal Caswell <h.caswell@@uva.nl>
+#' @seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
+#' @references Caswell, H. (2001) Matrix Population Models: Construction,
+#' Analysis, and Interpretation. Sinauer Associates; 2nd edition. ISBN:
+#' 978-0878930968
+#' @keywords ~kwd1 ~kwd2
+#' @examples
+#' 
+#' 
+#' matU <- matrix (c(0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0.1, 0.1), nrow = 4, byrow = T)
+#' matF <- matrix (c(0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), nrow = 4, byrow = T)
+#' matC <- matrix (c(0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0), nrow = 4, byrow = T)
+#' 
+#' R0(matU, matF, matU)
+#' 
+#' 
 R0 <- function(matU, matF, matC=F){
   
   #Demetrius entropy (S):

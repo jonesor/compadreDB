@@ -1,5 +1,35 @@
 #' @export
 
+
+
+#' A function to perform element perturbation of a matrix population model.
+#' 
+#' A function to perform element perturbation of a matrix population model.
+#' 
+#' %% ~~ If necessary, more details than the description above ~~
+#' 
+#' @param matU %% ~~Describe \code{matU} here~~
+#' @param matF %% ~~Describe \code{matF} here~~
+#' @param matC %% ~~Describe \code{matC} here~~
+#' @param pert %% ~~Describe \code{pert} here~~
+#' @return %% ~Describe the value returned %% If it is a LIST, use %%
+#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
+#' 'comp2'} %% ...
+#' @note %% ~~further notes~~
+#' @author Roberto Salguero-Gomez <r.salguero@@sheffield.ac.uk>
+#' @seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
+#' @references
+#' @keywords ~kwd1 ~kwd2
+#' @examples
+#' 
+#' ##---- Should be DIRECTLY executable !! ----
+#' ##-- ==>  Define data, use random,
+#' ##--	or do  help(data=index)  for the standard data sets.
+#' 
+#' ## The function is currently defined as
+#' 
+#' 
+#' @export matrixElementPerturbation
 matrixElementPerturbation <- function(matU, matF, matC=NULL, pert = 0.001){
   matA <- matU + matF + matC
   aDim <- nrow(matA)
