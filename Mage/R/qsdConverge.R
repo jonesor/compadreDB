@@ -1,8 +1,3 @@
-#' @export
-#' @import popbio
-
-
-
 #' A function to calculates the time in the projection of a matrix population
 #' model at which a defined quasi-stationary stage distribution is reached.
 #' 
@@ -60,6 +55,8 @@
 #' 
 #' 
 #' @export qsdConverge
+#' @import popbio
+
 qsdConverge <- function(matU, conv = 0.05, startLife = 1, nSteps = 1000){
   
   #Function to determine the cutoff age at quasi-convergence for lx and mx (Code adapted from H. Caswell's matlab code):

@@ -1,7 +1,3 @@
-#' @export
-
-
-
 #' Calculate net reproductive value
 #' 
 #' This function calculates net reproductive value from a matU
@@ -38,7 +34,8 @@
 #' 
 #' R0(matU, matF, matU)
 #' 
-#' 
+#' @export
+
 R0 <- function(matU, matF, matC=F){
   
   #Demetrius entropy (S):

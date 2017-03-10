@@ -1,7 +1,3 @@
-#' @export
-
-
-
 #' A function to produce a life table from a matrix population model
 #' 
 #' This function uses age-from-stage decompositions to calculate a life table

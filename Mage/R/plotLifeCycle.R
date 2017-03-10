@@ -1,8 +1,3 @@
-#' @export
-#' @import DiagrammeR
-
-
-
 #' A function to plot the life cycle diagram based on the matrix model
 #' 
 #' This function plots the life cycle diagram illustrated by a matrix model. It
@@ -23,7 +18,7 @@
 #' @note %% ~~further notes~~
 #' @author Owen R. Jones <jones@@biology.sdu.dk>
 #' @seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
-#' @references
+#' @references %% ~~references~~
 #' @keywords ~kwd1 ~kwd2
 #' @examples
 #' 
@@ -35,6 +30,8 @@
 #' 
 #' 
 #' @export plotLifeCycle
+#' @import DiagrammeR
+
 plotLifeCycle <- function(A,title="my life cycle",shape="egg",fontsize=10,nodefontsize=12,edgecol="grey"){
 
 

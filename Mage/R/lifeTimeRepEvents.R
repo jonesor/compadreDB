@@ -1,9 +1,3 @@
-#' @export
-#' @import MASS
-
-
-
-
 #' A function to calculate the timing of lifetime reproductive events.
 #' 
 #' A function to calculate the timing of lifetime reproductive events such as
@@ -61,6 +55,8 @@
 #' lifeTimeRepEvents(matU, matF, matU, startLife = 1)
 #' 
 #' @export lifeTimeRepEvents
+#' @import MASS
+
 lifeTimeRepEvents <- function(matU, matF, matC = F, startLife = 1){
   #Function to determine probability of reaching reproduction, age at 
   #maturity and reproductive lifespan (Code adapted from H. Caswell's 

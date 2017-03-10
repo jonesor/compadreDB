@@ -1,7 +1,3 @@
-#' @export
-
-
-
 #' A function to perform element perturbation of a matrix population model.
 #' 
 #' A function to perform element perturbation of a matrix population model.
@@ -12,13 +8,11 @@
 #' @param matF %% ~~Describe \code{matF} here~~
 #' @param matC %% ~~Describe \code{matC} here~~
 #' @param pert %% ~~Describe \code{pert} here~~
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
+#' @return %% ~Describe the value returned 
 #' @note %% ~~further notes~~
 #' @author Roberto Salguero-Gomez <r.salguero@@sheffield.ac.uk>
 #' @seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
-#' @references
+#' @references %% ~~references~~
 #' @keywords ~kwd1 ~kwd2
 #' @examples
 #' 

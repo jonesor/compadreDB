@@ -1,7 +1,3 @@
-#' @export
-
-
-
 #' A function to calculate measures of longevity.
 #' 
 #' A function to calculate the mean life expectancy and maximum longevity of
@@ -42,6 +38,7 @@
 #' 
 #' longevity(matU, startLife = 1, initPop = 100, run = 1000)
 #' 
+#' @export longevity
 longevity <- function(matU, startLife = 1, initPop = 100, run = 1000){
   #Function to calculate mean life expectancy and maximum longevity from
   # H. Caswell's matlab code, and Morris & Doak:

@@ -1,7 +1,3 @@
-#' @export
-
-
-
 #' A function to subset the COMPADRE/COMADRE database
 #' 
 #' This function allows users to subset the COMPADRE/COMADRE database by
@@ -22,7 +18,7 @@
 #' 
 #' Rob Salguero-Goómez <rob.salguero@@zoo.ox.ac.uk>
 #' @seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
-#' @references
+#' @references %% references
 #' @keywords ~kwd1 ~kwd2
 #' @examples
 #' 

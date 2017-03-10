@@ -1,7 +1,3 @@
-#' @export
-
-
-
 #' A function to compare two COMPADRE/COMADRE database versions
 #' 
 #' A function to compare two COMPADRE/COMADRE database versions
@@ -13,16 +9,9 @@
 #' @param verbose A logical argument indicating whether or not to return lots
 #' of detail.
 #' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
-#' @note
 #' @author Owen R. Jones <jones@@biology.sdu.dk>
-#' @seealso
-#' @references
 #' @keywords manip attribute
 #' @examples
-#' 
-#' 
 #' \dontrun{
 #' 	dbCompare(comadreSubset,comadre,verbose = TRUE)
 #' }

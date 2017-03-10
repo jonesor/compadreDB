@@ -1,7 +1,3 @@
-#' @export
-
-
-
 #' Calculate Demetrius' life table entropy
 #' 
 #' This function calculates Demetrius' life table entropy from an lx
@@ -36,7 +32,7 @@
 #' 
 #' dentropy(matA, lx, mx, cx)
 #' 
-#' 
+#' @export dentropy
 dentropy <- function(matA, lx, fx, cx=F){
   
   #Demetrius entropy (S):

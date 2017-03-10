@@ -1,8 +1,3 @@
-#' @export
-
-
-
-
 #' A function to derive vital rates from the matrix population model.
 #' 
 #' A function to derive vital rates from the matrix population model for the
@@ -83,6 +78,7 @@
 #' vitalRates(matU, matF, matC, splitStages = 'ontogeny', weighted = initialConditions)
 #' vitalRates(matU, matF, matC, splitStages = c('prop', 'active', 'active', 'active'), weighted = initialConditions)
 #' 
+#' @export
 vitalRates <- function(matU, matF, matC = FALSE, splitStages = FALSE, weighted = FALSE){
   #Function to quantify vital rates values
   

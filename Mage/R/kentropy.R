@@ -1,7 +1,3 @@
-#' @export
-
-
-
 #' Calculate Keyfitz' life table entropy
 #' 
 #' This function calculates Keyfitz' life table entropy from an lx
@@ -16,15 +12,13 @@
 #' @return Returns an estimate of Keyfitz' life table entropy based on an lx
 #' (survivorship) vector.
 #' @note %% ~~further notes~~
-#' @author Owen R. Jones <jones@@biology.sdu.dk>
-#' 
+#' @author 
+#' Owen R. Jones <jones@@biology.sdu.dk>
 #' Roberto Salguero-Gomez <salguero@@sheffield.ac.uk>
 #' @seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
-#' @references
-#' @keywords ~kwd1 ~kwd2
+#' @references  %% ~~references~~
 #' @examples
-#' 
-#' 
+#'
 #' #Survivorship (lx) with constant mortality (should have Keyfitz entropy of 1).
 #' 
 #' x <- 0:100
