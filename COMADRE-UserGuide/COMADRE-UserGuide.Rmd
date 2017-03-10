@@ -107,71 +107,15 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 -----------------------------------------------
 
-### `CoLCheckOK`
+### `Genus`
 
-**Definition:** Whether the taxonomy detailed here has been verified at the Catalogue of Life (http://www.catalogueoflife.org)
-
-
-##### Possible values:
-
-* `TRUE` -  Taxonomy has been verified by Catalogue of Life
-* `FALSE` -  Taxonomy has not been verified by Catalogue of Life
-
------------------------------------------------
-
-### `CoLCheckDate`
-
-**Definition:** The date that the taxonomy was checked at the Catalogue of Life
-
-##### Possible values:
-
-* `DDMMYYYY` -	E.g. 28052015 stands for 28th of May 2015
-
-
------------------------------------------------
-
-### `Infraspecific`
-
-**Definition:** Taxonomic infraspecific name of study SpeciesAuthor
-
-
-##### Possible values:
-
-* `<infraspecific>` -	e.g. “`floridanus`“, for “`Ursus americanus subsp. floridanus`“
-
-
------------------------------------------------
-
-### `SpeciesEpithetAccepted`
-
-**Definition:** Taxonomic species epithet name of study SpeciesAccepted, as per CoL
-
-
-##### Possible values:
-
-* `<epithet>` -	e.g. “`americanus`“, for “`Ursus americanus subsp. floridanus`“. In some cases, the author may have used a different species epithet than the currently accepted genus.
-
------------------------------------------------
-
-### `GenusAccepted`
-
-**Definition:** Taxonomic genus name of study SpeciesAccepted, as per CoL
+**Definition:** Taxonomic genus name of study SpeciesAccepted, as per Catalogue of Life
 
 
 ##### Possible values:
 
 * `<genus>` -	e.g. “`Ursus`“, for “`Ursus americanus subsp. floridanus`“. In some cases, the author may have used a different genus than the currently accepted genus.
 
-
------------------------------------------------
-
-### `GenusAuthor`
-
-**Definition:** Genus used in SpeciesAuthor
-
-##### Possible values:
-
-* `<genus>` -	e.g. “`Ursus`“
 
 -----------------------------------------------
 
@@ -232,6 +176,19 @@ If two or more demographic studies exist for a single species, these are digitiz
 ##### Possible values:
 
 * `<OrganismType>` -	e.g. Actinopterygii
+
+
+### `DicotMonoc`
+
+**Definition:** This is included to ensure compatibility between COMPADRE and COMADRE. It is not applicable to non-plants and all values in COMADRE are `NA`
+
+
+-----------------------------------------------
+
+### `AngioGymno`
+
+**Definition:** This is included to ensure compatibility between COMPADRE and COMADRE. It is not applicable to non-plants and all values in COMADRE are `NA`
+
 
 
 

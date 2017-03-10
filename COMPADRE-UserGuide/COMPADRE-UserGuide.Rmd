@@ -99,75 +99,22 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `<Genus_species>` -	e.g. Chorizanthe
+* `<Genus_species>` -	e.g. Taraxacum_officinale
 
 -----------------------------------------------
 
+### `CommonName`
 
-### `Authority`
-
-**Definition:** Taxonomic authority of SpeciesAccepted, as per  The Plant List
-
+**Definition:** Common name as used in the publication
 
 ##### Possible values:
 
-* `<Authority>` -	e.g. Benth.
+* `<Common_name>` -  e.g. American black bear
 
 
 -----------------------------------------------
 
-### `TaxonomicStatus`
-
-**Definition:** Taxonomic correspondence of SpeciesAuthor with SpeciesAccepted
-
-##### Possible values:
-
-* `NoMatch` -	Species is a plant, but it does not match with the data repository of The Plant List.
-
-* `Unresolved` -	No match because species is not a plant (this is always the case with brown algae, Kingdom Chromalveolata)
-
-* `Accepted` -	SpeciesAuthor is identical to SpeciesAccepted
-
-* `Synonym` -	SpeciesAuthor is synonymous of SpeciesAccepted
-
-
------------------------------------------------
-
-### `TPLVersion`
-
-**Definition:** Version of The Plant List used for taxonomic validation
-
-##### Possible values:
-
-* `1.0` -	Version 1.0
-
-
------------------------------------------------
-
-### `InfraspeciesAccepted`
-
-**Definition:** Taxonomic infraspecific name of study SpeciesAccepted, as per The Plant List
-
-
-##### Possible values:
-
-* `<infraspecies>` -	e.g. pungens
-
-
------------------------------------------------
-
-### `SpeciesEpithetAccepted`
-
-**Definition:** Taxonomic species epithet name of study SpeciesAccepted, as per The Plant List
-
-
-##### Possible values:
-
-* `<epithet>` -	e.g. pungens
-
------------------------------------------------
-
-### `GenusAccepted`
+### `Genus`
 
 **Definition:** Taxonomic genus name of study SpeciesAccepted, as per The Plant List
 
@@ -176,17 +123,6 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 * `<genus>` -	e.g. Chorizanthe
 
-
-
------------------------------------------------
-
-### `Genus`
-
-**Definition:** Genus used in SpeciesAuthor
-
-##### Possible values:
-
-* `<genus>` -	e.g. Chorizanthe
 
 -----------------------------------------------
 
@@ -218,36 +154,6 @@ If two or more demographic studies exist for a single species, these are digitiz
 ##### Possible values:
 
 * `<class>` -	e.g. Magnoliopsida
-
-
------------------------------------------------
-
-### `DicotMonoc`
-
-**Definition:** Whether species is a dicot or monocot
-
-##### Possible values:
-
-* `Eudicot` -	species is a dicot
-
-* `Monocot` -	species is a monocot
-
-* `NA` -	Species is neither a dicot nor a monocot (not an angiosperm)
-
-
------------------------------------------------
-
-### `AngioGymno`
-
-**Definition:** Whether species is an angiosperm or a gymnosperm
-
-##### Possible values:
-
-* `Angiosperm` -	Species is an angiosperm
-
-* `Gymnosperm` -	Species is a gymnosperm
-
-* `NA` - Neither angiosperm nor gymnosperm
 
 
 -----------------------------------------------
@@ -304,6 +210,37 @@ If two or more demographic studies exist for a single species, these are digitiz
 * `Succulent` -	a succulent
 
 * `Tree` -	a tree
+
+
+-----------------------------------------------
+
+### `DicotMonoc`
+
+**Definition:** Whether species is a dicot or monocot
+
+##### Possible values:
+
+* `Eudicot` -	species is a dicot
+
+* `Monocot` -	species is a monocot
+
+* `NA` -	Species is neither a dicot nor a monocot (not an angiosperm)
+
+
+-----------------------------------------------
+
+### `AngioGymno`
+
+**Definition:** Whether species is an angiosperm or a gymnosperm
+
+##### Possible values:
+
+* `Angiosperm` -	Species is an angiosperm
+
+* `Gymnosperm` -	Species is a gymnosperm
+
+* `NA` - Neither angiosperm nor gymnosperm
+
 
 
 -----------------------------------------------
@@ -484,100 +421,25 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 
 -----------------------------------------------
+### `Lat`
 
-### `LatDeg`
-
-**Definition:** Degree value of latitude.
-
-##### Possible values:
-
-* `<0-90>` -	e.g. 64
-
-
------------------------------------------------
-
-### `LatMin`
-
-**Definition:** Minute value of latitude
+**Definition:** Degree value of latitude, in decimal format. Negative values indicate that the location is in the southern hemisphere
 
 ##### Possible values:
 
-* `<0-60>` -	e.g. 34
+* `<-90-90>` -	e.g. 64.87, -43.7
 
 
 -----------------------------------------------
 
 
-### `LatSec`
+### `Lon`
 
-**Definition:** Seconds value of latitude (decimates are possible). Note that a value of `0` may mean that precise values are not available.
-
-##### Possible values:
-
-* `<0-60>` -	e.g. 23.14 or 34
-
------------------------------------------------
-
-
-### `LatNS`
-
-**Definition:** Cardinal direction
+**Definition:** Degree value of longitude, in decimal format. Negative values indicate that the location is to the west of the Greenwich meridian (0 degrees)
 
 ##### Possible values:
 
-* `N` -	North
-
-* `S` -	South
-
-
------------------------------------------------
-
-
-### `LonDeg`
-
-**Definition:** Degree value of longitude
-
-##### Possible values:
-
-* `<0-180>` -	e.g. 137
-
-
------------------------------------------------
-
-
-### `LonMin`
-
-
-**Definition:** Minute value of longitude
-
-##### Possible values:
-
-* `<0-60>` -	e.g. 45
-
------------------------------------------------
-
-### `LonSec`
-
-**Definition:** Seconds value of longitude (decimates are possible). Note that a value of `0` may mean that precise values are not available.
- 
-
-##### Possible values:
-
-* `<0-60>` -	e.g. 34.335
-
-
------------------------------------------------
-
-
-### `LonWE`
-
-**Definition:** Cardinal direction
-
-##### Possible values:
-
-* `W` -	West
-
-* `E` -	East
+* `<-180-180>` -	e.g. 137.78, -78.32
 
 
 -----------------------------------------------
