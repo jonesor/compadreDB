@@ -1,6 +1,6 @@
 #' @export
 
-kentropy <- function(lx, trapeze = TRUE){
+kentropy <- function(lx, fx, cx = NULL){
   
   if(max(lx) > 1) stop("`lx` should be bounded between 0 and 1")
   if(sum(is.na(lx))>1) stop("There are missing values in `lx`")

@@ -12,13 +12,12 @@ subsetDB(db,sub)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{db}{
-The COMPADRE or COMADRE database object.
-}
   \item{sub}{
 An argument  made using logical operators (see `subset`) with which to subset the data base. Any of the variables contained in the metadata part of the COMPADRE/COMADRE database may be used.
 }
-
+\item{db}{
+The COMPADRE or COMADRE database object.
+}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -34,6 +33,8 @@ Owen R. Jones <jones@biology.sdu.dk>
 
 Bruce Kendall
 
+Rob Salguero-Goómez <rob.salguero@zoo.ox.ac.uk>
+
 }
 \note{
 %%  ~~further notes~~
@@ -46,8 +47,10 @@ Bruce Kendall
 }
 \examples{
 \dontrun{
-ssData <- subsetDB(MatrixDimension > 3, compadre)
-ssData <- subsetDB(MatrixDimension > 3 & MatrixComposite == "Mean", compadre)
+ssData <- subsetDB(compadre, MatrixDimension > 3)
+ssData <- subsetDB(compadre, MatrixDimension > 3 & MatrixComposite == "Mean")
+ssData <- subsetDB(comadre, Continent == "Africa" & Class == "Mammalia")
+ssData <- subsetDB(comadre, SurvivalIssue < 1 & Altitude > 1000 & Altitude < 1500)
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
