@@ -1,5 +1,5 @@
-\name{R0}
-\alias{R0}
+\name{R_0}
+\alias{R_0}
 
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
@@ -9,7 +9,7 @@ Calculate net reproductive value
 This function calculates net reproductive value from a matU (survival-dependent processes) and a matF (sexual reproduction) and/or a matC (clonal reproduction.
 }
 \usage{
-R0(matU, matF, matC = FALSE)
+R_0(matU, matF, matC = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -52,7 +52,7 @@ matU <- matrix (c(0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0.1, 0.1), nrow 
 matF <- matrix (c(0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), nrow = 4, byrow = T)
 matC <- matrix (c(0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0), nrow = 4, byrow = T)
 
-R0(matU, matF, matU)
+R_0(matU, matF, matU)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

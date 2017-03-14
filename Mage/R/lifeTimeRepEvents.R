@@ -12,6 +12,8 @@ lifeTimeRepEvents <- function(matU, matF, matC = F, startLife = 1){
   if(sum(matF + matC,na.rm=T)==0){stop('matF and matC contains only 0 values')}
   #if(sum(matC,na.rm=T)==0){stop('matC contains only 0 values')}
   
+  tryCatch({
+    
   matDim <- dim(matU)[1]
   surv <- colSums(matU)
   
@@ -76,8 +78,9 @@ lifeTimeRepEvents <- function(matU, matF, matC = F, startLife = 1){
     
     #Life expectancy from mean maturity
     out$remainingMatureLifeExpectancyClo <- colSums(N)[startLife] - LaClo
+  
     
   }
-  
+  }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
 	return(out)
  }
