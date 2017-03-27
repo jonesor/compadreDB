@@ -1,6 +1,6 @@
 #' @export
 
-dentropy <- function(matA, lx, fx, cx=F){
+dentropy <- function(matA, lx, mx, cx=F){
   
   #Demetrius entropy (S):
   if(max(lx) > 1) stop("`lx` should be bounded between 0 and 1")
@@ -15,7 +15,7 @@ dentropy <- function(matA, lx, fx, cx=F){
   if (sum(mx)>0){
     limiteFx <- min(length(mx[which(!is.na(mx))]), length(lx[which(!is.na(lx))]))   #Calculating the last time interval at which both mx and lx were able to be calculated
     lxmx <- lx[1:limiteFx]*mx[1:limiteFx]  #Step-by-step multiplication of lx and mx
-    lxmx[which(lxmx==0)] <- 1 #Coertion of the first few values for which fx = 0 to take values lxmx = 1, so that it can be log-scaled, below
+    lxmx[which(lxmx==0)] <- 1 #Coertion of the first few values for which mx = 0 to take values lxmx = 1, so that it can be log-scaled, below
     loglxmx <- log(lxmx)
     loglxmx[which(lxmx==0)] <- NA
     
