@@ -116,7 +116,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">User guide to the COMPADRE Plant Matrix Database</h1>
-<h4 class="date"><em>February 15 2017</em></h4>
+<h4 class="date"><em>March 10 2017</em></h4>
 
 </div>
 
@@ -137,21 +137,16 @@ $(document).ready(function () {
 <li><a href="#variables-in-metadata">Variables in <code>metadata</code></a><ul>
 <li><a href="#speciesauthor"><code>SpeciesAuthor</code></a></li>
 <li><a href="#speciesaccepted"><code>SpeciesAccepted</code></a></li>
-<li><a href="#authority"><code>Authority</code></a></li>
-<li><a href="#taxonomicstatus"><code>TaxonomicStatus</code></a></li>
-<li><a href="#tplversion"><code>TPLVersion</code></a></li>
-<li><a href="#infraspeciesaccepted"><code>InfraspeciesAccepted</code></a></li>
-<li><a href="#speciesepithetaccepted"><code>SpeciesEpithetAccepted</code></a></li>
-<li><a href="#genusaccepted"><code>GenusAccepted</code></a></li>
+<li><a href="#commonname"><code>CommonName</code></a></li>
 <li><a href="#genus"><code>Genus</code></a></li>
 <li><a href="#family"><code>Family</code></a></li>
 <li><a href="#order"><code>Order</code></a></li>
 <li><a href="#class"><code>Class</code></a></li>
-<li><a href="#dicotmonoc"><code>DicotMonoc</code></a></li>
-<li><a href="#angiogymno"><code>AngioGymno</code></a></li>
 <li><a href="#phylum"><code>Phylum</code></a></li>
 <li><a href="#kingdom"><code>Kingdom</code></a></li>
 <li><a href="#organismtype"><code>OrganismType</code></a></li>
+<li><a href="#dicotmonoc"><code>DicotMonoc</code></a></li>
+<li><a href="#angiogymno"><code>AngioGymno</code></a></li>
 <li><a href="#authors"><code>Authors</code></a></li>
 <li><a href="#journal"><code>Journal</code></a></li>
 <li><a href="#yearpublication"><code>YearPublication</code></a></li>
@@ -166,14 +161,8 @@ $(document).ready(function () {
 <li><a href="#matrixcriteriaontogeny"><code>MatrixCriteriaOntogeny</code></a></li>
 <li><a href="#matrixcriteriaage"><code>MatrixCriteriaAge</code></a></li>
 <li><a href="#matrixpopulation"><code>MatrixPopulation</code></a></li>
-<li><a href="#latdeg"><code>LatDeg</code></a></li>
-<li><a href="#latmin"><code>LatMin</code></a></li>
-<li><a href="#latsec"><code>LatSec</code></a></li>
-<li><a href="#latns"><code>LatNS</code></a></li>
-<li><a href="#londeg"><code>LonDeg</code></a></li>
-<li><a href="#lonmin"><code>LonMin</code></a></li>
-<li><a href="#lonsec"><code>LonSec</code></a></li>
-<li><a href="#lonwe"><code>LonWE</code></a></li>
+<li><a href="#lat"><code>Lat</code></a></li>
+<li><a href="#lon"><code>Lon</code></a></li>
 <li><a href="#altitude"><code>Altitude</code></a></li>
 <li><a href="#country"><code>Country</code></a></li>
 <li><a href="#continent"><code>Continent</code></a></li>
@@ -221,7 +210,7 @@ $(document).ready(function () {
 <div id="user-guide-version-information" class="section level1">
 <h1>User guide version information</h1>
 <p>Version 3.3.1</p>
-<p>Date modified: February 15 2017</p>
+<p>Date modified: March 10 2017</p>
 <p>Contact: <a href="mailto:compadre-contact@demogr.mpg.de">compadre-contact@demogr.mpg.de</a></p>
 <hr />
 </div>
@@ -299,84 +288,26 @@ $(document).ready(function () {
 <div id="possible-values-1" class="section level5">
 <h5>Possible values:</h5>
 <ul>
-<li><code>&lt;Genus_species&gt;</code> - e.g. Chorizanthe</li>
+<li><code>&lt;Genus_species&gt;</code> - e.g. Taraxacum_officinale</li>
 </ul>
 <hr />
 </div>
 </div>
-<div id="authority" class="section level3">
-<h3><code>Authority</code></h3>
-<p><strong>Definition:</strong> Taxonomic authority of SpeciesAccepted, as per The Plant List</p>
+<div id="commonname" class="section level3">
+<h3><code>CommonName</code></h3>
+<p><strong>Definition:</strong> Common name as used in the publication</p>
 <div id="possible-values-2" class="section level5">
 <h5>Possible values:</h5>
 <ul>
-<li><code>&lt;Authority&gt;</code> - e.g. Benth.</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="taxonomicstatus" class="section level3">
-<h3><code>TaxonomicStatus</code></h3>
-<p><strong>Definition:</strong> Taxonomic correspondence of SpeciesAuthor with SpeciesAccepted</p>
-<div id="possible-values-3" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><p><code>NoMatch</code> - Species is a plant, but it does not match with the data repository of The Plant List.</p></li>
-<li><p><code>Unresolved</code> - No match because species is not a plant (this is always the case with brown algae, Kingdom Chromalveolata)</p></li>
-<li><p><code>Accepted</code> - SpeciesAuthor is identical to SpeciesAccepted</p></li>
-<li><p><code>Synonym</code> - SpeciesAuthor is synonymous of SpeciesAccepted</p></li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="tplversion" class="section level3">
-<h3><code>TPLVersion</code></h3>
-<p><strong>Definition:</strong> Version of The Plant List used for taxonomic validation</p>
-<div id="possible-values-4" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><code>1.0</code> - Version 1.0</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="infraspeciesaccepted" class="section level3">
-<h3><code>InfraspeciesAccepted</code></h3>
-<p><strong>Definition:</strong> Taxonomic infraspecific name of study SpeciesAccepted, as per The Plant List</p>
-<div id="possible-values-5" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><code>&lt;infraspecies&gt;</code> - e.g. pungens</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="speciesepithetaccepted" class="section level3">
-<h3><code>SpeciesEpithetAccepted</code></h3>
-<p><strong>Definition:</strong> Taxonomic species epithet name of study SpeciesAccepted, as per The Plant List</p>
-<div id="possible-values-6" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><code>&lt;epithet&gt;</code> - e.g. pungens</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="genusaccepted" class="section level3">
-<h3><code>GenusAccepted</code></h3>
-<p><strong>Definition:</strong> Taxonomic genus name of study SpeciesAccepted, as per The Plant List</p>
-<div id="possible-values-7" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><code>&lt;genus&gt;</code> - e.g. Chorizanthe</li>
+<li><code>&lt;Common_name&gt;</code> - e.g. American black bear</li>
 </ul>
 <hr />
 </div>
 </div>
 <div id="genus" class="section level3">
 <h3><code>Genus</code></h3>
-<p><strong>Definition:</strong> Genus used in SpeciesAuthor</p>
-<div id="possible-values-8" class="section level5">
+<p><strong>Definition:</strong> Taxonomic genus name of study SpeciesAccepted, as per The Plant List</p>
+<div id="possible-values-3" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;genus&gt;</code> - e.g. Chorizanthe</li>
@@ -387,7 +318,7 @@ $(document).ready(function () {
 <div id="family" class="section level3">
 <h3><code>Family</code></h3>
 <p><strong>Definition:</strong> Family to which species belongs</p>
-<div id="possible-values-9" class="section level5">
+<div id="possible-values-4" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;family&gt;</code> - e.g. Polygonaceae</li>
@@ -398,7 +329,7 @@ $(document).ready(function () {
 <div id="order" class="section level3">
 <h3><code>Order</code></h3>
 <p><strong>Definition:</strong> Order to which species belongs</p>
-<div id="possible-values-10" class="section level5">
+<div id="possible-values-5" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>order</code> - e.g. Caryophyllales</li>
@@ -409,7 +340,7 @@ $(document).ready(function () {
 <div id="class" class="section level3">
 <h3><code>Class</code></h3>
 <p><strong>Definition:</strong> Class to which species belongs</p>
-<div id="possible-values-11" class="section level5">
+<div id="possible-values-6" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;class&gt;</code> - e.g. Magnoliopsida</li>
@@ -417,36 +348,10 @@ $(document).ready(function () {
 <hr />
 </div>
 </div>
-<div id="dicotmonoc" class="section level3">
-<h3><code>DicotMonoc</code></h3>
-<p><strong>Definition:</strong> Whether species is a dicot or monocot</p>
-<div id="possible-values-12" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><p><code>Eudicot</code> - species is a dicot</p></li>
-<li><p><code>Monocot</code> - species is a monocot</p></li>
-<li><p><code>NA</code> - Species is neither a dicot nor a monocot (not an angiosperm)</p></li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="angiogymno" class="section level3">
-<h3><code>AngioGymno</code></h3>
-<p><strong>Definition:</strong> Whether species is an angiosperm or a gymnosperm</p>
-<div id="possible-values-13" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><p><code>Angiosperm</code> - Species is an angiosperm</p></li>
-<li><p><code>Gymnosperm</code> - Species is a gymnosperm</p></li>
-<li><p><code>NA</code> - Neither angiosperm nor gymnosperm</p></li>
-</ul>
-<hr />
-</div>
-</div>
 <div id="phylum" class="section level3">
 <h3><code>Phylum</code></h3>
 <p><strong>Definition:</strong> Phylum to which species belongs</p>
-<div id="possible-values-14" class="section level5">
+<div id="possible-values-7" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;phylum&gt;</code> - e.g. Magnoliophyta</li>
@@ -457,7 +362,7 @@ $(document).ready(function () {
 <div id="kingdom" class="section level3">
 <h3><code>Kingdom</code></h3>
 <p><strong>Definition:</strong> Kingdom to which species belongs</p>
-<div id="possible-values-15" class="section level5">
+<div id="possible-values-8" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>kingdom</code> - e.g. Plantae, Fungi, Rhodophyta, Chromista (yes, COMPADRE includes fungi and algae as well as plants)</li>
@@ -468,7 +373,7 @@ $(document).ready(function () {
 <div id="organismtype" class="section level3">
 <h3><code>OrganismType</code></h3>
 <p><strong>Definition:</strong> General plant/algae type, based mainly on architectural organization. The species was assigned to one of these possible values using the description of plant growth type provided by the author and other external sources (e.g. other publications)</p>
-<div id="possible-values-16" class="section level5">
+<div id="possible-values-9" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>Algae</code> - A brown, green or red alga. Note that green algae are in kingdom Plantae, but should still be recorded as OrganismType = Algae</p></li>
@@ -487,10 +392,36 @@ $(document).ready(function () {
 <hr />
 </div>
 </div>
+<div id="dicotmonoc" class="section level3">
+<h3><code>DicotMonoc</code></h3>
+<p><strong>Definition:</strong> Whether species is a dicot or monocot</p>
+<div id="possible-values-10" class="section level5">
+<h5>Possible values:</h5>
+<ul>
+<li><p><code>Eudicot</code> - species is a dicot</p></li>
+<li><p><code>Monocot</code> - species is a monocot</p></li>
+<li><p><code>NA</code> - Species is neither a dicot nor a monocot (not an angiosperm)</p></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="angiogymno" class="section level3">
+<h3><code>AngioGymno</code></h3>
+<p><strong>Definition:</strong> Whether species is an angiosperm or a gymnosperm</p>
+<div id="possible-values-11" class="section level5">
+<h5>Possible values:</h5>
+<ul>
+<li><p><code>Angiosperm</code> - Species is an angiosperm</p></li>
+<li><p><code>Gymnosperm</code> - Species is a gymnosperm</p></li>
+<li><p><code>NA</code> - Neither angiosperm nor gymnosperm</p></li>
+</ul>
+<hr />
+</div>
+</div>
 <div id="authors" class="section level3">
 <h3><code>Authors</code></h3>
 <p><strong>Definition:</strong> Last (family) name of all authors</p>
-<div id="possible-values-17" class="section level5">
+<div id="possible-values-12" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;name(s)&gt;</code> - Separated with “;” e.g. “Smith; Jones”</li>
@@ -501,7 +432,7 @@ $(document).ready(function () {
 <div id="journal" class="section level3">
 <h3><code>Journal</code></h3>
 <p><strong>Definition:</strong> The document from which data were sourced.</p>
-<div id="possible-values-18" class="section level5">
+<div id="possible-values-13" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>&lt;abbreviated journal name&gt;</code> - Where the data come from a scientific journal article, the abbreviated journal name is given. We use the standard abbreviation of the journal using the BIOSIS Format</p></li>
@@ -518,7 +449,7 @@ $(document).ready(function () {
 <div id="yearpublication" class="section level3">
 <h3><code>YearPublication</code></h3>
 <p><strong>Definition:</strong> Year of publication</p>
-<div id="possible-values-19" class="section level5">
+<div id="possible-values-14" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;yyyy&gt;</code> - e.g. 2012</li>
@@ -529,7 +460,7 @@ $(document).ready(function () {
 <div id="doiisbn" class="section level3">
 <h3><code>DOI/ISBN</code></h3>
 <p><strong>Definition:</strong> Digital Object Identification or International Standard Book Number codes that identify the publication.</p>
-<div id="possible-values-20" class="section level5">
+<div id="possible-values-15" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;DOI&gt;</code> or <code>&lt;ISBN&gt;</code> - e.g. “10.1111/1365-2745.12334”</li>
@@ -540,7 +471,7 @@ $(document).ready(function () {
 <div id="additionalsource" class="section level3">
 <h3><code>AdditionalSource</code></h3>
 <p><strong>Definition:</strong> Additional source(s) used to reconstruct the matrix, or to obtain additional information on ancillary data</p>
-<div id="possible-values-21" class="section level5">
+<div id="possible-values-16" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;Lastname Journal YearPublication&gt;</code> - e.g. Godinez-Alvarez Bot Rev 2003</li>
@@ -551,7 +482,7 @@ $(document).ready(function () {
 <div id="studyduration" class="section level3">
 <h3><code>StudyDuration</code></h3>
 <p><strong>Definition:</strong> The number of years of observation. This is calculated as (<code>StudyEnd</code> year - <code>StudyStart</code> year) + 1 (see below). The calculation thus overlooks any missing years in the middle of the study period</p>
-<div id="possible-values-22" class="section level5">
+<div id="possible-values-17" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;integer&gt;</code> - e.g. 14</li>
@@ -562,7 +493,7 @@ $(document).ready(function () {
 <div id="studystart" class="section level3">
 <h3><code>StudyStart</code></h3>
 <p><strong>Definition:</strong> First year of study</p>
-<div id="possible-values-23" class="section level5">
+<div id="possible-values-18" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;yyyy&gt;</code> - e.g. 2012</li>
@@ -573,7 +504,7 @@ $(document).ready(function () {
 <div id="studyend" class="section level3">
 <h3><code>StudyEnd</code></h3>
 <p><strong>Definition:</strong> Final year of study</p>
-<div id="possible-values-24" class="section level5">
+<div id="possible-values-19" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;yyyy&gt;</code> - e.g. 2014</li>
@@ -584,7 +515,7 @@ $(document).ready(function () {
 <div id="annualperiodicity" class="section level3">
 <h3><code>AnnualPeriodicity</code></h3>
 <p><strong>Definition:</strong> Indicates the time frame for which the seasonal or annual the MPM was constructed. e.g. 1 indicates that the MPM iteration period is 1yr; 2 indicates that the MPM iterates twice in a year; 0.2 indicates that the MPM iteration occurs every 5yrs.</p>
-<div id="possible-values-25" class="section level5">
+<div id="possible-values-20" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;numeric value&gt;</code> - e.g. 1, 2, 0.2 etc.</li>
@@ -595,7 +526,7 @@ $(document).ready(function () {
 <div id="numberpopulations" class="section level3">
 <h3><code>NumberPopulations</code></h3>
 <p><strong>Definition:</strong> Number of populations of the study species. This variable refers to the number of populations as defined by the author. Within-site replication of permanent plots are not considered to be different populations (see below)</p>
-<div id="possible-values-26" class="section level5">
+<div id="possible-values-21" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;integer&gt;</code> - e.g. 3 (for three populations)</li>
@@ -606,7 +537,7 @@ $(document).ready(function () {
 <div id="matrixcriteriasize" class="section level3">
 <h3><code>MatrixCriteriaSize</code></h3>
 <p><strong>Definition:</strong> Indicates whether the matrix population model contains stages based on size, and if so, what variable of size was measured.</p>
-<div id="possible-values-27" class="section level5">
+<div id="possible-values-22" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>Yes</code> - The matrix population model contains stages based on size (e.g. DBH, stem length, stem height, stem number, etc)</p></li>
@@ -618,7 +549,7 @@ $(document).ready(function () {
 <div id="matrixcriteriaontogeny" class="section level3">
 <h3><code>MatrixCriteriaOntogeny</code></h3>
 <p><strong>Definition:</strong> Indicates whether the matrix population model contains stages based on development.</p>
-<div id="possible-values-28" class="section level5">
+<div id="possible-values-23" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>Yes</code> - The matrix population model contains at least one class that is based on development/ontogeny (e.g. seedbank, reproductive, vegetative, dormant, etc)</p></li>
@@ -630,7 +561,7 @@ $(document).ready(function () {
 <div id="matrixcriteriaage" class="section level3">
 <h3><code>MatrixCriteriaAge</code></h3>
 <p><strong>Definition:</strong> Indicates whether the matrix population model contains any stage based on age</p>
-<div id="possible-values-29" class="section level5">
+<div id="possible-values-24" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>Yes</code> - The matrix population model contains at least one class that is based on age (e.g. individuals of 0 year old)</p></li>
@@ -642,7 +573,7 @@ $(document).ready(function () {
 <div id="matrixpopulation" class="section level3">
 <h3><code>MatrixPopulation</code></h3>
 <p><strong>Definition:</strong> Name of population where matrix was recorded, usually as given by the publication author. In some cases, where the author provides no name, we give the closest geographic location instead. If there are multiple populations in the study and their names are not pertinent/available, sequential names in alphabetical order are assigned for each population in the study (e.g. “A”, “B”, “C”, etc)</p>
-<div id="possible-values-30" class="section level5">
+<div id="possible-values-25" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;any text string&gt;</code> - e.g. “Brazeau Creek, Florida”.</li>
@@ -650,92 +581,24 @@ $(document).ready(function () {
 <hr />
 </div>
 </div>
-<div id="latdeg" class="section level3">
-<h3><code>LatDeg</code></h3>
-<p><strong>Definition:</strong> Degree value of latitude.</p>
-<div id="possible-values-31" class="section level5">
+<div id="lat" class="section level3">
+<h3><code>Lat</code></h3>
+<p><strong>Definition:</strong> Degree value of latitude, in decimal format. Negative values indicate that the location is in the southern hemisphere</p>
+<div id="possible-values-26" class="section level5">
 <h5>Possible values:</h5>
 <ul>
-<li><code>&lt;0-90&gt;</code> - e.g. 64</li>
+<li><code>&lt;-90-90&gt;</code> - e.g. 64.87, -43.7</li>
 </ul>
 <hr />
 </div>
 </div>
-<div id="latmin" class="section level3">
-<h3><code>LatMin</code></h3>
-<p><strong>Definition:</strong> Minute value of latitude</p>
-<div id="possible-values-32" class="section level5">
+<div id="lon" class="section level3">
+<h3><code>Lon</code></h3>
+<p><strong>Definition:</strong> Degree value of longitude, in decimal format. Negative values indicate that the location is to the west of the Greenwich meridian (0 degrees)</p>
+<div id="possible-values-27" class="section level5">
 <h5>Possible values:</h5>
 <ul>
-<li><code>&lt;0-60&gt;</code> - e.g. 34</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="latsec" class="section level3">
-<h3><code>LatSec</code></h3>
-<p><strong>Definition:</strong> Seconds value of latitude (decimates are possible). Note that a value of <code>0</code> may mean that precise values are not available.</p>
-<div id="possible-values-33" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><code>&lt;0-60&gt;</code> - e.g. 23.14 or 34</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="latns" class="section level3">
-<h3><code>LatNS</code></h3>
-<p><strong>Definition:</strong> Cardinal direction</p>
-<div id="possible-values-34" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><p><code>N</code> - North</p></li>
-<li><p><code>S</code> - South</p></li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="londeg" class="section level3">
-<h3><code>LonDeg</code></h3>
-<p><strong>Definition:</strong> Degree value of longitude</p>
-<div id="possible-values-35" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><code>&lt;0-180&gt;</code> - e.g. 137</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="lonmin" class="section level3">
-<h3><code>LonMin</code></h3>
-<p><strong>Definition:</strong> Minute value of longitude</p>
-<div id="possible-values-36" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><code>&lt;0-60&gt;</code> - e.g. 45</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="lonsec" class="section level3">
-<h3><code>LonSec</code></h3>
-<p><strong>Definition:</strong> Seconds value of longitude (decimates are possible). Note that a value of <code>0</code> may mean that precise values are not available.</p>
-<div id="possible-values-37" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><code>&lt;0-60&gt;</code> - e.g. 34.335</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="lonwe" class="section level3">
-<h3><code>LonWE</code></h3>
-<p><strong>Definition:</strong> Cardinal direction</p>
-<div id="possible-values-38" class="section level5">
-<h5>Possible values:</h5>
-<ul>
-<li><p><code>W</code> - West</p></li>
-<li><p><code>E</code> - East</p></li>
+<li><code>&lt;-180-180&gt;</code> - e.g. 137.78, -78.32</li>
 </ul>
 <hr />
 </div>
@@ -743,7 +606,7 @@ $(document).ready(function () {
 <div id="altitude" class="section level3">
 <h3><code>Altitude</code></h3>
 <p><strong>Definition:</strong> Altitude of studied population defined as height above sea level of the population in meters.</p>
-<div id="possible-values-39" class="section level5">
+<div id="possible-values-28" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;numeric value&gt;</code> - e.g. 653</li>
@@ -754,7 +617,7 @@ $(document).ready(function () {
 <div id="country" class="section level3">
 <h3><code>Country</code></h3>
 <p><strong>Definition:</strong> Country/ies where study took place. We use ISO 3 three letter country codes (<a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3" class="uri">https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3</a>). If the study involves multiple countries, these are separated by “;”.</p>
-<div id="possible-values-40" class="section level5">
+<div id="possible-values-29" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;ISO 3 country code(s)&gt;</code> - e.g. <code>DEU; DNK</code> for a study carried out in Germany and Denmark.</li>
@@ -765,7 +628,7 @@ $(document).ready(function () {
 <div id="continent" class="section level3">
 <h3><code>Continent</code></h3>
 <p><strong>Definition:</strong> Continent where study took place</p>
-<div id="possible-values-41" class="section level5">
+<div id="possible-values-30" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>Africa</code> -</p></li>
@@ -781,7 +644,7 @@ $(document).ready(function () {
 <div id="ecoregion" class="section level3">
 <h3><code>Ecoregion</code></h3>
 <p><strong>Definition:</strong> Indication of the ecoregion for the study, using the categories described in Figure 1 of Olson et al. (2001). For a more inclusive description of water ecoregions, see <a href="http://worldwildlife.org/biomes" class="uri">http://worldwildlife.org/biomes</a> The one exception for this is the code <code>LAB</code> used for studies conducted in laboratory or greenhouse conditions.</p>
-<div id="possible-values-42" class="section level5">
+<div id="possible-values-31" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>TMB</code> - Terrestrial - tropical and subtropical moist broadleaf forests</p></li>
@@ -818,7 +681,7 @@ $(document).ready(function () {
 <div id="studiedsex" class="section level3">
 <h3><code>StudiedSex</code></h3>
 <p><strong>Definition:</strong></p>
-<div id="possible-values-43" class="section level5">
+<div id="possible-values-32" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>M</code> - Studied only males</p></li>
@@ -833,7 +696,7 @@ $(document).ready(function () {
 <div id="matrixcomposite" class="section level3">
 <h3><code>MatrixComposite</code></h3>
 <p><strong>Definition:</strong> Indicates the type of matrix population model (also see Figure 2 below for more information).</p>
-<div id="possible-values-44" class="section level5">
+<div id="possible-values-33" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>Individual</code> - A matrix population model constructed for a single study × species × population × treatment × period combination.</p></li>
@@ -847,7 +710,7 @@ $(document).ready(function () {
 <div id="matrixtreatment" class="section level3">
 <h3><code>MatrixTreatment</code></h3>
 <p><strong>Definition:</strong> Describes if a treatment was applied or not and the nature of the treatment.</p>
-<div id="possible-values-45" class="section level5">
+<div id="possible-values-34" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>&lt;treatment&gt;</code> - A brief description of the treatment applied to the population described by the matrix population model. We define treatment as an action intentionally imposed by humans. If more than one applies to a matrix, treatments are separated with a “;”</p></li>
@@ -859,7 +722,7 @@ $(document).ready(function () {
 <div id="matrixcaptivity" class="section level3">
 <h3><code>MatrixCaptivity</code></h3>
 <p><strong>Definition:</strong> Whether the study species was studied in the wild or under controlled conditions for most of its life cycle</p>
-<div id="possible-values-46" class="section level5">
+<div id="possible-values-35" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>W</code> - Wild: study in natural conditions</p></li>
@@ -872,7 +735,7 @@ $(document).ready(function () {
 <div id="matrixstartyear" class="section level3">
 <h3><code>MatrixStartYear</code></h3>
 <p><strong>Definition:</strong> First year of study. Year <code>t</code> in annual matrix population model that describes population dynamics from time <code>t</code> to <code>t+1</code>.</p>
-<div id="possible-values-47" class="section level5">
+<div id="possible-values-36" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;yyyy&gt;</code> - e.g. 1994</li>
@@ -883,7 +746,7 @@ $(document).ready(function () {
 <div id="matrixstartseason" class="section level3">
 <h3><code>MatrixStartSeason</code></h3>
 <p><strong>Definition:</strong> First season of study. Season <code>s</code> in periodic matrix population model that describes population dynamics from season <code>s</code> to <code>s+1</code>. Seasons are naturally hemisphere-specific, and this information can be deduced from variables <code>Country</code> and <code>LatDeg</code>, below. Here season is used as described in manuscript by the authors (summer in the southern hemisphere corresponds to Winter in the northern hemisphere).</p>
-<div id="possible-values-48" class="section level5">
+<div id="possible-values-37" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>1</code> - Spring</p></li>
@@ -897,7 +760,7 @@ $(document).ready(function () {
 <div id="matrixstartmonth" class="section level3">
 <h3><code>MatrixStartMonth</code></h3>
 <p><strong>Definition:</strong> First month of study.</p>
-<div id="possible-values-49" class="section level5">
+<div id="possible-values-38" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;1-12&gt;</code> - e.g. 1 = January, 6= June etc.</li>
@@ -908,7 +771,7 @@ $(document).ready(function () {
 <div id="matrixendyear" class="section level3">
 <h3><code>MatrixEndYear</code></h3>
 <p><strong>Definition:</strong> Last year of study. Year <code>t+1</code> in matrix population model that describes population dynamics from time <code>t</code> to <code>t+1</code>.</p>
-<div id="possible-values-50" class="section level5">
+<div id="possible-values-39" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;yyyy&gt;</code> - e.g. 1999</li>
@@ -919,7 +782,7 @@ $(document).ready(function () {
 <div id="matrixendseason" class="section level3">
 <h3><code>MatrixEndSeason</code></h3>
 <p><strong>Definition:</strong> Last season of study. Season s+1 in periodic matrix population model that describes population dynamics from season s to s+1. Here season is used as described in manuscript by the authors (Summer in the Southern Hemisphere corresponds to Winter in the Northern Hemisphere)</p>
-<div id="possible-values-51" class="section level5">
+<div id="possible-values-40" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>1</code> - Spring</p></li>
@@ -933,7 +796,7 @@ $(document).ready(function () {
 <div id="matrixendmonth" class="section level3">
 <h3><code>MatrixEndMonth</code></h3>
 <p><strong>Definition:</strong> Last month of study.</p>
-<div id="possible-values-52" class="section level5">
+<div id="possible-values-41" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;1-12&gt;</code> - e.g. 1 = January, 6= June etc.</li>
@@ -944,7 +807,7 @@ $(document).ready(function () {
 <div id="matrixsplit" class="section level3">
 <h3><code>MatrixSplit</code></h3>
 <p><strong>Definition:</strong> This indicates whether the MPM <strong>A</strong> matrix has been divided into its constituent <strong>U</strong>, <strong>F</strong> and <strong>C</strong> submatrices. See Figure 3 below for further details.</p>
-<div id="possible-values-53" class="section level5">
+<div id="possible-values-42" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>Divided</code> - The matrix population model <strong>A</strong> has been been divided into the process-based submatrices <strong>U</strong>, <strong>F</strong> and <strong>C</strong>.</p></li>
@@ -957,7 +820,7 @@ $(document).ready(function () {
 <h3><code>MatrixFec</code></h3>
 <p><strong>Definition:</strong> This records whether fecundity was measured at all for this matrix model.</p>
 <p>The rationale for this is that a fecundity (in the F matrix) may be recorded as 0 either because it was not measured, or because reproduction was measured and estimated to be zero. As a general rule, if any values for fecundity (e.g. in the F matrix) are non-zero, then MatrixFec should be recorded as ‘Yes’. If all values are zero, then you we check the paper carefully to check whther this is because no fecundity was detected, or whether no attempt was made to measure fecundity.</p>
-<div id="possible-values-54" class="section level5">
+<div id="possible-values-43" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>Yes</code> - Reproduction was included in the MPM, and thus values &gt;0 should appear in the submatrix <strong>F</strong> if sexual reproduction occurred in these stages/ages. Note that it is possible that reproduction was measured and modelled but none occurred. In that case, values of 0 are possible in the F matrix.</p></li>
@@ -970,7 +833,7 @@ $(document).ready(function () {
 <div id="observation" class="section level3">
 <h3><code>Observation</code></h3>
 <p><strong>Definition:</strong> This variable provides information that is not provided elsewhere but may nonetheless be important (e.g. plant canopy, burning intervals, etc.)</p>
-<div id="possible-values-55" class="section level5">
+<div id="possible-values-44" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;any text&gt;</code> - any text string giving useful additional information.</li>
@@ -981,7 +844,7 @@ $(document).ready(function () {
 <div id="matrixdimension" class="section level3">
 <h3><code>MatrixDimension</code></h3>
 <p><strong>Definition:</strong> Dimension of the matrix population model <strong>A</strong>.</p>
-<div id="possible-values-56" class="section level5">
+<div id="possible-values-45" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;integer&gt;</code> - e.g. 5</li>
@@ -992,7 +855,7 @@ $(document).ready(function () {
 <div id="survivalissue" class="section level3">
 <h3><code>SurvivalIssue</code></h3>
 <p><strong>Definition:</strong> Minimum stage-specific survival value in the matrix population model submatrix <strong>U</strong> when &gt; 1</p>
-<div id="possible-values-57" class="section level5">
+<div id="possible-values-46" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;numeric&gt;</code> - e.g. 0.9, 1.2, 1.45</li>
@@ -1012,7 +875,7 @@ $(document).ready(function () {
 <div id="matrixclassorganized" class="section level3">
 <h3><code>MatrixClassOrganized</code></h3>
 <p><strong>Definition:</strong> We standardize all stages in a given population matrix model to one of three stages (prop, active, dorm) to facilitate analyses.</p>
-<div id="possible-values-58" class="section level5">
+<div id="possible-values-47" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><p><code>prop</code> - Propagule (seed). This applies to every stage defined by the author as seed bank or seed. Users are encouraged to carefully examine matrices with these stages and to implement the appropriate calculations to avoid a spurious additional year being added when no seedbank exists in the study species, as explained by Caswell (2001, p. 60).</p></li>
@@ -1025,7 +888,7 @@ $(document).ready(function () {
 <div id="matrixclassnumber" class="section level3">
 <h3><code>MatrixClassNumber</code></h3>
 <p><strong>Definition:</strong> A numerical representation of classes in the population matrix model.</p>
-<div id="possible-values-59" class="section level5">
+<div id="possible-values-48" class="section level5">
 <h5>Possible values:</h5>
 <ul>
 <li><code>&lt;integer&gt;</code> - e.g. <code>1,2,3, ... n</code>, where <code>n</code> is the dimension of the MPM (see <code>MatrixDimension</code> below)</li>
