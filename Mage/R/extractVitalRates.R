@@ -25,32 +25,32 @@ extractVitalRates <- function(matU, matF, collapse) {
   if (dim(matU)[1] != 4) {
     stop("This matrix is not 4x4!", call. = FALSE)
   }
-  vitalRates <- rep(NA, 10)
+  names <- c("s1","s2","s3","s4","g21","g31","g32","g43", "g34","f13","f23","f33")
+  vitalRates <- data.frame(matrix(NA, ncol = length(names)))
   surv <- colSums(matU, na.rm = TRUE)
   surv[which(is.na(collapse))] <- NA
-  if (any(surv == 0)) {
-    stop("This matrix has zero survival/transition for a stage, cannot calculate standardised vital rates", call. = FALSE)
-  }
-  s1 <- surv[1]
-  s2 <- surv[2]
-  s3 <- surv[3]
-  s4 <- surv[4]
-  matUIndep <- matU
-  for (i in 1:dim(matU)[1]) {
-    matUIndep[,i] <- matU[,i] / surv[i]
-  }
-  g21 <- matUIndep[2,1]
-  g31 <- matUIndep[3,1]
-  g32 <- matUIndep[3,2]
-  g43 <- matUIndep[4,3]
-  g34 <- matUIndep[3,4]
+  if (any(surv[which(!is.na(surv))] == 0)) {
+    warning("This matrix has a stage with zero survival/transition, cannot calculate standardised vital rates", call. = FALSE)
+  } else {
+    s1 <- surv[1]
+    s2 <- surv[2]
+    s3 <- surv[3]
+    s4 <- surv[4]
+    matUIndep <- matU
+    for (i in 1:dim(matU)[1]) {
+      matUIndep[,i] <- matU[,i] / surv[i]
+    }
+    g21 <- matUIndep[2,1]
+    g31 <- matUIndep[3,1]
+    g32 <- matUIndep[3,2]
+    g43 <- matUIndep[4,3]
+    g34 <- matUIndep[3,4]
 
-  f13 <- matF[1,3]
-  f23 <- matF[2,3]
-  f33 <- matF[3,3]
-
-  vitalRates <- data.frame(s1,s2,s3,s4,g21,g31,g32,g43,g34,f13,f23,f33,
-                           stringsAsFactors = FALSE)
-  stats::setNames(vitalRates, c("s1","s2","s3","s4","g21","g31","g32","g43",
-                            "g34","f13","f23","f33"))
+    f13 <- matF[1,3]
+    f23 <- matF[2,3]
+    f33 <- matF[3,3]
+    vitalRates <- data.frame(s1,s2,s3,s4,g21,g31,g32,g43,g34,f13,f23,f33,
+                             stringsAsFactors = FALSE)
+  }
+  stats::setNames(vitalRates, names)
 }
