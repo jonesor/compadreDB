@@ -28,6 +28,9 @@ extractVitalRates <- function(matU, matF, collapse) {
   vitalRates <- rep(NA, 10)
   surv <- colSums(matU, na.rm = TRUE)
   surv[which(is.na(collapse))] <- NA
+  if (any(surv == 0)) {
+    stop("This matrix has zero survival/transition for a stage, cannot calculate standardised vital rates", call. = FALSE)
+  }
   s1 <- surv[1]
   s2 <- surv[2]
   s3 <- surv[3]
