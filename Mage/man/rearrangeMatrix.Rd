@@ -2,21 +2,28 @@
 % Please edit documentation in R/rearrangeMatrix.R
 \name{rearrangeMatrix}
 \alias{rearrangeMatrix}
-\title{Re-arrange stages from prop, preRep, rep and postRep}
+\title{Re-arrange matrix stages so that all inter-reproductive and non-reproductive
+stages fall in the final rows/columns of the matrix. This is a preparatory
+step to collapsing the matrix model into combined prop, pre-rep, rep and
+post-rep stages.}
 \usage{
 rearrangeMatrix(matU, matF, matFmu)
 }
 \arguments{
-\item{matU}{a matrix without reproduction and clonality}
+\item{matU}{survival matrix}
 
-\item{matF}{a matrix, just reproduction}
+\item{matF}{fecundity matrix}
 
-\item{matFmu}{a matrix, that has been rearranged}
+\item{matFmu}{mean fecundity matrix}
 }
 \description{
-Re-arrange stages from prop, preRep, rep and postRep
+Re-arrange matrix stages so that all inter-reproductive and non-reproductive
+stages fall in the final rows/columns of the matrix. This is a preparatory
+step to collapsing the matrix model into combined prop, pre-rep, rep and
+post-rep stages.
 }
 \examples{
+## FIXME: find an example containing non-reproductive stages
 matU <- matrix(c(0.2581, 0.1613, 0.1935, 0.2258, 0.1613, 0.0408, 0.2857,
                  0.4286, 0.102, 0.0816, 0.0385, 0.0385, 0.2692, 0.2308,
                  0.3462, 0, 0.0625, 0.125, 0.25, 0.5625, 0.1061, 0.1608,
@@ -30,4 +37,3 @@ matFmu <- matrix(c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                  nrow = 5, byrow = FALSE)
 rearrangeMatrix(matU, matF, matFmu)
 }
-

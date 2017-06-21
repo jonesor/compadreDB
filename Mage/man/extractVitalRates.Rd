@@ -2,22 +2,28 @@
 % Please edit documentation in R/extractVitalRates.R
 \name{extractVitalRates}
 \alias{extractVitalRates}
-\title{Function to extract the vital rates of a 4x4 matrix that has been
-collapsed into propagule, pre-, reprod, and post-reprod}
+\title{Function to extract the vital rates of a population matrix model that has
+been collapsed into combined stages for propagule, pre-reproductive,
+reproductive, and post-reproductive.}
 \usage{
 extractVitalRates(matU, matF, collapse)
 }
 \arguments{
-\item{matU}{a matrix without reproduction and clonality}
+\item{matU}{survival matrix}
 
-\item{matF}{a matrix, just reproduction}
+\item{matF}{fecundity matrix}
 
 \item{collapse}{vector of stages}
 }
 \description{
-FIXME: change to allow non 4 by 4 matrices
+Function to extract the vital rates of a population matrix model that has
+been collapsed into combined stages for propagule, pre-reproductive,
+reproductive, and post-reproductive.
 }
 \examples{
+## FIXME: the structure of this matrix is not appropriate for the vital rate
+extraction procedure below.
+
 matU <- matrix(c(0.2581, 0.1613, 0.1935, 0.2258, 0.1613, 0.0408, 0.2857,
                  0.4286, 0.102, 0.0816, 0.0385, 0.0385, 0.2692, 0.2308,
                  0.3462, 0, 0.0625, 0.125, 0.25, 0.5625, 0.1061, 0.1608,
@@ -30,4 +36,3 @@ collapse <- c("1-2", "3", "4", "5")
 xx <- collapseMatrix(matU, matF, collapse)
 extractVitalRates(xx$matU, xx$matF, collapse)
 }
-

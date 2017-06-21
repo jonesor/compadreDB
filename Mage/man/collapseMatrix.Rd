@@ -2,19 +2,27 @@
 % Please edit documentation in R/collapseMatrix.R
 \name{collapseMatrix}
 \alias{collapseMatrix}
-\title{Collapse matrices}
+\title{Collapse matrix model into propagule, pre-reproductive, reproductive and
+post-reproductive stages.}
 \usage{
 collapseMatrix(matU, matF, collapse)
 }
 \arguments{
-\item{matU}{a matrix without reproduction and clonality}
+\item{matU}{survival matrix}
 
-\item{matF}{a matrix, just reproduction}
+\item{matF}{fecundity matrix}
 
-\item{collapse}{(character) vector indicating which stages must be collapsed}
+\item{collapse}{(character) vector indicating which stages must be collapsed
+and retained to give matrix containing combined propagule, pre-reproductive,
+reproductive and post-reproductive stages.}
+}
+\value{
+(list) collapsed matrices \code{matA}, \code{matU}, \code{matF} and
+character vector \code{matrixStages} specifying which matrix stages are
+included in the collapse model.
 }
 \description{
-Collapse matrices
+Note: only valid for models without clonality.
 }
 \examples{
 matU <- matrix(c(0.2581, 0.1613, 0.1935, 0.2258, 0.1613, 0.0408, 0.2857,
@@ -26,7 +34,7 @@ matF <- matrix(c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                  0, 0, 0, 0, 2.75, 1.75, 0, 0),
                  nrow = 5, byrow = FALSE)
 collapse1 <- c("1-2","3-4","5")
-(out <- collapseMatrix(matU, matF, collapse2))
+(out <- collapseMatrix(matU, matF, collapse1))
 eigen(out$matA)
 eigen(out$matU)
 eigen(out$matF)
@@ -34,4 +42,3 @@ eigen(out$matF)
 #collapse2 <- c("1-2","3-4-5")
 #collapse3 <- c("1-2-3-4-5")
 }
-

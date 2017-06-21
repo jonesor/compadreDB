@@ -42,4 +42,3 @@ standardizedVitalRates(
  matrixStages = c("dorm", "active", "active", "active", "active")
 )
 }
-
