@@ -190,7 +190,7 @@ What data are still missing?
 * __O__ - Other priority information missing
 * __No__ - Everything is digitised
 
-If more than one piece of information is missing, these are separated with ";" (without white-space in between), e.g. "I;S;O".
+If more than one piece of information is missing, these are separated with ";" (without white-space in between), e.g. "I; S; O".
 
 ************************************************
 
@@ -378,7 +378,7 @@ For COMPADRinos to get an idea of what kingdom, class etc means:
 ## Authors
 
 Last name of all authors on the publication. Separate multiple names with "; ".
-Note that __all__ authors named in the publication should be recorded in the same order as in the publication. E.g. for the Compadre-paper: Salguero-Gómez; Jones; Archer; Buckley; Che-Castaldo; Caswell; Scheuerlein; Conde; Baudisch; Brinks; de Buhr; Farack; Gottschalk; Hartmann; Henning; Hoppe; Römer; Runge; Ruoff T; Wille J; Zeh; Vieregg; Altwegg; Colchero; Dong; Hodgson; de Kroon; Lebreton; Metcalf; Neel; Parker; Takada; Valverde; Vélez-Espino; Wardle; Franco; Vaupel.
+Note that __all__ authors named in the publication should be recorded in the same order as in the publication. E.g. for the Compadre-paper: Salguero-Gómez; Jones; Archer; Buckley; Che-Castaldo; Caswell; Scheuerlein; Conde; Baudisch; Brinks; de Buhr; Farack; Gottschalk; Hartmann; Henning; Hoppe; Römer; Runge; Zeh; Vieregg; Altwegg; Colchero; Dong; Hodgson; de Kroon; Lebreton; Metcalf; Neel; Parker; Takada; Valverde; Vélez-Espino; Wardle; Franco; Vaupel.
 
 ************************************************
 
@@ -423,7 +423,7 @@ e.g. jones@biology.sdu.dk (2015)
 
 ## Contacted 
 
-Record the date(s) when the publication author was contacted asking for information in US date format (mm/dd/yyyy). Authors should always be contacted from the compadre-contact@demogr.mpg.de email address rather than a personal email address.
+Record the date(s) when the publication author was contacted asking for information in US date format (mm/dd/yyyy). Authors should always be contacted from the compadrecontact@gmail.com email address rather than a personal email address.
 
 Procedure for lack of response depends on the YearPublication of the source:
 
@@ -805,7 +805,7 @@ Numeric indication of the first season of study. Season $s$ in periodic matrix p
 ************************************************
 ## MatrixStartMonth
 
-Numeric indication of the first month of study. Month $m$ in periodic matrix population model that describes population dynamics from month $m$ to $m+1$
+Numeric indication of the first month of study. Month $m$ in periodic matrix population model that describes population dynamics from month $m$ to $m+1$. If the demographic information was collected during a period of time, please state the period separated by a hyphen (e.g. "6-8" for June through August).
 
 1. January
 2. February
@@ -839,7 +839,7 @@ Numeric indication of the end season of the matrix.
 ************************************************
 ## MatrixEndMonth
 
-Numeric indication of the last month $m$ of study. Month $m+1$ in periodic matrix population model that describes population dynamics from month $m$ to $m+1$.
+Numeric indication of the last month $m$ of study. Month $m+1$ in periodic matrix population model that describes population dynamics from month $m$ to $m+1$. If the demographic information was collected during a period of time, please state the period separated by a hyphen (e.g. "6-8" for June through August).
 
 1. January
 2. February

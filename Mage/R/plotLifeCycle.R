@@ -1,4 +1,35 @@
-#' @export
+#' A function to plot the life cycle diagram based on the matrix model
+#' 
+#' This function plots the life cycle diagram illustrated by a matrix model. It
+#' processes the matrix model and passes the information to the graphViz
+#' functionality of DiagrammeR. See http://rich-iannone.github.io/DiagrammeR/.
+#' 
+#' %% ~~ If necessary, more details than the description above ~~
+#' 
+#' @param A The A matrix of a matrix population model
+#' @param title A title for the plot
+#' @param shape The shape to be used for the stages of the diagram. Any node
+#' shape accepted by graphViz is acceptable.
+#' @param fontsize Size of the font used in the diagram.
+#' @param nodefontsize Size of the font used in the node part of the diagram.
+#' @param edgecol Colour of the arrows in the diagram.
+#' @return Produces a plot consisting of a life cycle diagram, based on the A
+#' matrix.
+#' @note %% ~~further notes~~
+#' @author Owen R. Jones <jones@@biology.sdu.dk>
+#' @seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
+#' @references %% ~~references~~
+#' @keywords ~kwd1 ~kwd2
+#' @examples
+#' 
+#' \dontrun{
+#' M1 <- matrix(c(0.00, 0.69, 0.00, 0.10, 0.00, 0.88, 0.35, 0.00, 0.79),nrow=3)
+#' colnames(M1) <- 1:3
+#' plotLifeCycle(M1)
+#' } 
+#' 
+#' 
+#' @export plotLifeCycle
 #' @import DiagrammeR
 
 plotLifeCycle <- function(A,title="my life cycle",shape="egg",fontsize=10,nodefontsize=12,edgecol="grey"){

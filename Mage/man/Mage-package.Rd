@@ -13,7 +13,7 @@
 The DESCRIPTION file:
 \packageDESCRIPTION{Mage}
 \packageIndices{Mage}
-~~ An overview of how to use the package, including the most important functions ~~
+This package provides tools for interacting with the COMPADRE and COMADRE Matrix Databases.
 }
 
 \author{
