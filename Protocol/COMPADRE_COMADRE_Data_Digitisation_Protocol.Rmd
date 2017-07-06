@@ -388,7 +388,7 @@ Record the name of the journal from which data were sourced. If the data were so
 
 If no abbreviation is available in both of those list, take a look into the paper. Often there are abbreviations in the left corner of the paper or at the first page.
 
-* Journal Abbreviation (e.g. J. Ecol. for Journal of Ecology) - Where the data come from a scientific journal article, the abbreviated journal name is given. We use the standard abbreviation of the journal using the BIOSIS Format.
+* Journal Abbreviation (e.g. J Ecol for Journal of Ecology) - Where the data come from a scientific journal article, the abbreviated journal name is given. We use the standard abbreviation of the journal using the BIOSIS Format.
 * Book - Matrices are from a book, or book chapter. Note: If our source is a book name the author of the related chapter in Authors, not the author of the book.
 * PhD thesis	- Matrices are from a doctoral thesis.
 * MSc thesis	- Matrices are from a masters thesis.
@@ -908,7 +908,7 @@ The following link is useful for converting between different ways of presenting
 
 ### Altitude
 
-Altitude of studied population in m = Height above sea level of specific population in meters e.g. 208m.
+Altitude of studied population in m = Height above sea level of specific population in meters e.g. 208 (without "m").
 
 __Note:__ Height is either given in the paper, by author communication, or we look it up with Google Maps. If you enter the coordinates into Google Maps you’ll see the altitude at the bottom right corner of the window. If you scroll around in Google maps with your mouse the altitude will change, so pay attention that you read the altitude directly after entering the coordinates without scrolling around!
 
