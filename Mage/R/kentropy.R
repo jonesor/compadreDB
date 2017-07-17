@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-#' @export
-
-kentropy <- function(lx, trapeze = FALSE){
-=======
 #' Calculate Keyfitz' life table entropy
 #' 
 #' This function calculates Keyfitz' life table entropy from an lx
@@ -37,8 +32,7 @@ kentropy <- function(lx, trapeze = FALSE){
 #' 
 #' 
 #' @export kentropy
-kentropy <- function(lx, fx, cx = NULL){
->>>>>>> origin/master
+kentropy <- function(lx, trapeze = FALSE){
   
   if(max(lx) > 1) stop("`lx` should be bounded between 0 and 1")
   if(sum(is.na(lx))>1) stop("There are missing values in `lx`")
