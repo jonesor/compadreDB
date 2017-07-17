@@ -25,10 +25,19 @@ rearrangeMatrix <- function(matU, matF, matFmu) {
   if (!(identical(dim(matU), dim(matF)) && identical(dim(matF), dim(matFmu)))) {
     stop("Expecting matrices with equal dimensions", call. = FALSE)
   }
+  if (any(is.na(matFmu))) {
+    ## Assume that NAs correspond to unknown fecundities; replace with Inf so
+    ## that reproductive stages are correctly identified.
+    matFmu[which(is.na(matFmu))] <- Inf
+  }
   reArrange <- NULL
   matDim <- dim(matF)[1]
   Rep <- which(colSums(matFmu) > 0)
-  allRep <- Rep[1]:Rep[length(Rep)]
+  if (length(Rep) > 0) {
+    allRep <- Rep[1]:Rep[length(Rep)]
+  } else {
+    allRep <- integer(0)
+  }
   ## These are stages that are inter-reproductive but are truly non-reproductive:
   nonRepInterRep <- allRep[which(!allRep %in% Rep)]
   if (length(nonRepInterRep) > 0) {
@@ -46,7 +55,7 @@ rearrangeMatrix <- function(matU, matF, matFmu) {
   ## Stages that were moved to the end
   reArrange$nonRepInterRep <- nonRepInterRep
   ## Max reproductive stage after rearrangement
-  reArrange$maxRep <- max(which(colSums(reArrange$matFmu) > 0))
-
+  rearrRep <- which(colSums(reArrange$matFmu) > 0)
+  reArrange$maxRep <- ifelse(length(rearrRep) > 0, max(rearrRep), 0)
   return(reArrange)
 }
