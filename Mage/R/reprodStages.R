@@ -75,15 +75,25 @@ reprodStages <- function(matF, matFmu, post, maxRep, matrixStages,
     propStage <- NA
   }
 
+  if (any(is.na(matFmu))) {
+    ## Assume that NAs correspond to unknown fecundities; replace with Inf so
+    ## that reproductive stages are correctly identified.
+    matFmu[which(is.na(matFmu))] <- Inf
+  }
+
   # prerep
   matDim <- dim(matF)[1]
   Rep <- which(colSums(matFmu) > 0)
-  if (min(Rep) == 1) {
-    preRep <- NA
-  } else if (!is.na(propStage[1]) && (min(Rep) - max(propStage) == 1)) {
-    preRep <- NA
+  if (length(Rep) > 0) {
+    if (min(Rep) == 1) {
+      preRep <- NA
+    } else if (!is.na(propStage[1]) && (min(Rep) - max(propStage) == 1)) {
+      preRep <- NA
+    } else {
+      preRep <- min(which(matrixStages == "active")):(min(Rep) - 1)
+    }
   } else {
-    preRep <- min(which(matrixStages == "active")):(min(Rep) - 1)
+    preRep <- NA
   }
 
   # postrep
