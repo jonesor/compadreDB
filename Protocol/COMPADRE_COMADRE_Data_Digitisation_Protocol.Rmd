@@ -87,6 +87,10 @@ The following is a list of variables that the COMPADRino team digitises to the b
 * Purposes
 * StudyDuration
 * AnnualPeriodicity
+* MatrixStartYear
+* MatrixEndYear
+* MatrixStartMonth
+* MatrixEndMonth
 * NumberPopulations
 * StudiedSex
 * Geolocation and Altitude
