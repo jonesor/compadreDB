@@ -1,11 +1,11 @@
 ---
 title: "COMPADRE/COMADRE Data Digitization Protocol"
 output:
-  word_document: default
   pdf_document:
     toc: yes
   html_document:
     toc: yes
+  word_document: default
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
 
@@ -99,7 +99,7 @@ The following is a list of variables that the COMPADRino team digitises to the b
 * The full taxonomy (Kingdom, Phylum, etc.)
 
 
-## References
+# References
 
 * Caswell, H. (2001) Matrix population models. Second Edition. Sunderland, MA: Sinauer Associates.
 
