@@ -643,14 +643,15 @@ This is calculated as: “StudyEnd” year - “StudyStart” year + 1. The calc
 ************************************************
 ## AnnualPeriodicity
 
-Frequency with which seasonal or annual the matrix population model was constructed. For example:
+The periodicity of the transition matrix presented in the paper.
+For example:
 
-* 1	- Once a year
-* 2	- Twice per year (e.g. in January and in June)
-* 0.2	- Once every five years
+* 1	- A yearly time-step
+* 2	- A 6-month time step where the model increments twice per year (e.g. in January and in June)
+* 0.2	- A 5 year time step where the model increments once every 5 years (often seen in models for trees).
 * ? - Other annual periodicities
 
-Annual periodicities can be calculated as follows: If the study site has been visited more than once a year calculate $1 * N$, where N is the number of visits to the site per year, e.g. $1 * 2 = 2$. If the study site has been revisited less than once per year calculate $1 / Y$, where Y is the number of years, e.g. $1/5 = 0.2$.
+Annual periodicities often, *but not always*, correspond to the frequency of fieldwork visits. If that is the case, the `AnnualPeriodicicy` can be calculated as follows: If the study site has been visited more than once a year calculate $1 * N$, where N is the number of visits to the site per year, e.g. $1 * 2 = 2$. If the study site has been revisited less than once per year calculate $1 / Y$, where Y is the number of years, e.g. $1/5 = 0.2$.
 
 ************************************************
 ## NumberPopulations
