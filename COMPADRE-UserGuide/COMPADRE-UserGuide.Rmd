@@ -549,7 +549,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 * `TEU` - Marine - temperate upwellings
 
-* `TRU` - Marine -tropical upwellings
+* `TRU` - Marine - tropical upwellings
 
 * `TRC` - Marine - tropical coral
 

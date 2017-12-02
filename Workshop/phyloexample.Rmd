@@ -1,0 +1,125 @@
+---
+title: "phyloExample"
+date: '`r Sys.Date()`'
+output:
+  html_document: default
+  pdf_document: default
+classoption: a4paper
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load the data
+
+```{r echo=FALSE}
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
+library(Mage)
+library(ape)
+library(caper)
+library(popbio)
+```
+
+We will make use of the mammalian supertree.
+
+```{r, comment=">"}
+mamtree <- read.nexus("/Users/jones/Dropbox/ESA\ 2017\ Portland\ Workshop/data/mammaltree.nex")
+summary(mamtree)
+```
+
+
+## Subsetting the data
+
+Firstly, subset to mean matrices, for mammals, that have a duration of 3+ and dimension of >3.
+
+```{r, comment=">"}
+x<-subsetDB(comadre, MatrixComposite == "Mean" &
+                         Class == "Mammalia" &
+                         StudyDuration >= 3 &
+                         MatrixDimension > 3)
+```
+
+The straightforward phylogenetic regression models require one measure per species.
+So I will take only the first entry for each species if there are duplicates.
+In addition, I want to subset to only those species that are actually in our phylogenetic tree.
+
+```{r, comment=">"}
+temp <- which(!duplicated(x$metadata$SpeciesAccepted))
+rownames(x$metadata)<-NULL
+y<-subsetDB(db=x,sub = rownames(x$metadata) %in% temp & 
+              SpeciesAccepted %in% mamtree$tip.label)
+```
+So now we have a version of COMADRE called `y` that contains only the species of interest.
+
+Now we can loop through those species and make some calculations.
+Here I am calculating life expectancy from the start of the first stage, which is the sum of the first column of the fundamental matrix.
+
+This code looks a little complicated because it is not possible to calculate the fundamental matrix for some matrices. Therefore I have to add an `if` statement to cope with those problems.
+
+```{r, comment=">"}
+demog <- data.frame(species = y$metadata$SpeciesAccepted)
+demog$lexp <- NULL
+for(i in 1:nrow(y$metadata)){
+  A <- y$mat[[i]]$matA
+  fm <- fundamental.matrix(A)
+  if(class(fm) == "list"){
+  demog$lexp[i]<-sum(fm$N[,1])}else{demog$lexp[i] <- NA}
+}
+```
+
+Now I have a data frame called `demog` that includes the species name and life expectancy.
+
+Now I can import weight data for these species.
+
+```{r, comment=">"}
+mammweight<-read.csv("/Users/jones/Dropbox/ESA\ 2017\ Portland\ Workshop/data/mammalweight.csv")
+```
+
+And merge it with the existing data.
+
+```{r, comment=">"}
+demog2 <- merge(demog,mammweight,by="species")
+demog2$logmass <- log(demog2$weight)
+demog2$loglexp <- log(demog2$lexp)
+```
+
+I can now plot the relationship between log mass and log life expectancy.
+
+```{r, comment=">"}
+plot(demog2$logmass,demog2$loglexp)
+```
+
+For the next bit we will use functions from `caper`.
+
+```{r, comment=">"}
+library(caper)
+```
+
+We make a "comparative data object"
+
+```{r, comment=">"}
+mamdat <- comparative.data(data = demog2, phy = mamtree, names.col = "species",na.omit=FALSE)
+```
+
+Fit a PGLS model of the relationship between longevity and weight.
+
+```{r, comment=">"}
+mod1<-pgls(loglexp~logmass,mamdat,lambda="ML")
+summary(mod1)
+pgls.profile(mod1)
+plot(pgls.profile(mod1))
+```
+
+Let's plot this regression, and compare it to an ordinary least squares regression.
+
+```{r, comment=">"}
+plot(demog2$logmass,demog2$loglexp)
+abline(mod1)
+
+
+modols<-lm(loglexp~logmass,mamdat$data)
+abline(modols,col="red")
+```
+
+

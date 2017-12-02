@@ -1,7 +1,9 @@
 ---
-title: 'Simple outputs from many matrices'
-date: "`r Sys.Date()`"
-output: pdf_document
+title: "Simple outputs from many matrices"
+date: '`r Sys.Date()`'
+output:
+  pdf_document: default
+  html_document: default
 classoption: a4paper
 ---
 

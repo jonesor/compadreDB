@@ -1,8 +1,10 @@
 ---
 title: "Getting matrices out of COM(P)ADRE"
 author: "Owen Jones"
-date: "`r Sys.Date()`"
-output: pdf_document
+date: '`r Sys.Date()`'
+output:
+  pdf_document: default
+  html_document: default
 classoption: a4paper
 ---
 
@@ -83,4 +85,4 @@ But what are the stages in the matrix? That's easy - to obtain the stage informa
 comadre$matrixClass[[1653]]
 ```
 
-### Since it's Christmas soon, why not have a look for reindeer (*Rangifer*) in the database?
+### Try finding other species in the database.

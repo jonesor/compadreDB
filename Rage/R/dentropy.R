@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+#' @export
+
+dentropy <- function(matA, lx, mx, cx=F){
+=======
 #' Calculate Demetrius' life table entropy
 #' 
 #' This function calculates Demetrius' life table entropy from an lx
@@ -8,11 +13,11 @@
 #' 
 #' @param lx A numerical vector of lx (survivorship). This is assumed to be
 #' with a constant interval (e.g. 1yr).
-#' @param mx A numerical vector of mx (age-specific sexual reproduction). This
+#' @param fx A numerical vector of fx (age-specific sexual reproduction). This
 #' is assumed to be with a constant interval (e.g. 1yr).
 #' @param cx A numerical vector of cx (age-specific clonal reproduction). This
 #' is assumed to be with a constant interval (e.g. 1yr).
-#' @return Returns an estimate of Demetrius' life table entropy. When both 'mx'
+#' @return Returns an estimate of Demetrius' life table entropy. When both 'fx'
 #' and 'cx' are provided, it outputs Demetrius' entropy for sexual reproduction
 #' only, for clonal reproduction only, and for both types of reproduction
 #' together.
@@ -33,7 +38,8 @@
 #' dentropy(matA, lx, mx, cx)
 #' 
 #' @export dentropy
-dentropy <- function(matA, lx, mx, cx=F){
+dentropy <- function(matA, lx, fx, cx=F){
+>>>>>>> origin/master
   
   #Demetrius entropy (S):
   if(max(lx) > 1) stop("`lx` should be bounded between 0 and 1")
