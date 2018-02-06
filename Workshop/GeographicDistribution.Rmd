@@ -1,7 +1,9 @@
 ---
 title: "Geographic distribution"
 date: "`r Sys.Date()`"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 classoption: a4paper
 ---
 
@@ -11,17 +13,18 @@ First, subset mean matrices for all Carnivora in the wild in the northern hemisp
 
 
 ```{r echo=FALSE}
-load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
-library(Mage)
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.1/COMADRE_v.2.0.1.RData")
+library(Rcompadre)
+library(maps)
 ```
 
 Load the data:
 ```{r eval=FALSE}
-load("COMADRE_v.2.0.0.RData")
+load("COMADRE_v.2.0.1.RData")
 ```
 
 ```{r, comment=">"}
-x<-subsetDB(comadre, MatrixComposite == "Mean" &
+x<-Rcompadre::subsetDB(comadre, MatrixComposite == "Mean" &
                          Order == "Carnivora" &
                          MatrixCaptivity == "W" &
                          Lat > 0 &
