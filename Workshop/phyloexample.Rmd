@@ -11,11 +11,14 @@ classoption: a4paper
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Load the data
+## Load the packages
 
 ```{r echo=FALSE}
-load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
-library(Mage)
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.1/COMADRE_v.2.0.1.RData")
+```
+
+```{r echo=TRUE,comment=">",warning=FALSE,message=FALSE}
+library(Rcompadre)
 library(ape)
 library(caper)
 library(popbio)
@@ -34,7 +37,7 @@ summary(mamtree)
 Firstly, subset to mean matrices, for mammals, that have a duration of 3+ and dimension of >3.
 
 ```{r, comment=">"}
-x<-subsetDB(comadre, MatrixComposite == "Mean" &
+x<-Rcompadre::subsetDB(comadre, MatrixComposite == "Mean" &
                          Class == "Mammalia" &
                          StudyDuration >= 3 &
                          MatrixDimension > 3)
@@ -47,7 +50,7 @@ In addition, I want to subset to only those species that are actually in our phy
 ```{r, comment=">"}
 temp <- which(!duplicated(x$metadata$SpeciesAccepted))
 rownames(x$metadata)<-NULL
-y<-subsetDB(db=x,sub = rownames(x$metadata) %in% temp & 
+y<-Rcompadre::subsetDB(db=x,sub = rownames(x$metadata) %in% temp & 
               SpeciesAccepted %in% mamtree$tip.label)
 ```
 So now we have a version of COMADRE called `y` that contains only the species of interest.
@@ -91,24 +94,23 @@ plot(demog2$logmass,demog2$loglexp)
 ```
 
 For the next bit we will use functions from `caper`.
-
-```{r, comment=">"}
-library(caper)
-```
-
 We make a "comparative data object"
 
 ```{r, comment=">"}
-mamdat <- comparative.data(data = demog2, phy = mamtree, names.col = "species",na.omit=FALSE)
+mamdat <- caper::comparative.data(data = demog2, phy = mamtree, names.col = "species",na.omit=FALSE)
 ```
 
 Fit a PGLS model of the relationship between longevity and weight.
 
 ```{r, comment=">"}
-mod1<-pgls(loglexp~logmass,mamdat,lambda="ML")
+mod1<-caper::pgls(loglexp~logmass,mamdat,lambda="ML")
 summary(mod1)
-pgls.profile(mod1)
-plot(pgls.profile(mod1))
+```
+
+Let's have a look at the likelihood profile.
+
+```{r, comment=">"}
+plot(caper::pgls.profile(mod1))
 ```
 
 Let's plot this regression, and compare it to an ordinary least squares regression.
