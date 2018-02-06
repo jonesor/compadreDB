@@ -9,7 +9,7 @@ classoption: a4paper
 ---
 
 ```{r echo=FALSE}
-load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.1/COMADRE_v.2.0.1.RData")
 ```
 
 This document explains how to get matrices out of the COMADRE and COMPADRE databases.
@@ -23,7 +23,7 @@ Let's imagine you want to get matrices for all *Ursus maritimus* (polar bear) sp
 Firstly you will need to load the data file (called `COMADRE_v.x.x.x.RData`) into RStudio. You can do from within RStudio by clicking *File*, *Open file...*, then navigating to find the file, selecting it and clicking *Open*. Alternatively you can use the `load` function:
 
 ```{r echo = TRUE, eval = FALSE, comment=">"}
-load("~/Downloads/COMADRE_v.2.0.0.RData")
+load("~/Downloads/COMADRE_v.2.0.1.RData")
 ```
 
 Once you have loaded the file, you should see it in your `Environment`. It will be called `comadre`.
