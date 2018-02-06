@@ -230,8 +230,19 @@ x</code></pre>
 &gt; 14463               active      5 + years adult                 4
 &gt; 14464               active       Adult with cub                 5
 &gt; 14465               active Adult with yearsling                 6</code></pre>
-<div id="try-finding-other-species-in-the-database." class="section level3">
-<h3>Try finding other species in the database.</h3>
+<p>There is also a helpful function, <code>checkSpecies</code>, which will allow you to check for species, or lists of species. Like this:</p>
+<pre class="r"><code>Rcompadre::checkSpecies(&quot;Ovis aries&quot;, comadre)</code></pre>
+<pre><code>&gt;      species inDatabase
+&gt; 1 Ovis aries       TRUE</code></pre>
+<p>or:</p>
+<pre class="r"><code>sp &lt;- c(&quot;Ovis aries&quot;,&quot;Homo sapiens&quot;,&quot;Puma concolor&quot;)
+Rcompadre::checkSpecies(sp, comadre)</code></pre>
+<pre><code>&gt;         species inDatabase
+&gt; 1    Ovis aries       TRUE
+&gt; 2  Homo sapiens      FALSE
+&gt; 3 Puma concolor       TRUE</code></pre>
+<div id="try-finding-other-species-in-the-database-and-taking-a-look-at-their-matrices." class="section level3">
+<h3>Try finding other species in the database, and taking a look at their matrices.</h3>
 </div>
 
 

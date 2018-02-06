@@ -3,8 +3,8 @@ title: "Getting matrices out of COM(P)ADRE"
 author: "Owen Jones"
 date: '`r Sys.Date()`'
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 classoption: a4paper
 ---
 
@@ -85,4 +85,18 @@ But what are the stages in the matrix? That's easy - to obtain the stage informa
 comadre$matrixClass[[1653]]
 ```
 
-### Try finding other species in the database.
+There is also a helpful function, `checkSpecies`, which will allow you to check for species, or lists of species. Like this:
+
+```{r comment=">"}
+Rcompadre::checkSpecies("Ovis aries", comadre)
+```
+
+or:
+
+```{r comment=">"}
+sp <- c("Ovis aries","Homo sapiens","Puma concolor")
+Rcompadre::checkSpecies(sp, comadre)
+```
+
+
+### Try finding other species in the database, and taking a look at their matrices.
