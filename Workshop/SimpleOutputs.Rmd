@@ -2,8 +2,8 @@
 title: "Simple outputs from many matrices"
 date: '`r Sys.Date()`'
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 classoption: a4paper
 ---
 
@@ -11,14 +11,14 @@ classoption: a4paper
 This example produces some basic output such as the population growth rate ($\lambda$) and damping ratio (Caswell 2001) for a subset of species and populations given some selection criteria.
 
 ```{r echo=FALSE}
-load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
-library(Mage)
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.1/COMADRE_v.2.0.1.RData")
+library(Rcompadre)
 ```
 
-First, use `subsetDB` (from the `Mage` package) to subset the database to the data of interest: only mean matrices for bony fish from studies of 3 years duration or longer, and with a  matrix dimension of 3 or greater.
+First, use `subsetDB` (from the `Rcompadre` package) to subset the database to the data of interest: only mean matrices for bony fish from studies of 3 years duration or longer, and with a  matrix dimension of 3 or greater.
 
 ```{r, comment=">"}
-x<-subsetDB(comadre, MatrixComposite == "Mean" &
+x<-Rcompadre::subsetDB(comadre, MatrixComposite == "Mean" &
                          Class == "Actinopterygii" &
                          StudyDuration >= 3 &
                          MatrixDimension > 3)
