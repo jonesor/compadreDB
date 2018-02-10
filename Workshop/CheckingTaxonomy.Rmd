@@ -1,7 +1,9 @@
 ---
-title: 'Updating and checking the taxonomy'
+title: "Updating and checking the taxonomy"
 date: "`r Sys.Date()`"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 classoption: a4paper
 ---
 
@@ -14,8 +16,7 @@ library(taxize)
 ```
 
 ```{r, eval = TRUE, echo = FALSE}
-setwd("~/Dropbox/MatrixDatabases/COMADRE/v.1.0.0/")
-load("COMADRE_v.1.0.0.RData")
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.1/COMADRE_v.2.0.1.RData")
 ```
 
 

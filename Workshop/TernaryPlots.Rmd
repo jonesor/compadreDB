@@ -6,7 +6,7 @@ classoption: a4paper
 ---
 
 ```{r echo=FALSE}
-load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
+load("~/Dropbox/MatrixDatabases/COMADRE/v.2.0.1/COMADRE_v.2.0.1.RData")
 ```
 
 Here we produce a ternary plot *a la* Silvertown & Franco (1993) with various life history traits such as mean life expectancy, population growth rate or reactivity as the "fourth" dimension. We will use Caswell (2001) formulation of mean life expectancy from the fundamental matrix (`N`), and the package `popdemo` for the reactivity. Other packages we need include `Mage`, `fields`, `vcd` and `scales`:
@@ -14,9 +14,10 @@ Here we produce a ternary plot *a la* Silvertown & Franco (1993) with various li
 ```{r, comment=">", message=FALSE}
 library(popdemo)
 library(fields)
-library(Mage)
+library(Rcompadre)
 library(vcd)
 library(scales)
+library(Rage)
 ```
 
 This is the function to calculate mean life expectancy from Caswell (2001):
@@ -33,7 +34,7 @@ meanLifeExpectancy <- function(matU = matU, startLife = 1){
 As an example for the chosen data, subset COMADRE to studies with a matrix dimension >= 3, that represent mean, unmanipulated conditions duration > 3 years, where sexual reproduction has been modeled explicitly, the matrices are split into U, F and C, and there are no issues with stage-specific survival >1.
 
 ```{r, comment=">"}
-x <- subsetDB(comadre, MatrixDimension >= 3 
+x <- Rcompadre::subsetDB(comadre, MatrixDimension >= 3 
                        & MatrixComposite == "Mean" & MatrixTreatment == "Unmanipulated" 
                        & StudyDuration > 3 & MatrixFec == "Yes" 
                        & MatrixSplit == "Divided" & SurvivalIssue < 1)
@@ -63,7 +64,7 @@ output <- data.frame(species= rep(NA, nrow(x$metadata)),
                       EClonality = rep(NA, nrow(x$metadata)))
 ```
 
-We will use the `Mage` function `matrixElementPerturbation` to calculate element-level perturbations for each matrix in a `for` loop:
+We will use the `Rage` function `matrixElementPerturbation` to calculate element-level perturbations for each matrix in a `for` loop:
 
 ```{r, comment=">", warning = FALSE}
 for (i in 1:nrow(x$metadata)){
@@ -189,7 +190,7 @@ One could add the color scale legend using the following code to add to the same
 
 ```{r, eval = FALSE, warning=FALSE}
 colCode <- colorRampPalette(c("white", "yellow", "orange", "red", "dark red"))(n = 999)
-image.plot(legend.only = TRUE, zlim = range(zNorm), col = colCode, 
+fields::image.plot(legend.only = TRUE, zlim = range(zNorm), col = colCode, 
            smallplot = c(.75, .8, .5, .75), cex.axis=0.2) 
 ```
 

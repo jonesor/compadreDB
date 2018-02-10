@@ -13,8 +13,8 @@ Here is an example.
 
 
 ```{r echo=FALSE}
-load("~//Dropbox/MatrixDatabases/COMADRE/v.2.0.0/COMADRE_v.2.0.0.RData")
-library(Mage)
+load("~//Dropbox/MatrixDatabases/COMADRE/v.2.0.1/COMADRE_v.2.0.1.RData")
+library(Rage)
 library(MASS)
 ```
 
@@ -34,10 +34,10 @@ id
 Let's pick the first matrix of the list obtained above:
 
 ```{r comment = ">"}
-lt1 <- makeLifeTable(matU = comadre$mat[[id[1]]]$matU, matF = comadre$mat[[id[1]]]$matF,
+lt1 <- Rage::makeLifeTable(matU = comadre$mat[[id[1]]]$matU, matF = comadre$mat[[id[1]]]$matF,
                      startLife = 1, nSteps=10)
-lt1
 ```
+
 
 
   
