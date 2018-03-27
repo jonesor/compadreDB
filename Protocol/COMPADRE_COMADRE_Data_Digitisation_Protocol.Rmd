@@ -1,10 +1,10 @@
 ---
 title: "COMPADRE/COMADRE Data Digitization Protocol"
 output:
-  pdf_document:
+  html_document:
     toc: yes
   word_document: default
-  html_document:
+  pdf_document:
     toc: yes
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
@@ -36,7 +36,7 @@ All pieces of information extracted from PDFs must be highlighted directly on th
 
 * Authors must only be contacted from the official email: compadrecontact@gmail.com.
 
-* Latin names of species for variable "SpeciesAccepted" must be checked using reliable sources (e.g. Catalogue of Life [http://www.catalogueoflife.org/], iPlant Collaborative [http://www.iplantcollaborative.org/], Wikipedia [https://en.wikipedia.org/]) for spelling mistakes. If an author uses a Latin name with a typo, please leave it as is, as the variable "SpeciesAuthor" (below) represents the name as used by the authors.
+* Latin names of species for variable "SpeciesAccepted" must be checked using reliable sources (e.g. Catalogue of Life http://www.catalogueoflife.org/, Wikipedia  https://en.wikipedia.org/) for spelling mistakes. If an author uses a Latin name with a typo, please leave it as is, as the variable "SpeciesAuthor" (below) represents the name as used by the authors.
 
 * The element-by-element mean values of unmanipulated (control) and treatment matrix population models are to be kept separate (i.e. never calculate mean matrices from a mixture of unmanipulated and treated matrices). Furthermore, mean matrices should never mix different treatments (e.g. do not calculate mean matrices for matrices with different grazing regimes). However, mean matrices _should_ be calculated for unmanipulated  matrices, and for matrices that have received the same treatments..
 
@@ -83,7 +83,7 @@ The following is a list of variables that the COMPADRino team digitises to the b
 * YearPublication
 * DOI.ISBN
 * Ecoregion
-* GrowthFormRaunkiaer (only for COMPADRE)
+* GrowthFormRaunkiaer (only relevant for COMPADRE)
 * Purposes
 * StudyDuration
 * AnnualPeriodicity
@@ -388,7 +388,7 @@ Note that __all__ authors named in the publication should be recorded in the sam
 
 ## Journal
 
-Record the name of the journal from which data were sourced. If the data were sourced from a book, thesis, report, or conference talk/poster, record that as appropriate. For journal abbreviations see list here: http://images.webofknowledge.com/WOK46/help/WOS/A_abrvjt.html.
+Record the name of the journal from which data were sourced. If the data were sourced from a book, thesis, report, or conference talk/poster, record that as appropriate. For journal abbreviations see list here: https://images.webofknowledge.com/images/help/WOS/A_abrvjt.html.
 
 If no abbreviation is available in both of those list, take a look into the paper. Often there are abbreviations in the left corner of the paper or at the first page.
 
@@ -562,7 +562,7 @@ Possible values
 * Therophyte	Mostly annual and biennial plants
 * Epiphyte	Plants living on to of other plants
 
-For further information see www.en.wikipedia.org/wiki/Raunkiaer_plant_life-form.
+For further information see https://en.wikipedia.org/wiki/Raunkiær_plant_life-form.
 
 ![Raunkiaer](images/Raunkiaer.png)
 
@@ -770,11 +770,13 @@ B. For seasonal or periodic population matrix models (e.g. for annual species), 
 ************************************************
 ## MatrixTreatment
 
-Describes if a treatment was applied or not, and the nature of the treatment.
+Describes if a treatment was applied by researchers or not, and the nature of the treatment.
 
 * _treatment_ - Provides a brief description of the treatment applied to the population described by the matrix population model. We define treatment as an action intentionally imposed by humans. If more than one applies to a matrix, multiple treatments are separated with a “; ”.
 
 * Unmanipulated	- No experimental, human-imposed treatment was applied. Natural events of non-intentional occurrence (e.g. fire, hurricanes) are recorded as “Unmanipulated”, but these incidences are described in the __Observations__ variable.
+
+Note: Sometimes a treatment is not *applied* by researchers but is still used as an explanatory factor in the study. For example, population dynamics could be compared in disturbed vs. undisturbed areas. In these cases `MatrixTreatment` should be recorded as "Unmanipulated", a note should be added in `Observation` and the name of the population should include a clear indication of the conditions. e.g. "Population 1 - disturbed", "Population 2 - undisturbed".
 
 ************************************************
 ## MatrixCaptivity
@@ -951,29 +953,29 @@ This is how it possibly looks like (this is a 6x6 mean (the upper one) and indiv
 ************************************************
 ## MatrixSplit
 
-Indicates the type of matrix population model, i.e. can A it be divided into U, F and C sub-matrices? If a matrix is divisible, we divide it! Then always insert all sub-matrices – even if e.g. C only has zeros!
-
+Indicates the type of matrix population model, i.e. can A it be divided into U, F and C sub-matrices? If a matrix is divisible, we divide it! Then always insert all sub-matrices – even if e.g. C only has zeros! An A matrix should ALWAYS be recorded, even if no reproduction data was available.
 
 * Divided - The matrix population model A has successfully been divided into the process-based sub matrices U, F and C.
 * Indivisible - The matrix population model A has not been divided into the process-based sub-matrices U, F and C (see Figure below for further details) because insufficient information is available to classify the various demographic processes for each sub-matrix. In indivisible matrices, only A (see below) is presented.
 
-This is how it possibly looks like (these are two divisible 4x4 matrices for the herb _Dactylorhiza lapponica_):
+This is how it could look (these are two divisible 4x4 matrices for the herb _Dactylorhiza lapponica_):
 
 ![Splitting](images/Alaria-a_AUFC.png)
 
-This is how it possibly looks like (this is a indivisible 5x5 matrices for the herb _Syngonanthus nitens_):
+This is could look (this is a indivisible 5x5 matrices for the herb _Syngonanthus nitens_):
 
 ![Splitting](images/Syngonanthus_AUFC.png)
 
 
-The diagram below shows the life cycle of two hypothetical plant populations based on age (A) and size (B), with their corresponding matrix population models. A, and underlying basic demographic processes of survival (U sub-matrix; solid arrows), sexual reproduction (F sub-matrix; dashed arrows) and clonal reproduction (C sub-matrix; dotted arrows). In the Leslie matrix model example (A), the division of sub-matrices is more straightforward than in the Lefkovitch matrix model example (B). In the latter imaginary example, individuals can transition into the same stage as they can contribute with sexual and/or clonal offspring (e.g. small stage). In these cases, splitting A into sub-matrices U, F and C is only feasible when sufficient information is provided by the authors (see variable MatrixSplit in above).
+The diagram below shows the life cycle of two hypothetical plant populations based on age (A) and size (B), with their corresponding matrix population models. A, and underlying basic demographic processes of survival (U sub-matrix; solid arrows), sexual reproduction (F sub-matrix; dashed arrows) and clonal reproduction (C sub-matrix; dotted arrows). This model includes "retrogression" or shrinkage in addition to "progression" or growth. In the Leslie matrix model example (A), the division of sub-matrices is more straightforward than in the Lefkovitch matrix model example (B). In the latter imaginary example, individuals can transition into the same stage as they can contribute with sexual and/or clonal offspring (e.g. small stage). In these cases, splitting A into sub-matrices U, F and C is only feasible when sufficient information is provided by the authors (see variable MatrixSplit in above).
 
 ![Life cycle](images/Lifecycle_AUFC.png)
 ************************************************
 
 ## MatrixFec
 
-This records whether fecundity was measured at all for this matrix model. The rationale for this is that a fecundity (in the F matrix) may be recorded as 0 either because it was not measured, or because reproduction was estimated to be zero. As a general rule, if any values for fecundity (e.g. in the F matrix) are non-zero, then MatrixFec should be recorded as 'Yes'. If all values are zero, then you should check the paper carefully to check whther this is because no fecundity was detected, or whether no attempt was made to measure fecundity.
+This records whether fecundity was measured at all for this matrix model. The rationale for this is that a fecundity (in the F matrix) may be recorded as 0 either because it was not measured, or because reproduction was estimated to be zero. As a general rule, if any values for fecundity (e.g. in the F matrix) are non-zero, then MatrixFec should be recorded as 'Yes'. If all values are zero, then you should check the paper carefully to check whther this is because no fecundity was detected, or whether no attempt was made to measure fecundity. 
+There are some technical differences between fecundity, sexual reproduction, and recruitment. For the purposes of the `MatrixFec` these differences do not matter - if estimates fecundity, recuitment or sexual reproduction are collected, MatrixFec = "Yes".
 
 * Yes - fecundity was measured for the matrix
 * No - fecundity was not measured for the matrix
@@ -1035,15 +1037,17 @@ A numerical representation of classes in the population matrix model. Numbers st
 ************************************************
 ## matU/matF/matC/
 
-The population matrix models. Including the overall matrix (A) and, where possible, the sub-matrices U (survival), F (fecundity), C (clonality). A range of numeric values is possible in each element of the matrix.
+The population matrix models. Including the overall matrix (A) and, where possible, the sub-matrices U (survival), F (fecundity), C (clonality). A range of numeric values is possible in each element of the matrix. 
+Sometimes only a U matrix is available because data on reproduction were not collected. In these cases the U matrix should be used as the A matrix, and a note taken in `Observations` (see the rest of this section for more details). i.e. an A matrix.
 
-* The A matrix -  Transition probabilities are constrained between 0 and 1. Reproductive values are always positive but have no upper bound.
+* The A matrix - The overall matrix including all processes. The A matrix can usually be "split" into consituent processes represented by the U, F and C sub-matrices such that A = U + F + C. Transition probabilities are constrained between 0 and 1. Reproductive values are always positive but have no upper bound. 
 
-* The U matrix - The population sub-matrix model U (a sub-matrix of A), describes the survival-dependent dynamics of a population under the conditions described above. A range of numeric values possible, but are constrained to be between 0 and 1. These include only survival-dependent vital rates (no sexual or clonal reproduction).
+* The U matrix - The population sub-matrix model U (a sub-matrix of A), describes the survival-dependent dynamics of a population under the conditions described above. Values are constrained to be between 0 and 1. These include only survival-dependent vital rates (no sexual or clonal reproduction). If only the U matrix is available, it should also be used as the A matrix (see "The F matrix" below).
 
-* The F matrix - The population sub-matrix model F (a sub-matrix of A), which describes the sexual-reproduction dynamics of a population under the conditions described above. A range of numeric values possible, but are constrained to be positive. These include only estimates of sexual reproduction (no clonal reproduction).
+* The F matrix - The population sub-matrix model F (a sub-matrix of A), which describes the sexual-reproduction dynamics of a population under the conditions described above. A range of numeric values possible, but are constrained to be positive. These include only estimates of sexual reproduction (no clonal reproduction). Sometimes sexual reproduction is not recorded (e.g. because it was not the focus of the study). This should be noted in observations and recorded using `MatrixFec` (see elsewhere in this guide). Where possible, the "known unknowns" should be recorded as `NA`. For example, if you know that the "adult class" reproduces sexually, but simply was not estimated you should record `NA` for that element's fecundity, and "No" for `MatrixFec`.
 
-* The C matrix - The population sub-matrix model C (a sub-matrix of A), which describes the clonal-reproduction dynamics of a population under the conditions described above. A range of numeric values are possible, but these are constrained to be positive. These include only estimates of clonal reproduction.
+* The C matrix - The population sub-matrix model C (a sub-matrix of A), which describes the clonal-reproduction dynamics of a population under the conditions described above. A range of numeric values are possible, but these are constrained to be positive. These include only estimates of clonal reproduction. Where there is no clonality, this matrix should be included, but will be all 0 values.
+
 
 The values for the U, F and C matrices are only digitised for “Divided” matrices (indicated by variable __MatrixSplit__)
 
