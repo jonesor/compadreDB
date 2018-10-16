@@ -14,20 +14,20 @@ date: '`r format(Sys.time(), "%B %d %Y")`'
 
 The COMPADRE Plant Matrix Database (COMPADRE hereafter) and the COMADRE Animal Matrix Database (COMADRE hereafter) are compiled from (mostly) published literature. The majority of this literature was published as peer-reviewed articles in academic journals, with a smaller number of data obtained from books, conference presentations, etc. 
 
-The data digitisation team (The COMPADRinos) carefully examine the literature and extract information in order to reconstruct the matrix population models analysed by the original researchers. The extracted data are entered into Excel spreadsheets in a structured way. Wherever there are doubts about aspects of the data source, the team attempts to contact the researchers to resolve them. There are two types of Excel file in COMPADRE/COMADRE: (1) The DESCRIPTOR FILE(s) which contain metadata allowing the interpretation of the matrix data, and it pertains to information at the species/study level; and (2) the STACKED MATRIX FILE(s) which contain the matrix population models themselves, as well as information that is matrix-specific.
+The data digitisation team (The COMPADRinos) carefully examine the literature and extract information in order to reconstruct the matrix population models analysed by the original researchers. The extracted data are entered into Excel spreadsheets in a structured way. Wherever there are doubts about aspects of the data source, the team attempts to contact the researchers to resolve them.There are two types of sheets within an Excel file in COMPADRE/COMADRE: (1) The DESCRIPTOR SHEET which contains metadata allowing the interpretation of the matrix data, and it pertains to information at the species/study level; and (2) the MATRIX STACKED SHEET which contain the matrix population models themselves, as well as information that is matrix-specific.
 
 These data are compiled using a set of R scripts and released to the public as open access data via the website: www.compadre-db.org. 
 
-This document outlines the way that the digitisation team enters data into the Excel sheets. It is primarily intended for internal use and, as such, it includes information on some variables which are not released into the public domain. Nevertheless, following our philosophy on open access, replicability and transparency, we provide open access to the document here. Users external to our team with questions can direct them at compadre-contact@demogr.mpg.de. Specific questions can also be directed to Rob Salguero-Gómez (salguero@demogr.mpg.de) or Owen Jones (jones@biology.sdu.dk).
+This document outlines the way that the digitisation team enters data into the Excel sheets. It is primarily intended for internal use and, as such, it includes information on some variables which are not released into the public domain. Nevertheless, following our philosophy on open access, replicability and transparency, we provide open access to the document here. Users external to our team with questions can direct them at compadrecontact@gmail.com. Specific questions can also be directed to Rob Salguero-Gómez (salguero@demogr.mpg.de) or Owen Jones (jones@biology.sdu.dk).
 
 
 ##General information
 
 * This protocol is intended for both COMPADRE and COMADRE. Some variables pertain to _only_ one or the other database and are indicated as such in the text. Specifically "P" pertains only to plants (COMPADRE), whereas "A" pertains only to animals (COMADRE). 
 
-* PDFs of new publications emailed to the COMPADRinos are to be saved under the “Literature” sub-folder of COMPADRE or COMADRE in the N://COMPADRE & COMADRE directory of the Max Placnk Institute for Demographic Research (MPIDR) server. Immediately after saving the PDF, a new entry must be opened with the “SpeciesAuthor”, “Authors”, “Journal”, and “YearPublication” in both the descriptor and stacked file.
+* PDFs of new publications emailed to the COMPADRinos are to be saved under the “Literature” sub-folder of COMPADRE2 or COMADRE2 in the N://COMPADRE & COMADRE directory of the Lincoln Park Zoo server. Immediately after saving the PDF, a new entry must be opened with the “SpeciesAuthor”, “Authors”, “Journal”, and “YearPublication.”
 
-* If you find additional sources _always_ save them and note them in "AdditionalSource".
+* If you find additional sources _always_ save them and note them in "AdditionalSource". An additional source is a paper that references matrices from another source already in the database. Include that source in the  descriptor file of the original paper.
 All pieces of information extracted from PDFs must be highlighted directly on the PDF in yellow.
 
 * If a PDF contains matrices/data from other papers and/or studies, this must be noted as “Not primary source” in the notes variable of the Species Descriptors file.
@@ -36,9 +36,7 @@ All pieces of information extracted from PDFs must be highlighted directly on th
 
 * Authors must only be contacted from the official email: compadrecontact@gmail.com.
 
-* Latin names of species for variable "SpeciesAccepted" must be checked using reliable sources (e.g. Catalogue of Life http://www.catalogueoflife.org/, Wikipedia  https://en.wikipedia.org/) for spelling mistakes. If an author uses a Latin name with a typo, please leave it as is, as the variable "SpeciesAuthor" (below) represents the name as used by the authors.
-
-* The element-by-element mean values of unmanipulated (control) and treatment matrix population models are to be kept separate (i.e. never calculate mean matrices from a mixture of unmanipulated and treated matrices). Furthermore, mean matrices should never mix different treatments (e.g. do not calculate mean matrices for matrices with different grazing regimes). However, mean matrices _should_ be calculated for unmanipulated  matrices, and for matrices that have received the same treatments..
+* Latin names of species for variable "SpeciesAccepted" must be checked using reliable sources (e.g. for animals the Catalogue of Life http://www.catalogueoflife.org/ and The Plant List http://www.theplantlist.org) for spelling mistakes. If an author uses a Latin name with a typo, please leave it as is, as the variable "SpeciesAuthor" (below) represents the name as used by the authors.
 
 * When digitising matrices, only colors from the color palette, which is given inside the Excel file under the tab "Color palette", can be used in the Stacked Matrix file. Where matrices can be split, please always include an “A” matrix as well as “U”, “F” & “C” matrices (for explanation see here in the stacked matrix file. Present matrices from left-to-right in the order A, U, F, C. __Always__ split matrices when possible.
 
@@ -63,9 +61,9 @@ __NDY__ - Not digitised yet - The information has not yet been digitised. This i
 
 __NC__ - Not calculated - Information was not calculated because its calculation is not sensible. For instance, latitudes and longitudes of various populations of the same species are not averaged and assigned to the grand-mean population matrix of the species. This is the same for ranges, where author provides a range of latitudes and longitudes for a given population. Ranges are instead noted in the observation column.
 
-__LAB__ - Laboratory - The author collected demographic data for the studied species in a laboratory or under greenhouse conditions. Controlled, typically indoor, conditions that mean the study population is not affected by the environmental conditions typical of the __actual__ geographic location of the study. For these data we do not calculate averages or ranges but instead enter `LAB` (not `NA`).
+__LAB__ - Laboratory - The author collected demographic data for the studied species in a laboratory or under greenhouse conditions. Controlled, typically indoor, conditions that mean the study population is not affected by the environmental conditions typical of the __actual__ geographic location of the study.
 
-__FRANK__ - Frankenstein matrix - Frankenstein matrices are MPMs where the author parameterised their model using demographic data from 2+ other papers/sources. These MPMs should be clearly indicated with "FRANK" in the observation column. Furthermore, for these matrices, temporal and geographic information is not useful for comparative analyses and therefore geographic location data, time information (start/end year, season etc.) should be recorded as "FRANK" (not `NA`).
+__FRANK__ - Frankenstein matrix - Frankenstein matrices are MPMs where the author parameterised their model using demographic data from 2+ other papers/sources; in other words, when the matrix values come from a source that was not affected by the same conditions as the rest of the matrix. These MPMs should be clearly indicated with "FRANK" in the observation column. Furthermore, geographic location data, time information (start/end year, season etc.) should be recorded only if the author reports ONE main location for the matrix; if multiple locations are reported, then it should be recorded as FRANK and not `NA`.
 
 __Simulation__ - A simulated matrix - The matrix model is a simulation, and perhaps only loosely based on a specific real species. Typically these simulated matrices are used to explore the behaviour of a population in a theoretical way. In those cases, there is no geographic location, ecoregion etc. For these data we do not calculate averages or ranges for locations and time periods but instead enter `Simulation` (not `NA`).
 
@@ -83,7 +81,6 @@ The following is a list of variables that the COMPADRino team digitises to the b
 * YearPublication
 * DOI.ISBN
 * Ecoregion
-* GrowthFormRaunkiaer (only relevant for COMPADRE)
 * Purposes
 * StudyDuration
 * AnnualPeriodicity
@@ -115,39 +112,8 @@ The following is a list of variables that the COMPADRino team digitises to the b
 
 First name of COMPADRino
 
-Possible values
-
-* Alex
-* AlexNH
-* Anne
-* Christoph
-* Claudia
-* Elisa
-* Erik
-* Fränce
-* Gabriel
-* Gesa
-* Hendrik
-* Jakob
-* Janek
-* Julia
-* Rob
-* Sandra
-* Stefan
-* Tara
-* Veronika
-
 
 __Information for the Stacked File:__
-
-The color coding in the Student column of the Stacked File means the following:
-
-* RED	There is some problem with this entry, the student who entered the species is informed and works on the species/species again
-* LIGHT ORANGE	The *Transferred* column has been checked. The entry in that column is correct. If something was missing (see *MissingData*) author has been contacted again. Everything else is fine.
-* DARK ORANGE The *Transferred* column has been checked. The entry in that column is correct but a problem occurred which is explained in the *Notes* column (e.g. no mail address of author found).
-* GREEN	The entry has been checked twice. No faults have been found. Species/study is ready to go online.
-
-Note: Excel might color the cell (in green or orange etc.) automatically when entering a new species. Please always change the fill color for all new entries into "no fill". The students who do the error-checking will change into orange/red/green when necessary.
 
 ************************************************
 
@@ -353,7 +319,7 @@ Exactly the same naming convention __must__ be used in both the Species Descript
 
 ## CommonName
 
-Records the common name as used in the publication. Separate multiple names with a semi-colon (";"). If there is no common name used in the publication, record "NA".	
+Records the common name as used in the publication. Separate multiple names with a semi-colon (";"). If there is no common name used in the publication, record "NA".
 
 
 ************************************************
@@ -496,7 +462,7 @@ We no longer digitise this information. Instead we point out to end users of the
 
 ## Ecoregion
 
-Description of the Ecoregion for the study, using the categories described in Figure 1 of Olson et al. (2001).
+Description of the Ecoregion for the study, using the R Code provided in the COMPADRE & COMADRE server/Digitization tools.
 
 
 __Terrestrial ecoregions__
@@ -537,63 +503,8 @@ __Marine ecoregions__
 
 For a more inclusive description of water ecoregions, see http://worldwildlife.org/biomes
 
-This is a drop-down variable. Separate with "; " if more than one
-
-To find out within which terrestrial ecoregion your study has been made, search for the place on the following map: 
 
 ![Ecoregions](images/OlsonEcoregions.png)
-
-
-************************************************
-## GrowthFormRaunkiaer (P)
-
-Plant classification according to Raunkiaer (classified after the position of the overwintering buds). Enter "NA" for **all** animals in COMADRE.
-
-Possible values
-
-* Megaphanerophyte	Overwintering buds positioned at >30 m height (e.g. large trees)
-* Mesophanerophyte	Overwintering buds positioned at 8-30 m height (e.g. medium trees)
-* Nanophanerophyte	Overwintering buds positioned at0.25-8 m max height (e.g. small trees and all shrubs)
-* Chamaephyte	Buds on persistent shoots near the ground
-* Hemicryptophyte	Buds at or near the soil surface (e.g. daisy, dandelion)
-* Geophyte	Buds resting under dry ground (e.g. crocus, tulip)
-* Helophyte	Buds resting in marshy ground (e.g. reedmace, marsh-marigold)
-* Hydrophyte	Resting by being submerged under water (e.g. water-lily, frogbit)
-* Therophyte	Mostly annual and biennial plants
-* Epiphyte	Plants living on to of other plants
-
-For further information see https://en.wikipedia.org/wiki/Raunkiær_plant_life-form.
-
-![Raunkiaer](images/Raunkiaer.png)
-
-1. Phanerophytes
-2. Chamaephyte
-3. Chamaephyte
-4. Hemicryptophyte
-5. Cryptophytes, more specifically: Geophyte
-6. Cryptophytes, more specifically: Geophyte
-7. Cryptophytes, more specifically: Helophyte
-8. Cryptophytes, more specifically: Hydrophyte
-9. Cryptophytes, more specifically: Hydrophyte
-10. Therophyte, aerophyte and epiphyte not shown
-
-
-The description offered here is at the subsection level (e.g. “Cryptophytes” are classified as “Hydrophyte”, “Helophyte” or “Geophyte”; “Phanerophytes” are classified as “Nanophanerophytes”, “Mesophanerophytes” or “Megaphanerophytes”). When in doubt, information is to be retrieved from the internet (e.g. Wikipedia, Google photos) or the author is to be contacted or ask Ro. However, the variable “Plant type” typically relates to the variable “Growth form Raunkiaer” as it follows
-
-* “Tree”, “Palm” and “Liana” are “Nanophanerophyte” (0.25-8 m height), “Mesophanerophyte” (8-30 m height) or “Megaphanerophyte” (>30 m height), depending on their maximum attainable heights as indicated in parentheses. * If you don't get this info from the paper, a quick Google photo search can give you an idea.
-“Shrub” and “Succulent” are either “Chamaephyte” or (most often) “Nanophanerophyte”, but in some species they be “Mesophanerophyte”.
-* “Herbaceous perennials” may be “Hydrophyte”, “Helophyte”, “Epiphyte”, “Geophyte”, “Hemicryptophyte” or “Chamaephyte”.
-    + Hydrophyte: herbaceous perennial that lives in or really close to a lake, river or sea
-    + Helophyte: herbaceous perennial that lives in a marsh or wetland
-    + Geophyte: herbaceous perennial that overwinters below ground. These species have a storage below ground of the following types: rhizome, tuber, bulb or similar
-    + Hemicryptophyte: herbaceous perennial without storage organ below ground that will overwinter right at ground level
-    + Chamaephyte: herbaceous perennial that will overwinter above ground but no higher than 25 cm.
-* “Annual” (and biennials or pseudo-annuals) are “Therophyte”.
-* “Algae” is “Hydrophyte”.
-* “Bryophyte” can be “Epiphyte” or “Hemicryptophyte”.
-* “Epiphyte” is “Epiphyte”. Note that the Raunkiaer growth form “Aerophyte” is not used in this database. All “Aerophyte” (e.g. genus Tillandsia) are classified as “Epiphyte”.
-
-
 
 ************************************************
 
@@ -637,21 +548,20 @@ Records the last year of the study, e.g. 2012
 ************************************************
 ## StudyDuration
 
-Records the number of years of observation, e.g. 5.
+Records the number of years of observation of data collected for constructing the matrices, e.g. 5.
 This is calculated as: “StudyEnd” year - “StudyStart” year + 1. The calculation thus overlooks any missing years in the middle of the study period. Note that Excel should calculate the StudyDuration automatically since the formula is already set as default for that column. If it is not calculated by Excel please enter formula (not a calculated number) in case we get better information later.
 
 ************************************************
-## AnnualPeriodicity
+## ProjectionInterval
 
 The periodicity of the transition matrix presented in the paper.
 For example:
 
 * 1	- A yearly time-step
-* 2	- A 6-month time step where the model increments twice per year (e.g. in January and in June)
+* 2	- A 6-month time step where the model increments twice per year (e.g. the matrix is projected twice in a year)
 * 0.2	- A 5 year time step where the model increments once every 5 years (often seen in models for trees).
 * ? - Other annual periodicities
 
-Annual periodicities often, *but not always*, correspond to the frequency of fieldwork visits. If that is the case, the `AnnualPeriodicicy` can be calculated as follows: If the study site has been visited more than once a year calculate $1 * N$, where N is the number of visits to the site per year, e.g. $1 * 2 = 2$. If the study site has been revisited less than once per year calculate $1 / Y$, where Y is the number of years, e.g. $1/5 = 0.2$.
 
 ************************************************
 ## NumberPopulations
@@ -750,9 +660,7 @@ Indication of the sex(es) considered when constructing the matrix population mod
 Indicates the type of matrix population model (See the figure below for more information).
 
 * Individual - A matrix population model constructed for a single study × species × population × treatment × period combination
-* Mean - An average (arithmetic mean) of other matrix population models (e.g. element-by-element arithmetic mean of a population's matrices across several time periods available)
-
-__Note:__ Generally, the mean values of unmanipulated and treatment matrices are to be kept independent of each other (i.e. never calculate mean matrices across both unmanipulated and treatment matrices), and a mean matrix for different treatments should not to be calculated/digitised in the database.
+* Mean - An average (arithmetic mean) of other matrix population models; only if given by the author.
 
 * Pooled - A matrix population model that has been constructed by pooling individual-level demographic information across populations and/or periods. This type of matrix, when available, has always been provided by the author either in the publication or through personal communications
 
@@ -772,7 +680,7 @@ B. For seasonal or periodic population matrix models (e.g. for annual species), 
 
 Describes if a treatment was applied by researchers or not, and the nature of the treatment.
 
-* _treatment_ - Provides a brief description of the treatment applied to the population described by the matrix population model. We define treatment as an action intentionally imposed by humans. If more than one applies to a matrix, multiple treatments are separated with a “; ”.
+* _treatment_ - Provides a brief description of the treatment applied to the population described by the matrix population model. We define treatment as an action intentionally imposed by humans. If more than one applies to a matrix, multiple treatments are separated with a “; ”. If it is a natural experiment then it is an unmanipulated matrix.
 
 * Unmanipulated	- No experimental, human-imposed treatment was applied. Natural events of non-intentional occurrence (e.g. fire, hurricanes) are recorded as “Unmanipulated”, but these incidences are described in the __Observations__ variable.
 
@@ -861,7 +769,7 @@ Numeric indication of the last month $m$ of study. Month $m+1$ in periodic matri
 11. November
 12. December
 
-__Note:__ _All study time information always belong to the related matrix. So for a mean matrix the whole study duration must be recorded (e.g. MatrixStartYear 1998 together with MatrixEndYear 2005) while for a mean matrix the specific year or seasonal information must be given (e.g. Matrix StartYear 2001 together with MatrixEndYear 2002, or “MatrixStartYear 2001, MatrixStartSeason 1” together with “MatrixEndYear 2002, MatrixEndSeason 2”_
+__Note:__ _All study time information always belong to the related matrix. So for a mean or pooled matrix the whole study duration must be recorded (e.g. MatrixStartYear 1998 together with MatrixEndYear 2005) while for an individual matrix the specific year or seasonal information must be given (e.g. Matrix StartYear 2001 together with MatrixEndYear 2002, or “MatrixStartYear 2001, MatrixStartSeason 1” together with “MatrixEndYear 2002, MatrixEndSeason 2”_
 
 This is how it possibly looks like (this is a 6x6 mean (the upper one) and individual (the lower one) matrix for the algae Alaria_nana)
 
@@ -885,7 +793,6 @@ __Always__ check geolocation with Google Earth! If the geolocation from Google E
 ### LatDeg / LatMin / LatSec
 
 Record the degree (0-90), minute (0-60) and second (0-60) values of the locations of the matrix.
-If no LatSec is available type in a zero. This means: the value “0” may mean precise values are not available! If the geolocation is given as e.g. 58° 06' N 17° 26' E we do not enter "06" into the LatMin / LatSec column but only "6". 
 **Note:** if there are no seconds (or minutes) given, you should record as NA rather than 0.
 
 ### LatNS
@@ -925,7 +832,7 @@ __Note:__ Height is either given in the paper, by author communication, or we lo
 
 The ISO 3 Country Code(s) of where the study took place. If the study involves multiple countries, these are separated by "; ". https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3.
 
-Where studies are conducted in seas or oceans this becomes a bit more challenging. We will provide country information where pertinent (i.e. in waters under the jurisdiction of a country) but where this is not possible, we will use a code to describe that sea or ocean: NODC For example, a fish species studied in French territorial waters in the Bay of Biscay would be recorded as “Country” = “FRA; NODC-22” (for France, and the NODC code for the Bay of Biscay). If the population was studied both in French and Spanish waters the code would be “FRA; SPA; NODC-22”. If it was only studied in international waters (normally defined as 12 nautical miles (for explanation see here) then you would record it as “NODC-22”.
+Where studies are conducted in seas or oceans this becomes a bit more challenging. We will provide country information where pertinent (i.e. in waters under the jurisdiction of a country) but where this is not possible, we will use a code to describe that sea or ocean: NODC. For example, a fish species studied in French territorial waters in the Bay of Biscay would be recorded as “Country” = “FRA; NODC-22” (for France, and the NODC code for the Bay of Biscay). If the population was studied both in French and Spanish waters the code would be “FRA; SPA; NODC-22”. If it was only studied in international waters (normally defined as 12 nautical miles *(for explanation see here), we need link here)* then you would record it as “NODC-22”.
 
 ### Continent
 
