@@ -1,10 +1,10 @@
 ---
 title: "COMPADRE/COMADRE Data Digitization Protocol"
 output:
-  html_document:
+  pdf_document:
     toc: yes
   word_document: default
-  pdf_document:
+  html_document:
     toc: yes
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
