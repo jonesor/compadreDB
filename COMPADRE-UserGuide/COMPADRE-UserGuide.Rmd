@@ -89,7 +89,6 @@ These are detailed below.
 ##### Possible values:
 
 * `Genus_species` -	This variable always includes the genus and the species names and, where appropriate, information on variety and subspecies (see below).
-If two or more demographic studies exist for a single species, these are digitized with a numeric suffix after Genus_species starting with “`2`” (e.g. “`Rosa_sempervirens`”, “`Rosa_sempervirens_2`”, “`Rosa_sempervirens_3`”). 
 
 * `<…>var.<…>` -	Where the publication refers to an intraspecific variety, this is indicated with "`var.`" followed by the variety name, e.g. "`Pityopsis_aspera_var._aspera`"
 
@@ -99,7 +98,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ### `SpeciesAccepted`
 
-**Definition:** Currently accepted latin name. This information is is obtained from The Plant List
+**Definition:** Currently accepted latin name. This information is is obtained from GBIF
 
 ##### Possible values:
 
@@ -351,7 +350,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 -----------------------------------------------
 
-### `AnnualPeriodicity`
+### `ProjectionInterval`
 
 **Definition:** Indicates the time frame for which the seasonal or annual the MPM was constructed. e.g. 1 indicates that the MPM iteration period is 1yr; 2 indicates that the MPM iterates twice in a year; 0.2 indicates that the MPM iteration occurs every 5yrs.
 
@@ -414,7 +413,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 -----------------------------------------------
 
 
-### `MatrixPopulation`
+### `PopulationName`
 
 **Definition:** Name of population where matrix was recorded, usually as given by the publication author. In some cases, where the author provides no name, we give the closest geographic location instead.  If there are multiple populations in the study and their names are not pertinent/available, sequential names in alphabetical order are assigned for each population in the study (e.g. “A”, “B”, “C”, etc)
 
@@ -581,7 +580,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 -----------------------------------------------
 
 
-### `MatrixComposite`
+### `Composition`
 
 **Definition:** Indicates the type of matrix population model (also see Figure 2 below for more information).
 
@@ -599,7 +598,7 @@ If two or more demographic studies exist for a single species, these are digitiz
 -----------------------------------------------
 
 
-### `MatrixTreatment`
+### `Treatment`
 
 **Definition:** Describes if a treatment was applied or not and the nature of the treatment.
 
@@ -641,21 +640,32 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 -----------------------------------------------
 
+### `Seasonal`
 
-### `MatrixStartSeason`
+**Definition:** Whether the matrix is seasonal or not.
+
+##### Possible values:
+
+* `Yes` 
+* `No` 
+
+-----------------------------------------------
+
+### `StartSeason`
 
 **Definition:** First season of study. Season `s` in periodic matrix population model that describes population dynamics from season `s` to `s+1`. Seasons are naturally hemisphere-specific, and this information can be deduced from variables `Country` and `LatDeg`, below. Here season is used as described in manuscript by the authors (summer in the southern hemisphere corresponds to Winter in the northern hemisphere).
 
 ##### Possible values:
 
-* `1` -	Spring
+* `Spring`
 
-* `2` -	Summer
+* `Summer`
 
-* `3` -	Autumn/Fall
+* `Autumn/Fall`
 
-* `4` -	Winter
+* `Winter`
 
+* `NA`
 
 -----------------------------------------------
 
@@ -692,13 +702,15 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 ##### Possible values:
 
-* `1` -	Spring
+* `Spring`
 
-* `2` -	Summer
+* `Summer`
 
-* `3` -	Autumn/Fall
+* `Autumn/Fall`
 
-* `4` -	Winter
+* `Winter`
+
+* `NA`
 
 
 
@@ -716,21 +728,36 @@ If two or more demographic studies exist for a single species, these are digitiz
 
 -----------------------------------------------
 
+### `CensusType`
 
+**Definition:** Sampling census authors used.
+
+
+##### Possible values:
+
+* `Prebreeding`
+
+* `Postbreeding`
+
+* `NDY`
+
+* `NA`
+
+-----------------------------------------------
 ### `MatrixSplit`
 
 **Definition:** This indicates whether the MPM **A** matrix has been divided into its constituent **U**, **F** and **C** submatrices. See Figure 3 below for further details.
 
 ##### Possible values:
 
-* `Divided` -	The matrix population model **A** has been been divided into the process-based submatrices **U**, **F** and **C**.
+* `Divisible` -	The matrix population model **A** has been been divided into the process-based submatrices **U**, **F** and **C**.
 
 * `Indivisible` -	The matrix population model **A** has **not** been divided into the process-based sub-matrices **U**, **F** and **C** because insufficient information is available to classify the various demographic processes for each sub-matrix. In indivisible matrices, only **A** has values given - the other matrices are filled with **NA** values.
 
 -----------------------------------------------
 
 
-### `MatrixFec`
+### `Fec`
 
 **Definition:** This records whether fecundity was measured at all for this matrix model.  
 
@@ -759,7 +786,7 @@ The rationale for this is that a fecundity (in the F matrix) may be recorded as 
 
 -----------------------------------------------
 
-### `MatrixDimension`
+### `Dimensions`
 
 **Definition:** Dimension of the matrix population model **A**.
 
