@@ -1,5 +1,5 @@
 ---
-title: "User guide to the COMPADRE Plant Matrix Database"
+title: "User guide to the COMPADRE Plant Matrix Database and COMADRE Animal Matrix Database"
 output:
   html_document:
     toc: yes
@@ -16,11 +16,11 @@ date: '`r format(Sys.time(), "%B %d %Y")`'
 
 # User guide version information
 
-Version 3.3.1
+Version 4.0.0
 
 Date modified: `r format(Sys.time(), "%B %d %Y")`
 
-Contact: compadre-contact@demogr.mpg.de
+Contact: contact@compadre-db.org
 
 -------------
   
@@ -29,27 +29,31 @@ Contact: compadre-contact@demogr.mpg.de
 
 ## Database Organization
 
-The data associated with COMPADRE are provided in a single R data object (extension .Rdata). In addition, these files are accompanied by R scripts and a nexus phylogeny available in the Supplementary Information of the manuscript introducing COMPADRE, and in our github repository (https://github.com/jonesor/compadreDB)
+The data associated with COMPADRE and COMADRE are provided as R data objects (extension .Rdata). In addition, these files are accompanied by R scripts and a nexus phylogeny available in the Supplementary Information of the manuscript introducing COMPADRE, and in our github repository (https://github.com/jonesor/compadreDB).
 
-* COMPADRE_v_MAJOR_MINOR_PATCH.RData: Contains basic information regarding the source of publication, as well as ecological, biogeographic, and taxonomic details of the demographic study for each study species, the demographic information (i.e. the matrix population model) and metadata.
+* COMPADRE_v_MAJOR_YEAR_MONTH_PATCH.RData and COMADRE_v_MAJOR_YEAR_MONTH_PATCH.RData: Contain basic information regarding the source of publication, as well as ecological, biogeographic, and taxonomic details of the demographic study for each study species, the demographic information (i.e. the matrix population model), and metadata.
 
 ## The meanings of NA in COMPADRE
 
-NA in the COMPADRE data generally means that the data are not available/applicable. This could be because the data were not reported by the author(s), or it could mean that the data have not yet been digitized for this version of COMPADRE. It could also mean that the data are not applicable in this case (e.g. where data are derived from several geographic locations we do not report a single average latitude/longitude value). 
+NA in the COMPADRE and COMADRE data generally means that the data are not available/applicable. This could be because the data were not reported by the author(s), or it could mean that the data have not yet been digitized for this version of COMPADRE. It could also mean that the data are not applicable in this case (e.g. where data are derived from several geographic locations we do not report a single average latitude/longitude value). 
 
 You may also find the word *FRANK*:
 
-*FRANK* - Frankenstein matrix - Frankenstein matrices are MPMs where the author parameterised their model using demographic data from 2+ other papers/sources; in other words, when the matrix values come from a source that was not affected by the same conditions as the rest of the matrix. These MPMs are indicated with “FRANK” in the observation column.
+*FRANK* - Frankenstein matrix - Frankenstein matrices are MPMs where the author(s) parameterised their model using demographic data from 2+ other papers/sources. In other words, when the matrix values come from a source that was not affected by the same conditions as the rest of the matrix. These MPMs are indicated with “FRANK” in the observation column.
 
 
 ## Disclaimer 
 
-The COMPADRE digitization team does its best to ensure data accuracy, and every piece of information goes through multiple error-checks prior to its release in www.compadre-db.org. However, we claim no responsibility for any damage that may arise from using COMPADRE.  A list of error checks and potential issues in the use and interpretation of the database are described in the main manuscript. The end user is ultimately responsible for his/her interpretations of the data.
-
+The COM(P)ADRE digitization team does its best to ensure data accuracy, and every piece of information goes through multiple error-checks prior to its release on www.compadre-db.org. However, we claim no responsibility for any damage that may arise from using COMPADRE or COMADRE. A list of error checks and potential issues in the use and interpretation of the database are described in the main manuscript. The end user is ultimately responsible for their interpretations of the data.
 
 -----------------------------------------------
 
 # What’s new in this version
+
+### Version 4.0.0
+
+  - Combined COMPADRE and COMADRE user guides into a single guide for both databases
+  - Updated text to reflect latest major releases of the databases
 
 ### Version 3.2.1
 
@@ -73,7 +77,7 @@ The COMPADRE digitization team does its best to ensure data accuracy, and every 
 -----------------------------------------------
 
 ![COMPADRE structure](images/Fig1.png)
-**Figure 1.** *Variables archived in COMPADRE, organized according to the general category to which they are associated. The R data object `compadre` is a `list` containing further `list` and `data.frame` objects (named `metadata`, `mat`, `matrixClass` and `version`), here represented by each branch of the tree. The canopy contains the variables in each `data.frame`/`list`, organized by general categories.*
+**Figure 1.** *Variables archived in COMPADRE and COMADRE, organized according to the general category to which they are associated. The R data objects are lists`containing further list`and data.frame` objects (named `metadata`, `mat`, `matrixClass` and `version`), here represented by each branch of the tree. The canopy contains the variables in each `data.frame`/`list`, organized by general categories.*
 
 -----------------------------------------------
 
@@ -81,6 +85,18 @@ The COMPADRE digitization team does its best to ensure data accuracy, and every 
 
 The object `metadata` is a `data.frame` detailing the ancillary metadata that give context to each matrix population model (MPM).
 These are detailed below.
+
+
+### `MatrixID`
+
+**Definition** Unique identification number given to each MPM and its associated metadata
+
+##### Possible values:
+
+* `<MatrixID>` - e.g. 238263
+
+
+-----------------------------------------------
 
 ### `SpeciesAuthor`
 
@@ -94,6 +110,7 @@ These are detailed below.
 
 * `<…>subsp.<…>` -	Where the study refers to an intraspecific subspecies, this is indicated with "`subsp.`" followed by the subspecies name, e.g. "`Anthyllis_vulneraria_subsp._alpicola`"
 
+
 -----------------------------------------------
 
 ### `SpeciesAccepted`
@@ -104,6 +121,7 @@ These are detailed below.
 
 * `<Genus_species>` -	e.g. Taraxacum_officinale
 
+
 -----------------------------------------------
 
 ### `CommonName`
@@ -113,6 +131,61 @@ These are detailed below.
 ##### Possible values:
 
 * `<Common_name>` -  e.g. American black bear
+
+
+-----------------------------------------------
+
+### `Kingdom`
+
+**Definition:** Kingdom to which species belongs
+
+##### Possible values:
+
+* `kingdom` -	e.g. Plantae, Fungi, Rhodophyta, Chromista (yes, COMPADRE includes fungi and algae as well as plants)
+
+
+-----------------------------------------------
+
+### `Phylum`
+
+**Definition:** Phylum to which species belongs
+
+##### Possible values:
+
+* `<phylum>` -	e.g. Magnoliophyta
+
+
+-----------------------------------------------
+
+### `Class`
+
+**Definition:** Class to which species belongs
+
+##### Possible values:
+
+* `<class>` -	e.g. Magnoliopsida
+
+
+-----------------------------------------------
+
+### `Order`
+
+**Definition:** Order to which species belongs
+
+##### Possible values:
+
+* `order` -	e.g. Caryophyllales
+
+
+-----------------------------------------------
+
+### `Family`
+
+**Definition:** Family to which species belongs
+
+##### Possible values:
+
+* `<family>` -	e.g. Polygonaceae
 
 
 -----------------------------------------------
@@ -129,58 +202,10 @@ These are detailed below.
 
 -----------------------------------------------
 
-### `Family`
-
-**Definition:** Family to which species belongs
-
-##### Possible values:
-
-* `<family>` -	e.g. Polygonaceae
-
------------------------------------------------
-
-### `Order`
-
-**Definition:** Order to which species belongs
-
-##### Possible values:
-
-* `order` -	e.g. Caryophyllales
 
 
------------------------------------------------
-
-### `Class`
-
-**Definition:** Class to which species belongs
-
-##### Possible values:
-
-* `<class>` -	e.g. Magnoliopsida
 
 
------------------------------------------------
-
-### `Phylum`
-
-**Definition:** Phylum to which species belongs
-
-##### Possible values:
-
-* `<phylum>` -	e.g. Magnoliophyta
-
------------------------------------------------
-
-### `Kingdom`
-
-**Definition:** Kingdom to which species belongs
-
-##### Possible values:
-
-* `kingdom` -	e.g. Plantae, Fungi, Rhodophyta, Chromista (yes, COMPADRE includes fungi and algae as well as plants)
-
-
------------------------------------------------
 
 ### `OrganismType`
 
@@ -245,7 +270,6 @@ These are detailed below.
 * `NA` - Neither angiosperm nor gymnosperm
 
 
-
 -----------------------------------------------
 
 ### `Authors`
@@ -255,7 +279,6 @@ These are detailed below.
 ##### Possible values:
 
 * `<name(s)>` -	Separated with “; ” e.g. "Smith; Jones"
-
 
 
 -----------------------------------------------
@@ -293,7 +316,6 @@ These are detailed below.
 * `<yyyy>` -	e.g. 2012
 
 
-
 -----------------------------------------------
 
 ### `DOI/ISBN`
@@ -325,6 +347,7 @@ These are detailed below.
 ##### Possible values:
 
 * `<integer>` -	e.g. 14
+
 
 -----------------------------------------------
 
@@ -358,6 +381,7 @@ These are detailed below.
 
 * `<numeric value>` -	e.g. 1, 2, 0.2 etc.
 
+
 -----------------------------------------------
 
 ### `NumberPopulations`
@@ -384,7 +408,6 @@ These are detailed below.
 
 -----------------------------------------------
 
-
 ### `MatrixCriteriaOntogeny`
 
 **Definition:** Indicates whether the matrix population model contains stages based on development. 
@@ -397,7 +420,6 @@ These are detailed below.
 
 
 -----------------------------------------------
-
 
 ### `MatrixCriteriaAge`
 
@@ -412,7 +434,6 @@ These are detailed below.
 
 -----------------------------------------------
 
-
 ### `PopulationName`
 
 **Definition:** Name of population where matrix was recorded, usually as given by the publication author. In some cases, where the author provides no name, we give the closest geographic location instead.  If there are multiple populations in the study and their names are not pertinent/available, sequential names in alphabetical order are assigned for each population in the study (e.g. “A”, “B”, “C”, etc)
@@ -420,7 +441,6 @@ These are detailed below.
 ##### Possible values:
 
 * `<any text string>` -	e.g. “Brazeau Creek, Florida”. 
-
 
 
 -----------------------------------------------
@@ -436,7 +456,6 @@ These are detailed below.
 
 -----------------------------------------------
 
-
 ### `Lon`
 
 **Definition:** Degree value of longitude, in decimal format. Negative values indicate that the location is to the west of the Greenwich meridian (0 degrees)
@@ -447,7 +466,6 @@ These are detailed below.
 
 
 -----------------------------------------------
-
 
 ### `Altitude`
 
@@ -471,8 +489,8 @@ These are detailed below.
 
 * `<ISO 3 country code(s)>` -	e.g. `DEU; DNK` for a study carried out in Germany and Denmark.
 
------------------------------------------------
 
+-----------------------------------------------
 
 ### `Continent`
 
@@ -493,9 +511,7 @@ These are detailed below.
 * `Oceania` -	Various definitions for Oceania exist, but here we opted for this one: http://en.wikipedia.org/wiki/List_of_Oceanian_countries_by_population 
 
 
-
 -----------------------------------------------
-
 
 ### `Ecoregion`
 
@@ -558,6 +574,7 @@ These are detailed below.
 
 * `LAB` - Laboratory or greenhouse conditions – controlled, usually indoor, conditions that mean the study species is not affected by the environment conditions typical of the actual geographic location of the study 
 
+
 -----------------------------------------------
 
 ### `StudiedSex`
@@ -579,7 +596,6 @@ These are detailed below.
 
 -----------------------------------------------
 
-
 ### `Composition`
 
 **Definition:** Indicates the type of matrix population model (also see Figure 2 below for more information).
@@ -597,7 +613,6 @@ These are detailed below.
 
 -----------------------------------------------
 
-
 ### `Treatment`
 
 **Definition:** Describes if a treatment was applied or not and the nature of the treatment.
@@ -610,7 +625,6 @@ These are detailed below.
 
 
 -----------------------------------------------
-
 
 ### `MatrixCaptivity`
 
@@ -627,7 +641,6 @@ These are detailed below.
 
 -----------------------------------------------
 
-
 ### `MatrixStartYear`
 
 **Definition:** First year of study. Year `t` in annual matrix population model that describes population dynamics from time `t` to `t+1`.
@@ -635,7 +648,6 @@ These are detailed below.
 ##### Possible values:
 
 * `<yyyy>` -	e.g. 1994
-
 
 
 -----------------------------------------------
@@ -648,6 +660,7 @@ These are detailed below.
 
 * `Yes` 
 * `No` 
+
 
 -----------------------------------------------
 
@@ -667,8 +680,8 @@ These are detailed below.
 
 * `NA`
 
------------------------------------------------
 
+-----------------------------------------------
 
 ### `MatrixStartMonth`
 
@@ -682,7 +695,6 @@ These are detailed below.
 
 -----------------------------------------------
 
-
 ### `MatrixEndYear`
 
 **Definition:** Last year of study. Year `t+1` in matrix population model that describes population dynamics from time `t` to `t+1`.
@@ -692,9 +704,7 @@ These are detailed below.
 * `<yyyy>` -	e.g. 1999
 
 
-
 -----------------------------------------------
-
 
 ### `MatrixEndSeason`
 
@@ -713,9 +723,7 @@ These are detailed below.
 * `NA`
 
 
-
 -----------------------------------------------
-
 
 ### `MatrixEndMonth`
 
@@ -725,6 +733,7 @@ These are detailed below.
 ##### Possible values:
 
 * `<1-12>` -	e.g. 1 = January, 6= June etc.
+
 
 -----------------------------------------------
 
@@ -743,7 +752,9 @@ These are detailed below.
 
 * `NA`
 
+
 -----------------------------------------------
+
 ### `MatrixSplit`
 
 **Definition:** This indicates whether the MPM **A** matrix has been divided into its constituent **U**, **F** and **C** submatrices. See Figure 3 below for further details.
@@ -754,8 +765,8 @@ These are detailed below.
 
 * `Indivisible` -	The matrix population model **A** has **not** been divided into the process-based sub-matrices **U**, **F** and **C** because insufficient information is available to classify the various demographic processes for each sub-matrix. In indivisible matrices, only **A** has values given - the other matrices are filled with **NA** values.
 
------------------------------------------------
 
+-----------------------------------------------
 
 ### `Fec`
 
@@ -772,8 +783,8 @@ The rationale for this is that a fecundity (in the F matrix) may be recorded as 
 
 * NA - it is not known whether fecundity was measured for the matrix
 
------------------------------------------------
 
+-----------------------------------------------
 
 ### `Observation`
 
@@ -794,6 +805,7 @@ The rationale for this is that a fecundity (in the F matrix) may be recorded as 
 
 * `<integer>` -	e.g. 5
 
+
 -----------------------------------------------
 
 ### `SurvivalIssue`
@@ -803,7 +815,6 @@ The rationale for this is that a fecundity (in the F matrix) may be recorded as 
 ##### Possible values:
 
 * `<numeric>` -	e.g. 0.9, 1.2, 1.45
-
 
 
 -----------------------------------------------
@@ -816,8 +827,8 @@ The object `matrixClass` is a `list` of `data.frame`s detailing the class names 
 
 **Definition:** The stage description as indicated in the source by the publication author of the matrix population model. When possible, we add units (e.g. cm, m, cm^2^).
 
------------------------------------------------
 
+-----------------------------------------------
 
 ### `MatrixClassOrganized`
 
@@ -833,7 +844,6 @@ The object `matrixClass` is a `list` of `data.frame`s detailing the class names 
 
 
 -----------------------------------------------
-
 
 ### `MatrixClassNumber`
 
@@ -854,6 +864,7 @@ The object `mat` is a `list` of `list`s giving the actual MPMs in the form of th
 
 **Description:** The matrix population model **A** which describes the population dynamics of a population under conditions described by `MatrixComposite`, `MatrixTreatment`, `MatrixStartYear`, `MatrixEndYear`, `Population`, and `Observation` in the `metadata` object.
 
+
 -----------------------------------------------
 
 ### `matU`
@@ -863,22 +874,20 @@ The object `mat` is a `list` of `list`s giving the actual MPMs in the form of th
 
 -----------------------------------------------
 
-
 ### `matF`
 
 **Description:** The population sub-matrix model **F** (a sub-matrix of **A**), which describes the sexual-reproduction dynamics of a population under the conditions described above. A range of numeric values are possible, but are constrained to be positive. These include only estimates of sexual reproduction (no clonal reproduction). 
 
 The values are only digitized for `Divided` matrices (indicated by variable `MatrixSplit`)
 
------------------------------------------------
 
+-----------------------------------------------
 
 ### `matC`
 
 **Description:** The population sub-matrix model **C** (a sub-matrix of **A**), which describes the clonal-reproduction dynamics of a population under the conditions described above. A range of numeric values are possible, but these are constrained to be positive. These include only estimates of clonal reproduction. 
 
 The values are only digitized for `Divided` matrices (indicated by variable `MatrixSplit`)
-	
 
 
 -----------------------------------------------
@@ -894,7 +903,6 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 -----------------------------------------------
 
-
 ### `DateCreated`
 
 **Description:** Date of creation of the `Rdata` database object in the format `MMM_DD_YYYY`. E.g. Aug_06_2015.
@@ -902,17 +910,17 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 -----------------------------------------------
 
-
 ### `NumberAcceptedSpecies`
 
 **Description:** Total number of taxonomically accepted species. The total number of accepted species is based on variable `SpeciesAccepted` (above). E.g. 637
 
------------------------------------------------
 
+-----------------------------------------------
 
 ### `NumberStudies`
 
 **Description:** Total number of species × studies in the database. e.g. 735
+
 
 -----------------------------------------------
 
@@ -920,17 +928,15 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 **Description:** Total number of matrices (not including split matrices **U**, **F** and **C**) in the database.
 
+
 -----------------------------------------------
 
 ### `Agreement`
 
 **Description:** Link to the URL in the COMPADRE database containing the open-access conditions to the use of these data: http://www.compadre-db.org/page/UserAgreement.
 
+
 -----------------------------------------------
-
-
-
-
 
 # Appendix - The calculation of mean matrix population models
 
