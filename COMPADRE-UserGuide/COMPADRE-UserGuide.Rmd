@@ -13,7 +13,6 @@ output:
 date: '`r format(Sys.time(), "%B %d %Y")`'
 ---
 
-
 # User guide version information
 
 Version 4.0.0
@@ -23,7 +22,6 @@ Date modified: `r format(Sys.time(), "%B %d %Y")`
 Contact: contact@compadre-db.org
 
 -------------
-  
 
 # General Instructions
 
@@ -40,7 +38,6 @@ NA in the COMPADRE and COMADRE data generally means that the data are not availa
 You may also find the word *FRANK*:
 
 *FRANK* - Frankenstein matrix - Frankenstein matrices are MPMs where the author(s) parameterised their model using demographic data from 2+ other papers/sources. In other words, when the matrix values come from a source that was not affected by the same conditions as the rest of the matrix. These MPMs are indicated with “FRANK” in the observation column.
-
 
 ## Disclaimer 
 
@@ -119,7 +116,7 @@ These are detailed below.
 
 ##### Possible values:
 
-* `<Genus_species>` -	e.g. Taraxacum_officinale
+* `<Genus species>` -	e.g. Taraxacum officinale
 
 
 -----------------------------------------------
@@ -130,7 +127,7 @@ These are detailed below.
 
 ##### Possible values:
 
-* `<Common_name>` -  e.g. American black bear
+* `<Common name>` -  e.g. American black bear
 
 
 -----------------------------------------------
@@ -141,7 +138,7 @@ These are detailed below.
 
 ##### Possible values:
 
-* `kingdom` -	e.g. Plantae, Fungi, Rhodophyta, Chromista (yes, COMPADRE includes fungi and algae as well as plants)
+* `<Kingdom>` -	e.g. Plantae, Fungi, Rhodophyta, Chromista (COMPADRE includes fungi and algae as well as plants, and COMADRE include viruses and bacteria as well as animals)
 
 
 -----------------------------------------------
@@ -152,7 +149,7 @@ These are detailed below.
 
 ##### Possible values:
 
-* `<phylum>` -	e.g. Magnoliophyta
+* `<Phylum>` -	e.g. Magnoliophyta
 
 
 -----------------------------------------------
@@ -163,7 +160,7 @@ These are detailed below.
 
 ##### Possible values:
 
-* `<class>` -	e.g. Magnoliopsida
+* `<Class>` -	e.g. Magnoliopsida
 
 
 -----------------------------------------------
@@ -174,7 +171,7 @@ These are detailed below.
 
 ##### Possible values:
 
-* `order` -	e.g. Caryophyllales
+* `Order` -	e.g. Caryophyllales
 
 
 -----------------------------------------------
@@ -185,35 +182,64 @@ These are detailed below.
 
 ##### Possible values:
 
-* `<family>` -	e.g. Polygonaceae
+* `<Family>` -	e.g. Polygonaceae
 
 
 -----------------------------------------------
 
 ### `Genus`
 
-**Definition:** Taxonomic genus name of study SpeciesAccepted, as per The Plant List
+**Definition:** Taxonomic genus name of study SpeciesAccepted, as per GBIF
 
 
 ##### Possible values:
 
-* `<genus>` -	e.g. Chorizanthe
+* `<Genus>` -	e.g. Chorizanthe
 
 
 -----------------------------------------------
 
+### `Species`
 
-
-
-
-
-### `OrganismType`
-
-**Definition:** General plant/algae type, based mainly on architectural organization. The species was assigned to one of these possible values using the description of plant growth type provided by the author and other external sources (e.g. other publications)
-
+**Definition:** Taxonomic species name of study SpeciesAccepted, as per GBIF
 
 
 ##### Possible values:
+
+* `<species>` -	e.g. sapiens
+
+
+-----------------------------------------------
+
+### `Infraspecies`
+
+**Definition:** Taxonomic infraspecies name of study SpeciesAccepted, as per GBIF
+
+
+##### Possible values:
+
+* `<infraspecies>` -	e.g. fenderi
+
+
+-----------------------------------------------
+
+### `InfraspeciesType`
+
+**Definition:** Taxonomic species name of study SpeciesAccepted, as per GBIF
+
+
+##### Possible values:
+
+* `<infraspecies type>` -	e.g. subspecies, variety, color form 
+
+
+-----------------------------------------------
+
+### `OrganismType`
+
+**Definition:** General organism type, based mainly on architectural organization. The species was assigned to one of these possible values using the description of plant growth type provided by the author for COMPADRE; animal taxonomic class, virus, or bacteria for COMADRE; and other external sources (e.g. other publications)
+
+##### Possible values for COMPADRE:
 
 * `Algae` -	A brown, green or red alga. Note that green algae are in kingdom Plantae, but should still be recorded as OrganismType = Algae
 
@@ -239,6 +265,9 @@ These are detailed below.
 
 * `Tree` -	a tree
 
+##### Possible values for COMADRE:
+
+* `<Organism type>` -	e.g. Mammalia, Aves, Gastropoda  
 
 -----------------------------------------------
 
@@ -252,7 +281,7 @@ These are detailed below.
 
 * `Monocot` -	species is a monocot
 
-* `NA` -	Species is neither a dicot nor a monocot (not an angiosperm)
+* `NA` -	Species is neither a dicot nor a monocot (not an angiosperm) or species in COMADRE
 
 
 -----------------------------------------------
@@ -267,7 +296,7 @@ These are detailed below.
 
 * `Gymnosperm` -	Species is a gymnosperm
 
-* `NA` - Neither angiosperm nor gymnosperm
+* `NA` - Neither angiosperm nor gymnosperm or species in COMADRE
 
 
 -----------------------------------------------
@@ -278,31 +307,58 @@ These are detailed below.
 
 ##### Possible values:
 
-* `<name(s)>` -	Separated with “; ” e.g. "Smith; Jones"
+* `<Name(s)>` -	Separated with “; ” e.g. "Smith; Jones"
 
 
 -----------------------------------------------
 
 ### `Journal`
 
-**Definition:** The document from which data were sourced.
+**Definition:** The name of the journal from which data were collected
 
 ##### Possible values:
 
 * `<abbreviated journal name>` -	Where the data come from a scientific journal article, the abbreviated journal name is given. We use the standard abbreviation of the journal using the BIOSIS Format
 
+* `NA` - Data sourced from other material
 
-* `Book` -	Matrices are from a book, or book chapter
 
-* `PhD thesis` -	Matrices are from a doctoral thesis
+-----------------------------------------------
 
-* `MSc thesis` -	Matrices are from a masters thesis
+### `SourceType`
+
+**Definition:** The type of source from which the data were collected
+
+##### Possible values:
+
+* `Journal Article` - Matrices are from a journal article
+
+* `Book` -	Matrices are from a book
+
+* `Book Chapter` - Matrices are from a book chapter
+
+* `Thesis` -	Matrices are from a doctoral dissertation or masters thesis
 
 * `Report` -	Matrices are from a report
 
-* `Conference talk` -	Matrices are from a conference talk
+* `Conference` -	Matrices are from a conference talk or poster
 
-* `Conference poster` -	Matrices are from a conference poster
+* `Other` - Matrices are from another type of source, e.g., website, preprint
+
+
+-----------------------------------------------
+
+### `OtherType`
+
+**Definition:** Type of source from which the data were collected when `SourceType` is 'Other'
+
+##### Possible values:
+
+* `Internet` -	Matrices are from an internet source, e.g., website
+
+* `Unpublished` -	Matrices are unpublished and provided by the data collector
+
+* `Preprint` - Matrices are from an article preprint, e.g., bioRxiv
 
 
 -----------------------------------------------
@@ -336,7 +392,6 @@ These are detailed below.
 ##### Possible values:
 
 * `<Lastname Journal YearPublication>` -	e.g. Godinez-Alvarez Bot Rev 2003
-
 
 -----------------------------------------------
 
@@ -375,33 +430,22 @@ These are detailed below.
 
 ### `ProjectionInterval`
 
-**Definition:** Indicates the time frame for which the seasonal or annual the MPM was constructed. e.g. 1 indicates that the MPM iteration period is 1yr; 2 indicates that the MPM iterates twice in a year; 0.2 indicates that the MPM iteration occurs every 5yrs.
+**Definition:** Indicates the time frame for which the seasonal or annual MPM was constructed, e.g., '1' indicates that the MPM iteration period is 1 year; 2 indicates that the MPM iterates twice in a year; 0.2 indicates that the MPM iteration occurs every 5 years
 
 ##### Possible values:
 
-* `<numeric value>` -	e.g. 1, 2, 0.2 etc.
-
-
------------------------------------------------
-
-### `NumberPopulations`
-
-**Definition:** Number of populations of the study species. This variable refers to the number of populations as defined by the author. Within-site replication of permanent plots are not considered to be different populations (see below)
-
-##### Possible values:
-
-* `<integer>` -	e.g. 3 (for three populations)
+* `<numeric value>` -	e.g. 1, 2, 0.2, etc.
 
 
 -----------------------------------------------
 
 ### `MatrixCriteriaSize`
 
-**Definition:** Indicates whether  the matrix  population model contains stages based on size, and if so, what variable of size was measured.
+**Definition:** Indicates whether the matrix population model contains stages based on size
 
 ##### Possible values:
 
-* `Yes` -	The matrix population model contains stages based on size (e.g. DBH, stem length, stem height, stem number, etc)
+* `Yes` -	The matrix population model contains stages based on size (e.g. DBH, stem length, stem height, stem number, etc.)
 
 * `No` -	The matrix population model is not based on size
 
@@ -410,7 +454,7 @@ These are detailed below.
 
 ### `MatrixCriteriaOntogeny`
 
-**Definition:** Indicates whether the matrix population model contains stages based on development. 
+**Definition:** Indicates whether the matrix population model contains stages based on development
 
 ##### Possible values:
 
@@ -423,24 +467,35 @@ These are detailed below.
 
 ### `MatrixCriteriaAge`
 
-**Definition:** Indicates whether the matrix population model contains any stage based on age
+**Definition:** Indicates whether the matrix population model contains stages based on age
 
 ##### Possible values:
 
-* `Yes` -	The matrix population model contains at least one class that is based on age (e.g. individuals of 0 year old)
+* `Yes` -	The matrix population model contains at least one class that is based on age (e.g. individuals of 0, 1, and 2 years old)
 
 * `No` -	The matrix population model is not based on age
 
 
 -----------------------------------------------
 
-### `PopulationName`
+### `MatrixPopulation`
 
-**Definition:** Name of population where matrix was recorded, usually as given by the publication author. In some cases, where the author provides no name, we give the closest geographic location instead.  If there are multiple populations in the study and their names are not pertinent/available, sequential names in alphabetical order are assigned for each population in the study (e.g. “A”, “B”, “C”, etc)
+**Definition:** Name of population where the matrix was recorded, usually as given by the publication author. In some cases, where the author provides no name, we give the closest geographic location instead. If there are multiple populations in the study and their names are not pertinent/available, sequential names in alphabetical order are assigned for each population in the study (e.g. “A”, “B”, “C”, etc.)
 
 ##### Possible values:
 
 * `<any text string>` -	e.g. “Brazeau Creek, Florida”. 
+
+
+-----------------------------------------------
+
+### `NumberPopulations`
+
+**Definition:** Number of populations of the study species (`SpeciesAccepted`) within a publication. This variable refers to the number of populations as defined by the author. Within-site replication of permanent plots are not considered to be different populations (see below)
+
+##### Possible values:
+
+* `<integer>` -	e.g. 3 (for three populations)
 
 
 -----------------------------------------------
@@ -469,8 +524,7 @@ These are detailed below.
 
 ### `Altitude`
 
-
-**Definition:** Altitude of studied population defined as height above sea level of the population in meters.
+**Definition:** Altitude of studied population defined as height above sea level of the population in meters
 
 ##### Possible values:
 
@@ -481,20 +535,20 @@ These are detailed below.
 
 ### `Country`
 
-**Definition:** Country/ies where study took place. We use ISO 3 three letter country codes (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3). If the study involves multiple countries, these are separated by "; ". 
-
-
+**Definition:** Country in which the population is located. We use ISO 3 three letter country codes (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3). If the population is simulated or comprised of data from multiple countries ('FRANK'), 'NA' is used 
 
 ##### Possible values:
 
-* `<ISO 3 country code(s)>` -	e.g. `DEU; DNK` for a study carried out in Germany and Denmark.
+* `<ISO 3 country code(s)>` -	e.g. `DEU` for a study carried out in Germany
+
+* `NA` - The population is simulated or comprised of data from multiple countries
 
 
 -----------------------------------------------
 
 ### `Continent`
 
-**Definition:** Continent where study took place
+**Definition:** Continent in which the population is located
 
 ##### Possible values:
 
@@ -515,8 +569,7 @@ These are detailed below.
 
 ### `Ecoregion`
 
-**Definition:** Indication of the ecoregion for the study, using the categories described in Figure 1 of Olson et al. (2001).  For a more inclusive description of water ecoregions, see http://worldwildlife.org/biomes The one exception for this is the code `LAB` used for studies conducted in laboratory or greenhouse conditions.
-
+**Definition:** Indication of the ecoregion for the population, using the categories described in Figure 1 of Olson et al. (2001). For a more inclusive description of water ecoregions, see http://worldwildlife.org/biomes The one exception for this is the code `LAB` used for studies conducted in laboratory or greenhouse conditions.
 
 ##### Possible values:
 
@@ -596,7 +649,7 @@ These are detailed below.
 
 -----------------------------------------------
 
-### `Composition`
+### `MatrixComposite`
 
 **Definition:** Indicates the type of matrix population model (also see Figure 2 below for more information).
 
@@ -608,12 +661,25 @@ These are detailed below.
 
 * `Pooled` -	A matrix population model that has been constructed by pooling individual-level demographic information across populations and/or periods. This type of matrix, when available, has always been provided by the author either in the publication or through personal communications.
 
-* `Seasonal` -	A matrix population model that does not describe a full annual transition, but rather a seasonal (< 1 yr) transition.
+Note: In some previous versions of the databases, this field was called `Composition`
 
 
 -----------------------------------------------
 
-### `Treatment`
+### `MatrixSeasonal`
+
+**Definition:** Indicates whether a matrix population model is seasonal, e.g., a matrix population model that does not describe a full annual transition, but rather a seasonal (< 1 yr) transition.
+
+##### Possible values:
+
+* `Yes` -	The matrix population model is seasonal.
+
+* `No` -	The matrix population model is not seasonal.
+
+
+-----------------------------------------------
+
+### `MatrixTreatment`
 
 **Definition:** Describes if a treatment was applied or not and the nature of the treatment.
 
@@ -622,6 +688,8 @@ These are detailed below.
 * `<treatment>` -	A brief description of the treatment applied to the population described by the matrix population model. We define treatment as an action intentionally imposed by humans.  If more than one applies to a matrix, treatments are separated with a “; ”
 
 * `Unmanipulated` -	No experimental, human-imposed treatment was applied. Natural events of non-intentional occurrence (e.g. fire, hurricanes) are recorded as “Unmanipulated”, but these incidences are described in the “Observations” variable (below)
+
+Note: In some previous versions of the databases, this field was called `Treatment`
 
 
 -----------------------------------------------
@@ -652,19 +720,7 @@ These are detailed below.
 
 -----------------------------------------------
 
-### `Seasonal`
-
-**Definition:** Whether the matrix is seasonal or not.
-
-##### Possible values:
-
-* `Yes` 
-* `No` 
-
-
------------------------------------------------
-
-### `StartSeason`
+### `MatrixStartSeason`
 
 **Definition:** First season of study. Season `s` in periodic matrix population model that describes population dynamics from season `s` to `s+1`. Seasons are naturally hemisphere-specific, and this information can be deduced from variables `Country` and `LatDeg`, below. Here season is used as described in manuscript by the authors (summer in the southern hemisphere corresponds to Winter in the northern hemisphere).
 
@@ -739,8 +795,7 @@ These are detailed below.
 
 ### `CensusType`
 
-**Definition:** Sampling census authors used.
-
+**Definition:** Sampling census used by the authors
 
 ##### Possible values:
 
@@ -748,7 +803,9 @@ These are detailed below.
 
 * `Postbreeding`
 
-* `NDY`
+* `Birth-flow`
+
+* `Birth-pulse`
 
 * `NA`
 
@@ -768,12 +825,11 @@ These are detailed below.
 
 -----------------------------------------------
 
-### `Fec`
+### `MatrixFec`
 
 **Definition:** This records whether fecundity was measured at all for this matrix model.  
 
 The rationale for this is that a fecundity (in the F matrix) may be recorded as 0 either because it was not measured, or because reproduction was measured and estimated to be zero. As a general rule, if any values for fecundity (e.g. in the F matrix) are non-zero, then MatrixFec should be recorded as 'Yes'. If all values are zero, then you we check the paper carefully to check whther this is because no fecundity was detected, or whether no attempt was made to measure fecundity.
-
 
 ##### Possible values:
 
@@ -781,12 +837,12 @@ The rationale for this is that a fecundity (in the F matrix) may be recorded as 
 
 * `No` -	Reproduction was not modelled by the matrix population model, either because it was not the goal of the study or due to logistical impossibility. In some **F** submatrices the elements where sexual reproduction would have appeared contain NA values, and in others they contain 0 values.
 
-* NA - it is not known whether fecundity was measured for the matrix
+* `NA` - it is not known whether fecundity was measured for the matrix
 
 
 -----------------------------------------------
 
-### `Observation`
+### `Observations`
 
 **Definition:**  This variable provides information that is not provided elsewhere but may nonetheless be important (e.g. plant canopy, burning intervals, etc.)
 
@@ -797,7 +853,7 @@ The rationale for this is that a fecundity (in the F matrix) may be recorded as 
 
 -----------------------------------------------
 
-### `Dimensions`
+### `MatrixDimension`
 
 **Definition:** Dimension of the matrix population model **A**.
 
@@ -810,12 +866,15 @@ The rationale for this is that a fecundity (in the F matrix) may be recorded as 
 
 ### `SurvivalIssue`
 
-**Definition:** Maximum stage-specific survival value in the matrix population model submatrix U. Values >1 may indicate an issue in a U matrix.
+**Definition:** This is a calculated field used for checking matrix data. It is the maximum stage-specific survival value in the survival **U** submatrix. To calculate `SurvivalIssue`, we sum each column in the **U** matrix individually. The maximum value among those sums is the `SurvivalIssue`.
+
+Note: This value is only calculated with a number if MatrixSplit = “Divided”, that is, if the matrix is able to be split into submatrices. If MatrixSplit = “Indivisible”, the matrix is not divisible, so there is no survival **U** submatrix. In the case of indivisible matrices, the `SurvivalIssue` field will be empty ('NA').
 
 ##### Possible values:
 
 * `<numeric>` -	e.g. 0.9, 1.2, 1.45
 
+* `NA` - Matrix population model is not divisible into submatrices
 
 -----------------------------------------------
 
