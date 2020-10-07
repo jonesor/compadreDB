@@ -868,7 +868,7 @@ The rationale for this is that a fecundity (in the F matrix) may be recorded as 
 
 **Definition:** This is a calculated field used for checking matrix data. It is the maximum stage-specific survival value in the survival **U** submatrix. To calculate `SurvivalIssue`, we sum each column in the **U** matrix individually. The maximum value among those sums is the `SurvivalIssue`.
 
-Note: This value is only calculated with a number if MatrixSplit = “Divided”, that is, if the matrix is able to be split into submatrices. If MatrixSplit = “Indivisible”, the matrix is not divisible, so there is no survival **U** submatrix. In the case of indivisible matrices, the `SurvivalIssue` field will be empty ('NA').
+Note: This value is only calculated with a number if MatrixSplit = “Divided”, that is, if the matrix is able to be split into submatrices. If MatrixSplit = “Indivisible”, the matrix is not divisible, so there is no survival **U** submatrix. In the case of indivisible matrices, the `SurvivalIssue` field will be empty ('NA') [and "Not Calculated" (NC) the SQL database].
 
 ##### Possible values:
 
