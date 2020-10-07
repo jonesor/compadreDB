@@ -955,9 +955,24 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 `version` is a `list` that provides some summary information.
 
+### `Database`
+
+**Description:** The database name (COMPADRE or COMADRE) 
+
+
+-----------------------------------------------
+
 ### `Version`
 
-**Description:** The version number of the database (Major_Minor_Patch). Past versions include: 3.0.0. Current version is 3.1.0. Numbering follows semantic versioning (www.semver.org). 
+**Description:** The version number of the database (Major_Year_Month_Patch). Past versions used (Major_Minor_Patch) format. Numbering follows semantic versioning (www.semver.org). 
+
+
+-----------------------------------------------
+
+
+### `Version`
+
+**Description:** The version number of the database (Major_Year_Month_Patch). Past versions used (Major_Minor_Patch) format. Numbering follows semantic versioning (www.semver.org). 
 
 
 -----------------------------------------------
