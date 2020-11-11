@@ -430,7 +430,7 @@ These are detailed below.
 
 ### `ProjectionInterval`
 
-**Definition:** Indicates the time frame for which the seasonal or annual MPM was constructed, e.g., '1' indicates that the MPM iteration period is 1 year; 2 indicates that the MPM iterates twice in a year; 0.2 indicates that the MPM iteration occurs every 5 years
+**Definition:** Indicates the time step (periodicity) for which the seasonal or annual transition matrix was constructed, e.g., '1' indicates that the MPM iteration period is 1 year; 0.5 indicates that the MPM iterates once every 0.5 years or 6 months; 2 indicates that the MPM iteration occurs every 2 years
 
 ##### Possible values:
 
@@ -535,13 +535,17 @@ These are detailed below.
 
 ### `Country`
 
-**Definition:** Country in which the population is located. We use ISO 3 three letter country codes (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3). If the population is simulated or comprised of data from multiple countries ('FRANK'), 'NA' is used 
+**Definition:** Country(ies) in which the population is located. We use ISO 3 three letter country codes (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3). If the population is simulated or comprised of data from multiple countries ('FRANK'), 'NA' is used 
 
 ##### Possible values:
 
 * `<ISO 3 country code(s)>` -	e.g. `DEU` for a study carried out in Germany
 
-* `NA` - The population is simulated or comprised of data from multiple countries
+* `FRANK` - The population is comprised of data from various sources (these may be wild or lab populations as well as simulations). Country codes (if known) may be included in addition to 'FRANK'
+
+* `LAB` - The population is simulated or comprised of data from multiple countries
+
+* `Simulation` - The population is simulated or comprised of data from multiple countries
 
 
 -----------------------------------------------
@@ -803,9 +807,9 @@ Note: In some previous versions of the databases, this field was called `Treatme
 
 * `Postbreeding`
 
-* `Birth-flow`
+* `Intermediate`
 
-* `Birth-pulse`
+* `Birth-flow`
 
 * `NA`
 
@@ -875,6 +879,28 @@ Note: This value is only calculated with a number if MatrixSplit = “Divided”
 * `<numeric>` -	e.g. 0.9, 1.2, 1.45
 
 * `NA` - Matrix population model is not divisible into submatrices
+
+
+-----------------------------------------------
+
+### `_Database`
+
+**Description:** An internal check used for database creation and displays the database name (COMPADRE or COMADRE).
+
+
+-----------------------------------------------
+
+### `_PopulationStatus`
+
+**Description:** An internal check used for database creation. All values should display as `Released`.
+
+
+-----------------------------------------------
+
+### `_PublicationStatus`
+
+**Description:** An internal check used for database creation. All values should display as `Released`.
+
 
 -----------------------------------------------
 
@@ -969,11 +995,17 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 -----------------------------------------------
 
+### `Type`
 
-### `Version`
+**Description:** The type of database release. 
 
-**Description:** The version number of the database (Major_Year_Month_Patch). Past versions used (Major_Minor_Patch) format. Numbering follows semantic versioning (www.semver.org). 
+##### Possible values:
 
+* `Release` -	The standard COMPADRE or COMADRE release.
+
+* `Patch` - A release version that has been patched since the previous standard release. Patches are released if there are significant additions or error corrections to the database between standard releases.
+
+* `Test` -	A version used strictly for internal testing of the databases. These versions do not follow semantic versioning, are not preserved indefinitely, and are not intended for public release.
 
 -----------------------------------------------
 
@@ -984,30 +1016,30 @@ The values are only digitized for `Divided` matrices (indicated by variable `Mat
 
 -----------------------------------------------
 
-### `NumberAcceptedSpecies`
+### `TimeCreated`
 
-**Description:** Total number of taxonomically accepted species. The total number of accepted species is based on variable `SpeciesAccepted` (above). E.g. 637
-
-
------------------------------------------------
-
-### `NumberStudies`
-
-**Description:** Total number of species × studies in the database. e.g. 735
-
-
------------------------------------------------
-
-### `NumberMatrices`
-
-**Description:** Total number of matrices (not including split matrices **U**, **F** and **C**) in the database.
+**Description:** Time of creation of the `Rdata` database object in the format `HH:MM`. E.g. 19:08. Times are in GMT.
 
 
 -----------------------------------------------
 
 ### `Agreement`
 
-**Description:** Link to the URL in the COMPADRE database containing the open-access conditions to the use of these data: http://www.compadre-db.org/page/UserAgreement.
+**Description:** The URL link for the data user agreement containing the open-access conditions to the use of these data (https://www.compadre-db.org/UserAgreement).
+
+
+-----------------------------------------------
+
+### `How to Cite`
+
+**Description:** The URL link for instructions on how to cite the data (https://compadre-db.org/Help/HowToCite).
+
+
+-----------------------------------------------
+
+### `GeneratorScriptVersion`
+
+**Description:** Version number for the code used to generate the COMPADRE and COMADRE databases. This version number is for internal tracking and troubleshooting.
 
 
 -----------------------------------------------
