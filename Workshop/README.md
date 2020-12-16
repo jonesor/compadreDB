@@ -1,4 +1,13 @@
-![logo](images/Logo_COMADRE_Vertical_Color.png)    ![logo](images/Logo_COMPADRE_Vertical_Color.png)
+Deprecated workshop material, kept for archival purposes
+=========================
+
+For up-to-date materials, see the vignettes within the Rcompadre and Rage packages
+
+Rcompadre: https://github.com/jonesor/Rcompadre
+
+Rage: https://github.com/jonesor/Rage
+
+---------------------
 
 # Workshop materials on the COMADRE and COMPADRE matrix databases.
 
