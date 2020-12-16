@@ -1,21 +1,8 @@
-MAGE
+MAGE is now deprecated
 ==========
 
-Note that this package is at an early stage of development. 
-Expect bugs!
+Development continues on our `Rage` and `Rcompadre` packages
 
-*How to install:*
+Rage: https://github.com/jonesor/Rage
+Rcompadre: https://github.com/jonesor/Rcompadre
 
-`install.packages("devtools")`
-
-`library(devtools)`
-
-`install_github("jonesor/compadreDB/Mage")`
-
-
-
-*Report bugs/errors to:*
-
-Owen Jones (jones@biology.sdu.dk)
-
-Rob Salguero-Gomez (rob.salguero@zoo.ox.ac.uk)
