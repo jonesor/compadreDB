@@ -1,6 +1,11 @@
 com(p)adreDB
 ==========
 
+**NOTE:** Most of the functionality that was stored in this repository is now available in the R packages [Rcompadre](https://github.com/jonesor/Rcompadre) and [Rage](https://github.com/jonesor/Rage). The latest version of the database is at www.compadre-db.org and can be downloaded directly into R using `x <- Rcompadre::cdb_fetch("compadre")` or `x <- Rcompadre::cdb_fetch("comadre")`.
+
+
+------
+
 This repository contains code for the COMPADRE Plant Matrix Database and COMADRE Animal Matrix Database.
 It will evolve into an R package but will initially contain scripts for interacting with the COMPADRE and COMADRE databases which are released as structured R list objects.
 
